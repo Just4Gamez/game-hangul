@@ -253,7 +253,7 @@
             </div>
         </section>
 
-        <!-- ================= QUIZ SECTION (DENGAN SELINGAN VISUAL/IKON) ================= -->
+        <!-- ================= QUIZ SECTION ================= -->
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
@@ -266,7 +266,6 @@
             </div>
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
-                <!-- Banner Soalan Bergantung Mod -->
                 <div class="space-y-1 relative">
                     <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
@@ -277,7 +276,6 @@
                     </div>
                 </div>
 
-                <!-- Grid Pilihan (Dinamik: Teks atau Kad Visual Bergambar) -->
                 <div id="quiz-options-grid" class="grid grid-cols-2 gap-3"></div>
                 <div id="quiz-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
             </div>
@@ -373,20 +371,18 @@
 
     <!-- JavaScript Platform -->
     <script>
-        // Peta Emoji Pintar untuk Selingan Soalan Bergambar/Visual
         const visualEmojiMap = {
             "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
             "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
-            "산": "⛰️", "강": "🌊", "바다": "🏖️", "친구": "🧑‍🤝‍🧑", "사과": "🍎", "우유": "🥛",
+            "산": "⛰️", "강": "🌊", "바다": "🏖️", "친구": "🧑‍🤝‍🧑", "우유": "🥛",
             "의사": "👨‍⚕️", "바나나": "🍌", "토마토": "🍅", "카메라": "📷", "버스": "🚌",
             "택시": "🚕", "기차": "🚂", "구두": "👞", "비누": "🧼", "나비": "🦋", "모기": "🦟",
             "휴지": "🧻", "거울": "🪞", "주스": "🧃", "사자": "🦁", "호랑이": "🐅", "코끼리": "🐘",
             "원숭이": "🐵", "곰": "🐻", "토끼": "🐰", "말": "🐎", "소": "🐂", "돼지": "🐖",
             "닭": "🐓", "오리": "🦆", "물고기": "🐟", "상어": "🦈", "고래": "🐋", "나무": "🌳",
-            "사과": "🍎", "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "사과": "🍏"
+            "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰"
         };
 
-        // 21 Level Kosa Kata Asal
         const levelsData = [
             {
                 id: 1,
@@ -1167,7 +1163,6 @@
             }
         ];
 
-        // Kategori Khas Tematik
         const specialCategoriesData = [
             {
                 id: 'sc-house',
@@ -1366,7 +1361,6 @@
             }
         ];
 
-        // Conversation Lab Data (8 Situasi)
         const conversationLabData = [
             {
                 id: 'cv-1',
@@ -1474,7 +1468,6 @@
             }
         ];
 
-        // Hangul Grammar Lab (6 Modul)
         const grammarLabData = [
             {
                 id: 'g1',
@@ -1797,7 +1790,6 @@
             optionsGrid.innerHTML = '';
             document.getElementById('quiz-feedback').classList.add('hidden');
 
-            // Selitkan Mod Visual Bergambar (Contoh: setiap soalan bernombor ganjil atau ada emoji dalam map)
             let isVisualMode = (currentQuizIndex % 2 === 0) && visualEmojiMap[currentItem.char];
             const instructionLabel = document.getElementById('quiz-instruction-label');
 
