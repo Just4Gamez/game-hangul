@@ -78,28 +78,19 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Penuh (Lvl 1 - 15)</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Hingga Tahap Master</h2>
-                    <p class="text-slate-300 text-sm md:text-base">15 peringkat lengkap dengan 450 latihan interaktif, audio penutur asli, dan pelbagai mod latihan!</p>
+                    <p class="text-slate-300 text-sm md:text-base">15 peringkat gabungan nota belajar & kuiz latihan berserta audio penutur asli!</p>
                 </div>
             </div>
 
-            <!-- Menu Pilihan Latihan (Practice Hub) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Study / Levels -->
+            <!-- Menu Pilihan Ringkas & Padu -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Study & Practice / Levels -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-book-open"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Study & Levels (1-15)</h3>
-                    <p class="text-slate-400 text-sm">Pilih Level 1 hingga 15 untuk nota lengkap dan audio sebutan.</p>
-                </div>
-
-                <!-- Practice Quiz -->
-                <div onclick="openPracticeMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Practice Quiz</h3>
-                    <p class="text-slate-400 text-sm">Uji minda dengan soalan kuiz interaktif berserta audio.</p>
+                    <h3 class="font-bold text-lg text-white">Study & Practice</h3>
+                    <p class="text-slate-400 text-sm">Belajar nota level 1-15 dan terus buat kuiz latihan.</p>
                 </div>
 
                 <!-- Mistakes Review -->
@@ -108,7 +99,7 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Mistakes Review</h3>
-                    <p class="text-slate-400 text-sm">Latih tubi semula soalan yang anda pernah jawab salah.</p>
+                    <p class="text-slate-400 text-sm">Ulang kaji semula soalan yang anda pernah jawab salah.</p>
                 </div>
 
                 <!-- Words Dictionary -->
@@ -121,12 +112,12 @@
                 </div>
 
                 <!-- Listen Mode -->
-                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl md:col-span-2">
+                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-headphones"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Listen Mode (Latihan Dengar Audio)</h3>
-                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua 450 frasa dan kosa kata.</p>
+                    <h3 class="font-bold text-lg text-white">Listen Mode</h3>
+                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk 450 frasa.</p>
                 </div>
             </div>
         </section>
@@ -135,8 +126,8 @@
         <section id="section-levels" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Modul Pembelajaran (Level 1 - 15)</h2>
-                    <p class="text-slate-400 text-sm">Pilih tahap untuk mula belajar</p>
+                    <h2 class="text-2xl font-bold text-white">Modul Study & Practice (Level 1 - 15)</h2>
+                    <p class="text-slate-400 text-sm">Pilih tahap untuk mula belajar & kuiz</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -198,7 +189,7 @@
 
             <div class="text-center pt-4">
                 <button onclick="startQuizForCurrentLevel()" class="px-8 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-2xl shadow-lg transition">
-                    <i class="fa-solid fa-graduation-cap mr-2"></i> Mula Kuiz Ujian Level Ini
+                    <i class="fa-solid fa-pen-to-square mr-2"></i> Mula Practice (Kuiz) Level Ini
                 </button>
             </div>
         </section>
@@ -207,7 +198,7 @@
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
-                    <span id="quiz-title-mode">SOALAN KUIZ</span>
+                    <span id="quiz-title-mode">PRACTICE KUIZ</span>
                     <span id="quiz-progress-text">1 / 30</span>
                 </div>
                 <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
@@ -292,7 +283,7 @@
                     <i class="fa-solid fa-trophy"></i>
                 </div>
                 <div class="space-y-1">
-                    <h2 class="text-2xl font-bold text-white">Tahniah Selesai!</h2>
+                    <h2 class="text-2xl font-bold text-white">Tahniah Selesai Practice!</h2>
                     <p class="text-slate-400 text-sm">Prestasi latihan anda telah direkodkan.</p>
                 </div>
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex justify-around">
@@ -319,7 +310,7 @@
         <p>Hangul Master Pro &copy; 2026 - Semua Hak Cipta Terpelihara</p>
     </footer>
 
-    <!-- JavaScript Platform (15 Levels) -->
+    <!-- JavaScript Platform (15 Levels + Unified Study & Practice) -->
     <script>
         const levelsData = [
             {
@@ -563,7 +554,7 @@
                     { char: "까지", rumi: "kkaji", desc: "Hingga / Sampai", stroke: "Masa akhir" },
                     { char: "입니다", rumi: "imnida", desc: "Adalah (Formal)", stroke: "Penamat sopan" },
                     { char: "입니까?", rumi: "imnika?", desc: "Adakah?", stroke: "Soalan formal" },
-                    { char: "이에 / 예요", rumi: "ieyo / yeyo", desc: "Adalah (Mesra)", stroke: "Penamat harian" },
+                    { char: "이에요 / 예요", rumi: "ieyo / yeyo", desc: "Adalah (Mesra)", stroke: "Penamat harian" },
                     { char: "아니에요", rumi: "anieyo", desc: "Bukan", stroke: "Penafian" },
                     { char: "있어요", rumi: "isseoyo", desc: "Ada", stroke: "Wujud" },
                     { char: "없어요", rumi: "eopseoyo", desc: "Tiada", stroke: "Tak wujud" },
@@ -915,14 +906,14 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-full border border-blue-500/20">LEVEL ${lvl.id}</span>
-                        <i class="fa-solid fa-book-open text-slate-600"></i>
+                        <i class="fa-solid fa-graduation-cap text-slate-600"></i>
                     </div>
                     <div>
                         <h3 class="font-bold text-xl text-white mb-1">${lvl.title}</h3>
                         <p class="text-slate-400 text-sm">${lvl.desc}</p>
                     </div>
                     <button onclick="startLevel(${lvl.id})" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
-                        <span>Mula Belajar</span>
+                        <span>Mula Study & Practice</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 `;
@@ -984,13 +975,9 @@
             activeQuizItems = [...currentLevelObj.items];
             currentQuizIndex = 0;
             quizScoreCount = 0;
-            document.getElementById('quiz-title-mode').innerText = `KUIZ LEVEL ${currentLevelObj.id}`;
+            document.getElementById('quiz-title-mode').innerText = `PRACTICE LEVEL ${currentLevelObj.id}`;
             showSection('quiz');
             loadQuizQuestion();
-        }
-
-        function openPracticeMenu() {
-            showSection('levels');
         }
 
         function openMistakesMode() {
