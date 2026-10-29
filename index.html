@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ms" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangul Master - Belajar Bahasa Korea & Hangul</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kpink: '#FF416C',
+                        kpurple: '#8A2387',
+                        kneon: '#00F2FE',
+                        kgold: '#FFD700',
+                        darkbg: '#0B0F19',
+                        cardbg: '#161F33'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        korean: ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+        body {
+            background: radial-gradient(circle at top left, #1a0b2e, #0b0f19, #051329);
+            min-height: 100vh;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .glass-panel {
+            background: rgba(22, 31, 51, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .neon-glow-pink {
+            box-shadow: 0 0 15px rgba(255, 65, 108, 0.4);
+        }
+
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+        }
+
+        .hangul-text {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(11, 15, 25, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 65, 108, 0.5);
+            border-radius: 4px;
+        }
+
+        .shake {
+            animation: shakeAnim 0.4s ease-in-out;
+        }
+        @keyframes shakeAnim {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .pop-in {
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-gray-800 px-4 py-3">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchMode('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-kpink to-kpurple flex items-center justify-center font-bold text-2xl text-white shadow-lg neon-glow-pink hangul-text">
+                    한
+                </div>
+                <div>
+                    <h1 class="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-400">
+                        HANGUL MASTER
+                    </h1>
+                    <p class="text-xs text-gray-400 -mt-1 font-medium">Melayu ⇆ Hangul Game</p>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="flex items-center space-x-3 text-xs sm:text-sm font-semibold">
+                <!-- Direction Indicator -->
+                <button id="dir-toggle-btn" onclick="toggleDirection()" class="flex items-center space-x-1.5 bg-purple-950/80 px-3 py-1.5 rounded-full border border-purple-600/50 hover:bg-purple-900 transition text-purple-300">
+                    <i class="fa-solid fa-right-left text-xs"></i>
+                    <span id="dir-label" class="font-bold">BM ➔ Hangul</span>
+                </button>
+
+                <div class="flex items-center space-x-1 bg-gray-900/80 px-3 py-1.5 rounded-full border border-gray-700/60">
+                    <i class="fa-solid fa-fire text-amber-500 animate-pulse"></i>
+                    <span id="streak-counter" class="text-amber-400">0</span>
+                    <span class="text-xs text-gray-400 hidden md:inline">Streak</span>
+                </div>
+                <div class="flex items-center space-x-1 bg-gray-900/80 px-3 py-1.5 rounded-full border border-gray-700/60">
+                    <i class="fa-solid fa-star text-kgold"></i>
+                    <span id="score-counter" class="text-yellow-300">0</span>
+                </div>
+                <button id="sound-toggle" onclick="toggleSound()" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-cyan-400 transition">
+                    <i id="sound-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-5xl mx-auto w-full px-4 py-6 flex-grow flex flex-col justify-center">
+
+        <!-- DASHBOARD / HOME MENU -->
+        <section id="mode-home" class="space-y-6 pop-in">
+            <div class="text-center space-y-2 py-3">
+                <span id="direction-badge" class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-cyan-400 bg-cyan-950/60 rounded-full border border-cyan-800/50">
+                    MOD SEMASA: BAHASA MELAYU ➔ HANGUL
+                </span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                    Pilih Cabaran <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-cyan-400 hangul-text">한글</span>
+                </h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm">
+                    Kuasai abjad dan perkataan Korea dengan kuiz interaktif, audio sebutan & animasi yang seronok!
+                </p>
+            </div>
+
+            <!-- Direction Switch Switcher Banner -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 border border-pink-500/30">
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 bg-pink-500/20 text-pink-400 rounded-xl text-xl">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Tukar Arah Pembelajaran</h4>
+                        <p class="text-xs text-gray-400">Pilih sama ada mahu meneka simbol Hangul atau Maksud Bahasa Melayu.</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 w-full sm:w-auto">
+                    <button id="btn-dir-bm2hangul" onclick="setDirection('bm2hangul')" class="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md">
+                        Melayu ➔ Hangul
+                    </button>
+                    <button id="btn-dir-hangul2bm" onclick="setDirection('hangul2bm')" class="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gray-800 hover:bg-gray-700 text-gray-300">
+                        Hangul ➔ Melayu
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mode Selection Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Card 1: Quiz Multiple Choice (BM <-> Hangul) -->
+                <div onclick="switchMode('quiz')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-pink-500/50 group relative overflow-hidden">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-xl bg-pink-500/20 text-pink-400 border border-pink-500/30 text-2xl group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-base font-bold text-white group-hover:text-pink-300 transition">1. Kuiz Pilihan Berganda</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                Teka huruf, sebutan atau maksud perkataan mengikut soalan Melayu/Hangul.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Flashcards -->
+                <div onclick="switchMode('flashcard')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-cyan-500/50 group relative overflow-hidden">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-2xl group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-base font-bold text-white group-hover:text-cyan-300 transition">2. Kad Imbas (Flashcard)</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                Pelajari Vokal, Konsonan dasar dan kosakata mengikut kategori.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Matching Quiz -->
+                <div onclick="switchMode('matching')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-amber-500/50 group relative overflow-hidden">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 text-2xl group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition">3. Padanan Kad (Matching)</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                Cari pasangan yang sesuai antara tulisan Hangul dan sebutan Bahasa Melayu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Word Builder -->
+                <div onclick="switchMode('builder')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-purple-500/50 group relative overflow-hidden">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 text-2xl group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-base font-bold text-white group-hover:text-purple-300 transition">4. Bina Perkataan (Word Builder)</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                Susun blok abjad Korea berdasarkan maksud Bahasa Melayu yang diberikan!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODE 1: MULTIPLE CHOICE QUIZ -->
+        <section id="mode-quiz" class="hidden space-y-5 pop-in">
+            <div class="flex items-center justify-between bg-gray-900/40 p-3 rounded-xl border border-gray-800">
+                <button onclick="switchMode('home')" class="text-xs text-gray-400 hover:text-white flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-arrow-left"></i> Menu Utama
+                </button>
+                <div class="text-xs text-pink-400 font-semibold" id="quiz-dir-tag">
+                    Mod: BM ➔ Hangul
+                </div>
+            </div>
+
+            <div class="max-w-md mx-auto glass-panel p-6 rounded-2xl border border-pink-500/30 text-center space-y-5">
+                <div class="space-y-1">
+                    <span id="quiz-level-label" class="text-[11px] font-bold text-pink-400 uppercase tracking-wider">Soalan Kuiz</span>
+                    <h3 id="quiz-question-prompt" class="text-gray-300 text-sm">Pilih Hangul yang betul bagi:</h3>
+                    <div id="quiz-main-target" class="text-4xl md:text-5xl font-black text-white py-2 hangul-text bg-gray-950/50 rounded-xl border border-gray-800 my-2">
+                        "Susu"
+                    </div>
+                    <p id="quiz-sub-target" class="text-xs text-gray-400 italic">Sebutan: u-yu</p>
+                </div>
+
+                <button onclick="playQuizPromptAudio()" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-800 hover:bg-gray-700 text-cyan-400 text-xs font-semibold transition">
+                    <i class="fa-solid fa-volume-high"></i> Dengar Audio
+                </button>
+
+                <!-- 4 Option Buttons -->
+                <div id="quiz-options-container" class="grid grid-cols-2 gap-3 pt-2">
+                    <!-- Dynamic choices -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MODE 2: FLASHCARD -->
+        <section id="mode-flashcard" class="hidden space-y-5 pop-in">
+            <div class="flex flex-wrap items-center justify-between bg-gray-900/40 p-3 rounded-xl border border-gray-800 gap-2">
+                <button onclick="switchMode('home')" class="text-xs text-gray-400 hover:text-white flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-arrow-left"></i> Menu Utama
+                </button>
+                <!-- Category Filter -->
+                <div class="flex space-x-1 bg-gray-950 p-1 rounded-lg border border-gray-800 text-xs font-semibold">
+                    <button id="fc-tab-vowel" onclick="filterFlashcards('vowel')" class="px-2.5 py-1 rounded-md bg-pink-600 text-white transition">Vokal</button>
+                    <button id="fc-tab-consonant" onclick="filterFlashcards('consonant')" class="px-2.5 py-1 rounded-md text-gray-400 hover:text-white transition">Konsonan</button>
+                    <button id="fc-tab-word" onclick="filterFlashcards('word')" class="px-2.5 py-1 rounded-md text-gray-400 hover:text-white transition">Kosakata</button>
+                </div>
+            </div>
+
+            <!-- Flashcard Card Container -->
+            <div class="max-w-md mx-auto perspective-1000">
+                <div id="flashcard-container" onclick="flipCard()" class="relative w-full h-80 rounded-2xl cursor-pointer transform-style-3d transition-transform duration-500 shadow-2xl glass-panel border border-pink-500/30 hover:border-pink-400/60">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-between p-6 text-center">
+                        <span id="fc-category-badge" class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-pink-500/20 text-pink-300 border border-pink-500/30">
+                            Vokal Asas
+                        </span>
+                        <div class="my-auto space-y-2">
+                            <h2 id="fc-front-text" class="text-6xl md:text-7xl font-black hangul-text text-white drop-shadow-[0_0_15px_rgba(255,65,108,0.5)]">
+                                ㅏ
+                            </h2>
+                            <p id="fc-front-sub" class="text-gray-400 text-xs">Klik kad untuk balikkan</p>
+                        </div>
+                        <button onclick="event.stopPropagation(); playCurrentFcAudio()" class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-600/80 hover:bg-pink-500 text-white text-xs font-semibold transition neon-glow-pink">
+                            <i class="fa-solid fa-volume-high"></i> Sebut Audio
+                        </button>
+                    </div>
+
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 backface-hidden rotate-y-180 flex flex-col items-center justify-between p-6 text-center bg-gray-900/95 rounded-2xl border border-cyan-500/40">
+                        <div class="w-full text-left flex justify-between items-center text-xs text-cyan-400 font-semibold border-b border-gray-800 pb-2">
+                            <span>BUTIRAN & MAKSUD</span>
+                            <span id="fc-back-tag" class="text-white font-bold">Rumi: A</span>
+                        </div>
+                        
+                        <div class="my-auto space-y-3 w-full">
+                            <div>
+                                <p class="text-xs text-gray-400">Maksud / Sebutan:</p>
+                                <p id="fc-back-title" class="text-2xl font-extrabold text-cyan-300">"a" / Bunyi A</p>
+                            </div>
+                            <div class="bg-gray-950/60 p-2.5 rounded-lg border border-gray-800">
+                                <p class="text-xs text-gray-400">Panduan Bunyi:</p>
+                                <p id="fc-back-tip" class="text-xs text-gray-200 mt-0.5">Macam 'a' dalam "Saya"</p>
+                            </div>
+                            <div id="fc-example-box" class="bg-pink-950/30 p-2.5 rounded-lg border border-pink-900/40">
+                                <p class="text-xs text-pink-400">Contoh Perkataan:</p>
+                                <p id="fc-back-example" class="text-xs font-bold text-white hangul-text mt-0.5">아이 (a-i) = Budak</p>
+                            </div>
+                        </div>
+
+                        <span class="text-[10px] text-gray-500">Klik kad untuk pusing semula</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flashcard Navigation Controls -->
+            <div class="flex justify-center items-center space-x-6 pt-1">
+                <button onclick="prevCard()" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:bg-pink-600 transition">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+                <span id="fc-counter" class="text-xs font-semibold text-gray-300">1 / 10</span>
+                <button onclick="nextCard()" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-white hover:bg-pink-600 transition">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- MODE 3: MATCHING QUIZ -->
+        <section id="mode-matching" class="hidden space-y-5 pop-in">
+            <div class="flex items-center justify-between bg-gray-900/40 p-3 rounded-xl border border-gray-800">
+                <button onclick="switchMode('home')" class="text-xs text-gray-400 hover:text-white flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-arrow-left"></i> Menu Utama
+                </button>
+                <div class="text-xs text-amber-400 font-semibold" id="matching-dir-tag">
+                    Padankan Hangul & Bahasa Melayu
+                </div>
+            </div>
+
+            <!-- Matching Cards Grid -->
+            <div id="matching-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
+                <!-- Dynamically generated via JS -->
+            </div>
+
+            <div class="text-center pt-2">
+                <button onclick="initMatchingGame()" class="px-5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-cyan-300 text-xs font-semibold border border-cyan-800/50 transition">
+                    <i class="fa-solid fa-rotate-right mr-1"></i> Pusingan Baru
+                </button>
+            </div>
+        </section>
+
+        <!-- MODE 4: WORD BUILDER -->
+        <section id="mode-builder" class="hidden space-y-5 pop-in">
+            <div class="flex items-center justify-between bg-gray-900/40 p-3 rounded-xl border border-gray-800">
+                <button onclick="switchMode('home')" class="text-xs text-gray-400 hover:text-white flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-arrow-left"></i> Menu Utama
+                </button>
+                <div class="text-xs text-purple-400 font-semibold">
+                    Bina Ejaan Hangul
+                </div>
+            </div>
+
+            <!-- Main Builder Area -->
+            <div class="max-w-lg mx-auto glass-panel p-6 rounded-2xl border border-purple-500/30 text-center space-y-5">
+                <div class="space-y-1">
+                    <span id="wb-emoji" class="text-4xl block">🥛</span>
+                    <h3 id="wb-meaning" class="text-lg font-bold text-white">Susu</h3>
+                    <p id="wb-rom" class="text-xs text-purple-300 font-mono">(u-yu)</p>
+                </div>
+
+                <!-- Answer Slots -->
+                <div class="space-y-2">
+                    <p class="text-xs text-gray-400">Susun Blok Jawapan:</p>
+                    <div id="wb-answer-slots" class="flex justify-center items-center gap-2 min-h-[60px] bg-gray-950/80 p-2 rounded-xl border border-gray-800">
+                        <!-- Placed tiles go here -->
+                    </div>
+                </div>
+
+                <!-- Available Letter Blocks Bank -->
+                <div class="space-y-2">
+                    <p class="text-xs text-gray-400">Blok Pilihan:</p>
+                    <div id="wb-letter-bank" class="flex flex-wrap justify-center gap-2">
+                        <!-- Generated tiles -->
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-center gap-3 pt-2">
+                    <button onclick="resetBuilderWord()" class="px-4 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold transition">
+                        <i class="fa-solid fa-rotate-left mr-1"></i> Padam
+                    </button>
+                    <button onclick="checkBuilderWord()" class="px-6 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-bold shadow-lg transition">
+                        <i class="fa-solid fa-check mr-1"></i> Semak
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-3 text-center text-xs text-gray-500 border-t border-gray-800/80 glass-panel">
+        <p>Hangul Master &copy; Belajar Bahasa Korea Dalam Bahasa Melayu</p>
+    </footer>
+
+    <!-- SCRIPT ENGINE -->
+    <script>
+        /* ==========================================================================
+           1. DATASETS (Vowels, Consonants, Words)
+           ========================================================================== */
+        const DATA = {
+            vowels: [
+                { hangul: 'ㅏ', rom: 'a', bm: 'A (Macam Saya)', example: '아이 (Budak)', freq: 880 },
+                { hangul: 'ㅓ', rom: 'eo', bm: 'EO (Macam Orang)', example: '어머니 (Ibu)', freq: 750 },
+                { hangul: 'ㅗ', rom: 'o', bm: 'O (Macam Otak)', example: '오이 (Timun)', freq: 650 },
+                { hangul: 'ㅜ', rom: 'u', bm: 'U (Macam Ular)', example: '우유 (Susu)', freq: 520 },
+                { hangul: 'ㅡ', rom: 'eu', bm: 'EU (Macam Emas)', example: '으뜸 (Terbaik)', freq: 480 },
+                { hangul: 'ㅣ', rom: 'i', bm: 'I (Macam Ikan)', example: '이 (Gigi/Dua)', freq: 980 },
+                { hangul: 'ㅐ', rom: 'ae', bm: 'AE (Macam Ekor)', example: '애정 (Kasih Sayang)', freq: 820 },
+                { hangul: 'ㅔ', rom: 'e', bm: 'E (Macam Eja)', example: '에너지 (Tenaga)', freq: 800 }
+            ],
+            consonants: [
+                { hangul: 'ㄱ', rom: 'g/k', bm: 'G/K (Garis/Kita)', example: '가수 (Penyanyi)', freq: 400 },
+                { hangul: 'ㄴ', rom: 'n', bm: 'N (Nasi)', example: '나비 (Rama-rama)', freq: 440 },
+                { hangul: 'ㄷ', rom: 'd/t', bm: 'D/T (Dada/Tali)', example: '다리 (Kaki/Jambatan)', freq: 490 },
+                { hangul: 'ㄹ', rom: 'r/l', bm: 'R/L (Roti/Lembah)', example: '라면 (Ramen)', freq: 550 },
+                { hangul: 'ㅁ', rom: 'm', bm: 'M (Makan)', example: '마음 (Hati)', freq: 600 },
+                { hangul: 'ㅂ', rom: 'b/p', bm: 'B/P (Buku/Pena)', example: '바다 (Laut)', freq: 660 },
+                { hangul: 'ㅅ', rom: 's', bm: 'S (Saya)', example: '사랑 (Cinta)', freq: 710 },
+                { hangul: 'ㅇ', rom: 'ng', bm: 'NG / Senyap', example: '안녕 (Hello)', freq: 760 },
+                { hangul: 'ㅈ', rom: 'j', bm: 'J (Jalan)', example: '지도 (Peta)', freq: 830 },
+                { hangul: 'ㅎ', rom: 'h', bm: 'H (Hari)', example: '하늘 (Langit)', freq: 900 }
+            ],
+            words: [
+                { hangul: '우유', rom: 'u-yu', bm: 'Susu', emoji: '🥛', blocks: ['우', '유'] },
+                { hangul: '사과', rom: 'sa-gwa', bm: 'Epal', emoji: '🍎', blocks: ['사', '과'] },
+                { hangul: '고양이', rom: 'go-yang-i', bm: 'Kucing', emoji: '🐱', blocks: ['고', '양', '이'] },
+                { hangul: '사랑', rom: 'sa-rang', bm: 'Cinta', emoji: '💖', blocks: ['사', '랑'] },
+                { hangul: '안녕', rom: 'an-nyeong', bm: 'Hello', emoji: '👋', blocks: ['안', '녕'] },
+                { hangul: '물', rom: 'mul', bm: 'Air', emoji: '💧', blocks: ['물'] },
+                { hangul: '학교', rom: 'hak-gyo', bm: 'Sekolah', emoji: '🏫', blocks: ['학', '교'] },
+                { hangul: '친구', rom: 'chin-gu', bm: 'Kawan', emoji: '👫', blocks: ['친', '구'] }
+            ]
+        };
+
+        /* All items flat list */
+        const ALL_ITEMS = [...DATA.vowels, ...DATA.consonants, ...DATA.words];
+
+        /* Game State */
+        let gameState = {
+            soundEnabled: true,
+            score: 0,
+            streak: 0,
+            direction: 'bm2hangul', // 'bm2hangul' OR 'hangul2bm'
+            currentMode: 'home',
+            
+            // Flashcard state
+            fcCategory: 'vowel',
+            fcIndex: 0,
+            fcFlipped: false,
+
+            // Quiz state
+            quizCurrentItem: null,
+
+            // Matching state
+            matchingSelected: [],
+            matchingPairsLeft: 0,
+
+            // Builder State
+            builderCurrentItem: null,
+            builderUserAnswer: []
+        };
+
+        /* ==========================================================================
+           2. AUDIO SYNTHESIS & SOUND EFFECTS
+           ========================================================================== */
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioCtx();
+        }
+
+        function playSoundEffect(type) {
+            if (!gameState.soundEnabled) return;
+            initAudio();
+            const now = audioCtx.currentTime;
+            
+            if (type === 'correct') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.15); // E5
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.linearRampToValueAtTime(0, now + 0.3);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            } else if (type === 'wrong') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.linearRampToValueAtTime(130, now + 0.25);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.linearRampToValueAtTime(0, now + 0.25);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            } else if (type === 'flip') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(400, now);
+                gain.gain.setValueAtTime(0.1, now);
+                gain.gain.linearRampToValueAtTime(0, now + 0.08);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            }
+        }
+
+        function speakText(text) {
+            if (!gameState.soundEnabled) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // stop current audio
+                const synth = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ko-KR';
+                utterance.rate = 0.85;
+                synth.speak(utterance);
+            }
+        }
+
+        function toggleSound() {
+            gameState.soundEnabled = !gameState.soundEnabled;
+            const icon = document.getElementById('sound-icon');
+            if (gameState.soundEnabled) {
+                icon.className = 'fa-solid fa-volume-high';
+            } else {
+                icon.className = 'fa-solid fa-volume-xmark text-gray-500';
+            }
+        }
+
+        /* ==========================================================================
+           3. CORE DIRECTION & NAVIGATION LOGIC
+           ========================================================================== */
+        function setDirection(dir) {
+            gameState.direction = dir;
+            const btnBm = document.getElementById('btn-dir-bm2hangul');
+            const btnHg = document.getElementById('btn-dir-hangul2bm');
+            const label = document.getElementById('dir-label');
+            const badge = document.getElementById('direction-badge');
+
+            if (dir === 'bm2hangul') {
+                label.textContent = 'BM ➔ Hangul';
+                badge.textContent = 'MOD SEMASA: BAHASA MELAYU ➔ HANGUL';
+                btnBm.className = 'flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md';
+                btnHg.className = 'flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gray-800 hover:bg-gray-700 text-gray-300';
+            } else {
+                label.textContent = 'Hangul ➔ BM';
+                badge.textContent = 'MOD SEMASA: HANGUL ➔ BAHASA MELAYU';
+                btnHg.className = 'flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md';
+                btnBm.className = 'flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-gray-800 hover:bg-gray-700 text-gray-300';
+            }
+
+            // Refresh current mode view if active
+            if (gameState.currentMode === 'quiz') initQuiz();
+            if (gameState.currentMode === 'matching') initMatchingGame();
+        }
+
+        function toggleDirection() {
+            setDirection(gameState.direction === 'bm2hangul' ? 'hangul2bm' : 'bm2hangul');
+        }
+
+        function switchMode(mode) {
+            playSoundEffect('flip');
+            gameState.currentMode = mode;
+            
+            const modes = ['home', 'quiz', 'flashcard', 'matching', 'builder'];
+            modes.forEach(m => {
+                document.getElementById(`mode-${m}`).classList.add('hidden');
+            });
+
+            document.getElementById(`mode-${mode}`).classList.remove('hidden');
+
+            if (mode === 'quiz') initQuiz();
+            if (mode === 'flashcard') filterFlashcards(gameState.fcCategory);
+            if (mode === 'matching') initMatchingGame();
+            if (mode === 'builder') initBuilderGame();
+        }
+
+        function addScore(points) {
+            gameState.score += points;
+            gameState.streak += 1;
+            document.getElementById('score-counter').textContent = gameState.score;
+            document.getElementById('streak-counter').textContent = gameState.streak;
+
+            if (gameState.streak % 5 === 0) {
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+            }
+        }
+
+        function resetStreak() {
+            gameState.streak = 0;
+            document.getElementById('streak-counter').textContent = 0;
+        }
+
+        /* ==========================================================================
+           4. MODE 1: MULTIPLE CHOICE QUIZ (BM <-> Hangul)
+           ========================================================================== */
+        function initQuiz() {
+            document.getElementById('quiz-dir-tag').textContent = gameState.direction === 'bm2hangul' ? 'Mod: Melayu ➔ Hangul' : 'Mod: Hangul ➔ Melayu';
+
+            // Pick random item from ALL_ITEMS
+            const target = ALL_ITEMS[Math.floor(Math.random() * ALL_ITEMS.length)];
+            gameState.quizCurrentItem = target;
+
+            const promptHeading = document.getElementById('quiz-question-prompt');
+            const mainTarget = document.getElementById('quiz-main-target');
+            const subTarget = document.getElementById('quiz-sub-target');
+
+            if (gameState.direction === 'bm2hangul') {
+                promptHeading.textContent = 'Pilih simbol Hangul yang tepat bagi:';
+                mainTarget.textContent = target.bm || target.rom;
+                mainTarget.className = "text-3xl md:text-4xl font-black text-cyan-300 py-3 bg-gray-950/50 rounded-xl border border-gray-800 my-2";
+                subTarget.textContent = `Sebutan Rumi: "${target.rom}"`;
+            } else {
+                promptHeading.textContent = 'Pilih Maksud Bahasa Melayu / Sebutan bagi:';
+                mainTarget.textContent = target.hangul;
+                mainTarget.className = "text-5xl md:text-6xl font-black text-pink-400 py-3 hangul-text bg-gray-950/50 rounded-xl border border-gray-800 my-2";
+                subTarget.textContent = 'Apanakah maksud / sebutan abjad ini?';
+            }
+
+            // Generate 4 distractor options
+            let options = [target];
+            while (options.length < 4) {
+                const rand = ALL_ITEMS[Math.floor(Math.random() * ALL_ITEMS.length)];
+                if (!options.some(o => o.hangul === rand.hangul)) {
+                    options.push(rand);
+                }
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            const container = document.getElementById('quiz-options-container');
+            container.innerHTML = '';
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "glass-card p-4 rounded-xl font-bold text-center border border-gray-700/60 hover:border-pink-500/60 transition active:scale-95";
+
+                if (gameState.direction === 'bm2hangul') {
+                    btn.innerHTML = `<span class="text-2xl font-black hangul-text text-white">${opt.hangul}</span>`;
+                } else {
+                    btn.innerHTML = `<span class="text-sm font-semibold text-cyan-300">${opt.bm || opt.rom}</span>`;
+                }
+
+                btn.onclick = () => checkQuizAnswer(opt, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function playQuizPromptAudio() {
+            if (gameState.quizCurrentItem) {
+                speakText(gameState.quizCurrentItem.hangul);
+            }
+        }
+
+        function checkQuizAnswer(selectedOpt, btnElement) {
+            const isCorrect = selectedOpt.hangul === gameState.quizCurrentItem.hangul;
+
+            if (isCorrect) {
+                playSoundEffect('correct');
+                speakText(gameState.quizCurrentItem.hangul);
+                btnElement.className = "glass-card p-4 rounded-xl font-bold text-center bg-green-600/40 border-green-500 text-white";
+                addScore(10);
+                setTimeout(initQuiz, 900);
+            } else {
+                playSoundEffect('wrong');
+                btnElement.className = "glass-card p-4 rounded-xl font-bold text-center bg-red-600/40 border-red-500 text-white shake";
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           5. MODE 2: FLASHCARD
+           ========================================================================== */
+        function filterFlashcards(cat) {
+            gameState.fcCategory = cat;
+            gameState.fcIndex = 0;
+            gameState.fcFlipped = false;
+
+            ['vowel', 'consonant', 'word'].forEach(c => {
+                const btn = document.getElementById(`fc-tab-${c}`);
+                if (c === cat) {
+                    btn.className = "px-2.5 py-1 rounded-md bg-pink-600 text-white transition";
+                } else {
+                    btn.className = "px-2.5 py-1 rounded-md text-gray-400 hover:text-white transition";
+                }
+            });
+
+            updateFlashcardUI();
+        }
+
+        function getActiveList() {
+            if (gameState.fcCategory === 'vowel') return DATA.vowels;
+            if (gameState.fcCategory === 'consonant') return DATA.consonants;
+            return DATA.words;
+        }
+
+        function updateFlashcardUI() {
+            const list = getActiveList();
+            const item = list[gameState.fcIndex];
+            const container = document.getElementById('flashcard-container');
+
+            if (gameState.fcFlipped) {
+                container.classList.add('rotate-y-180');
+            } else {
+                container.classList.remove('rotate-y-180');
+            }
+
+            document.getElementById('fc-category-badge').textContent = gameState.fcCategory.toUpperCase();
+            document.getElementById('fc-front-text').textContent = item.hangul;
+            document.getElementById('fc-back-title').textContent = item.bm || item.rom;
+            document.getElementById('fc-back-tag').textContent = `Sebutan Rumi: ${item.rom}`;
+            document.getElementById('fc-back-tip').textContent = item.bm || item.rom;
+            document.getElementById('fc-back-example').textContent = item.example || `${item.hangul} (${item.rom})`;
+
+            document.getElementById('fc-counter').textContent = `${gameState.fcIndex + 1} / ${list.length}`;
+        }
+
+        function flipCard() {
+            playSoundEffect('flip');
+            gameState.fcFlipped = !gameState.fcFlipped;
+            updateFlashcardUI();
+        }
+
+        function nextCard() {
+            const list = getActiveList();
+            gameState.fcIndex = (gameState.fcIndex + 1) % list.length;
+            gameState.fcFlipped = false;
+            updateFlashcardUI();
+        }
+
+        function prevCard() {
+            const list = getActiveList();
+            gameState.fcIndex = (gameState.fcIndex - 1 + list.length) % list.length;
+            gameState.fcFlipped = false;
+            updateFlashcardUI();
+        }
+
+        function playCurrentFcAudio() {
+            const item = getActiveList()[gameState.fcIndex];
+            speakText(item.hangul);
+        }
+
+        /* ==========================================================================
+           6. MODE 3: MATCHING GAME
+           ========================================================================== */
+        function initMatchingGame() {
+            const container = document.getElementById('matching-grid');
+            container.innerHTML = '';
+            gameState.matchingSelected = [];
+
+            // Pick 4 random items
+            const shuffleAll = [...ALL_ITEMS].sort(() => Math.random() - 0.5).slice(0, 4);
+            gameState.matchingPairsLeft = shuffleAll.length;
+
+            let cards = [];
+            shuffleAll.forEach((item, idx) => {
+                // Card 1: Hangul
+                cards.push({ id: idx, type: 'hangul', text: item.hangul, hangul: item.hangul });
+                // Card 2: BM/Rumi
+                cards.push({ id: idx, type: 'bm', text: item.bm || item.rom, hangul: item.hangul });
+            });
+
+            cards.sort(() => Math.random() - 0.5);
+
+            cards.forEach((c, index) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center cursor-pointer h-24 border border-gray-700/60 transition active:scale-95";
+                
+                if (c.type === 'hangul') {
+                    cardEl.innerHTML = `<span class="text-3xl font-black hangul-text text-white">${c.text}</span>`;
+                } else {
+                    cardEl.innerHTML = `<span class="text-xs font-bold text-cyan-300">${c.text}</span>`;
+                }
+
+                cardEl.onclick = () => handleMatchingSelect(cardEl, c);
+                container.appendChild(cardEl);
+            });
+        }
+
+        function handleMatchingSelect(el, cardData) {
+            if (el.classList.contains('bg-green-600/40') || gameState.matchingSelected.some(s => s.el === el)) return;
+
+            playSoundEffect('flip');
+            el.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center cursor-pointer h-24 border-2 border-pink-400 bg-pink-950/40";
+            
+            gameState.matchingSelected.push({ el, data: cardData });
+
+            if (gameState.matchingSelected.length === 2) {
+                const [first, second] = gameState.matchingSelected;
+
+                if (first.data.id === second.data.id && first.data.type !== second.data.type) {
+                    // Match!
+                    playSoundEffect('correct');
+                    speakText(first.data.hangul);
+                    
+                    first.el.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center h-24 bg-green-600/30 border border-green-500 opacity-60";
+                    second.el.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center h-24 bg-green-600/30 border border-green-500 opacity-60";
+                    
+                    addScore(15);
+                    gameState.matchingPairsLeft -= 1;
+                    gameState.matchingSelected = [];
+
+                    if (gameState.matchingPairsLeft === 0) {
+                        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+                        setTimeout(initMatchingGame, 1200);
+                    }
+                } else {
+                    // Wrong match
+                    playSoundEffect('wrong');
+                    first.el.classList.add('shake');
+                    second.el.classList.add('shake');
+
+                    setTimeout(() => {
+                        first.el.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center cursor-pointer h-24 border border-gray-700/60";
+                        second.el.className = "glass-card p-4 rounded-xl flex items-center justify-center text-center cursor-pointer h-24 border border-gray-700/60";
+                        gameState.matchingSelected = [];
+                        resetStreak();
+                    }, 600);
+                }
+            }
+        }
+
+        /* ==========================================================================
+           7. MODE 4: WORD BUILDER
+           ========================================================================== */
+        function initBuilderGame() {
+            const word = DATA.words[Math.floor(Math.random() * DATA.words.length)];
+            gameState.builderCurrentItem = word;
+            gameState.builderUserAnswer = [];
+
+            document.getElementById('wb-emoji').textContent = word.emoji;
+            document.getElementById('wb-meaning').textContent = word.bm;
+            document.getElementById('wb-rom').textContent = `(${word.rom})`;
+
+            renderBuilderSlots();
+
+            // Prepare letter options bank (correct blocks + extra random distractors)
+            let blocks = [...word.blocks];
+            const extraPool = ['가', '나', '다', '라', '마', '바', '사', '아', '자', '차'];
+            while (blocks.length < Math.max(4, word.blocks.length + 2)) {
+                const rand = extraPool[Math.floor(Math.random() * extraPool.length)];
+                if (!blocks.includes(rand)) blocks.push(rand);
+            }
+            blocks.sort(() => Math.random() - 0.5);
+
+            const bankContainer = document.getElementById('wb-letter-bank');
+            bankContainer.innerHTML = '';
+            blocks.forEach((char, idx) => {
+                const tile = document.createElement('button');
+                tile.className = "w-12 h-12 rounded-xl bg-gray-800 border border-purple-500/40 text-xl font-bold text-white hangul-text hover:bg-purple-600 transition active:scale-95";
+                tile.textContent = char;
+                tile.onclick = () => pickBuilderTile(char, tile);
+                bankContainer.appendChild(tile);
+            });
+        }
+
+        function pickBuilderTile(char, tileElement) {
+            playSoundEffect('flip');
+            gameState.builderUserAnswer.push(char);
+            tileElement.disabled = true;
+            tileElement.classList.add('opacity-30');
+            renderBuilderSlots();
+        }
+
+        function renderBuilderSlots() {
+            const slotsContainer = document.getElementById('wb-answer-slots');
+            slotsContainer.innerHTML = '';
+
+            if (gameState.builderUserAnswer.length === 0) {
+                slotsContainer.innerHTML = `<span class="text-xs text-gray-500">Klik blok di bawah untuk eja...</span>`;
+                return;
+            }
+
+            gameState.builderUserAnswer.forEach((char, index) => {
+                const slot = document.createElement('div');
+                slot.className = "w-12 h-12 rounded-xl bg-purple-900/60 border border-purple-400 flex items-center justify-center text-xl font-black text-white hangul-text pop-in";
+                slot.textContent = char;
+                slotsContainer.appendChild(slot);
+            });
+        }
+
+        function resetBuilderWord() {
+            playSoundEffect('flip');
+            gameState.builderUserAnswer = [];
+            renderBuilderSlots();
+            // Re-enable all bank tiles
+            const tiles = document.querySelectorAll('#wb-letter-bank button');
+            tiles.forEach(t => {
+                t.disabled = false;
+                t.classList.remove('opacity-30');
+            });
+        }
+
+        function checkBuilderWord() {
+            const userStr = gameState.builderUserAnswer.join('');
+            const targetStr = gameState.builderCurrentItem.hangul;
+
+            if (userStr === targetStr) {
+                playSoundEffect('correct');
+                speakText(targetStr);
+                addScore(20);
+                confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 } });
+                setTimeout(initBuilderGame, 1000);
+            } else {
+                playSoundEffect('wrong');
+                const slots = document.getElementById('wb-answer-slots');
+                slots.classList.add('shake');
+                setTimeout(() => slots.classList.remove('shake'), 500);
+                resetStreak();
+            }
+        }
+
+        /* Initial Setup on Load */
+        window.onload = function() {
+            setDirection('bm2hangul');
+        };
+    </script>
+</body>
+</html>
