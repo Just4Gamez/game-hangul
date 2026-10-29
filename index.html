@@ -321,7 +321,7 @@
                 items: [
                     { char: "우유", rumi: "u-yu", desc: "Maksud: Susu", stroke: "우 (U) + 유 (YU)" },
                     { char: "아이", rumi: "a-i", desc: "Maksud: Budak / Kanak-kanak", stroke: "아 (A) + 이 (I)" },
-                    { char: "고기", rumi: "go-gi", desc: "Maksud: Hard / Daging", stroke: "고 (GO) + 기 (GI)" },
+                    { char: "고기", rumi: "go-gi", desc: "Maksud: Daging", stroke: "고 (GO) + 기 (GI)" },
                     { char: "나무", rumi: "na-mu", desc: "Maksud: Pokok / Kayu", stroke: "나 (NA) + 무 (MU)" }
                 ]
             },
@@ -414,8 +414,18 @@
             document.getElementById('study-desc').innerText = item.desc;
             document.getElementById('study-stroke').innerText = item.stroke;
 
-            document.getElementById('btn-prev-char').disabled = (currentStudyIndex === 0);
-            document.getElementById('btn-prev-char').style.opacity = (currentStudyIndex === 0) ? '0.5' : '1';
+            // Urus butang 'Sebelum'
+            const btnPrev = document.getElementById('btn-prev-char');
+            btnPrev.disabled = (currentStudyIndex === 0);
+            btnPrev.style.opacity = (currentStudyIndex === 0) ? '0.5' : '1';
+
+            // Urus butang 'Seterusnya' (Sembunyikan jika dah item terakhir)
+            const btnNext = document.getElementById('btn-next-char');
+            if (currentStudyIndex === currentLevelObj.items.length - 1) {
+                btnNext.style.display = 'none';
+            } else {
+                btnNext.style.display = 'inline-flex';
+            }
         }
 
         function navigateStudy(direction) {
