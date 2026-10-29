@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangul Master - Pro Language Platform</title>
+    <title>Hangul Master - Ultimate Pro Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
-                    <p class="text-xs text-slate-400">Master Edition (15 Levels)</p>
+                    <p class="text-xs text-slate-400">Ultimate Edition (21 Levels)</p>
                 </div>
             </div>
 
@@ -76,9 +76,9 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Penuh (Lvl 1 - 15)</span>
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Penuh (Lvl 1 - 21)</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Hingga Tahap Master</h2>
-                    <p class="text-slate-300 text-sm md:text-base">15 peringkat gabungan nota belajar & kuiz latihan berserta audio penutur asli!</p>
+                    <p class="text-slate-300 text-sm md:text-base">21 peringkat lengkap (630 latihan) merangkumi huruf, warna, badan, nombor, masa, dan perbualan harian!</p>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Study & Practice</h3>
-                    <p class="text-slate-400 text-sm">Belajar nota level 1-15 dan terus buat kuiz latihan.</p>
+                    <p class="text-slate-400 text-sm">Belajar nota level 1-21 dan terus buat kuiz latihan.</p>
                 </div>
 
                 <!-- Mistakes Review -->
@@ -107,8 +107,8 @@
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-list-ul"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Words (Kamus 450)</h3>
-                    <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata daripada kesemua 15 level.</p>
+                    <h3 class="font-bold text-lg text-white">Words (Kamus 630)</h3>
+                    <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata daripada kesemua 21 level.</p>
                 </div>
 
                 <!-- Listen Mode -->
@@ -117,7 +117,7 @@
                         <i class="fa-solid fa-headphones"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Listen Mode</h3>
-                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk 450 frasa.</p>
+                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk 630 frasa.</p>
                 </div>
             </div>
         </section>
@@ -126,7 +126,7 @@
         <section id="section-levels" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Modul Study & Practice (Level 1 - 15)</h2>
+                    <h2 class="text-2xl font-bold text-white">Modul Study & Practice (Level 1 - 21)</h2>
                     <p class="text-slate-400 text-sm">Pilih tahap untuk mula belajar & kuiz</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
@@ -270,7 +270,7 @@
 
                 <div class="flex justify-between pt-6 border-t border-slate-800">
                     <button onclick="navigateListen(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
-                    <span id="listen-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 450</span>
+                    <span id="listen-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 630</span>
                     <button onclick="navigateListen(1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Seterusnya</button>
                 </div>
             </div>
@@ -307,10 +307,10 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 bg-slate-900/50 text-center text-slate-500 text-xs">
-        <p>Hangul Master Pro &copy; 2026 - Semua Hak Cipta Terpelihara</p>
+        <p>Hangul Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
     </footer>
 
-    <!-- JavaScript Platform (15 Levels + Unified Study & Practice) -->
+    <!-- JavaScript Platform (21 Levels) -->
     <script>
         const levelsData = [
             {
@@ -866,6 +866,228 @@
                     { char: "당신은 할 수 있습니다!", rumi: "dangsineun hal su isseumnida!", desc: "Anda pasti boleh melakukannya!", stroke: "Ujian Akhir" },
                     { char: "진정한 한글 마스터!", rumi: "jinjeonghan hangul maseuteo!", desc: "Hangul Master Sebenar!", stroke: "Ujian Akhir" },
                     { char: "축하합니다! 완주하셨습니다!", rumi: "chukhahamnida! wanjuhasyeosseumnida!", desc: "Tahniah! Anda telah tamat kesemua 15 Level!", stroke: "Tahniah Penuh" }
+                ]
+            },
+            {
+                id: 16,
+                title: "Level 16: Warna & Bentuk (Colors & Shapes)",
+                desc: "30 perbendaharaan kata warna, rona & bentuk asas.",
+                items: [
+                    { char: "빨간색", rumi: "ppalgansaek", desc: "Warna Merah", stroke: "빨갛다 (Merah)" },
+                    { char: "파란색", rumi: "paransaek", desc: "Warna Biru", stroke: "파랗다 (Biru)" },
+                    { char: "노란색", rumi: "noransaek", desc: "Warna Kuning", stroke: "노랗다 (Kuning)" },
+                    { char: "초록색", rumi: "choroksaek", desc: "Warna Hijau", stroke: "초록 (Hijau daun)" },
+                    { char: "검은색", rumi: "geomeunsaek", desc: "Warna Hitam", stroke: "검다 (Hitam)" },
+                    { char: "하얀색", rumi: "hayansaek", desc: "Warna Putih", stroke: "하얗다 (Putih)" },
+                    { char: "보라색", rumi: "borasaek", desc: "Warna Ungu", stroke: "보라 (Ungu)" },
+                    { char: "주황색", rumi: "juhwangsaek", desc: "Warna Oren", stroke: "주황 (Oren)" },
+                    { char: "분홍색", rumi: "bunhongsaek", desc: "Warna Merah Jambu (Pink)", stroke: "분홍 (Pink)" },
+                    { char: "회색", rumi: "hoesaek", desc: "Warna Kelabu", stroke: "회 (Kelabu)" },
+                    { char: "갈색", rumi: "galsaek", desc: "Warna Coklat", stroke: "갈 (Coklat)" },
+                    { char: "금색", rumi: "geumsaek", desc: "Warna Emas (Gold)", stroke: "금 (Emas)" },
+                    { char: "은색", rumi: "eunsaek", desc: "Warna Perak (Silver)", stroke: "은 (Perak)" },
+                    { char: "밝다", rumi: "bakda", desc: "Cerah", stroke: "Sifat warna" },
+                    { char: "어둡다", rumi: "eodupda", desc: "Gelap", stroke: "Sifat warna" },
+                    { char: "동그라미", rumi: "donggeurami", desc: "Bentuk Bulat (Circle)", stroke: "Bentuk" },
+                    { char: "네모", rumi: "nemo", desc: "Bentuk Segi Empat (Square)", stroke: "Bentuk" },
+                    { char: "세모", rumi: "semo", desc: "Bentuk Segi Tiga (Triangle)", stroke: "Bentuk" },
+                    { char: "별모양", rumi: "byeolmoyang", desc: "Bentuk Bintang (Star)", stroke: "Bentuk" },
+                    { char: "하트모양", rumi: "hateumoyang", desc: "Bentuk Hati (Heart)", stroke: "Bentuk" },
+                    { char: "선", rumi: "seon", desc: "Garis / Line", stroke: "Geometri" },
+                    { char: "점", rumi: "jeom", desc: "Titik / Dot", stroke: "Geometri" },
+                    { char: "크기", rumi: "keugi", desc: "Saiz / Size", stroke: "Ukuran" },
+                    { char: "크다", rumi: "keuda", desc: "Besar", stroke: "Sifat saiz" },
+                    { char: "작다", rumi: "jakda", desc: "Kecil", stroke: "Sifat saiz" },
+                    { char: "길다", rumi: "gilda", desc: "Panjang", stroke: "Ukuran panjang" },
+                    { char: "짧다", rumi: "jjalbda", desc: "Pendek", stroke: "Ukuran panjang" },
+                    { char: "높다", rumi: "nopda", desc: "Tinggi", stroke: "Ketinggian" },
+                    { char: "낮다", rumi: "natda", desc: "Rendah", stroke: "Ketinggian" },
+                    { char: "색깔", rumi: "saekkkal", desc: "Warna secara umum (Colors)", stroke: "Kosa kata asas" }
+                ]
+            },
+            {
+                id: 17,
+                title: "Level 17: Anggota Badan (Body Parts)",
+                desc: "30 perbendaharaan kata bahagian tubuh manusia.",
+                items: [
+                    { char: "머리", rumi: "meori", desc: "Kepala / Rambut", stroke: "Bahagian atas" },
+                    { char: "얼굴", rumi: "eolgul", desc: "Muka / Wajah", stroke: "Wajah" },
+                    { char: "눈", rumi: "nun", desc: "Mata", stroke: "Pancaindera" },
+                    { char: "코", rumi: "ko", desc: "Hidung", stroke: "Pancaindera" },
+                    { char: "입", rumi: "ip", desc: "Mulut", stroke: "Pancaindera" },
+                    { char: "귀", rumi: "gwi", desc: "Telinga", stroke: "Pancaindera" },
+                    { char: "이빨", rumi: "ippal", desc: "Gigi", stroke: "Mulut" },
+                    { char: "혀", rumi: "hyeo", desc: "Lidah", stroke: "Mulut" },
+                    { char: "목", rumi: "mok", desc: "Leher / Tekak", stroke: "Leher" },
+                    { char: "어깨", rumi: "eokkae", desc: "Bahu", stroke: "Badan atas" },
+                    { char: "가슴", rumi: "gaseum", desc: "Dada", stroke: "Badan" },
+                    { char: "배", rumi: "bae", desc: "Perut", stroke: "Badan" },
+                    { char: "등", rumi: "deung", desc: "Belakang badan", stroke: "Badan" },
+                    { char: "허리", rumi: "heori", desc: "Pinggang", stroke: "Badan" },
+                    { char: "손", rumi: "son", desc: "Tangan", stroke: "Anggota atas" },
+                    { char: "손가락", rumi: "songarak", desc: "Jari tangan", stroke: "Tangan" },
+                    { char: "손톱", rumi: "sontop", desc: "Kuku jari", stroke: "Tangan" },
+                    { char: "팔", rumi: "pal", desc: "Lengan", stroke: "Lengan" },
+                    { char: "다리", rumi: "dari", desc: "Kaki", stroke: "Anggota bawah" },
+                    { char: "무릎", rumi: "mureup", desc: "Lutut", stroke: "Kaki" },
+                    { char: "발", rumi: "bal", desc: "Tapak kaki", stroke: "Kaki" },
+                    { char: "발가락", rumi: "balgarak", desc: "Jari kaki", stroke: "Kaki" },
+                    { char: "피", rumi: "pi", desc: "Darah", stroke: "Sistem tubuh" },
+                    { char: "뼈", rumi: "ppyeo", desc: "Tulang", stroke: "Sistem tubuh" },
+                    { char: "심장", rumi: "simjang", desc: "Jantung", stroke: "Organ" },
+                    { char: "위장", rumi: "wijang", desc: "Perut / Lambung", stroke: "Organ" },
+                    { char: "살", rumi: "sal", desc: "Isi / Kulit / Daging", stroke: "Tubuh" },
+                    { char: "머리카락", rumi: "meorikarak", desc: "Rambut kepala", stroke: "Kepala" },
+                    { char: "수염", rumi: "suyeom", desc: "Misai / Janggut", stroke: "Muka" },
+                    { char: "몸", rumi: "mom", desc: "Tubuh badan secara keseluruhan", stroke: "Asas" }
+                ]
+            },
+            {
+                id: 18,
+                title: "Level 18: Nombor & Kiraan (Numbers)",
+                desc: "30 latihan nombor Korea Asli & Sino-Korea.",
+                items: [
+                    { char: "일", rumi: "il", desc: "Nombor 1 (Sino-Korea)", stroke: "Sino" },
+                    { char: "이", rumi: "i", desc: "Nombor 2 (Sino-Korea)", stroke: "Sino" },
+                    { char: "삼", rumi: "sam", desc: "Nombor 3 (Sino-Korea)", stroke: "Sino" },
+                    { char: "사", rumi: "sa", desc: "Nombor 4 (Sino-Korea)", stroke: "Sino" },
+                    { char: "오", rumi: "o", desc: "Nombor 5 (Sino-Korea)", stroke: "Sino" },
+                    { char: "육", rumi: "yuk", desc: "Nombor 6 (Sino-Korea)", stroke: "Sino" },
+                    { char: "칠", rumi: "chil", desc: "Nombor 7 (Sino-Korea)", stroke: "Sino" },
+                    { char: "팔", rumi: "pal", desc: "Nombor 8 (Sino-Korea)", stroke: "Sino" },
+                    { char: "구", rumi: "gu", desc: "Nombor 9 (Sino-Korea)", stroke: "Sino" },
+                    { char: "십", rumi: "sip", desc: "Nombor 10 (Sino-Korea)", stroke: "Sino" },
+                    { char: "백", rumi: "baek", desc: "Nombor 100", stroke: "Ratus" },
+                    { char: "천", rumi: "cheon", desc: "Nombor 1,000", stroke: "Ribu" },
+                    { char: "만", rumi: "man", desc: "Nombor 10,000", stroke: "Puluh Ribu" },
+                    { char: "하나", rumi: "hana", desc: "Nombor 1 (Korea Asli)", stroke: "Native" },
+                    { char: "둘", rumi: "dul", desc: "Nombor 2 (Korea Asli)", stroke: "Native" },
+                    { char: "셋", rumi: "set", desc: "Nombor 3 (Korea Asli)", stroke: "Native" },
+                    { char: "넷", rumi: "net", desc: "Nombor 4 (Korea Asli)", stroke: "Native" },
+                    { char: "다섯", rumi: "daseot", desc: "Nombor 5 (Korea Asli)", stroke: "Native" },
+                    { char: "여섯", rumi: "yeoseot", desc: "Nombor 6 (Korea Asli)", stroke: "Native" },
+                    { char: "일곱", rumi: "ilgop", desc: "Nombor 7 (Korea Asli)", stroke: "Native" },
+                    { char: "여덟", rumi: "yeodeol", desc: "Nombor 8 (Korea Asli)", stroke: "Native" },
+                    { char: "아홉", rumi: "ahop", desc: "Nombor 9 (Korea Asli)", stroke: "Native" },
+                    { char: "열", rumi: "yeol", desc: "Nombor 10 (Korea Asli)", stroke: "Native" },
+                    { char: "스물", rumi: "seumul", desc: "Nombor 20 (Korea Asli)", stroke: "Native" },
+                    { char: "서른", rumi: "seoreun", desc: "Nombor 30 (Korea Asli)", stroke: "Native" },
+                    { char: "마흔", rumi: "maheun", desc: "Nombor 40 (Korea Asli)", stroke: "Native" },
+                    { char: "쉰", rumi: "swin", desc: "Nombor 50 (Korea Asli)", stroke: "Native" },
+                    { char: "첫째", rumi: "cheotjjae", desc: "Pertama / First", stroke: "Ordinal" },
+                    { char: "둘째", rumi: "duljjae", desc: "Kedua / Second", stroke: "Ordinal" },
+                    { char: "얼마", rumi: "eolma", desc: "Berapa banyak / Berapa harga", stroke: "Kiraan" }
+                ]
+            },
+            {
+                id: 19,
+                title: "Level 19: Hari, Bulan & Tarikh (Days & Months)",
+                desc: "30 perbendaharaan kata hari, bulan & kalendar.",
+                items: [
+                    { char: "월요일", rumi: "woryoil", desc: "Hari Isnin", stroke: "Hari" },
+                    { char: "화요일", rumi: "hwayoil", desc: "Hari Selasa", stroke: "Hari" },
+                    { char: "수요일", rumi: "suyoil", desc: "Hari Rabu", stroke: "Hari" },
+                    { char: "목요일", rumi: "mogyoil", desc: "Hari Khamis", stroke: "Hari" },
+                    { char: "금요일", rumi: "geumyoil", desc: "Hari Jumaat", stroke: "Hari" },
+                    { char: "토요일", rumi: "toyoil", desc: "Hari Sabtu", stroke: "Hari" },
+                    { char: "일요일", rumi: "iryoil", desc: "Hari Ahad", stroke: "Hari" },
+                    { char: "오늘", rumi: "oneul", desc: "Hari ini", stroke: "Masa" },
+                    { char: "어제", rumi: "eoje", desc: "Semalam", stroke: "Masa" },
+                    { char: "내일", rumi: "naeil", desc: "Esok", stroke: "Masa" },
+                    { char: "모레", rumi: "more", desc: "Lusa", stroke: "Masa" },
+                    { char: "그저께", rumi: "geujeokke", desc: "Semalam lusa", stroke: "Masa" },
+                    { char: "주말", rumi: "jumal", desc: "Hujung minggu (Weekend)", stroke: "Masa" },
+                    { char: "평일", rumi: "pyeongil", desc: "Hari bekerja (Weekday)", stroke: "Masa" },
+                    { char: "일주일", rumi: "iljouil", desc: "Satu minggu", stroke: "Tempoh" },
+                    { char: "한 달", rumi: "han dal", desc: "Satu bulan", stroke: "Tempoh" },
+                    { char: "일 년", rumi: "il nyeon", desc: "Satu tahun", stroke: "Tempoh" },
+                    { char: "일월", rumi: "irwol", desc: "Bulan Januari", stroke: "Bulan" },
+                    { char: "이월", rumi: "iwol", desc: "Bulan Februari", stroke: "Bulan" },
+                    { char: "삼월", rumi: "samwol", desc: "Bulan Mac", stroke: "Bulan" },
+                    { char: "사월", rumi: "sawol", desc: "Bulan April", stroke: "Bulan" },
+                    { char: "오월", rumi: "owol", desc: "Bulan Mei", stroke: "Bulan" },
+                    { char: "유월", rumi: "yuwol", desc: "Bulan Jun", stroke: "Bulan" },
+                    { char: "칠월", rumi: "chilwol", desc: "Bulan Julai", stroke: "Bulan" },
+                    { char: "팔월", rumi: "palwol", desc: "Bulan Ogos", stroke: "Bulan" },
+                    { char: "구월", rumi: "guwol", desc: "Bulan September", stroke: "Bulan" },
+                    { char: "시월", rumi: "siwol", desc: "Bulan Oktober", stroke: "Bulan" },
+                    { char: "십일월", rumi: "sibirwol", desc: "Bulan November", stroke: "Bulan" },
+                    { char: "십이월", rumi: "sibiwol", desc: "Bulan Disember", stroke: "Bulan" },
+                    { char: "달력", rumi: "dallyeok", desc: "Kalendar", stroke: "Asas" }
+                ]
+            },
+            {
+                id: 20,
+                title: "Level 20: Waktu & Masa (Time & Clock)",
+                desc: "30 perbendaharaan kata jam, minit & waktu.",
+                items: [
+                    { char: "시간", rumi: "sigan", desc: "Masa / Jam (Tempoh)", stroke: "Masa" },
+                    { char: "시", rumi: "si", desc: "Pukul / Jam (Waktu)", stroke: "Jam" },
+                    { char: "분", rumi: "bun", desc: "Minit", stroke: "Minit" },
+                    { char: "초", rumi: "cho", desc: "Saat", stroke: "Saat" },
+                    { char: "지금 몇 시예요?", rumi: "jigeum myeot siyeyo?", desc: "Pukul berapa sekarang?", stroke: "Soalan Masa" },
+                    { char: "오전", rumi: "ojeon", desc: "Pagi (AM)", stroke: "Waktu" },
+                    { char: "오후", rumi: "ohu", desc: "Petang / Malam (PM)", stroke: "Waktu" },
+                    { char: "아침", rumi: "achim", desc: "Pagi", stroke: "Waktu" },
+                    { char: "점심", rumi: "jeomsim", desc: "Tengah hari", stroke: "Waktu" },
+                    { char: "저녁", rumi: "jeonyeok", desc: "Petang / Senja", stroke: "Waktu" },
+                    { char: "밤", rumi: "bam", desc: "Malam", stroke: "Waktu" },
+                    { char: "새벽", rumi: "saebyeok", desc: "Subuh / Dinihari", stroke: "Waktu" },
+                    { char: "낮", rumi: "nat", desc: "Siang hari", stroke: "Waktu" },
+                    { char: "자정", rumi: "jajeong", desc: "Tengah malam (Midnight)", stroke: "Waktu" },
+                    { char: "정오", rumi: "jeong-o", desc: "Tengah hari tepat (Noon)", stroke: "Waktu" },
+                    { char: "언제", rumi: "eonje", desc: "Bila / When", stroke: "Soalan" },
+                    { char: "항상", rumi: "hangsang", desc: "Sentiasa / Always", stroke: "Kekerapan" },
+                    { char: "자주", rumi: "jaju", desc: "Kerap / Often", stroke: "Kekerapan" },
+                    { char: "가끔", rumi: "gakkeum", desc: "Kadang-kadang", stroke: "Kekerapan" },
+                    { char: "절대", rumi: "jeoldae", desc: "Tidak sama sekali / Never", stroke: "Kekerapan" },
+                    { char: "빨리", rumi: "ppalli", desc: "Cepat / Segera", stroke: "Sifat" },
+                    { char: "천천히", rumi: "cheoncheonhi", desc: "Perlahan-lahan", stroke: "Sifat" },
+                    { char: "요즘", rumi: "yojeum", desc: "Kebelakangan ini / Lately", stroke: "Masa" },
+                    { char: "나중에", rumi: "najunge", desc: "Nanti / Later", stroke: "Masa" },
+                    { char: "곧", rumi: "got", desc: "Tidak lama lagi / Soon", stroke: "Masa" },
+                    { char: "이미", rumi: "imi", desc: "Sudah / Already", stroke: "Masa" },
+                    { char: "아직", rumi: "ajik", desc: "Masih / Belum", stroke: "Masa" },
+                    { char: "방금", rumi: "banggeum", desc: "Baru sahaja", stroke: "Masa" },
+                    { char: "시계", rumi: "sigye", desc: "Jam (Dinding / Tangan)", stroke: "Objek" },
+                    { char: "약속", rumi: "yaksok", desc: "Janji / Temujanji", stroke: "Aktiviti" }
+                ]
+            },
+            {
+                id: 21,
+                title: "Level 21: Objek Harian & Rumah (Daily Objects)",
+                desc: "30 perbendaharaan kata peralatan rumah & pejabat.",
+                items: [
+                    { char: "의자", rumi: "uija", desc: "Kerusi", stroke: "Perabot" },
+                    { char: "책상", rumi: "chaeksang", desc: "Meja tulis", stroke: "Perabot" },
+                    { char: "침대", rumi: "chimdae", desc: "Katil tidur", stroke: "Perabot" },
+                    { char: "옷장", rumi: "otjang", desc: "Almari baju", stroke: "Perabot" },
+                    { char: "냉장고", rumi: "naengjanggo", desc: "Peti sejuk", stroke: "Peralatan rumah" },
+                    { char: "세탁기", rumi: "setakgi", desc: "Mesin basuh", stroke: "Peralatan rumah" },
+                    { char: "텔레비전", rumi: "tellebijeon", desc: "Televisyen (TV)", stroke: "Peralatan rumah" },
+                    { char: "컴퓨터", rumi: "keompyuteo", desc: "Komputer", stroke: "Peralatan" },
+                    { char: "휴대폰", rumi: "hyudaepon", desc: "Telefon bimbit (Handphone)", stroke: "Peralatan" },
+                    { char: "열쇠", rumi: "yeolsoe", desc: "Kunci", stroke: "Objek" },
+                    { char: "가방", rumi: "gabang", desc: "Beg", stroke: "Objek" },
+                    { char: "지갑", rumi: "jigap", desc: "Dompet duit", stroke: "Objek" },
+                    { char: "안경", rumi: "angyeong", desc: "Cermin mata", stroke: "Objek" },
+                    { char: "우산", rumi: "usan", desc: "Payung", stroke: "Objek" },
+                    { char: "거울", rumi: "geoul", desc: "Cermin muka", stroke: "Objek" },
+                    { char: "빗", rumi: "bit", desc: "Sikat rambut", stroke: "Objek" },
+                    { char: "수건", rumi: "sugeon", desc: "Tuala", stroke: "Objek" },
+                    { char: "비누", rumi: "binu", desc: "Sabun mandi", stroke: "Objek" },
+                    { char: "치약", rumi: "chiyak", desc: "Ubat gigi", stroke: "Objek" },
+                    { char: "칫솔", rumi: "chitsol", desc: "Berus gigi", stroke: "Objek" },
+                    { char: "휴지", rumi: "hyuji", desc: "Tisu / Kertas tandas", stroke: "Objek" },
+                    { char: "펜", rumi: "pen", desc: "Pen / Penulis", stroke: "Alat tulis" },
+                    { char: "연필", rumi: "yeonpil", desc: "Pensel", stroke: "Alat tulis" },
+                    { char: "종이", rumi: "jong-i", desc: "Kertas", stroke: "Alat tulis" },
+                    { char: "가위", rumi: "gawi", desc: "Gunting", stroke: "Alat" },
+                    { char: "칼", rumi: "kal", desc: "Pisau", stroke: "Alat" },
+                    { char: "컵", rumi: "keop", desc: "Cawan / Mug", stroke: "Pinggan mangkuk" },
+                    { char: "접시", rumi: "jeopsi", desc: "Pinggan", stroke: "Pinggan mangkuk" },
+                    { char: "숟가락", rumi: "sutgarak", desc: "Sudu", stroke: "Alat makan" },
+                    { char: "젓가락", rumi: "jeotgarak", desc: "Sepit (Chopsticks)", stroke: "Alat makan" }
                 ]
             }
         ];
