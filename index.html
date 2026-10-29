@@ -82,7 +82,7 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Langkah Demi Langkah (Lvl 1 - 6)</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Hangul Korea Hingga Mahir!</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Sistem pembelajaran berperingkat dengan puluhan contoh latihan perbendaharaan kata dari asas hingga mahir.</p>
+                    <p class="text-slate-300 text-sm md:text-base">Sistem pembelajaran berperingkat dengan 30 contoh latihan penuh di setiap level dari asas hingga mahir.</p>
                     <div class="pt-4 flex flex-wrap justify-center gap-4">
                         <button onclick="startLevel(1)" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-korea-blue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-lg shadow-blue-600/30 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
                             <i class="fa-solid fa-play"></i>
@@ -152,13 +152,13 @@
                     </div>
                 </div>
                 <div class="text-sm text-slate-400">
-                    <span id="study-progress-text">1 / 10</span>
+                    <span id="study-progress-text">1 / 30</span>
                 </div>
             </div>
 
             <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl text-center space-y-8">
                 <div class="relative inline-block w-full">
-                    <!-- Kotak paparan dengan grid yang jelas -->
+                    <!-- Kotak paparan dengan grid yang jelas & saiz automatik -->
                     <div class="w-44 h-44 md:w-52 md:h-52 mx-auto bg-slate-950 border-2 border-slate-700 rounded-3xl stroke-box flex items-center justify-center shadow-inner relative overflow-hidden group p-4">
                         <span id="study-char" class="hangul-font text-5xl md:text-6xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug">아</span>
                         <button onclick="playAudio()" class="absolute bottom-2 right-2 w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition">
@@ -204,7 +204,7 @@
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
                     <span>SOALAN KUIZ</span>
-                    <span id="quiz-progress-text">1 / 5</span>
+                    <span id="quiz-progress-text">1 / 30</span>
                 </div>
                 <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
                     <div id="quiz-progress-bar" class="bg-gradient-to-r from-blue-500 to-emerald-400 h-full w-0 transition-all duration-300"></div>
@@ -264,13 +264,13 @@
         <p>Hangul Master &copy; 2026 - Aplikasi Pembelajaran Bahasa Korea</p>
     </footer>
 
-    <!-- JavaScript Game Logic -->
+    <!-- JavaScript Penuh 30 Latihan Setiap Level -->
     <script>
         const levelsData = [
             {
                 id: 1,
-                title: "Level 1: Vokal Asas & Lanjutan",
-                desc: "Koleksi huruf vokal asas dan majmuk dalam Hangul.",
+                title: "Level 1: Vokal Asas & Lanjutan (30 Latihan)",
+                desc: "Koleksi lengkap 30 huruf vokal asas dan majmuk dalam Hangul.",
                 items: [
                     { char: "ㅏ", rumi: "a", desc: "Bunyi 'a' seperti dalam Ayam.", stroke: "1. Garis tegak ke bawah\n2. Garis pendek melintang ke kanan" },
                     { char: "ㅑ", rumi: "ya", desc: "Bunyi 'ya' seperti dalam Yasin.", stroke: "1. Garis tegak ke bawah\n2. Dua garis pendek melintang ke kanan" },
@@ -291,13 +291,23 @@
                     { char: "ㅚ", rumi: "oe", desc: "Bunyi 'oe'.", stroke: "Gabungan ㅗ dan ㅣ" },
                     { char: "ㅝ", rumi: "wo", desc: "Bunyi 'wo'.", stroke: "Gabungan ㅜ dan ㅓ" },
                     { char: "ㅞ", rumi: "we", desc: "Bunyi 'we'.", stroke: "Gabungan ㅜ, ㅓ dan ㅣ" },
-                    { char: "ㅟ", rumi: "wi", desc: "Bunyi 'wi'.", stroke: "Gabungan ㅜ dan ㅣ" }
+                    { char: "ㅟ", rumi: "wi", desc: "Bunyi 'wi'.", stroke: "Gabungan ㅜ dan ㅣ" },
+                    { char: "ㅢ", rumi: "ui", desc: "Bunyi 'ui'.", stroke: "Gabungan ㅡ dan ㅣ" },
+                    { char: "아이", rumi: "ai", desc: "Kanak-kanak", stroke: "아 + 이" },
+                    { char: "외우다", rumi: "oe-uda", desc: "Menghafal", stroke: "외 + 우 + 다" },
+                    { char: "우유", rumi: "uyu", desc: "Susu", stroke: "우 + 유" },
+                    { char: "의사", rumi: "uisa", desc: "Doktor", stroke: "의 + 사" },
+                    { char: "이", rumi: "i", desc: "Gigi / Nombor Dua", stroke: "Vokal tunggal ㅣ" },
+                    { char: "애기", rumi: "aegi", desc: "Bayi", stroke: "애 + 기" },
+                    { char: "여우", rumi: "yeou", desc: "Musang", stroke: "여 + 우" },
+                    { char: "위", rumi: "wi", desc: "Atas", stroke: "ㅜ + ㅣ" },
+                    { char: "와", rumi: "wa", desc: "Dan / Mari", stroke: "ㅗ + ㅏ" }
                 ]
             },
             {
                 id: 2,
-                title: "Level 2: Konsonan Asas",
-                desc: "Koleksi huruf konsonan asas dalam Hangul.",
+                title: "Level 2: Konsonan Asas & Keras (30 Latihan)",
+                desc: "Koleksi 30 latihan konsonan asas dan dwi-konsonan.",
                 items: [
                     { char: "ㄱ", rumi: "g/k", desc: "Bunyi 'G' di awal, 'K' di akhir.", stroke: "1. Kanan kemudian terus ke bawah" },
                     { char: "ㄴ", rumi: "n", desc: "Bunyi 'N' seperti Nasi.", stroke: "1. Ke bawah kemudian terus ke kanan" },
@@ -308,51 +318,175 @@
                     { char: "ㅅ", rumi: "s", desc: "Bunyi 'S' seperti Saya.", stroke: "1. Garisan senget bentuk A" },
                     { char: "ㅇ", rumi: "ng / senyap", desc: "Senyap di atas vokal, bunyi 'NG' di bawah.", stroke: "1. Bulatan mengikut arah jam" },
                     { char: "ㅈ", rumi: "j", desc: "Bunyi 'J' seperti Jari.", stroke: "1. Garis melintang dan dua kaki senget" },
-                    { char: "ㅎ", rumi: "h", desc: "Bunyi 'H' seperti Hati.", stroke: "1. Topi di atas bulatan" }
+                    { char: "ㅊ", rumi: "ch", desc: "Bunyi 'Ch' seperti Cili.", stroke: "1. Tambah garis atas pada ㅈ" },
+                    { char: "ㅋ", rumi: "k", desc: "Bunyi 'K' tebal.", stroke: "1. Ubah suai huruf ㄱ" },
+                    { char: "ㅌ", rumi: "t", desc: "Bunyi 'T' tebal.", stroke: "1. Ubah suai huruf ㄷ" },
+                    { char: "ㅍ", rumi: "p", desc: "Bunyi 'P' tebal.", stroke: "1. Ubah suai huruf ㅁ/ㅂ" },
+                    { char: "ㅎ", rumi: "h", desc: "Bunyi 'H' seperti Hati.", stroke: "1. Topi di atas bulatan" },
+                    { char: "ㄲ", rumi: "kk", desc: "Konsonan Keras: Double ㄱ", stroke: "Dwi-konsonan ㄱㄱ" },
+                    { char: "ㄸ", rumi: "tt", desc: "Konsonan Keras: Double ㄷ", stroke: "Dwi-konsonan ㄷㄷ" },
+                    { char: "ㅃ", rumi: "pp", desc: "Konsonan Keras: Double ㅂ", stroke: "Dwi-konsonan ㅂㅂ" },
+                    { char: "ㅆ", rumi: "ss", desc: "Konsonan Keras: Double ㅅ", stroke: "Dwi-konsonan ㅅㅅ" },
+                    { char: "ㅉ", rumi: "jj", desc: "Konsonan Keras: Double ㅈ", stroke: "Dwi-konsonan ㅈㅈ" },
+                    { char: "가", rumi: "ga", desc: "Pergi", stroke: "ㄱ + ㅏ" },
+                    { char: "나", rumi: "na", desc: "Saya", stroke: "ㄴ + ㅏ" },
+                    { char: "다", rumi: "da", desc: "Semua", stroke: "ㄷ + ㅏ" },
+                    { char: "마", rumi: "ma", desc: "Kuda", stroke: "ㅁ + ㅏ" },
+                    { char: "바", rumi: "ba", desc: "Laut", stroke: "ㅂ + ㅏ" },
+                    { char: "사", rumi: "sa", desc: "Empat", stroke: "ㅅ + ㅏ" },
+                    { char: "아", rumi: "a", desc: "Ah!", stroke: "ㅇ + ㅏ" },
+                    { char: "자", rumi: "ja", desc: "Pembaris", stroke: "ㅈ + ㅏ" },
+                    { char: "차", rumi: "cha", desc: "Teh", stroke: "ㅊ + ㅏ" },
+                    { char: "카", rumi: "ka", desc: "Karam", stroke: "ㅋ + ㅏ" },
+                    { char: "하", rumi: "ha", desc: "Melakukan", stroke: "ㅎ + ㅏ" }
                 ]
             },
             {
                 id: 3,
-                title: "Level 3: Gabungan Suku Kata",
-                desc: "Cara menggabung Konsonan + Vokal (K + V).",
+                title: "Level 3: Gabungan Suku Kata (30 Latihan)",
+                desc: "30 latihan percantuman Konsonan + Vokal pelbagai variasi.",
                 items: [
-                    { char: "가", rumi: "ga", desc: "G (ㄱ) + A (ㅏ) = GA", stroke: "Tulis konsonan ㄱ dulu di kiri, diikuti vokal ㅏ di kanan." },
-                    { char: "나", rumi: "na", desc: "N (ㄴ) + A (ㅏ) = NA", stroke: "Tulis konsonan ㄴ dulu, diikuti vokal ㅏ." },
-                    { char: "다", rumi: "da", desc: "D (ㄷ) + A (ㅏ) = DA", stroke: "Tulis konsonan ㄷ dulu, diikuti vokal ㅏ." },
-                    { char: "고", rumi: "go", desc: "G (ㄱ) + O (ㅗ) = GO", stroke: "Tulis konsonan ㄱ di atas, vokal ㅗ di bawah." },
-                    { char: "누", rumi: "nu", desc: "N (ㄴ) + U (ㅜ) = NU", stroke: "Tulis konsonan ㄴ di atas, vokal ㅜ di bawah." }
+                    { char: "고기", rumi: "gogi", desc: "Daging", stroke: "고 + 기" },
+                    { char: "나무", rumi: "namu", desc: "Pokok / Kayu", stroke: "나 + 무" },
+                    { char: "모래", rumi: "morae", desc: "Pasir", stroke: "모 + 래" },
+                    { char: "바다", rumi: "bada", desc: "Laut", stroke: "바 + 다" },
+                    { char: "사과", rumi: "sagwa", desc: "Epal", stroke: "사 + 과" },
+                    { char: "오이", rumi: "oi", desc: "Timun", stroke: "오 + 이" },
+                    { char: "요리", rumi: "yori", desc: "Masakan", stroke: "요 + 리" },
+                    { char: "지구", rumi: "jigu", desc: "Bumi", stroke: "지 + 구" },
+                    { char: "포도", rumi: "podo", desc: "Anggur", stroke: "포 + 도" },
+                    { char: "구름", rumi: "gureum", desc: "Awan", stroke: "구 + 름" },
+                    { char: "소리", rumi: "sori", desc: "Bunyi / Suara", stroke: "소 + 리" },
+                    { char: "모자", rumi: "moja", desc: "Topi", stroke: "모 + 자" },
+                    { char: "지도", rumi: "jido", desc: "Peta", stroke: "지 + 도" },
+                    { char: "라디오", rumi: "radio", desc: "Radio", stroke: "라 + 디 + 오" },
+                    { char: "피아노", rumi: "piano", desc: "Piano", stroke: "피 + 아 + 노" },
+                    { char: "바나나", rumi: "banana", desc: "Pisang", stroke: "바 + 나 + 나" },
+                    { char: "토마토", rumi: "tomato", desc: "Tomato", stroke: "토 + 마 + 토" },
+                    { char: "카메라", rumi: "kamera", desc: "Kamera", stroke: "카 + 메 + 라" },
+                    { char: "모터", rumi: "moteo", desc: "Motor", stroke: "모 + 터" },
+                    { char: "버스", rumi: "beoseu", desc: "Bas", stroke: "버 + 스" },
+                    { char: "택시", rumi: "taeksi", desc: "Teksi", stroke: "택 + 시" },
+                    { char: "기차", rumi: "gicha", desc: "Keretapi", stroke: "기 + 차" },
+                    { char: "구두", rumi: "gudu", desc: "Kasut Kulit", stroke: "구 + 두" },
+                    { char: "비누", rumi: "binu", desc: "Sabun", stroke: "비 + 누" },
+                    { char: "나비", rumi: "nabi", desc: "Rama-rama", stroke: "나 + 비" },
+                    { char: "모기", rumi: "mogi", desc: "Nyamuk", stroke: "모 + 기" },
+                    { char: "휴지", rumi: "hyuji", desc: "Tisu", stroke: "휴 + 지" },
+                    { char: "서랍", rumi: "seorap", desc: "Laci", stroke: "서 + 랍" },
+                    { char: "거울", rumi: "geoul", desc: "Cermin", stroke: "거 + 울" },
+                    { char: "주스", rumi: "juseu", desc: "Jus", stroke: "주 + 스" }
                 ]
             },
             {
                 id: 4,
-                title: "Level 4: Kosa Kata Mudah",
-                desc: "Perkataan harian pertama anda.",
+                title: "Level 4: Kosa Kata Harian (30 Latihan)",
+                desc: "30 perbendaharaan kata asas harian popular dalam bahasa Korea.",
                 items: [
-                    { char: "우유", rumi: "u-yu", desc: "Maksud: Susu", stroke: "우 (U) + 유 (YU)" },
-                    { char: "아이", rumi: "a-i", desc: "Maksud: Budak / Kanak-kanak", stroke: "아 (A) + 이 (I)" },
-                    { char: "고기", rumi: "go-gi", desc: "Maksud: Daging", stroke: "고 (GO) + 기 (GI)" },
-                    { char: "나무", rumi: "na-mu", desc: "Maksud: Pokok / Kayu", stroke: "나 (NA) + 무 (MU)" }
+                    { char: "물", rumi: "mul", desc: "Air Kosong", stroke: "ㅁ + ㅜ + ㄹ" },
+                    { char: "밥", rumi: "bap", desc: "Nasi / Makanan", stroke: "ㅂ + ㅏ + ㅂ" },
+                    { char: "불", rumi: "bul", desc: "Api / Lampu", stroke: "ㅂ + ㅜ + ㄹ" },
+                    { char: "집", rumi: "jip", desc: "Rumah", stroke: "ㅈ + ㅣ + ㅂ" },
+                    { char: "책", rumi: "chaek", desc: "Buku", stroke: "ㅊ + ㅐ + ㄱ" },
+                    { char: "문", rumi: "mun", desc: "Pintu", stroke: "ㅁ + ㅜ + ㄴ" },
+                    { char: "방", rumi: "bang", desc: "Bilik", stroke: "ㅂ + ㅏ + ㅇ" },
+                    { char: "손", rumi: "son", desc: "Tangan", stroke: "ㅅ + ㅗ + ㄴ" },
+                    { char: "발", rumi: "bal", desc: "Kaki", stroke: "ㅂ + ㅏ + ㄹ" },
+                    { char: "눈", rumi: "nun", desc: "Mata / Salji", stroke: "ㄴ + ㅜ + ㄴ" },
+                    { char: "귀", rumi: "gwi", desc: "Telinga", stroke: "ㄱ + ㅜ + ㅣ" },
+                    { char: "코", rumi: "ko", desc: "Hidung", stroke: "ㅋ + ㅗ" },
+                    { char: "입", rumi: "ip", desc: "Mulut", stroke: "ㅇ + ㅣ + ㅂ" },
+                    { char: "개", rumi: "gae", desc: "Anjing", stroke: "ㄱ + ㅐ" },
+                    { char: "고양이", rumi: "goyangi", desc: "Kucing", stroke: "고 + 양 + 이" },
+                    { char: "새", rumi: "sae", desc: "Burung", stroke: "ㅅ + ㅐ" },
+                    { char: "돈", rumi: "don", desc: "Duit / Wang", stroke: "ㄷ + ㅗ + ㄴ" },
+                    { char: "길", rumi: "gil", desc: "Jalan", stroke: "ㄱ + ㅣ + ㄹ" },
+                    { char: "달", rumi: "dal", desc: "Bulan", stroke: "ㄷ + ㅏ + ㄹ" },
+                    { char: "별", rumi: "byeol", desc: "Bintang", stroke: "ㅂ + ㅕ + ㄹ" },
+                    { char: "하늘", rumi: "haneul", desc: "Langit", stroke: "하 + 느 + ㄹ" },
+                    { char: "바람", rumi: "baram", desc: "Angin", stroke: "바 + 람" },
+                    { char: "꽃", rumi: "kkot", desc: "Bunga", stroke: "ㄲ + ㅗ + ㅊ" },
+                    { char: "풀", rumi: "pul", desc: "Rumput / Gam", stroke: "ㅍ + ㅜ + ㄹ" },
+                    { char: "산", rumi: "san", desc: "Gunung", stroke: "ㅅ + ㅏ + ㄴ" },
+                    { char: "강", rumi: "gang", desc: "Sungai", stroke: "ㄱ + ㅏ + ㅇ" },
+                    { char: "바다", rumi: "bada", desc: "Laut", stroke: "바 + 다" },
+                    { char: "도시", rumi: "dosi", desc: "Bandar", stroke: "도 + 시" },
+                    { char: "친구", rumi: "chingu", desc: "Kawan / Sahabat", stroke: "친 + 구" },
+                    { char: "사람", rumi: "saram", desc: "Orang / Manusia", stroke: "사 + 람" }
                 ]
             },
             {
                 id: 5,
-                title: "Level 5: Batchim (Konsonan Akhir)",
-                desc: "Konsonan yang terletak di bawah blok suku kata.",
+                title: "Level 5: Batchim Lanjutan (30 Latihan)",
+                desc: "30 latihan konsonan akhir (Batchim) pelbagai bunyi.",
                 items: [
-                    { char: "간", rumi: "gan", desc: "Berakhir dengan konsonan ㄴ (N) di bawah.", stroke: "ㄱ + ㅏ + ㄴ (N)" },
-                    { char: "학", rumi: "hak", desc: "Berakhir dengan konsonan ㄱ (K) di bawah.", stroke: "ㅎ + ㅏ + ㄱ (K)" },
-                    { char: "문", rumi: "mun", desc: "Maksud: Pintu. Berakhir dengan bunyi N.", stroke: "ㅁ + ㅜ + ㄴ (N)" },
-                    { char: "밥", rumi: "bap", desc: "Maksud: Nasi. Berakhir dengan bunyi P.", stroke: "ㅂ + ㅏ + ㅂ (P)" }
+                    { char: "학", rumi: "hak", desc: "Batchim ㄱ (Bunyi K)", stroke: "ㅎ + ㅏ + ㄱ" },
+                    { char: "국", rumi: "guk", desc: "Sup", stroke: "ㄱ + ㅜ + ㄱ" },
+                    { char: "밖", rumi: "bak", desc: "Di Luar", stroke: "ㅂ + ㅏ + ㄲ" },
+                    { char: "산", rumi: "san", desc: "Batchim ㄴ (Bunyi N)", stroke: "ㅅ + ㅏ + ㄴ" },
+                    { char: "눈", rumi: "nun", desc: "Mata / Salji", stroke: "ㄴ + ㅜ + ㄴ" },
+                    { char: "신", rumi: "sin", desc: "Kasut / Tuhan", stroke: "ㅅ + ㅣ + ㄴ" },
+                    { char: "닫다", rumi: "datda", desc: "Batchim ㄷ dibaca T", stroke: "닫 + 다" },
+                    { char: "옷", rumi: "ot", desc: "Pakaian / Baju", stroke: "ㅇ + ㅗ + ㅅ" },
+                    { char: "있어요", rumi: "isseoyo", desc: "Ada / Mempunyai", stroke: "있 + 어 + 요" },
+                    { char: "달", rumi: "dal", desc: "Batchim ㄹ (Bunyi L)", stroke: "ㄷ + ㅏ + ㄹ" },
+                    { char: "물", rumi: "mul", desc: "Air", stroke: "ㅁ + ㅜ + ㄹ" },
+                    { char: "말", rumi: "mal", desc: "Perkataan", stroke: "ㅁ + ㅏ + ㄹ" },
+                    { char: "밤", rumi: "bam", desc: "Batchim ㅁ (Bunyi M)", stroke: "ㅂ + ㅏ + ㅁ" },
+                    { char: "김", rumi: "gim", desc: "Rumput laut kering", stroke: "ㄱ + ㅣ + ㅁ" },
+                    { char: "음식", rumi: "eumsik", desc: "Makanan", stroke: "음 + 식" },
+                    { char: "밥", rumi: "bap", desc: "Batchim ㅂ (Bunyi P)", stroke: "ㅂ + ㅏ + ㅂ" },
+                    { char: "입", rumi: "ip", desc: "Mulut", stroke: "ㅇ + ㅣ + ㅂ" },
+                    { char: "숲", rumi: "sup", desc: "Hutan", stroke: "ㅅ + ㅜ + ㅍ" },
+                    { char: "공", rumi: "gong", desc: "Batchim ㅇ (Bunyi NG)", stroke: "ㄱ + ㅗ + ㅇ" },
+                    { char: "방", rumi: "bang", desc: "Bilik", stroke: "ㅂ + ㅏ + ㅇ" },
+                    { char: "강", rumi: "gang", desc: "Sungai", stroke: "ㄱ + ㅏ + ㅇ" },
+                    { char: "값", rumi: "gaps", desc: "Batchim Bergabung", stroke: "값" },
+                    { char: "몫", rumi: "mok", desc: "Bahagian / Syer", stroke: "몫" },
+                    { char: "읽다", rumi: "ikda", desc: "Membaca", stroke: "읽 + 다" },
+                    { char: "없어요", rumi: "eopseoyo", desc: "Tiada", stroke: "없 + 어 + 요" },
+                    { char: "넓다", rumi: "neolpda", desc: "Luas", stroke: "넓 + 다" },
+                    { char: "닭", rumi: "dak", desc: "Ayam", stroke: "닭" },
+                    { char: "삶", rumi: "sam", desc: "Kehidupan", stroke: "삶" },
+                    { char: "젊다", rumi: "jeomda", desc: "Muda", stroke: "젊 + 다" },
+                    { char: "않다", rumi: "anta", desc: "Tidak", stroke: "않 + 다" }
                 ]
             },
             {
                 id: 6,
-                title: "Level 6: Peraturan Sebutan Lanjutan",
-                desc: "Bagaimana sebutan berubah dalam ayat sebenar.",
+                title: "Level 6: Peraturan Sebutan & Ayat (30 Latihan)",
+                desc: "30 latihan frasa, ayat harian dan peraturan sebutan lanjutan.",
                 items: [
-                    { char: "안녕하세요", rumi: "annyeonghaseyo", desc: "Maksud: Selamat Sejahtera (Formal)", stroke: "Gabungan sebutan standard harian." },
-                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Maksud: Terima Kasih", stroke: "Perhatikan perubahan bunyi ㅁ di akhir." },
-                    { char: "존맛", rumi: "jonmat", desc: "Bahasa santai bermaksud 'Sangat Sedap'.", stroke: "ㅈ + ㅗ + ㄴ + ㅁ + ㅏ + ㅅ" }
+                    { char: "안녕하세요", rumi: "annyeonghaseyo", desc: "Selamat Sejahtera (Formal)", stroke: "안 + 녕 + 하 + 세 + 요" },
+                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Terima Kasih", stroke: "감 + 사 + 합 + 니 + 다" },
+                    { char: "반갑습니다", rumi: "bangapseumnida", desc: "Gembira Bertemu Anda", stroke: "반 + 갑 + 습 + 니 + 다" },
+                    { char: "죄송합니다", rumi: "joesonghamnida", desc: "Minta Maaf", stroke: "죄 + 송 + 합 + 니 + 다" },
+                    { char: "안녕히 가세요", rumi: "annyeonghi gaseyo", desc: "Selamat tinggal (Pergi)", stroke: "안 + 녕 + 히 + 가 + 세 + 요" },
+                    { char: "안녕히 계세요", rumi: "annyeonghi gyeseyo", desc: "Selamat tinggal (Tinggal)", stroke: "안 + 녕 + 히 + 계 + 세 + 요" },
+                    { char: "좋은 아침입니다", rumi: "joeun achimimnida", desc: "Selamat Pagi", stroke: "좋 + 은 + 아 + 침 + 입 + 니 + 다" },
+                    { char: "잘 먹겠습니다", rumi: "jal meokgessumnida", desc: "Sebelum makan", stroke: "잘 + 먹 + 겠 + 습 + 니 + 다" },
+                    { char: "잘 먹었습니다", rumi: "jal meogeotseumnida", desc: "Selepas makan", stroke: "잘 + 먹 + 었 + 습 + 니 + 다" },
+                    { char: "보고 싶어요", rumi: "bogo sipeoyo", desc: "Saya rindu awak", stroke: "보 + 고 + 싶 + 어 + 요" },
+                    { char: "사랑해요", rumi: "saranghaeyo", desc: "Saya cinta awak", stroke: "사 + 랑 + 해 + 요" },
+                    { char: "괜찮아요", rumi: "gwaenchanayo", desc: "Tidak apa-apa", stroke: "괜 + 찬 + 아 + 요" },
+                    { char: "알겠습니다", rumi: "algesseumnida", desc: "Faham / Baik", stroke: "알 + 겠 + 습 + 니 + 다" },
+                    { char: "몰랐어요", rumi: "mollasseoyo", desc: "Saya tidak tahu", stroke: "몰 + 랐 + 어 + 요" },
+                    { char: "도와주세요", rumi: "dowajuseyo", desc: "Tolong saya", stroke: "도 + 와 + 주 + 세 + 요" },
+                    { char: "잠시만요", rumi: "jamsimanyo", desc: "Sebentar ya", stroke: "잠 + 시 + 만 + 요" },
+                    { char: "얼마예요?", rumi: "eolmayeyo?", desc: "Berapa harganya?", stroke: "얼 + 마 + 예 + 요" },
+                    { char: "이거 주세요", rumi: "igeo juseyo", desc: "Tolong bagi yang ini", stroke: "이 + 거 + 주 + 세 + 요" },
+                    { char: "맛있어요", rumi: "masisseoyo", desc: "Sedap!", stroke: "맛 + 있 + 어 + 요" },
+                    { char: "배고파요", rumi: "baegopayo", desc: "Saya lapar", stroke: "배 + 고 + 파 + 요" },
+                    { char: "목마른", rumi: "mokmareun", desc: "Haus", stroke: "목 + 마 + 른" },
+                    { char: "피곤해요", rumi: "pigonhaeyo", desc: "Saya penat", stroke: "피 + 고 + 해 + 요" },
+                    { char: "재미있어요", rumi: "jaemiisseoyo", desc: "Menarik / Seronok", stroke: "재 + 미 + 있 + 어 + 요" },
+                    { char: "어디 가세요?", rumi: "eodi gaseyo?", desc: "Nak ke mana?", stroke: "어 + 디 + 가 + 세 + 요" },
+                    { char: "이름이 뭐예요?", rumi: "ireumi mwoyeyo?", desc: "Siapa nama anda?", stroke: "이 + 름 + 이 + 뭐 + 예 + 요" },
+                    { char: "저는 말레이시아 사람이에요", rumi: "jeoneun malreisiah saramieyo", desc: "Saya orang Malaysia", stroke: "저 + 는 + 말 + 레이 + 시 + 아 + 사 + 람 + 이 + 에 + 요" },
+                    { char: "한국어를 공부해요", rumi: "hangureul gongbuhaeyo", desc: "Saya belajar bahasa Korea", stroke: "한 + 국 + 어 + 를 + 공 + 부 + 해 + 요" },
+                    { char: "내일 봐요", rumi: "naeil bwayo", desc: "Jumpa esok", stroke: "내 + 일 + 봐 + 요" },
+                    { char: "화이팅!", rumi: "hwaiting!", desc: "Fighting! / Semangat!", stroke: "화 + 이 + 팅" },
+                    { char: "행복하세요", rumi: "haengbokhaseyo", desc: "Semoga bahagia", stroke: "행 + 복 + 하 + 세 + 요" }
                 ]
             }
         ];
@@ -395,7 +529,7 @@
                         <p class="text-slate-400 text-sm">${lvl.desc}</p>
                     </div>
                     <button onclick="startLevel(${lvl.id})" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
-                        <span>Mula Belajar</span>
+                        <span>Mula Belajar (30 Latihan)</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 `;
@@ -421,8 +555,11 @@
             const charEl = document.getElementById('study-char');
             charEl.innerText = item.char;
 
-            if (item.char.length > 4) {
+            // Saiz automatik mengikut panjang teks perkataan
+            if (item.char.length > 5) {
                 charEl.className = "hangul-font text-xl md:text-2xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug break-words px-2";
+            } else if (item.char.length > 2) {
+                charEl.className = "hangul-font text-2xl md:text-3xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug break-words px-2";
             } else {
                 charEl.className = "hangul-font text-5xl md:text-6xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug";
             }
@@ -524,10 +661,10 @@
         function finishQuiz() {
             const total = currentLevelObj.items.length;
             const percentage = Math.round((quizScoreCount / total) * 100);
-            const pointsEarned = quizScoreCount * 10;
+            const pointsEarned = quizScoreCount * 5;
 
             userScore += pointsEarned;
-            document.assertEqual ? document.getElementById('stat-score').innerText = userScore : document.getElementById('stat-score').innerText = userScore;
+            document.getElementById('stat-score').innerText = userScore;
 
             if (percentage >= 70 && currentLevelObj.id >= userLevel) {
                 userLevel = currentLevelObj.id + 1;
