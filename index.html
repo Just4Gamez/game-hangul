@@ -414,18 +414,8 @@
             document.getElementById('study-desc').innerText = item.desc;
             document.getElementById('study-stroke').innerText = item.stroke;
 
-            // Urus butang 'Sebelum'
-            const btnPrev = document.getElementById('btn-prev-char');
-            btnPrev.disabled = (currentStudyIndex === 0);
-            btnPrev.style.opacity = (currentStudyIndex === 0) ? '0.5' : '1';
-
-            // Urus butang 'Seterusnya' (Sembunyikan jika dah item terakhir)
-            const btnNext = document.getElementById('btn-next-char');
-            if (currentStudyIndex === currentLevelObj.items.length - 1) {
-                btnNext.style.display = 'none';
-            } else {
-                btnNext.style.display = 'inline-flex';
-            }
+            document.getElementById('btn-prev-char').disabled = (currentStudyIndex === 0);
+            document.getElementById('btn-prev-char').style.opacity = (currentStudyIndex === 0) ? '0.5' : '1';
         }
 
         function navigateStudy(direction) {
