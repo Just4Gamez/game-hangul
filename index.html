@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangul Master - Grammar Lab Edition</title>
+    <title>Hangul Master - Ultimate Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -74,11 +74,11 @@
         <!-- ================= HOME SECTION ================= -->
         <section id="section-home" class="space-y-8 transition-all duration-300">
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">문법</div>
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas & Makmal Tatabahasa</span>
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Kategori Khas & Grammar Lab</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada anda mahu belajar melalui 21 Level Kosa Kata Harian ataupun masuk ke Ruang Khas Hangul Grammar Lab (gaya English Grammar)!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Khas Tematik (Rumah, Keluarga, Sekolah, Pejabat), ataupun Hangul Grammar Lab!</p>
                 </div>
             </div>
 
@@ -90,20 +90,29 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Study & Practice (Lvl 1-21)</h3>
-                    <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif tahap 1 hingga 21.</p>
+                    <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif.</p>
                 </div>
 
-                <!-- 2. NEW: Hangul Grammar Lab (English-style) -->
-                <div onclick="openGrammarLabMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold rounded border border-emerald-500/30">NEW</div>
+                <!-- 2. NEW: Special Categories (House, Family, School, Office) -->
+                <div onclick="openSpecialMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded border border-amber-500/30">NEW</div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-house-chimney-user"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Kategori Khas (Tematik)</h3>
+                    <p class="text-slate-400 text-sm">Kosa kata khusus Barang Rumah, Keluarga, Sekolah & Pejabat.</p>
+                </div>
+
+                <!-- 3. Hangul Grammar Lab -->
+                <div onclick="openGrammarLabMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-atlas"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Hangul Grammar Lab</h3>
-                    <p class="text-slate-400 text-sm">Ruang khas tatabahasa berasingan ala English Grammar (Partikel, Tenses, Syarat, dll).</p>
+                    <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
                 </div>
 
-                <!-- 3. Mistakes Review -->
+                <!-- 4. Mistakes Review -->
                 <div onclick="openMistakesMode()" class="bg-slate-900/80 border border-slate-800 hover:border-red-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-triangle-exclamation"></i>
@@ -112,18 +121,18 @@
                     <p class="text-slate-400 text-sm">Ulang kaji semula soalan kuiz yang anda pernah jawab salah.</p>
                 </div>
 
-                <!-- 4. Words Dictionary -->
-                <div onclick="openWordsMode()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                <!-- 5. Words Dictionary -->
+                <div onclick="openWordsMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-list-ul"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Words (Kamus Indeks)</h3>
                     <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata dan formula tatabahasa.</p>
                 </div>
 
-                <!-- 5. Listen Mode -->
-                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                <!-- 6. Listen Mode -->
+                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-blue-400/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-300 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-headphones"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Listen Mode</h3>
@@ -147,7 +156,22 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="levels-container"></div>
         </section>
 
-        <!-- ================= GRAMMAR LAB MENU SECTION (NEW) ================= -->
+        <!-- ================= SPECIAL CATEGORIES MENU SECTION (NEW) ================= -->
+        <section id="section-special" class="hidden space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Kategori Khas Tematik (Special Categories)</h2>
+                    <p class="text-slate-400 text-sm">Pilih topik kosa kata khusus harian anda</p>
+                </div>
+                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="special-container"></div>
+        </section>
+
+        <!-- ================= GRAMMAR LAB MENU SECTION ================= -->
         <section id="section-grammar-lab" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -197,7 +221,7 @@
                 <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 text-left space-y-2">
                     <div class="flex items-center space-x-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
                         <i class="fa-solid fa-book-bookmark text-red-400"></i>
-                        <span>Nota & Contoh Ayat (Grammar Rule):</span>
+                        <span>Nota & Contoh Ayat:</span>
                     </div>
                     <p id="study-stroke" class="text-sm text-slate-300 whitespace-pre-line">Panduan terperinci.</p>
                 </div>
@@ -233,7 +257,7 @@
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
                 <div class="space-y-1 relative">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi formula ini?</span>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
                         <div id="quiz-char-display" class="hangul-font text-4xl md:text-5xl font-black text-amber-400">아</div>
                         <button onclick="playQuizAudio()" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
@@ -251,7 +275,7 @@
         <section id="section-words" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Kamus & Indeks Formula (Words)</h2>
+                    <h2 class="text-2xl font-bold text-white">Kamus & Indeks Penuh (Words)</h2>
                     <p class="text-slate-400 text-sm">Cari dan semak semua perbendaharaan kata & tatabahasa</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
@@ -260,7 +284,7 @@
                 </button>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-                <input type="text" id="word-search" oninput="filterWords()" placeholder="Cari perkataan atau formula tatabahasa..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500">
+                <input type="text" id="word-search" oninput="filterWords()" placeholder="Cari perkataan atau formula..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500">
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="words-grid"></div>
         </section>
@@ -332,7 +356,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 bg-slate-900/50 text-center text-slate-500 text-xs">
-        <p>Hangul Master Grammar Lab Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
+        <p>Hangul Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
     </footer>
 
     <!-- JavaScript Platform -->
@@ -711,44 +735,7 @@
             },
             {
                 id: 11,
-                title: "Level 11: Objek Rumah & Peralatan Harian",
-                desc: "30 perabot & peralatan elektrik rumah.",
-                items: [
-                    { char: "의자", rumi: "uija", desc: "Kerusi", stroke: "Perabot" },
-                    { char: "책상", rumi: "chaeksang", desc: "Meja tulis", stroke: "Perabot" },
-                    { char: "침대", rumi: "chimdae", desc: "Katil tidur", stroke: "Perabot" },
-                    { char: "옷장", rumi: "otjang", desc: "Almari baju", stroke: "Perabot" },
-                    { char: "냉장고", rumi: "naengjanggo", desc: "Peti sejuk", stroke: "Peralatan" },
-                    { char: "세탁기", rumi: "setakgi", desc: "Mesin basuh", stroke: "Peralatan" },
-                    { char: "텔레비전", rumi: "tellebijeon", desc: "Televisyen", stroke: "Peralatan" },
-                    { char: "컴퓨터", rumi: "keompyuteo", desc: "Komputer", stroke: "Peralatan" },
-                    { char: "휴대폰", rumi: "hyudaepon", desc: "Handphone", stroke: "Peralatan" },
-                    { char: "열쇠", rumi: "yeolsoe", desc: "Kunci", stroke: "Objek" },
-                    { char: "가방", rumi: "gabang", desc: "Beg", stroke: "Objek" },
-                    { char: "지갑", rumi: "jigap", desc: "Dompet", stroke: "Objek" },
-                    { char: "안경", rumi: "angyeong", desc: "Cermin mata", stroke: "Objek" },
-                    { char: "우산", rumi: "usan", desc: "Payung", stroke: "Objek" },
-                    { char: "거울", rumi: "geoul", desc: "Cermin muka", stroke: "Objek" },
-                    { char: "수건", rumi: "sugeon", desc: "Tuala", stroke: "Objek" },
-                    { char: "비누", rumi: "binu", desc: "Sabun", stroke: "Objek" },
-                    { char: "치약", rumi: "chiyak", desc: "Ubat gigi", stroke: "Objek" },
-                    { char: "칫솔", rumi: "chitsol", desc: "Berus gigi", stroke: "Objek" },
-                    { char: "휴지", rumi: "hyuji", desc: "Tisu", stroke: "Objek" },
-                    { char: "펜", rumi: "pen", desc: "Pen", stroke: "Alat tulis" },
-                    { char: "연필", rumi: "yeonpil", desc: "Pensel", stroke: "Alat tulis" },
-                    { char: "종이", rumi: "jong-i", desc: "Kertas", stroke: "Alat tulis" },
-                    { char: "가위", rumi: "gawi", desc: "Gunting", stroke: "Alat" },
-                    { char: "칼", rumi: "kal", desc: "Pisau", stroke: "Alat" },
-                    { char: "컵", rumi: "keop", desc: "Cawan", stroke: "Pinggan" },
-                    { char: "접시", rumi: "jeopsi", desc: "Pinggan", stroke: "Pinggan" },
-                    { char: "숟가락", rumi: "sutgarak", desc: "Sudu", stroke: "Alat makan" },
-                    { char: "젓가락", rumi: "jeotgarak", desc: "Chopsticks", stroke: "Alat makan" },
-                    { char: "시계", rumi: "sigye", desc: "Jam", stroke: "Objek" }
-                ]
-            },
-            {
-                id: 12,
-                title: "Level 12: Kosa Kata & Istilah Lanjutan",
+                title: "Level 11: Kosa Kata & Istilah Lanjutan",
                 desc: "30 istilah ekonomi, perubatan & cuaca.",
                 items: [
                     { char: "경제", rumi: "gyeongje", desc: "Ekonomi", stroke: "Ekonomi" },
@@ -784,8 +771,8 @@
                 ]
             },
             {
-                id: 13,
-                title: "Level 13: Peribahasa & Slang Korea",
+                id: 12,
+                title: "Level 12: Peribahasa & Slang Korea",
                 desc: "30 peribahasa & simpulan bahasa popular.",
                 items: [
                     { char: "시작이 반이다", rumi: "sijagi banida", desc: "Mula itu separuh kejayaan", stroke: "Peribahasa" },
@@ -821,8 +808,8 @@
                 ]
             },
             {
-                id: 14,
-                title: "Level 14: Budaya, Makanan & K-Drama",
+                id: 13,
+                title: "Level 13: Budaya, Makanan & K-Drama",
                 desc: "30 istilah makanan, drama & k-pop popular.",
                 items: [
                     { char: "먹방", rumi: "mukbang", desc: "Siaran makan besar", stroke: "Mukbang" },
@@ -858,8 +845,8 @@
                 ]
             },
             {
-                id: 15,
-                title: "Level 15: Mesej Teks & Chatting Slang",
+                id: 14,
+                title: "Level 14: Mesej Teks & Chatting Slang",
                 desc: "30 ungkapan mesej internet & panggilan fon.",
                 items: [
                     { char: "ㅋㅋㅋ", rumi: "kkk", desc: "Hahaha (Ketawa teks)", stroke: "Chat" },
@@ -895,45 +882,8 @@
                 ]
             },
             {
-                id: 16,
-                title: "Level 16: Pekerjaan & Tempat Kerja",
-                desc: "30 perbendaharaan kata kerjaya & pejabat.",
-                items: [
-                    { char: "회사원", rumi: "hoesawon", desc: "Pekerja syarikat", stroke: "Kerjaya" },
-                    { char: "선생님", rumi: "seonsaengnim", desc: "Cikgu / Guru", stroke: "Kerjaya" },
-                    { char: "의사", rumi: "uisa", desc: "Doktor", stroke: "Kerjaya" },
-                    { char: "간호사", rumi: "ganhosa", desc: "Jururawat", stroke: "Kerjaya" },
-                    { char: "경찰관", rumi: "gyeongchalgwan", desc: "Polis", stroke: "Kerjaya" },
-                    { char: "소방관", rumi: "sobanggwan", desc: "Bomba", stroke: "Kerjaya" },
-                    { char: "요리사", rumi: "yorisa", desc: "Chef / Jurumasak", stroke: "Kerjaya" },
-                    { char: "가수", rumi: "gasu", desc: "Penyanyi", stroke: "Kerjaya" },
-                    { char: "배우", rumi: "baeu", desc: "Pelakon", stroke: "Kerjaya" },
-                    { char: "기자", rumi: "gija", desc: "Wartawan", stroke: "Kerjaya" },
-                    { char: "변호사", rumi: "byeonhosa", desc: "Peguam", stroke: "Kerjaya" },
-                    { char: "엔지니어", rumi: "enjinieo", desc: "Jurutera", stroke: "Kerjaya" },
-                    { char: "학생", rumi: "haksaeng", desc: "Pelajar", stroke: "Kerjaya" },
-                    { char: "사장님", rumi: "sajangnim", desc: "Boss / CEO", stroke: "Jawatan" },
-                    { char: "부장님", rumi: "bujangnim", desc: "Pengurus Besar", stroke: "Jawatan" },
-                    { char: "과장님", rumi: "gwajangnim", desc: "Penolong Pengurus", stroke: "Jawatan" },
-                    { char: "대리", rumi: "daeri", desc: "Penolong / Assistant", stroke: "Jawatan" },
-                    { char: "사원", rumi: "sawon", desc: "Staf biasa", stroke: "Jawatan" },
-                    { char: "동료", rumi: "dongryo", desc: "Rakan sekerja", stroke: "Pejabat" },
-                    { char: "상사", rumi: "sangsa", desc: "Ketua / Atasan", stroke: "Pejabat" },
-                    { char: "부서", rumi: "buseo", desc: "Jabatan / Unit", stroke: "Pejabat" },
-                    { char: "회의", rumi: "hoeui", desc: "Mesyuarat", stroke: "Pejabat" },
-                    { char: "보고서", rumi: "bogoseo", desc: "Laporan", stroke: "Pejabat" },
-                    { char: "출장", rumi: "chuljang", desc: "Lawatan kerja", stroke: "Pejabat" },
-                    { char: "야근", rumi: "yageun", desc: "Kerja malam (OT)", stroke: "Pejabat" },
-                    { char: "휴가", rumi: "hyuga", desc: "Cuti berehat", stroke: "Pejabat" },
-                    { char: "퇴근", rumi: "toegeun", desc: "Waktu balik kerja", stroke: "Pejabat" },
-                    { char: "출근", rumi: "chulgeun", desc: "Masuk kerja", stroke: "Pejabat" },
-                    { char: "월급", rumi: "wolgeup", desc: "Gaji bulanan", stroke: "Pejabat" },
-                    { char: "회사", rumi: "hoesa", desc: "Syarikat / Office", stroke: "Pejabat" }
-                ]
-            },
-            {
-                id: 17,
-                title: "Level 17: Hobi & Sukan",
+                id: 15,
+                title: "Level 15: Hobi & Sukan",
                 desc: "30 perbendaharaan kata aktiviti masa lapang.",
                 items: [
                     { char: "취미", rumi: "chwimi", desc: "Hobi", stroke: "Hobi" },
@@ -969,8 +919,8 @@
                 ]
             },
             {
-                id: 18,
-                title: "Level 18: Alam Semulajadi & Haiwan",
+                id: 16,
+                title: "Level 16: Alam Semulajadi & Haiwan",
                 desc: "30 perbendaharaan kata haiwan, tumbuhan & alam.",
                 items: [
                     { char: "동물", rumi: "dongmul", desc: "Haiwan", stroke: "Alam" },
@@ -1006,8 +956,8 @@
                 ]
             },
             {
-                id: 19,
-                title: "Level 19: Perasaan & Emosi",
+                id: 17,
+                title: "Level 17: Perasaan & Emosi",
                 desc: "30 perbendaharaan kata luahan hati & emosi.",
                 items: [
                     { char: "기쁘다", rumi: "gippeuda", desc: "Gembira / Sukacita", stroke: "Emosi" },
@@ -1043,8 +993,8 @@
                 ]
             },
             {
-                id: 20,
-                title: "Level 20: Pelancongan & Tempat Awam",
+                id: 18,
+                title: "Level 18: Pelancongan & Tempat Awam",
                 desc: "30 tempat bandar & lokasi awam.",
                 items: [
                     { char: "공항", rumi: "gonghang", desc: "Lapangan terbang", stroke: "Tempat" },
@@ -1072,11 +1022,85 @@
                     { char: "해수욕장", rumi: "haesuyokjang", desc: "Pantai mandi", stroke: "Tempat" },
                     { char: "경기장", rumi: "gyeonggijang", desc: "Stadium", stroke: "Tempat" },
                     { char: "주차장", rumi: "juchajang", desc: "Tempat letak kereta", stroke: "Tempat" },
-                    { char: "주유소", rumis: "juyuso", desc: "Stesen minyak", stroke: "Tempat" },
+                    { char: "주유소", rumi: "juyuso", desc: "Stesen minyak", stroke: "Tempat" },
                     { char: "세탁소", rumi: "setakso", desc: "Dobi pakaian", stroke: "Tempat" },
                     { char: "미용실", rumi: "miyongsil", desc: "Salun rambut", stroke: "Tempat" },
                     { char: "화장실", rumi: "hwajangsil", desc: "Tandas", stroke: "Tempat" },
                     { char: "출입국사무소", rumi: "churipguksamuso", desc: "Pejabat Imigresen", stroke: "Tempat" }
+                ]
+            },
+            {
+                id: 19,
+                title: "Level 19: Pengangkutan & Kenderaan",
+                desc: "30 jenis kenderaan & pergerakan jalan raya.",
+                items: [
+                    { char: "자동차", rumi: "jadongcha", desc: "Kereta", stroke: "Kenderaan" },
+                    { char: "버스", rumi: "beoseu", desc: "Bas", stroke: "Kenderaan" },
+                    { char: "택시", rumi: "taeksi", desc: "Teksi", stroke: "Kenderaan" },
+                    { char: "지하철", rumi: "jihacheol", desc: "LRT / Keretapi bawah tanah", stroke: "Kenderaan" },
+                    { char: "기차", rumi: "gicha", desc: "Keretapi", stroke: "Kenderaan" },
+                    { char: "KTX (고속열차)", rumi: "gosok-yeolcha", desc: "ETS / Tren laju", stroke: "Kenderaan" },
+                    { char: "자전거", rumi: "jajeongeo", desc: "Basikal", stroke: "Kenderaan" },
+                    { char: "오토바이", rumi: "otobai", desc: "Motosikal", stroke: "Kenderaan" },
+                    { char: "비행기", rumi: "bihaenggi", desc: "Kapal terbang", stroke: "Kenderaan" },
+                    { char: "배", rumi: "bae", desc: "Kapal laut / Bot", stroke: "Kenderaan" },
+                    { char: "헬리콥터", rumi: "hellikopteo", desc: "Helikopter", stroke: "Kenderaan" },
+                    { char: "트럭", rumi: "teureok", desc: "Lori", stroke: "Kenderaan" },
+                    { char: "구급차", rumi: "gugeupcha", desc: "Ambulans", stroke: "Kenderaan" },
+                    { char: "소방차", rumi: "sobangcha", desc: "Lori bomba", stroke: "Kenderaan" },
+                    { char: "경찰차", rumi: "gyeongchalcha", desc: "Kereta polis", stroke: "Kenderaan" },
+                    { char: "신호등", rumi: "sinhodeung", desc: "Lampu isyarat", stroke: "Jalan raya" },
+                    { char: "횡단보도", rumi: "hoengdanbodo", desc: "Zebra crossing", stroke: "Jalan raya" },
+                    { char: "길", rumi: "gil", desc: "Jalan", stroke: "Jalan raya" },
+                    { char: "고속도로", rumi: "gosokdoro", desc: "Lebuhraya", stroke: "Jalan raya" },
+                    { char: "운전하다", rumi: "unjeonhada", desc: "Memandu", stroke: "Aksi" },
+                    { char: "타다", rumi: "tada", desc: "Naik (kenderaan)", stroke: "Aksi" },
+                    { char: "내리다", rumi: "naerida", desc: "Turun (kenderaan)", stroke: "Aksi" },
+                    { char: "갈타다", rumi: "galtada", desc: "Bertukar kenderaan (Transit)", stroke: "Aksi" },
+                    { char: "막히다", rumi: "makjida", desc: "Sesak / Jam", stroke: "Aksi" },
+                    { char: "늦다", rumi: "neutda", desc: "Lambat", stroke: "Aksi" },
+                    { char: "빠르다", rumi: "ppareuda", desc: "Cepat / Laju", stroke: "Sifat" },
+                    { char: "느리다", rumi: "neurida", desc: "Perlahan", stroke: "Sifat" },
+                    { char: "가깝다", rumi: "gakkapda", desc: "Dekat", stroke: "Sifat" },
+                    { char: "멀다", rumi: "meolda", desc: "Jauh", stroke: "Sifat" },
+                    { char: "길을 잃다", rumi: "gireul irta", desc: "Sesat jalan", stroke: "Situasi" }
+                ]
+            },
+            {
+                id: 20,
+                title: "Level 20: Makanan & Minuman Tradisional",
+                desc: "30 perbendaharaan kata kulinari & masakan Korea.",
+                items: [
+                    { char: "김치", rumi: "gimchi", desc: "Kimchi", stroke: "Makanan" },
+                    { char: "불고기", rumi: "bulgogi", desc: "Daging lembu manis", stroke: "Makanan" },
+                    { char: "비빔밥", rumi: "bibimbap", desc: "Nasi campur", stroke: "Makanan" },
+                    { char: "떡볶이", rumi: "tteokbokki", desc: "Kek beras pedas", stroke: "Makanan" },
+                    { char: "김밥", rumi: "gimbap", desc: "Nasi gulung", stroke: "Makanan" },
+                    { char: "삼겹살", rumi: "samgyeopsal", desc: "Daging babi panggang", stroke: "Makanan" },
+                    { char: "냉면", rumi: "naengmyeon", desc: "Mee sejuk", stroke: "Makanan" },
+                    { char: "된장찌개", rumi: "doenjang-jjigae", desc: "Sup pes kacang soya", stroke: "Makanan" },
+                    { char: "김치찌개", rumi: "gimchi-jjigae", desc: "Sup kimchi", stroke: "Makanan" },
+                    { char: "순두부찌개", rumi: "sundubu-jjigae", desc: "Sup tauhu lembut", stroke: "Makanan" },
+                    { char: "갈비탕", rumi: "galbitang", desc: "Sup rusuk lembu", stroke: "Makanan" },
+                    { char: "삼계탕", rumi: "samgyetang", desc: "Sup ayam ginseng", stroke: "Makanan" },
+                    { char: "짜장면", rumi: "jjajangmyeon", desc: "Mee sos hitam", stroke: "Makanan" },
+                    { char: "짬뽕", rumi: "jjambbong", desc: "Mee sup seafood pedas", stroke: "Makanan" },
+                    { char: "탕수육", rumi: "tangsuyuk", desc: "Ayam/Babi masam manis", stroke: "Makanan" },
+                    { char: "치킨", rumi: "chikin", desc: "Ayam goreng", stroke: "Makanan" },
+                    { char: "피자", rumi: "pija", desc: "Pizza", stroke: "Makanan" },
+                    { char: "햄버거", rumi: "haembeogeo", desc: "Hamburger", stroke: "Makanan" },
+                    { char: "만두", rumi: "mandu", desc: "Dumpling / Gyoza", stroke: "Makanan" },
+                    { char: "라면", rumi: "ramyeon", desc: "Mee segera", stroke: "Makanan" },
+                    { char: "밥", rumi: "bap", desc: "Nasi", stroke: "Asas" },
+                    { char: "국", rumi: "guk", desc: "Sup", stroke: "Asas" },
+                    { char: "반찬", rumi: "banchan", desc: "Lauk / hidangan sampingan", stroke: "Asas" },
+                    { char: "물", rumi: "mul", desc: "Air kosong", stroke: "Minuman" },
+                    { char: "차", rumi: "cha", desc: "Teh", stroke: "Minuman" },
+                    { char: "커피", rumi: "keopi", desc: "Kopi", stroke: "Minuman" },
+                    { char: "주스", rumi: "juseu", desc: "Jus", stroke: "Minuman" },
+                    { char: "맥주", rumi: "maekju", desc: "Bir", stroke: "Minuman" },
+                    { char: "소주", rumi: "soju", desc: "Soju", stroke: "Minuman" },
+                    { char: "막걸리", rumi: "makgeolli", desc: "Wain beras tradisional", stroke: "Minuman" }
                 ]
             },
             {
@@ -1118,7 +1142,159 @@
             }
         ];
 
-        // Hangul Grammar Lab (Modul Tatabahasa Berasingan Ala English Grammar)
+        // NEW: Kategori Khas Tematik (House, Family, School, Office)
+        const specialCategoriesData = [
+            {
+                id: 'sc-house',
+                title: "1. Barang Dalam Rumah (집 안의 물건)",
+                desc: "Perabot, alatan dapur, bilik tidur & barangan harian rumah.",
+                items: [
+                    { char: "냉장고", rumi: "naengjanggo", desc: "Peti sejuk", stroke: "Dapur" },
+                    { char: "세탁기", rumi: "setakgi", desc: "Mesin basuh", stroke: "Bilik air / Dobi" },
+                    { char: "텔레비전", rumi: "tellebijeon", desc: "Televisyen (TV)", stroke: "Ruang tamu" },
+                    { char: "에어컨", rumi: "h-eokeon", desc: "Aircond / Penghawa dingin", stroke: "Rumah" },
+                    { char: "청소기", rumi: "cheongsogi", desc: "Penyedut hampagas (Vacuum)", stroke: "Alatan" },
+                    { char: "침대", rumi: "chimdae", desc: "Katil tidur", stroke: "Bilik tidur" },
+                    { char: "옷장", rumi: "otjang", desc: "Almari baju", stroke: "Bilik tidur" },
+                    { char: "책상", rumi: "chaeksang", desc: "Meja tulis", stroke: "Bilik / Ruang" },
+                    { char: "의자", rumi: "uija", desc: "Kerusi", stroke: "Perabot" },
+                    { char: "소파", rumi: "sopa", desc: "Sofa", stroke: "Ruang tamu" },
+                    { char: "거울", rumi: "geoul", desc: "Cermin muka", stroke: "Bilik air / Bilik" },
+                    { char: "커튼", rumi: "keuteun", desc: "Langsir", stroke: "Hiasan rumah" },
+                    { char: "밥솥", rumi: "bapsot", desc: "Periuk nasi elektrik", stroke: "Dapur" },
+                    { char: "전자레인지", rumi: "jeonjareinji", desc: "Ketuhar gelombang mikro (Microwave)", stroke: "Dapur" },
+                    { char: "가위", rumi: "gawi", desc: "Gunting", stroke: "Alatan rumah" },
+                    { char: "칼", rumi: "kal", desc: "Pisau dapur", stroke: "Dapur" },
+                    { char: "접시", rumi: "jeopsi", desc: "Pinggan makan", stroke: "Dapur" },
+                    { char: "컵", rumi: "keop", desc: "Cawan / Mug", stroke: "Dapur" },
+                    { char: "숟가락", rumi: "sutgarak", desc: "Sudu", stroke: "Alat makan" },
+                    { char: "젓가락", rumi: "jeotgarak", desc: "Sepit (Chopsticks)", stroke: "Alat makan" },
+                    { char: "빗", rumi: "bit", desc: "Sikat rambut", stroke: "Bilik air" },
+                    { char: "수건", rumi: "sugeon", desc: "Tuala mandi", stroke: "Bilik air" },
+                    { char: "비누", rumi: "binu", desc: "Sabun", stroke: "Bilik air" },
+                    { char: "치약", rumi: "chiyak", desc: "Ubat gigi", stroke: "Bilik air" },
+                    { char: "칫솔", rumi: "chitsol", desc: "Berus gigi", stroke: "Bilik air" },
+                    { char: "휴지", rumi: "hyuji", desc: "Tisu / Kertas tandas", stroke: "Bilik air" },
+                    { char: "열쇠", rumi: "yeolsoe", desc: "Kunci rumah", stroke: "Pintu" },
+                    { char: "우산", rumi: "usan", desc: "Payung", stroke: "Simpanan" },
+                    { char: "휴지통", rumi: "hyujitong", desc: "Tong sampah", stroke: "Rumah" },
+                    { char: "문", rumi: "mun", desc: "Pintu rumah", stroke: "Rumah" }
+                ]
+            },
+            {
+                id: 'sc-family',
+                title: "2. Ahli Keluarga & Perhubungan (가족)",
+                desc: "Panggilan ahli keluarga terdekat & gelaran hormat.",
+                items: [
+                    { char: "가족", rumi: "gajok", desc: "Keluarga", stroke: "Asas" },
+                    { char: "부모님", rumi: "bumonim", desc: "Ibu bapa (Ibu & Ayah)", stroke: "Keluarga" },
+                    { char: "아버지 (아빠)", rumi: "abeoji (appa)", desc: "Ayah / Bapa", stroke: "Keluarga" },
+                    { char: "어머니 (엄마)", rumi: "eomeoni (eomma)", desc: "Ibu / Mak", stroke: "Keluarga" },
+                    { char: "할아버지", rumi: "harabeoji", desc: "Datuk", stroke: "Keluarga" },
+                    { char: "할머니", rumi: "halmeoni", desc: "Nenek", stroke: "Keluarga" },
+                    { char: "형", rumi: "hyeong", desc: "Abang (panggilan oleh lelaki)", stroke: "Keluarga" },
+                    { char: "오빠", rumi: "oppa", desc: "Abang (panggilan oleh wanita)", stroke: "Keluarga" },
+                    { char: "누나", rumi: "nuna", desc: "Kakak (panggilan oleh lelaki)", stroke: "Keluarga" },
+                    { char: "언니", rumi: "eonni", desc: "Kakak (panggilan oleh wanita)", stroke: "Keluarga" },
+                    { char: "동생", rumi: "dongsaeng", desc: "Adik (lelaki / perempuan)", stroke: "Keluarga" },
+                    { char: "남동생", rumi: "namdongsaeng", desc: "Adik lelaki", stroke: "Keluarga" },
+                    { char: "여동생", rumi: "yeodongsaeng", desc: "Adik perempuan", stroke: "Keluarga" },
+                    { char: "형제", rumi: "hyeongje", desc: "Adik-beradik lelaki", stroke: "Keluarga" },
+                    { char: "자매", rumi: "jamae", desc: "Adik-beradik perempuan", stroke: "Keluarga" },
+                    { char: "남편", rumi: "nampyeon", desc: "Suami", stroke: "Perkahwinan" },
+                    { char: "아내 (부인)", rumi: "anae (buin)", desc: "Isteri", stroke: "Perkahwinan" },
+                    { char: "자식 (아이)", rumi: "jasik (ai)", desc: "Anak", stroke: "Keluarga" },
+                    { char: "아들", rumi: "adeul", desc: "Anak lelaki", stroke: "Keluarga" },
+                    { char: "딸", rumi: "ttal", desc: "Anak perempuan", stroke: "Keluarga" },
+                    { char: "삼촌", rumi: "samchon", desc: "Pakcik / Bapa saudara", stroke: "Keluarga" },
+                    { char: "고모", rumi: "gomo", desc: "Makcik (sebelah ayah)", stroke: "Keluarga" },
+                    { char: "이모", rumi: "imo", desc: "Makcik (sebelah ibu)", stroke: "Keluarga" },
+                    { char: "친척", rumi: "chincheok", desc: "Saudara-mara / Relatives", stroke: "Keluarga" },
+                    { char: "친구", rumi: "chingu", desc: "Kawan / Sahabat", stroke: "Sosial" },
+                    { char: "이웃", rumi: "iut", desc: "Jiran tetangga", stroke: "Sosial" },
+                    { char: "결혼하다", rumi: "gyeolhonhada", desc: "Berkahwin", stroke: "Perkahwinan" },
+                    { char: "나이", rumi: "nai", desc: "Umur / Usia", stroke: "Peribadi" },
+                    { char: "이름", rumi: "ireum", desc: "Nama", stroke: "Peribadi" },
+                    { char: "생일", rumi: "saengil", desc: "Hari lahir", stroke: "Peribadi" }
+                ]
+            },
+            {
+                id: 'sc-school',
+                title: "3. Sekolah & Pembelajaran (학교)",
+                desc: "Subjek, bilik darjah, alatan belajar & peperiksaan.",
+                items: [
+                    { char: "학교", rumi: "hakgyo", desc: "Sekolah", stroke: "Pendidikan" },
+                    { char: "교실", rumi: "gyosil", desc: "Bilik darjah / Kelas", stroke: "Pendidikan" },
+                    { char: "학생", rumi: "haksaeng", desc: "Pelajar / Murid", stroke: "Pendidikan" },
+                    { char: "선생님", rumi: "seonsaengnim", desc: "Cikgu / Guru", stroke: "Pendidikan" },
+                    { char: "친구", rumi: "chingu", desc: "Kawan sekolah", stroke: "Pendidikan" },
+                    { char: "책상", rumi: "chaeksang", desc: "Meja sekolah", stroke: "Kelas" },
+                    { char: "의자", rumi: "uija", desc: "Kerusi sekolah", stroke: "Kelas" },
+                    { char: "칠판", rumi: "chilpan", desc: "Papan hitam / Papan putih", stroke: "Kelas" },
+                    { char: "공책", rumi: "gongchaek", desc: "Buku nota", stroke: "Alat tulis" },
+                    { char: "교과서", rumi: "gyogwaseo", desc: "Buku teks sekolah", stroke: "Alat tulis" },
+                    { char: "연필", rumi: "yeonpil", desc: "Pensel", stroke: "Alat tulis" },
+                    { char: "볼펜", rumi: "bolpen", desc: "Pen mata ballpen", stroke: "Alat tulis" },
+                    { char: "지우개", rumi: "jiugae", desc: "Pemadam", stroke: "Alat tulis" },
+                    { char: "필통", rumi: "piltong", desc: "Beg / Kotak pensel", stroke: "Alat tulis" },
+                    { char: "가방", rumi: "gabang", desc: "Beg sekolah", stroke: "Alat tulis" },
+                    { char: "자", rumi: "ja", desc: "Pembaris", stroke: "Alat tulis" },
+                    { char: "가위", rumi: "gawi", desc: "Gunting", stroke: "Alat tulis" },
+                    { char: "풀", rumi: "pul", desc: "Gam kertas", stroke: "Alat tulis" },
+                    { char: "시험", rumi: "siheom", desc: "Ujian / Peperiksaan", stroke: "Akademik" },
+                    { char: "숙제", rumi: "sukje", desc: "Kerja rumah (Homework)", stroke: "Akademik" },
+                    { char: "공부하다", rumi: "gongbuhada", desc: "Belajar", stroke: "Aktiviti" },
+                    { char: "읽다", rumi: "ikda", desc: "Membaca", stroke: "Aktiviti" },
+                    { char: "쓰다", rumi: "sseuda", desc: "Menulis", stroke: "Aktiviti" },
+                    { char: "듣다", rumi: "deutda", desc: "Mendengar", stroke: "Aktiviti" },
+                    { char: "말하다", rumi: "malhada", desc: "Bertutur / Cakap", stroke: "Aktiviti" },
+                    { char: "질문하다", rumi: "jilmunhada", desc: "Bertanya soalan", stroke: "Aktiviti" },
+                    { char: "대답하다", rumi: "daedaphada", desc: "Menjawab", stroke: "Aktiviti" },
+                    { char: "방학", rumi: "banghak", desc: "Cuti sekolah / Semester break", stroke: "Akademik" },
+                    { char: "대학교", rumi: "daehakgyo", desc: "Universiti", stroke: "Pendidikan" },
+                    { char: "도서관", rumi: "doseogwan", desc: "Perpustakaan", stroke: "Pendidikan" }
+                ]
+            },
+            {
+                id: 'sc-office',
+                title: "4. Pejabat & Kerjaya (회사)",
+                desc: "Jawatan, jabatan, dokumen & urusan rasmi kerja.",
+                items: [
+                    { char: "회사", rumi: "hoesa", desc: "Syarikat / Pejabat", stroke: "Kerjaya" },
+                    { char: "회사원", rumi: "hoesawon", desc: "Pekerja syarikat", stroke: "Kerjaya" },
+                    { char: "사장님", rumi: "sajangnim", desc: "Boss / CEO", stroke: "Jawatan" },
+                    { char: "부장님", rumi: "bujangnim", desc: "Pengurus Besar", stroke: "Jawatan" },
+                    { char: "과장님", rumi: "gwajangnim", desc: "Pengurus", stroke: "Jawatan" },
+                    { char: "대리", rumi: "daeri", desc: "Penolong pengurus", stroke: "Jawatan" },
+                    { char: "사원", rumi: "sawon", desc: "Staf biasa", stroke: "Jawatan" },
+                    { char: "동료", rumi: "dongryo", desc: "Rakan sekerja", stroke: "Pejabat" },
+                    { char: "상사", rumi: "sangsa", desc: "Ketua atasan", stroke: "Pejabat" },
+                    { char: "부서", rumi: "buseo", desc: "Jabatan syarikat", stroke: "Pejabat" },
+                    { char: "회의", rumi: "hoeui", desc: "Mesyuarat / Meeting", stroke: "Pejabat" },
+                    { char: "보고서", rumi: "bogoseo", desc: "Laporan kerja", stroke: "Pejabat" },
+                    { char: "이메일", rumi: "imeil", desc: "E-mel rasmi", stroke: "Pejabat" },
+                    { char: "서류", rumi: "seoryu", desc: "Dokumen / Fail", stroke: "Pejabat" },
+                    { char: "프린터", rumi: "peurinteo", desc: "Pencetak (Printer)", stroke: "Alat pejabat" },
+                    { char: "복사기", rumi: "boksagi", desc: "Mesin fotostat (Photocopier)", stroke: "Alat pejabat" },
+                    { char: "컴퓨터", rumi: "keompyuteo", desc: "Komputer pejabat", stroke: "Alat pejabat" },
+                    { char: "명함", rumi: "myeongham", desc: "Kad bisnes (Business card)", stroke: "Pejabat" },
+                    { char: "출근", rumi: "chulgeun", desc: "Masuk pejabat", stroke: "Waktu kerja" },
+                    { char: "퇴근", rumi: "toegeun", desc: "Waktu balik kerja", stroke: "Waktu kerja" },
+                    { char: "야근", rumi: "yageun", desc: "Kerja lebih masa (OT malam)", stroke: "Waktu kerja" },
+                    { char: "출장", rumi: "chuljang", desc: "Lawatan kerja luar", stroke: "Waktu kerja" },
+                    { char: "휴가", rumi: "hyuga", desc: "Cuti tahunan / Cuti rehat", stroke: "Waktu kerja" },
+                    { char: "월급", rumi: "wolgeup", desc: "Gaji bulanan", stroke: "Kewangan" },
+                    { char: "계약", rumi: "gyeyak", desc: "Kontrak kerja", stroke: "Urusan" },
+                    { char: "면접", rumi: "myeonjeop", desc: "Temuduga (Interview)", stroke: "Kerjaya" },
+                    { char: "이력서", rumi: "iryeokseo", desc: "Resume / CV", stroke: "Kerjaya" },
+                    { char: "취직하다", rumi: "chwijik-hada", desc: "Mendapat pekerjaan", stroke: "Kerjaya" },
+                    { char: "퇴사하다", rumi: "toesahada", desc: "Berhenti kerja / Resign", stroke: "Kerjaya" },
+                    { char: "승진하다", rumi: "seungjinhada", desc: "Naik pangkat", stroke: "Kerjaya" }
+                ]
+            }
+        ];
+
+        // Hangul Grammar Lab (6 Modul Tatabahasa)
         const grammarLabData = [
             {
                 id: 'g1',
@@ -1208,13 +1384,14 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             renderLevelCards();
+            renderSpecialCategoryCards();
             renderGrammarLabCards();
             buildAllWordsList();
             showSection('home');
         });
 
         function showSection(sectionId) {
-            ['home', 'levels', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
+            ['home', 'levels', 'special', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
                 const el = document.getElementById(`section-${id}`);
                 if (el) el.classList.add('hidden');
             });
@@ -1246,6 +1423,30 @@
             });
         }
 
+        function renderSpecialCategoryCards() {
+            const container = document.getElementById('special-container');
+            container.innerHTML = '';
+            specialCategoriesData.forEach(sc => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 space-y-4 shadow-lg transition";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full border border-amber-500/20">KATEGORI KHAS</span>
+                        <i class="fa-solid fa-star text-amber-500/60"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-white mb-1">${sc.title}</h3>
+                        <p class="text-slate-400 text-sm">${sc.desc}</p>
+                    </div>
+                    <button onclick="startSpecialCategory('${sc.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
+                        <span>Teroka Kategori Ini</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         function renderGrammarLabCards() {
             const container = document.getElementById('grammar-lab-container');
             container.innerHTML = '';
@@ -1270,12 +1471,23 @@
             });
         }
 
+        function openSpecialMenu() {
+            showSection('special');
+        }
+
         function openGrammarLabMenu() {
             showSection('grammar-lab');
         }
 
         function startLevel(levelId) {
             currentLevelObj = levelsData.find(l => l.id === levelId);
+            currentStudyIndex = 0;
+            updateStudyCard();
+            showSection('study');
+        }
+
+        function startSpecialCategory(scId) {
+            currentLevelObj = specialCategoriesData.find(sc => sc.id === scId);
             currentStudyIndex = 0;
             updateStudyCard();
             showSection('study');
@@ -1289,7 +1501,9 @@
         }
 
         function backFromStudy() {
-            if (grammarLabData.some(g => g.id === currentLevelObj.id)) {
+            if (specialCategoriesData.some(sc => sc.id === currentLevelObj.id)) {
+                showSection('special');
+            } else if (grammarLabData.some(g => g.id === currentLevelObj.id)) {
                 showSection('grammar-lab');
             } else {
                 showSection('levels');
@@ -1299,7 +1513,15 @@
         function updateStudyCard() {
             if (!currentLevelObj) return;
             const item = currentLevelObj.items[currentStudyIndex];
-            document.getElementById('study-level-badge').innerText = currentLevelObj.id.toString().startsWith('g') ? "GRAMMAR LAB" : `LEVEL ${currentLevelObj.id}`;
+            
+            if (currentLevelObj.id.toString().startsWith('sc-')) {
+                document.getElementById('study-level-badge').innerText = "KATEGORI KHAS";
+            } else if (currentLevelObj.id.toString().startsWith('g')) {
+                document.getElementById('study-level-badge').innerText = "GRAMMAR LAB";
+            } else {
+                document.getElementById('study-level-badge').innerText = `LEVEL ${currentLevelObj.id}`;
+            }
+
             document.getElementById('study-level-title').innerText = currentLevelObj.title;
             document.getElementById('study-progress-text').innerText = `${currentStudyIndex + 1} / ${currentLevelObj.items.length}`;
 
@@ -1444,6 +1666,9 @@
             levelsData.forEach(lvl => {
                 lvl.items.forEach(it => allWords.push({...it, level: lvl.id}));
             });
+            specialCategoriesData.forEach(sc => {
+                sc.items.forEach(it => allWords.push({...it, level: sc.title}));
+            });
             grammarLabData.forEach(g => {
                 g.items.forEach(it => allWords.push({...it, level: g.title}));
             });
@@ -1496,6 +1721,7 @@
         function navigateListen(dir) {
             currentListenIndex += dir;
             if (currentListenIndex < 0) currentListenIndex = 0;
+            if (currentListenIndex >= allWords.label) currentListenIndex = allWords.length - 1;
             if (currentListenIndex >= allWords.length) currentListenIndex = allWords.length - 1;
             updateListenCard();
         }
