@@ -49,20 +49,15 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
-                    <p class="text-xs text-slate-400">Vocabulary & Grammar Lab</p>
+                    <p class="text-xs text-slate-400">Vocabulary & Conversation Lab</p>
                 </div>
             </div>
 
             <!-- Stats Bar -->
             <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-                <div class="flex items-center space-x-1" title="Mata">
+                <div class="flex items-center space-x-1" title="Mata Skor">
                     <i class="fa-solid fa-star text-amber-400"></i>
                     <span id="stat-score" class="font-bold text-amber-300">0</span>
-                </div>
-                <div class="h-4 w-px bg-slate-700"></div>
-                <div class="flex items-center space-x-1" title="Kesilapan Disimpan">
-                    <i class="fa-solid fa-triangle-exclamation text-red-400"></i>
-                    <span id="stat-mistakes" class="font-bold text-red-300">0</span>
                 </div>
             </div>
         </div>
@@ -76,9 +71,9 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Kategori Khas & Grammar Lab</span>
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik & Perbualan</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Khas Tematik (Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu), ataupun Hangul Grammar Lab!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik (Rumah, Keluarga, Sekolah, Pejabat, Warna, Masa), Conversation Lab, Grammar Lab, Kamus atau Mod Dengar!</p>
                 </div>
             </div>
 
@@ -95,7 +90,6 @@
 
                 <!-- 2. Special Categories (House, Family, School, Office, Colors, Time) -->
                 <div onclick="openSpecialMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded border border-amber-500/30">UPDATE</div>
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-house-chimney-user"></i>
                     </div>
@@ -103,22 +97,23 @@
                     <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
-                <!-- 3. Hangul Grammar Lab -->
+                <!-- 3. NEW: Conversation Lab (Mod Perbualan Bersiri) -->
+                <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-pink-500/20 text-pink-400 text-[10px] font-bold rounded border border-pink-500/30">NEW</div>
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Conversation Lab</h3>
+                    <p class="text-slate-400 text-sm">Dialog & frasa perbualan harian mengikut situasi bersiri.</p>
+                </div>
+
+                <!-- 4. Hangul Grammar Lab -->
                 <div onclick="openGrammarLabMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-atlas"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Hangul Grammar Lab</h3>
                     <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
-                </div>
-
-                <!-- 4. Mistakes Review -->
-                <div onclick="openMistakesMode()" class="bg-slate-900/80 border border-slate-800 hover:border-red-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Mistakes Review</h3>
-                    <p class="text-slate-400 text-sm">Ulang kaji semula soalan kuiz yang anda pernah jawab salah.</p>
                 </div>
 
                 <!-- 5. Words Dictionary -->
@@ -169,6 +164,21 @@
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="special-container"></div>
+        </section>
+
+        <!-- ================= CONVERSATION LAB MENU SECTION (NEW) ================= -->
+        <section id="section-conversation" class="hidden space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Conversation Lab (Mod Perbualan Bersiri)</h2>
+                    <p class="text-slate-400 text-sm">Pilih situasi perbualan harian sebenar di Korea</p>
+                </div>
+                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="conversation-container"></div>
         </section>
 
         <!-- ================= GRAMMAR LAB MENU SECTION ================= -->
@@ -361,7 +371,7 @@
 
     <!-- JavaScript Platform -->
     <script>
-        // 21 Level Kosa Kata Asal (Tanpa Konflik Kategori Khas)
+        // 21 Level Kosa Kata Asal
         const levelsData = [
             {
                 id: 1,
@@ -1142,7 +1152,7 @@
             }
         ];
 
-        // Kategori Khas Tematik (Kini Termasuk Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu)
+        // Kategori Khas Tematik
         const specialCategoriesData = [
             {
                 id: 'sc-house',
@@ -1341,6 +1351,62 @@
             }
         ];
 
+        // NEW: Conversation Lab Data (Mod Perbualan Bersiri)
+        const conversationLabData = [
+            {
+                id: 'cv-1',
+                title: "Situasi 1: Perkenalan Diri (자기소개)",
+                desc: "Ayat asas untuk berkenalan, sebut nama, asal negara & pekerjaan.",
+                items: [
+                    { char: "안녕하세요, 저는 [Nama]입니다.", rumi: "annyeonghaseyo, jeoneun ... imnida.", desc: "Helo, nama saya ...", stroke: "Digunakan semasa mula berjumpa." },
+                    { char: "어느 나라에서 오셨어요?", rumi: "eoneu naraeseo osyeosseoyo?", desc: "Anda berasal dari negara mana?", stroke: "Soalan asal usul." },
+                    { char: "말레이시아에서 왔습니다.", rumi: "malreisiah-eseo watseumnida.", desc: "Saya datang dari Malaysia.", stroke: "Jawapan asal usul." },
+                    { char: "직업이 뭐예요?", rumi: "jigobi mwoyeyo?", desc: "Apakah pekerjaan anda?", stroke: "Soalan kerjaya." },
+                    { char: "저는 학생 / 회사원입니다.", rumi: "jeoneun haksaeng / hoesawonimnida.", desc: "Saya seorang pelajar / pekerja pejabat.", stroke: "Jawapan kerjaya." },
+                    { char: "만나서 반가워요.", rumi: "mannaseo bangawoyo.", desc: "Gembira dapat berkenalan dengan awak.", stroke: "Ucapan mesra." }
+                ]
+            },
+            {
+                id: 'cv-2',
+                title: "Situasi 2: Di Restoran & Pesan Makanan (식당에서)",
+                desc: "Frasa penting untuk minta menu, pesan makanan & membuat bayaran.",
+                items: [
+                    { char: "저기요, 메뉴판 주세요.", rumi: "jeogiyo, menyupan juseyo.", desc: "Cik/Tuan, minta menu.", stroke: "Panggil pelayan restoran." },
+                    { char: "이것 2인분 주세요.", rumi: "igeot i-inbun juseyo.", desc: "Bagi set ni 2 orang.", stroke: "Pesanan makanan." },
+                    { char: "맵지 않게 해주세요.", rumi: "maepji an-ge haejuseyo.", desc: "Tolong buat jangan pedas.", stroke: "Permintaan khas." },
+                    { char: "물은 셀프인가요?", rumi: "mureun sereupeuingayo?", desc: "Air kosong ambil sendiri ke?", stroke: "Soalan kedai makan." },
+                    { char: "정말 맛있어요!", rumi: "jeongmal masisseoyo!", desc: "Sedap sangat!", stroke: "Pujian makanan." },
+                    { char: "계산해 주세요. 카드 돼요?", rumi: "gyesanhae juseyo. kadeu dwaeyo?", desc: "Tolong kira bil. Boleh guna kad?", stroke: "Pembayaran." }
+                ]
+            },
+            {
+                id: 'cv-3',
+                title: "Situasi 3: Membeli-belah & Tawar Harga (쇼핑)",
+                desc: "Perbualan cari barang, tanya saiz, warna & minta diskaun.",
+                items: [
+                    { char: "이거 얼마예요?", rumi: "igeo eolmayeyo?", desc: "Berapa harga barang ni?", stroke: "Tanya harga." },
+                    { char: "다른 색상도 있어요?", rumi: "dareun saeksangdo isseoyo?", desc: "Ada warna lain tak?", stroke: "Pilihan warna." },
+                    { char: "입어봐도 돼요?", rumi: "ibeobwado dwaeyo?", desc: "Boleh saya cuba pakai?", stroke: "Bilik persalinan." },
+                    { char: "조금 비싸네요.", rumi: "jogeum bissaneyo.", desc: "Agak mahal ya.", stroke: "Komen harga." },
+                    { char: "깎아 주세요!", rumi: "kkakka juseyo!", desc: "Tolong kurangkan harga / diskaun!", stroke: "Minta diskaun." },
+                    { char: "이거로 <u>주세요</u>.", rumi: "igeoro juseyo.", desc: "Saya ambil yang ini.", stroke: "Keputusan membeli." }
+                ]
+            },
+            {
+                id: 'cv-4',
+                title: "Situasi 4: Bertanya Arah & Sesat Jalan (길 찾기)",
+                desc: "Frasa untuk cari tandas, stesen LRT, stesen bas & lokasi.",
+                items: [
+                    { char: "실례합니다, 지하철역이 어디예요?", rumi: "sillyehamnida, jihacheol-yeogi eodiyeyo?", desc: "Maaf tumpang tanya, stesen LRT di mana?", stroke: "Bertanya arah." },
+                    { char: "화장실 좀 씁시다 / 어디예요?", rumi: "hwajangsil jom sseupsida / eodiyeyo?", desc: "Di mana tandas awam?", stroke: "Cari tandas." },
+                    { char: "여기서 멀어요?", rumi: "yeogiseo meoreoyo?", desc: "Jauh ke dari sini?", stroke: "Jarak lokasi." },
+                    { char: "걸어서 10분쯤 걸립니다.", rumi: "georeoseo si-bun-jjeum geollimnida.", desc: "Ambil masa 10 minit berjalan kaki.", stroke: "Anggaran masa." },
+                    { char: "길을 잃었어요.", rumi: "gireul ireosseoyo.", desc: "Saya sudah sesat jalan.", stroke: "Kecemasan." },
+                    { char: "도와주셔서 감사합니다.", rumi: "dowajusyeoseo gamsahamnida.", desc: "Terima kasih kerana tolong saya.", stroke: "Penghargaan." }
+                ]
+            }
+        ];
+
         // Hangul Grammar Lab (6 Modul Tatabahasa)
         const grammarLabData = [
             {
@@ -1418,13 +1484,11 @@
         ];
 
         let userScore = 0;
-        let mistakesList = [];
         let currentLevelObj = null;
         let currentStudyIndex = 0;
         let currentQuizIndex = 0;
         let quizScoreCount = 0;
         let activeQuizItems = [];
-        let isMistakeMode = false;
 
         let allWords = [];
         let currentListenIndex = 0;
@@ -1432,13 +1496,14 @@
         window.addEventListener('DOMContentLoaded', () => {
             renderLevelCards();
             renderSpecialCategoryCards();
+            renderConversationCards();
             renderGrammarLabCards();
             buildAllWordsList();
             showSection('home');
         });
 
         function showSection(sectionId) {
-            ['home', 'levels', 'special', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
+            ['home', 'levels', 'special', 'conversation', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
                 const el = document.getElementById(`section-${id}`);
                 if (el) el.classList.add('hidden');
             });
@@ -1494,6 +1559,30 @@
             });
         }
 
+        function renderConversationCards() {
+            const container = document.getElementById('conversation-container');
+            container.innerHTML = '';
+            conversationLabData.forEach(cv => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 space-y-4 shadow-lg transition";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">PERBUALAN BERSIRI</span>
+                        <i class="fa-solid fa-comments text-pink-500/60"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-white mb-1">${cv.title}</h3>
+                        <p class="text-slate-400 text-sm">${cv.desc}</p>
+                    </div>
+                    <button onclick="startConversation('${cv.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
+                        <span>Mula Belajar Dialog</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         function renderGrammarLabCards() {
             const container = document.getElementById('grammar-lab-container');
             container.innerHTML = '';
@@ -1522,6 +1611,10 @@
             showSection('special');
         }
 
+        function openConversationMenu() {
+            showSection('conversation');
+        }
+
         function openGrammarLabMenu() {
             showSection('grammar-lab');
         }
@@ -1540,6 +1633,13 @@
             showSection('study');
         }
 
+        function startConversation(cvId) {
+            currentLevelObj = conversationLabData.find(cv => cv.id === cvId);
+            currentStudyIndex = 0;
+            updateStudyCard();
+            showSection('study');
+        }
+
         function startGrammarLab(gId) {
             currentLevelObj = grammarLabData.find(g => g.id === gId);
             currentStudyIndex = 0;
@@ -1550,6 +1650,8 @@
         function backFromStudy() {
             if (specialCategoriesData.some(sc => sc.id === currentLevelObj.id)) {
                 showSection('special');
+            } else if (conversationLabData.some(cv => cv.id === currentLevelObj.id)) {
+                showSection('conversation');
             } else if (grammarLabData.some(g => g.id === currentLevelObj.id)) {
                 showSection('grammar-lab');
             } else {
@@ -1563,6 +1665,8 @@
             
             if (currentLevelObj.id.toString().startsWith('sc-')) {
                 document.getElementById('study-level-badge').innerText = "KATEGORI KHAS";
+            } else if (currentLevelObj.id.toString().startsWith('cv-')) {
+                document.getElementById('study-level-badge').innerText = "CONVERSATION LAB";
             } else if (currentLevelObj.id.toString().startsWith('g')) {
                 document.getElementById('study-level-badge').innerText = "GRAMMAR LAB";
             } else {
@@ -1608,25 +1712,10 @@
         }
 
         function startQuizForCurrentModule() {
-            isMistakeMode = false;
             activeQuizItems = [...currentLevelObj.items];
             currentQuizIndex = 0;
             quizScoreCount = 0;
             document.getElementById('quiz-title-mode').innerText = `PRACTICE: ${currentLevelObj.title}`;
-            showSection('quiz');
-            loadQuizQuestion();
-        }
-
-        function openMistakesMode() {
-            if (mistakesList.length === 0) {
-                alert("Tahniah! Tiada kesilapan direkodkan buat masa ini.");
-                return;
-            }
-            isMistakeMode = true;
-            activeQuizItems = [...mistakesList];
-            currentQuizIndex = 0;
-            quizScoreCount = 0;
-            document.getElementById('quiz-title-mode').innerText = "MISTAKES REVIEW (ULANG KAJI SILAP)";
             showSection('quiz');
             loadQuizQuestion();
         }
@@ -1661,12 +1750,12 @@
                 const btn = document.createElement('button');
                 btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm";
                 btn.innerText = opt;
-                btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn, currentItem);
+                btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
                 optionsGrid.appendChild(btn);
             });
         }
 
-        function checkQuizAnswer(selected, correct, btnEl, itemObj) {
+        function checkQuizAnswer(selected, correct, btnEl) {
             const feedback = document.getElementById('quiz-feedback');
             feedback.classList.remove('hidden');
 
@@ -1675,18 +1764,10 @@
                 feedback.className = "p-3 rounded-xl text-center text-sm font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
                 feedback.innerText = "Betul! Syabas 🎉";
                 btnEl.classList.add('bg-emerald-600', 'border-emerald-500');
-                if (isMistakeMode) {
-                    mistakesList = mistakesList.filter(m => m.char !== itemObj.char);
-                    document.getElementById('stat-mistakes').innerText = mistakesList.length;
-                }
             } else {
                 feedback.className = "p-3 rounded-xl text-center text-sm font-bold bg-red-500/20 text-red-400 border border-red-500/30";
                 feedback.innerText = `Salah. Jawapan: ${correct}`;
                 btnEl.classList.add('bg-red-600', 'border-red-500');
-                if (!mistakesList.some(m => m.char === itemObj.char)) {
-                    mistakesList.push(itemObj);
-                    document.getElementById('stat-mistakes').innerText = mistakesList.length;
-                }
             }
 
             setTimeout(() => {
@@ -1715,6 +1796,9 @@
             });
             specialCategoriesData.forEach(sc => {
                 sc.items.forEach(it => allWords.push({...it, level: sc.title}));
+            });
+            conversationLabData.forEach(cv => {
+                cv.items.forEach(it => allWords.push({...it, level: cv.title}));
             });
             grammarLabData.forEach(g => {
                 g.items.forEach(it => allWords.push({...it, level: g.title}));
