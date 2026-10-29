@@ -85,7 +85,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Study & Practice (Lvl 1-21)</h3>
-                    <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif.</p>
+                    <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif berselingan visual.</p>
                 </div>
 
                 <!-- 2. Special Categories -->
@@ -97,7 +97,7 @@
                     <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
-                <!-- 3. Conversation Lab (Kini 8 Situasi Bersiri) -->
+                <!-- 3. Conversation Lab (8 Situasi) -->
                 <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-pink-500/20 text-pink-400 text-[10px] font-bold rounded border border-pink-500/30">UPDATED</div>
                     <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
@@ -253,7 +253,7 @@
             </div>
         </section>
 
-        <!-- ================= QUIZ SECTION ================= -->
+        <!-- ================= QUIZ SECTION (DENGAN SELINGAN VISUAL/IKON) ================= -->
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
@@ -266,8 +266,9 @@
             </div>
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
+                <!-- Banner Soalan Bergantung Mod -->
                 <div class="space-y-1 relative">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
+                    <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
                         <div id="quiz-char-display" class="hangul-font text-4xl md:text-5xl font-black text-amber-400">아</div>
                         <button onclick="playQuizAudio()" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
@@ -276,6 +277,7 @@
                     </div>
                 </div>
 
+                <!-- Grid Pilihan (Dinamik: Teks atau Kad Visual Bergambar) -->
                 <div id="quiz-options-grid" class="grid grid-cols-2 gap-3"></div>
                 <div id="quiz-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
             </div>
@@ -371,6 +373,19 @@
 
     <!-- JavaScript Platform -->
     <script>
+        // Peta Emoji Pintar untuk Selingan Soalan Bergambar/Visual
+        const visualEmojiMap = {
+            "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
+            "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
+            "산": "⛰️", "강": "🌊", "바다": "🏖️", "친구": "🧑‍🤝‍🧑", "사과": "🍎", "우유": "🥛",
+            "의사": "👨‍⚕️", "바나나": "🍌", "토마토": "🍅", "카메라": "📷", "버스": "🚌",
+            "택시": "🚕", "기차": "🚂", "구두": "👞", "비누": "🧼", "나비": "🦋", "모기": "🦟",
+            "휴지": "🧻", "거울": "🪞", "주스": "🧃", "사자": "🦁", "호랑이": "🐅", "코끼리": "🐘",
+            "원숭이": "🐵", "곰": "🐻", "토끼": "🐰", "말": "🐎", "소": "🐂", "돼지": "🐖",
+            "닭": "🐓", "오리": "🦆", "물고기": "🐟", "상어": "🦈", "고래": "🐋", "나무": "🌳",
+            "사과": "🍎", "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "사과": "🍏"
+        };
+
         // 21 Level Kosa Kata Asal
         const levelsData = [
             {
@@ -1351,7 +1366,7 @@
             }
         ];
 
-        // Conversation Lab Data (Kini 8 Situasi Bersiri)
+        // Conversation Lab Data (8 Situasi)
         const conversationLabData = [
             {
                 id: 'cv-1',
@@ -1448,7 +1463,7 @@
                 id: 'cv-8',
                 title: "Situasi 8: Kecemasan & Bantuan (비상 상황)",
                 desc: "Frasa penting bila hadapi kecemasan, polis atau sakit.",
-                    items: [
+                items: [
                     { char: "도와주세요!", rumi: "dowajuseyo!", desc: "Tolong saya!", stroke: "Kecemasan" },
                     { char: "경찰을 불러주세요.", rumi: "gyeongchareul bulleojuseyo.", desc: "Tolong panggilkan polis.", stroke: "Polis" },
                     { char: "구급차를 불러주세요.", rumi: "gugeupchareul bulleojuseyo.", desc: "Tolong panggilkan ambulans.", stroke: "Ambulans" },
@@ -1459,7 +1474,7 @@
             }
         ];
 
-        // Hangul Grammar Lab (6 Modul Tatabahasa)
+        // Hangul Grammar Lab (6 Modul)
         const grammarLabData = [
             {
                 id: 'g1',
@@ -1481,7 +1496,7 @@
                     { char: "을 / 를 (Objek)", rumi: "eul / reul", desc: "Penanda Objek Penderita", stroke: "Formula: Berakhiran konsonan + 을, vokal + 를.\nContoh: 사과를 먹어요 (Makan epal)." },
                     { char: "에서 (Tempat Aktiviti)", rumi: "eseo", desc: "Tempat lakuan perbuatan berlaku", stroke: "Formula: Tempat + 에서 + Kata Kerja.\nContoh: 식당에서 먹어요 (Makan di kedai makan)." },
                     { char: "에 (Destinasi)", rumi: "e", desc: "Tempat tuju / destinasi pergi", stroke: "Formula: Tempat + 에 + 가다/오다.\nContoh: 한국에 가요 (Pergi ke Korea)." },
-                    { char: "에서 ~ 까지", rumi: "eseo ~ kkaji", desc: "Dari... Hingga... (Tempat/Masa)", stroke: "Formula: A + 에서 + B + 까지.\nContoh: 집에서 회사까지 (Dari rumah ke pejabat)." },
+                    { char: "에서 ~ 까지", rumi: "eseo ~ kkaji", desc: "Dari... Hingga... (Tempat/Masa)", stroke: "Formula: A + 점에서 + B + 까지.\nContoh: 집에서 회사까지 (Dari rumah ke pejabat)." },
                     { char: "안 / 위 / 아래", rumi: "an / wi / arae", desc: "Kedudukan (Dalam, Atas, Bawah)", stroke: "Formula: Kata Nama + 의 + 위치.\nContoh: 책상 위에 있어요 (Ada di atas meja)." }
                 ]
             },
@@ -1659,17 +1674,9 @@
             });
         }
 
-        function openSpecialMenu() {
-            showSection('special');
-        }
-
-        function openConversationMenu() {
-            showSection('conversation');
-        }
-
-        function openGrammarLabMenu() {
-            showSection('grammar-lab');
-        }
+        function openSpecialMenu() { showSection('special'); }
+        function openConversationMenu() { showSection('conversation'); }
+        function openGrammarLabMenu() { showSection('grammar-lab'); }
 
         function startLevel(levelId) {
             currentLevelObj = levelsData.find(l => l.id === levelId);
@@ -1729,8 +1736,9 @@
             document.getElementById('study-progress-text').innerText = `${currentStudyIndex + 1} / ${currentLevelObj.items.length}`;
 
             const charEl = document.getElementById('study-char');
-            charEl.innerText = item.char;
-            charEl.className = item.char.length > 8 ? "hangul-font text-xl font-black text-amber-400 text-center" : "hangul-font text-5xl md:text-6xl font-black text-amber-400 text-center";
+            let emojiDisplay = visualEmojiMap[item.char] ? `<span class="text-3xl mr-2">${visualEmojiMap[item.char]}</span>` : '';
+            charEl.innerHTML = `${emojiDisplay} ${item.char}`;
+            charEl.className = item.char.length > 8 ? "hangul-font text-xl font-black text-amber-400 text-center" : "hangul-font text-4xl md:text-5xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
 
             document.getElementById('study-romaji').innerText = item.rumi;
             document.getElementById('study-desc').innerText = item.desc;
@@ -1784,11 +1792,14 @@
             
             const quizDisplay = document.getElementById('quiz-char-display');
             quizDisplay.innerText = currentItem.char;
-            quizDisplay.className = currentItem.char.length > 8 ? "hangul-font text-xl font-black text-amber-400 py-4 px-2" : "hangul-font text-4xl md:text-5xl font-black text-amber-400 py-4";
 
             const optionsGrid = document.getElementById('quiz-options-grid');
             optionsGrid.innerHTML = '';
             document.getElementById('quiz-feedback').classList.add('hidden');
+
+            // Selitkan Mod Visual Bergambar (Contoh: setiap soalan bernombor ganjil atau ada emoji dalam map)
+            let isVisualMode = (currentQuizIndex % 2 === 0) && visualEmojiMap[currentItem.char];
+            const instructionLabel = document.getElementById('quiz-instruction-label');
 
             let options = [currentItem.rumi];
             let pool = currentLevelObj ? currentLevelObj.items : allWords;
@@ -1798,13 +1809,30 @@
             }
             options.sort(() => Math.random() - 0.5);
 
-            options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm";
-                btn.innerText = opt;
-                btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
-                optionsGrid.appendChild(btn);
-            });
+            if (isVisualMode) {
+                instructionLabel.innerText = "🎨 Pilih jawapan visual / maksud yang betul:";
+                optionsGrid.className = "grid grid-cols-2 gap-3";
+                options.forEach(opt => {
+                    let matchingItem = pool.find(p => p.rumi === opt);
+                    let emojiIcon = matchingItem && visualEmojiMap[matchingItem.char] ? visualEmojiMap[matchingItem.char] : '✨';
+                    
+                    const btn = document.createElement('button');
+                    btn.className = "py-4 px-2 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition flex flex-col items-center justify-center space-y-1 shadow-md";
+                    btn.innerHTML = `<span class="text-3xl">${emojiIcon}</span><span class="text-xs text-blue-300">${opt}</span>`;
+                    btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
+                    optionsGrid.appendChild(btn);
+                });
+            } else {
+                instructionLabel.innerText = "💬 Apakah fungsi, sebutan atau maksud bagi perkataan ini?";
+                optionsGrid.className = "grid grid-cols-2 gap-3";
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm shadow-md";
+                    btn.innerText = opt;
+                    btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
+                    optionsGrid.appendChild(btn);
+                });
+            }
         }
 
         function checkQuizAnswer(selected, correct, btnEl) {
@@ -1843,18 +1871,10 @@
 
         function buildAllWordsList() {
             allWords = [];
-            levelsData.forEach(lvl => {
-                lvl.items.forEach(it => allWords.push({...it, level: lvl.id}));
-            });
-            specialCategoriesData.forEach(sc => {
-                sc.items.forEach(it => allWords.push({...it, level: sc.title}));
-            });
-            conversationLabData.forEach(cv => {
-                cv.items.forEach(it => allWords.push({...it, level: cv.title}));
-            });
-            grammarLabData.forEach(g => {
-                g.items.forEach(it => allWords.push({...it, level: g.title}));
-            });
+            levelsData.forEach(lvl => { lvl.items.forEach(it => allWords.push({...it, level: lvl.id})); });
+            specialCategoriesData.forEach(sc => { sc.items.forEach(it => allWords.push({...it, level: sc.title})); });
+            conversationLabData.forEach(cv => { cv.items.forEach(it => allWords.push({...it, level: cv.title})); });
+            grammarLabData.forEach(g => { g.items.forEach(it => allWords.push({...it, level: g.title})); });
         }
 
         function openWordsMode() {
@@ -1866,12 +1886,16 @@
             const grid = document.getElementById('words-grid');
             grid.innerHTML = '';
             list.forEach(w => {
+                let emojiIcon = visualEmojiMap[w.char] ? `<span class="text-2xl mr-2">${visualEmojiMap[w.char]}</span>` : '';
                 const card = document.createElement('div');
                 card.className = "bg-slate-900 border border-slate-800 p-4 rounded-xl flex justify-between items-center";
                 card.innerHTML = `
-                    <div>
-                        <div class="hangul-font text-xl font-bold text-amber-400">${w.char}</div>
-                        <div class="text-xs text-blue-400 font-semibold">${w.rumi} - ${w.desc}</div>
+                    <div class="flex items-center">
+                        ${emojiIcon}
+                        <div>
+                            <div class="hangul-font text-xl font-bold text-amber-400">${w.char}</div>
+                            <div class="text-xs text-blue-400 font-semibold">${w.rumi} - ${w.desc}</div>
+                        </div>
                     </div>
                     <button onclick="speakText('${w.char}')" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded-lg text-white flex items-center justify-center">
                         <i class="fa-solid fa-volume-high text-xs"></i>
