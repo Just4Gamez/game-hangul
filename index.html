@@ -71,26 +71,26 @@
     <!-- Main Container -->
     <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
 
-        <!-- ================= 1. HOME SECTION ================= -->
+        <!-- ================= HOME SECTION ================= -->
         <section id="section-home" class="space-y-8 transition-all duration-300">
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Pilih Mod Latihan Anda</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Dengan Lebih Cekap</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih latihan khusus: Belajar, Kuiz Amalan, Semak Silap, Kamus Kata, atau Latihan Audio & Sebutan!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih latihan khusus: Belajar, Kuiz Amalan, Semak Silap, Kamus Kata, atau Mod Dengar Audio!</p>
                 </div>
             </div>
 
             <!-- Menu Pilihan Latihan (Practice Hub) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Study / Levels -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Study & Levels</h3>
-                    <p class="text-slate-400 text-sm">Pilih Level 1 hingga 10 untuk nota lengkap dan latihan asas.</p>
+                    <p class="text-slate-400 text-sm">Pilih Level 1 hingga 10 untuk nota lengkap dan audio sebutan.</p>
                 </div>
 
                 <!-- Practice Quiz -->
@@ -99,7 +99,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Practice Quiz</h3>
-                    <p class="text-slate-400 text-sm">Uji minda dengan soalan kuiz interaktif dari pelbagai level.</p>
+                    <p class="text-slate-400 text-sm">Uji minda dengan soalan kuiz interaktif berserta audio.</p>
                 </div>
 
                 <!-- Mistakes Review -->
@@ -108,7 +108,7 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Mistakes Review</h3>
-                    <p class="text-slate-400 text-sm">Latih tubi semula soalan-soalan yang anda pernah jawab salah.</p>
+                    <p class="text-slate-400 text-sm">Latih tubi semula soalan yang anda pernah jawab salah.</p>
                 </div>
 
                 <!-- Words Dictionary -->
@@ -117,16 +117,16 @@
                         <i class="fa-solid fa-list-ul"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Words (Kamus)</h3>
-                    <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata dan frasa daripada semua level.</p>
+                    <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata dan frasa semua level.</p>
                 </div>
 
-                <!-- Listen & Speak -->
-                <div onclick="openListenSpeakMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl md:col-span-2">
+                <!-- Listen Mode -->
+                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl md:col-span-2">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-microphone-lines"></i>
+                        <i class="fa-solid fa-headphones"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Listen & Speak (Audio & Sebutan)</h3>
-                    <p class="text-slate-400 text-sm">Dengar sebutan audio penutur asli dan uji ketepatan suara anda bercakap Korea secara interaktif.</p>
+                    <h3 class="font-bold text-lg text-white">Listen Mode (Latihan Dengar Audio)</h3>
+                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk semua 300 kosa kata.</p>
                 </div>
             </div>
         </section>
@@ -249,12 +249,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="words-grid"></div>
         </section>
 
-        <!-- ================= LISTEN & SPEAK SECTION ================= -->
-        <section id="section-listenspeak" class="hidden space-y-6 transition-all duration-300">
+        <!-- ================= LISTEN MODE SECTION ================= -->
+        <section id="section-listen" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Listen & Speak (Latihan Audio & Sebutan)</h2>
-                    <p class="text-slate-400 text-sm">Dengar sebutan dan uji suara anda</p>
+                    <h2 class="text-2xl font-bold text-white">Listen Mode (Latihan Mendengar Audio)</h2>
+                    <p class="text-slate-400 text-sm">Dengar sebutan tulisan Korea</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -264,31 +264,23 @@
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
                 <div class="space-y-2">
-                    <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Mod Latihan Sebutan</span>
-                    <div id="ls-char" class="hangul-font text-5xl font-black text-amber-400 py-4">안녕하세요</div>
-                    <div id="ls-romaji" class="text-lg font-bold text-blue-400">annyeonghaseyo</div>
-                    <p id="ls-desc" class="text-slate-400 text-sm">Selamat Sejahtera (Formal)</p>
+                    <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Mod Dengar Audio</span>
+                    <div id="listen-char" class="hangul-font text-5xl font-black text-amber-400 py-4">안녕하세요</div>
+                    <div id="listen-romaji" class="text-lg font-bold text-blue-400">annyeonghaseyo</div>
+                    <p id="listen-desc" class="text-slate-400 text-sm">Selamat Sejahtera (Formal)</p>
                 </div>
 
-                <div class="flex justify-center gap-4 pt-2">
-                    <button onclick="playLSAudio()" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg transition flex items-center space-x-2">
-                        <i class="fa-solid fa-volume-high"></i>
-                        <span>Dengar Audio</span>
-                    </button>
-                    <button onclick="startSpeechRecognition()" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold shadow-lg transition flex items-center space-x-2">
-                        <i class="fa-solid fa-microphone"></i>
-                        <span>Uji Sebut</span>
+                <div class="flex justify-center pt-2">
+                    <button onclick="playListenAudio()" class="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-600/30 transition flex items-center space-x-3 text-lg">
+                        <i class="fa-solid fa-volume-high text-2xl"></i>
+                        <span>Dengar Sebutan 🔊</span>
                     </button>
                 </div>
 
-                <div id="ls-feedback" class="hidden p-4 rounded-xl text-center text-sm font-bold bg-slate-950 border border-slate-800 text-slate-300">
-                    Sila cakap perkataan di atas...
-                </div>
-
-                <div class="flex justify-between pt-4 border-t border-slate-800">
-                    <button onclick="navigateLS(-1)" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm">Sebelum</button>
-                    <span id="ls-progress" class="text-slate-400 text-sm font-bold">1 / 300</span>
-                    <button onclick="navigateLS(1)" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm">Seterusnya</button>
+                <div class="flex justify-between pt-6 border-t border-slate-800">
+                    <button onclick="navigateListen(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
+                    <span id="listen-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 300</span>
+                    <button onclick="navigateListen(1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Seterusnya</button>
                 </div>
             </div>
         </section>
@@ -606,7 +598,7 @@
                     { char: "다른 색상 있어요?", rumi: "dareun saeksang isseoyo?", desc: "Warna lain?", stroke: "Shopping" },
                     { char: "어디서 타요?", rumi: "eodiseo tayo?", desc: "Naik di mana?", stroke: "Pengangkutan" },
                     { char: "얼마나 걸려요?", rumi: "eolmana geollyeoyo?", desc: "Berapa lama?", stroke: "Masa" },
-                    { char: "여기서 내려 주세요", rumi: "yeogiseo naeryeojuseyo", desc: "Turun di sini",_stroke: "Teksi/Bas" },
+                    { char: "여기서 내려 주세요", rumi: "yeogiseo naeryeojuseyo", desc: "Turun di sini", stroke: "Teksi/Bas" },
                     { char: "화장실이 어디예요?", rumi: "hwajangsiri eodiyeyo?", desc: "Tandas di mana?", stroke: "Lokasi" },
                     { char: "길을 잃었어요", rumi: "gireul ireosseoyo", desc: "Sesat jalan", stroke: "Kecemasan" },
                     { char: "사진 좀 찍어 주시겠어요?", rumi: "sajin jom jjigeojusigesseoyo?", desc: "Tolong ambil gambar", stroke: "Pelancongan" },
@@ -670,7 +662,7 @@
                 items: [
                     { char: "시작이 반이다", rumi: "sijagi banida", desc: "Mula itu separuh kejayaan", stroke: "Peribahasa" },
                     { char: "금강산도 식후경", rumi: "geumgangsando sikhugyeong", desc: "Makan dulu baru tengok view", stroke: "Peribahasa" },
-                    { char: "누워서 떡 먹기", rumi: "nuwoseo tteok meokgi", desc: "Sangat mudah (Makan kuih sambil baring)", stroke: "Peribahasa" },
+                    { char: "누워서 떡 먹기", rumi: "nuwoseo tteok meokgi", desc: "Sangat mudah", stroke: "Peribahasa" },
                     { char: "원숭이도 나무에서 떨어진다", rumi: "wonsungido namueseo tteoreojinda", desc: "Pakar pun boleh buat silap", stroke: "Peribahasa" },
                     { char: "고생 끝에 낙이 온다", rumi: "gosaeng kkeute nagi onda", desc: "Lepas penat, ada senang", stroke: "Peribahasa" },
                     { char: "배보다 배꼽이 더 크다", rumi: "baeboda baekopi deo keuda", desc: "Kos lebih besar dari barang", stroke: "Peribahasa" },
@@ -691,7 +683,7 @@
                     { char: "손이 크다", rumi: "soni keuda", desc: "Murah hati", stroke: "Simpulan bahasa" },
                     { char: "발이 넓다", rumi: "bari neolpda", desc: "Ramai kenalan", stroke: "Simpulan bahasa" },
                     { char: "눈이 높다", rumi: "nuni nopda", desc: "Citarasa tinggi", stroke: "Simpulan bahasa" },
-                    { char: "코가 납작해지다", rumi: "koga napjakhaejida", desc: "Malu besar / Hilang muka", stroke: "Simpulan bahasa" },
+                    { char: "코가 납작해지다", rumi: "koga napjakhaejida", desc: "Malu besar", stroke: "Simpulan bahasa" },
                     { char: "가슴이 찡하다", rumi: "gaseumi jjinghada", desc: "Tersentuh hati", stroke: "Simpulan bahasa" },
                     { char: "찬물을 끼얹다", rumi: "chanmureul kkieon-da", desc: "Rosakkan mood", stroke: "Simpulan bahasa" },
                     { char: "등을 치다", rumi: "deungeul chida", desc: "Tikam belakang", stroke: "Simpulan bahasa" },
@@ -712,7 +704,7 @@
         let isMistakeMode = false;
 
         let allWords = [];
-        let currentLSIndex = 0;
+        let currentListenIndex = 0;
 
         window.addEventListener('DOMContentLoaded', () => {
             renderLevelCards();
@@ -721,7 +713,7 @@
         });
 
         function showSection(sectionId) {
-            ['home', 'levels', 'study', 'quiz', 'words', 'listenspeak', 'result'].forEach(id => {
+            ['home', 'levels', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
                 const el = document.getElementById(`section-${id}`);
                 if (el) el.classList.add('hidden');
             });
@@ -944,56 +936,30 @@
             renderWords(filtered);
         }
 
-        function openListenSpeakMode() {
-            currentLSIndex = 0;
-            showSection('listenspeak');
-            updateLSCard();
+        function openListenMode() {
+            currentListenIndex = 0;
+            showSection('listen');
+            updateListenCard();
         }
 
-        function updateLSCard() {
-            const item = allWords[currentLSIndex];
-            document.getElementById('ls-char').innerText = item.char;
-            document.getElementById('ls-romaji').innerText = item.rumi;
-            document.getElementById('ls-desc').innerText = item.desc;
-            document.getElementById('ls-progress').innerText = `${currentLSIndex + 1} / ${allWords.length}`;
-            document.getElementById('ls-feedback').classList.add('hidden');
+        function updateListenCard() {
+            const item = allWords[currentListenIndex];
+            document.getElementById('listen-char').innerText = item.char;
+            document.getElementById('listen-romaji').innerText = item.rumi;
+            document.getElementById('listen-desc').innerText = item.desc;
+            document.getElementById('listen-progress').innerText = `${currentListenIndex + 1} / ${allWords.length}`;
         }
 
-        function navigateLS(dir) {
-            currentLSIndex += dir;
-            if (currentLSIndex < 0) currentLSIndex = 0;
-            if (currentLSIndex >= allWords.length) currentLSIndex = allWords.length - 1;
-            updateLSCard();
+        function navigateListen(dir) {
+            currentListenIndex += dir;
+            if (currentListenIndex < 0) currentListenIndex = 0;
+            if (currentListenIndex >= allWords.length) currentListenIndex = allWords.length - 1;
+            updateListenCard();
         }
 
-        function playLSAudio() {
-            const item = allWords[currentLSIndex];
+        function playListenAudio() {
+            const item = allWords[currentListenIndex];
             speakText(item.char);
-        }
-
-        function startSpeechRecognition() {
-            const fb = document.getElementById('ls-feedback');
-            fb.classList.remove('hidden');
-            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                fb.innerText = "Pelayar web anda tidak menyokong pengecaman suara mikrofon.";
-                return;
-            }
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'ko-KR';
-            recognition.start();
-
-            fb.innerText = "Sila sebut perkataan Korea sekarang...";
-
-            recognition.onresult = (event) => {
-                const speechToText = event.results[0][0].transcript;
-                const currentItem = allWords[currentLSIndex];
-                fb.innerText = `Anda sebut: "${speechToText}" (Sasaran: ${currentItem.char})`;
-            };
-
-            recognition.onerror = () => {
-                fb.innerText = "Gagal mengesan suara. Sila cuba lagi.";
-            };
         }
     </script>
 </body>
