@@ -78,7 +78,7 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Kategori Khas & Grammar Lab</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Khas Tematik (Rumah, Keluarga, Sekolah, Pejabat), ataupun Hangul Grammar Lab!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Khas Tematik (Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu), ataupun Hangul Grammar Lab!</p>
                 </div>
             </div>
 
@@ -93,14 +93,14 @@
                     <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif.</p>
                 </div>
 
-                <!-- 2. NEW: Special Categories (House, Family, School, Office) -->
+                <!-- 2. Special Categories (House, Family, School, Office, Colors, Time) -->
                 <div onclick="openSpecialMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded border border-amber-500/30">NEW</div>
+                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded border border-amber-500/30">UPDATE</div>
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-house-chimney-user"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Kategori Khas (Tematik)</h3>
-                    <p class="text-slate-400 text-sm">Kosa kata khusus Barang Rumah, Keluarga, Sekolah & Pejabat.</p>
+                    <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
                 <!-- 3. Hangul Grammar Lab -->
@@ -156,7 +156,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="levels-container"></div>
         </section>
 
-        <!-- ================= SPECIAL CATEGORIES MENU SECTION (NEW) ================= -->
+        <!-- ================= SPECIAL CATEGORIES MENU SECTION ================= -->
         <section id="section-special" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -361,7 +361,7 @@
 
     <!-- JavaScript Platform -->
     <script>
-        // 21 Level Kosa Kata Asal
+        // 21 Level Kosa Kata Asal (Tanpa Konflik Kategori Khas)
         const levelsData = [
             {
                 id: 1,
@@ -661,22 +661,46 @@
             },
             {
                 id: 9,
-                title: "Level 9: Warna, Bentuk & Anggota Badan",
-                desc: "30 perbendaharaan kata warna & tubuh manusia.",
+                title: "Level 9: Kosa Kata Umum & Bentuk Asas",
+                desc: "30 perbendaharaan kata sifat & bentuk fizikal.",
                 items: [
-                    { char: "빨간색", rumi: "ppalgansaek", desc: "Warna Merah", stroke: "Warna" },
-                    { char: "파란색", rumi: "paransaek", desc: "Warna Biru", stroke: "Warna" },
-                    { char: "노란색", rumi: "noransaek", desc: "Warna Kuning", stroke: "Warna" },
-                    { char: "초록색", rumi: "choroksaek", desc: "Warna Hijau", stroke: "Warna" },
-                    { char: "검은색", rumi: "geomeunsaek", desc: "Warna Hitam", stroke: "Warna" },
-                    { char: "하얀색", rumi: "hayansaek", desc: "Warna Putih", stroke: "Warna" },
-                    { char: "보라색", rumi: "borasaek", desc: "Warna Ungu", stroke: "Warna" },
-                    { char: "분홍색", rumi: "bunhongsaek", desc: "Warna Pink", stroke: "Warna" },
-                    { char: "동그라미", rumi: "donggeurami", desc: "Bentuk Bulat", stroke: "Bentuk" },
-                    { char: "네모", rumi: "nemo", desc: "Segi Empat", stroke: "Bentuk" },
-                    { char: "세모", rumi: "semo", desc: "Segi Tiga", stroke: "Bentuk" },
                     { char: "크다", rumi: "keuda", desc: "Besar", stroke: "Saiz" },
                     { char: "작다", rumi: "jakda", desc: "Kecil", stroke: "Saiz" },
+                    { char: "길다", rumi: "gilda", desc: "Panjang", stroke: "Bentuk" },
+                    { char: "짧다", rumi: "jjalbda", desc: "Pendek", stroke: "Bentuk" },
+                    { char: "많다", rumi: "manta", desc: "Banyak", stroke: "Jumlah" },
+                    { char: "적다", rumi: "jeokda", desc: "Sedikit", stroke: "Jumlah" },
+                    { char: "빠르다", rumi: "ppareuda", desc: "Cepat / Laju", stroke: "Kelajuan" },
+                    { char: "느리다", rumi: "neurida", desc: "Perlahan", stroke: "Kelajuan" },
+                    { char: "높다", rumi: "nopda", desc: "Tinggi", stroke: "Kedudukan" },
+                    { char: "낮다", rumi: "natda", desc: "Rendah", stroke: "Kedudukan" },
+                    { char: "무겁다", rumi: "mugeopda", desc: "Berat", stroke: "Fizikal" },
+                    { char: "가볍다", rumi: "gabyeopda", desc: "Ringan", stroke: "Fizikal" },
+                    { char: "뜨겁다", rumi: "tteugeopda", desc: "Panas (Benda)", stroke: "Suhu" },
+                    { char: "차갑다", rumi: "chagapda", desc: "Sejuk (Benda)", stroke: "Suhu" },
+                    { char: "따뜻하다", rumi: "ttatteuthada", desc: "Suam / Hangat", stroke: "Suhu" },
+                    { char: "시원하다", rumi: "siwonhada", desc: "Sejuk / Segar", stroke: "Suhu" },
+                    { char: "좋다", rumi: "johda", desc: "Bagus / Baik", stroke: "Sifat" },
+                    { char: "나쁘다", rumi: "nappeuda", desc: "Buruk / Jahat", stroke: "Sifat" },
+                    { char: "예쁘다", rumi: "yeppeuda", desc: "Cantik", stroke: "Sifat" },
+                    { char: "멋있다", rumi: "meositda", desc: "Kacak / Bergaya", stroke: "Sifat" },
+                    { char: "재미있다", rumi: "jaemiitda", desc: "Menarik / Seronok", stroke: "Sifat" },
+                    { char: "재미없다", rumi: "jaemieopda", desc: "Bosan", stroke: "Sifat" },
+                    { char: "어렵다", rumi: "eoryeopda", desc: "Susah / Sukar", stroke: "Sifat" },
+                    { char: "쉽다", rumi: "swipda", desc: "Senang / Mudah", stroke: "Sifat" },
+                    { char: "바쁘다", rumi: "bappuda", desc: "Sibuk", stroke: "Keadaan" },
+                    { char: "한가하다", rumi: "hangahada", desc: "Lapang / Santai", stroke: "Keadaan" },
+                    { char: "배고프다", rumi: "baegopeuda", desc: "Lapar", stroke: "Keadaan" },
+                    { char: "배부르다", rumi: "baebureuda", desc: "Kenyang", stroke: "Keadaan" },
+                    { char: "피곤하다", rumi: "pigonhada", desc: "Penat / Letih", stroke: "Keadaan" },
+                    { char: "깨끗하다", rumi: "kkakkeuthada", desc: "Bersih", stroke: "Keadaan" }
+                ]
+            },
+            {
+                id: 10,
+                title: "Level 10: Anggota Badan & Kesihatan",
+                desc: "30 bahagian tubuh manusia & ungkapan kesihatan.",
+                items: [
                     { char: "머리", rumi: "meori", desc: "Kepala", stroke: "Badan" },
                     { char: "얼굴", rumi: "eolgul", desc: "Muka", stroke: "Badan" },
                     { char: "눈", rumi: "nun", desc: "Mata", stroke: "Badan" },
@@ -693,44 +717,20 @@
                     { char: "다리", rumi: "dari", desc: "Kaki", stroke: "Badan" },
                     { char: "무릎", rumi: "mureup", desc: "Lutut", stroke: "Badan" },
                     { char: "발", rumi: "bal", desc: "Tapak kaki", stroke: "Badan" },
-                    { char: "심장", rumi: "simjang", desc: "Jantung", stroke: "Badan" }
-                ]
-            },
-            {
-                id: 10,
-                title: "Level 10: Nombor, Hari & Masa",
-                desc: "30 nombor, hari dalam seminggu & jam.",
-                items: [
-                    { char: "일", rumi: "il", desc: "Nombor 1 (Sino)", stroke: "Nombor" },
-                    { char: "이", rumi: "i", desc: "Nombor 2 (Sino)", stroke: "Nombor" },
-                    { char: "삼", rumi: "sam", desc: "Nombor 3 (Sino)", stroke: "Nombor" },
-                    { char: "사", rumi: "sa", desc: "Nombor 4 (Sino)", stroke: "Nombor" },
-                    { char: "오", rumi: "o", desc: "Nombor 5 (Sino)", stroke: "Nombor" },
-                    { char: "십", rumi: "sip", desc: "Nombor 10 (Sino)", stroke: "Nombor" },
-                    { char: "백", rumi: "baek", desc: "Nombor 100", stroke: "Nombor" },
-                    { char: "하나", rumi: "hana", desc: "Nombor 1 (Asli)", stroke: "Nombor Asli" },
-                    { char: "둘", rumi: "dul", desc: "Nombor 2 (Asli)", stroke: "Nombor Asli" },
-                    { char: "셋", rumi: "set", desc: "Nombor 3 (Asli)", stroke: "Nombor Asli" },
-                    { char: "월요일", rumi: "woryoil", desc: "Hari Isnin", stroke: "Hari" },
-                    { char: "화요일", rumi: "hwayoil", desc: "Hari Selasa", stroke: "Hari" },
-                    { char: "수요일", rumi: "suyoil", desc: "Hari Rabu", stroke: "Hari" },
-                    { char: "목요일", rumi: "mogyoil", desc: "Hari Khamis", stroke: "Hari" },
-                    { char: "금요일", rumi: "geumyoil", desc: "Hari Jumaat", stroke: "Hari" },
-                    { char: "토요일", rumi: "toyoil", desc: "Hari Sabtu", stroke: "Hari" },
-                    { char: "일요일", rumi: "iryoil", desc: "Hari Ahad", stroke: "Hari" },
-                    { char: "오늘", rumi: "oneul", desc: "Hari ini", stroke: "Masa" },
-                    { char: "어제", rumi: "eoje", desc: "Semalam", stroke: "Masa" },
-                    { char: "내일", rumi: "naeil", desc: "Esok", stroke: "Masa" },
-                    { char: "시간", rumi: "sigan", desc: "Masa / Jam", stroke: "Masa" },
-                    { char: "시", rumi: "si", desc: "Pukul / Jam", stroke: "Jam" },
-                    { char: "분", rumi: "bun", desc: "Minit", stroke: "Minit" },
-                    { char: "오전", rumi: "ojeon", desc: "Pagi (AM)", stroke: "Waktu" },
-                    { char: "오후", rumi: "ohu", desc: "Petang (PM)", stroke: "Waktu" },
-                    { char: "아침", rumi: "achim", desc: "Pagi", stroke: "Waktu" },
-                    { char: "점심", rumi: "jeomsim", desc: "Tengah hari", stroke: "Waktu" },
-                    { char: "저녁", rumi: "jeonyeok", desc: "Petang", stroke: "Waktu" },
-                    { char: "밤", rumi: "bam", desc: "Malam", stroke: "Waktu" },
-                    { char: "주말", rumi: "jumal", desc: "Hujung minggu", stroke: "Masa" }
+                    { char: "심장", rumi: "simjang", desc: "Jantung", stroke: "Badan" },
+                    { char: "치아 (이)", rumi: "chia (i)", desc: "Gigi", stroke: "Badan" },
+                    { char: "머리카락", rumi: "meorikarak", desc: "Rambut", stroke: "Badan" },
+                    { char: "피부", rumi: "pibu", desc: "Kulit", stroke: "Badan" },
+                    { char: "건강", rumi: "geongang", desc: "Kesihatan", stroke: "Kesihatan" },
+                    { char: "병원", rumi: "byeongwon", desc: "Hospital", stroke: "Kesihatan" },
+                    { char: "약국", rumi: "yakguk", desc: "Farmasi", stroke: "Kesihatan" },
+                    { char: "의사", rumi: "uisa", desc: "Doktor", stroke: "Kesihatan" },
+                    { char: "간호사", rumi: "ganhosa", desc: "Jururawat", stroke: "Kesihatan" },
+                    { char: "약", rumi: "yak", desc: "Ubat", stroke: "Kesihatan" },
+                    { char: "두통", rumi: "dutong", desc: "Sakit kepala", stroke: "Simptom" },
+                    { char: "감기", rumi: "gamgi", desc: "Selsema", stroke: "Simptom" },
+                    { char: "열이 나다", rumi: "yeori nada", desc: "Demam", stroke: "Simptom" },
+                    { char: "배가 아프다", rumi: "baega apeuda", desc: "Sakit perut", stroke: "Simptom" }
                 ]
             },
             {
@@ -1142,7 +1142,7 @@
             }
         ];
 
-        // NEW: Kategori Khas Tematik (House, Family, School, Office)
+        // Kategori Khas Tematik (Kini Termasuk Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu)
         const specialCategoriesData = [
             {
                 id: 'sc-house',
@@ -1290,6 +1290,53 @@
                     { char: "취직하다", rumi: "chwijik-hada", desc: "Mendapat pekerjaan", stroke: "Kerjaya" },
                     { char: "퇴사하다", rumi: "toesahada", desc: "Berhenti kerja / Resign", stroke: "Kerjaya" },
                     { char: "승진하다", rumi: "seungjinhada", desc: "Naik pangkat", stroke: "Kerjaya" }
+                ]
+            },
+            {
+                id: 'sc-colors',
+                title: "5. Warna & Bentuk (색상과 모양)",
+                desc: "Senarai warna asas & bentuk geometri.",
+                items: [
+                    { char: "빨간색", rumi: "ppalgansaek", desc: "Warna Merah", stroke: "Warna" },
+                    { char: "파란색", rumi: "paransaek", desc: "Warna Biru", stroke: "Warna" },
+                    { char: "노란색", rumi: "noransaek", desc: "Warna Kuning", stroke: "Warna" },
+                    { char: "초록색", rumi: "choroksaek", desc: "Warna Hijau", stroke: "Warna" },
+                    { char: "검은색", rumi: "geomeunsaek", desc: "Warna Hitam", stroke: "Warna" },
+                    { char: "하얀색", rumi: "hayansaek", desc: "Warna Putih", stroke: "Warna" },
+                    { char: "보라색", rumi: "borasaek", desc: "Warna Ungu", stroke: "Warna" },
+                    { char: "분홍색", rumi: "bunhongsaek", desc: "Warna Pink / Merah jambu", stroke: "Warna" },
+                    { char: "주황색", rumi: "juhwangsaek", desc: "Warna Oren", stroke: "Warna" },
+                    { char: "갈색", rumi: "galsaek", desc: "Warna Coklat", stroke: "Warna" },
+                    { char: "회색", rumi: "hoesaek", desc: "Warna Kelabu", stroke: "Warna" },
+                    { char: "금색", rumi: "geumsaek", desc: "Warna Emas", stroke: "Warna" },
+                    { char: "은색", rumi: "eunsaek", desc: "Warna Perak", stroke: "Warna" },
+                    { char: "동그라미", rumi: "donggeurami", desc: "Bentuk Bulat", stroke: "Bentuk" },
+                    { char: "네모", rumi: "nemo", desc: "Segi Empat", stroke: "Bentuk" },
+                    { char: "세모", rumi: "semo", desc: "Segi Tiga", stroke: "Bentuk" },
+                    { char: "별모양", rumi: "byeolmoyang", desc: "Bentuk Bintang", stroke: "Bentuk" },
+                    { char: "하트모양", rumi: "hateumoyang", desc: "Bentuk Hati", stroke: "Bentuk" }
+                ]
+            },
+            {
+                id: 'sc-time-numbers',
+                title: "6. Nombor, Hari & Masa (시간과 숫자)",
+                desc: "Nombor Sino/Asli, hari dalam seminggu & waktu jam.",
+                items: [
+                    { char: "일, 이, 삼, 사, 오", rumi: "il, i, sam, sa, o", desc: "Nombor 1 hingga 5 (Sino)", stroke: "Nombor Sino" },
+                    { char: "육, 칠, 팔, 구, 십", rumi: "yuk, chil, pal, gu, sip", desc: "Nombor 6 hingga 10 (Sino)", stroke: "Nombor Sino" },
+                    { char: "백 / 천 / 만", rumi: "baek / cheon / man", desc: "100 / 1,000 / 10,000", stroke: "Nombor Besar" },
+                    { char: "하나, 둘, 셋, 넷, 닷", rumi: "hana, dul, set, net, daseot", desc: "Nombor 1 hingga 5 (Asli)", stroke: "Nombor Asli" },
+                    { char: "월요일", rumi: "woryoil", desc: "Hari Isnin", stroke: "Hari" },
+                    { char: "화요일", rumi: "hwayoil", desc: "Hari Selasa", stroke: "Hari" },
+                    { char: "수요일", rumi: "suyoil", desc: "Hari Rabu", stroke: "Hari" },
+                    { char: "목요일", rumi: "mogyoil", desc: "Hari Khamis", stroke: "Hari" },
+                    { char: "금요일", rumi: "geumyoil", desc: "Hari Jumaat", stroke: "Hari" },
+                    { char: "토요일", rumi: "toyoil", desc: "Hari Sabtu", stroke: "Hari" },
+                    { char: "일요일", rumi: "iryoil", desc: "Hari Ahad", stroke: "Hari" },
+                    { char: "오늘 / 어제 / 내일", rumi: "oneul / eoje / naeil", desc: "Hari ini / Semalam / Esok", stroke: "Masa" },
+                    { char: "오전 / 오후", rumi: "ojeon / ohu", desc: "Pagi (AM) / Petang (PM)", stroke: "Waktu" },
+                    { char: "시 / 분", rumi: "si / bun", desc: "Jam / Minit", stroke: "Masa" },
+                    { char: "주말", rumi: "jumal", desc: "Hujung minggu", stroke: "Masa" }
                 ]
             }
         ];
@@ -1721,7 +1768,6 @@
         function navigateListen(dir) {
             currentListenIndex += dir;
             if (currentListenIndex < 0) currentListenIndex = 0;
-            if (currentListenIndex >= allWords.label) currentListenIndex = allWords.length - 1;
             if (currentListenIndex >= allWords.length) currentListenIndex = allWords.length - 1;
             updateListenCard();
         }
