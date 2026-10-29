@@ -80,9 +80,9 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Langkah Demi Langkah (Lvl 1 - 6)</span>
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Langkah Demi Langkah (Lvl 1 - 8)</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Hangul Korea Hingga Mahir!</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Sistem pembelajaran berperingkat dengan 30 contoh latihan penuh di setiap level dari asas hingga mahir.</p>
+                    <p class="text-slate-300 text-sm md:text-base">Sistem pembelajaran berperingkat sehingga Level 8 dengan 30 contoh latihan penuh setiap modul.</p>
                     <div class="pt-4 flex flex-wrap justify-center gap-4">
                         <button onclick="startLevel(1)" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-korea-blue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-lg shadow-blue-600/30 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
                             <i class="fa-solid fa-play"></i>
@@ -108,15 +108,15 @@
                     <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-layer-group"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Batchim & Lanjutan</h3>
+                    <h3 class="font-bold text-lg mb-2 text-white">Batchim & Sebutan</h3>
                     <p class="text-slate-400 text-sm">Fahami konsonan akhir dan peraturan sebutan dengan banyak contoh.</p>
                 </div>
                 <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition">
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Kuiz Interaktif</h3>
-                    <p class="text-slate-400 text-sm">Uji kefahaman di setiap level untuk kumpul mata dan naik pangkat.</p>
+                    <h3 class="font-bold text-lg mb-2 text-white">Tatabahasa & Perbualan</h3>
+                    <p class="text-slate-400 text-sm">Pelajari partikel tatabahasa (Lvl 7) dan perbualan situasi harian (Lvl 8).</p>
                 </div>
             </div>
         </section>
@@ -125,7 +125,7 @@
         <section id="section-levels" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Modul Pembelajaran (Level 1 - 6)</h2>
+                    <h2 class="text-2xl font-bold text-white">Modul Pembelajaran (Level 1 - 8)</h2>
                     <p class="text-slate-400 text-sm">Pilih tahap mengikut kemampuan anda</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
@@ -158,7 +158,6 @@
 
             <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl text-center space-y-8">
                 <div class="relative inline-block w-full">
-                    <!-- Kotak paparan dengan grid yang jelas & saiz automatik -->
                     <div class="w-44 h-44 md:w-52 md:h-52 mx-auto bg-slate-950 border-2 border-slate-700 rounded-3xl stroke-box flex items-center justify-center shadow-inner relative overflow-hidden group p-4">
                         <span id="study-char" class="hangul-font text-5xl md:text-6xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug">아</span>
                         <button onclick="playAudio()" class="absolute bottom-2 right-2 w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition">
@@ -213,7 +212,7 @@
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
                 <div class="space-y-1">
-                    <span id="quiz-question-type" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Apakah sebutan atau maksud bagi huruf ini?</span>
+                    <span id="quiz-question-type" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Apakah sebutan atau maksud bagi frasa/huruf ini?</span>
                     <div id="quiz-char-display" class="hangul-font text-5xl font-black text-amber-400 py-4">아</div>
                 </div>
 
@@ -264,7 +263,7 @@
         <p>Hangul Master &copy; 2026 - Aplikasi Pembelajaran Bahasa Korea</p>
     </footer>
 
-    <!-- JavaScript Penuh 30 Latihan Setiap Level -->
+    <!-- JavaScript Penuh Level 1 hingga Level 8 -->
     <script>
         const levelsData = [
             {
@@ -454,39 +453,113 @@
             },
             {
                 id: 6,
-                title: "Level 6: Peraturan Sebutan & Ayat (30 Latihan)",
-                desc: "30 latihan frasa, ayat harian dan peraturan sebutan lanjutan.",
+                title: "Level 6: Ungkapan Asas Harian (30 Latihan)",
+                desc: "30 latihan frasa, ayat harian dan ucapan asas.",
                 items: [
-                    { char: "안녕하세요", rumi: "annyeonghaseyo", desc: "Selamat Sejahtera (Formal)", stroke: "안 + 녕 + 하 + 세 + 요" },
-                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Terima Kasih", stroke: "감 + 사 + 합 + 니 + 다" },
-                    { char: "반갑습니다", rumi: "bangapseumnida", desc: "Gembira Bertemu Anda", stroke: "반 + 갑 + 습 + 니 + 다" },
-                    { char: "죄송합니다", rumi: "joesonghamnida", desc: "Minta Maaf", stroke: "죄 + 송 + 합 + 니 + 다" },
-                    { char: "안녕히 가세요", rumi: "annyeonghi gaseyo", desc: "Selamat tinggal (Pergi)", stroke: "안 + 녕 + 히 + 가 + 세 + 요" },
-                    { char: "안녕히 계세요", rumi: "annyeonghi gyeseyo", desc: "Selamat tinggal (Tinggal)", stroke: "안 + 녕 + 히 + 계 + 세 + 요" },
-                    { char: "좋은 아침입니다", rumi: "joeun achimimnida", desc: "Selamat Pagi", stroke: "좋 + 은 + 아 + 침 + 입 + 니 + 다" },
-                    { char: "잘 먹겠습니다", rumi: "jal meokgessumnida", desc: "Sebelum makan", stroke: "잘 + 먹 + 겠 + 습 + 니 + 다" },
-                    { char: "잘 먹었습니다", rumi: "jal meogeotseumnida", desc: "Selepas makan", stroke: "잘 + 먹 + 었 + 습 + 니 + 다" },
-                    { char: "보고 싶어요", rumi: "bogo sipeoyo", desc: "Saya rindu awak", stroke: "보 + 고 + 싶 + 어 + 요" },
-                    { char: "사랑해요", rumi: "saranghaeyo", desc: "Saya cinta awak", stroke: "사 + 랑 + 해 + 요" },
-                    { char: "괜찮아요", rumi: "gwaenchanayo", desc: "Tidak apa-apa", stroke: "괜 + 찬 + 아 + 요" },
-                    { char: "알겠습니다", rumi: "algesseumnida", desc: "Faham / Baik", stroke: "알 + 겠 + 습 + 니 + 다" },
-                    { char: "몰랐어요", rumi: "mollasseoyo", desc: "Saya tidak tahu", stroke: "몰 + 랐 + 어 + 요" },
-                    { char: "도와주세요", rumi: "dowajuseyo", desc: "Tolong saya", stroke: "도 + 와 + 주 + 세 + 요" },
-                    { char: "잠시만요", rumi: "jamsimanyo", desc: "Sebentar ya", stroke: "잠 + 시 + 만 + 요" },
-                    { char: "얼마예요?", rumi: "eolmayeyo?", desc: "Berapa harganya?", stroke: "얼 + 마 + 예 + 요" },
-                    { char: "이거 주세요", rumi: "igeo juseyo", desc: "Tolong bagi yang ini", stroke: "이 + 거 + 주 + 세 + 요" },
-                    { char: "맛있어요", rumi: "masisseoyo", desc: "Sedap!", stroke: "맛 + 있 + 어 + 요" },
-                    { char: "배고파요", rumi: "baegopayo", desc: "Saya lapar", stroke: "배 + 고 + 파 + 요" },
-                    { char: "목마른", rumi: "mokmareun", desc: "Haus", stroke: "목 + 마 + 른" },
-                    { char: "피곤해요", rumi: "pigonhaeyo", desc: "Saya penat", stroke: "피 + 고 + 해 + 요" },
-                    { char: "재미있어요", rumi: "jaemiisseoyo", desc: "Menarik / Seronok", stroke: "재 + 미 + 있 + 어 + 요" },
-                    { char: "어디 가세요?", rumi: "eodi gaseyo?", desc: "Nak ke mana?", stroke: "어 + 디 + 가 + 세 + 요" },
-                    { char: "이름이 뭐예요?", rumi: "ireumi mwoyeyo?", desc: "Siapa nama anda?", stroke: "이 + 름 + 이 + 뭐 + 예 + 요" },
-                    { char: "저는 말레이시아 사람이에요", rumi: "jeoneun malreisiah saramieyo", desc: "Saya orang Malaysia", stroke: "저 + 는 + 말 + 레이 + 시 + 아 + 사 + 람 + 이 + 에 + 요" },
-                    { char: "한국어를 공부해요", rumi: "hangureul gongbuhaeyo", desc: "Saya belajar bahasa Korea", stroke: "한 + 국 + 어 + 를 + 공 + 부 + 해 + 요" },
-                    { char: "내일 봐요", rumi: "naeil bwayo", desc: "Jumpa esok", stroke: "내 + 일 + 봐 + 요" },
-                    { char: "화이팅!", rumi: "hwaiting!", desc: "Fighting! / Semangat!", stroke: "화 + 이 + 팅" },
-                    { char: "행복하세요", rumi: "haengbokhaseyo", desc: "Semoga bahagia", stroke: "행 + 복 + 하 + 세 + 요" }
+                    { char: "안녕하세요", rumi: "annyeonghaseyo", desc: "Maksud: Selamat Sejahtera (Formal)", stroke: "안 + 녕 + 하 + 세 + 요" },
+                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Maksud: Terima Kasih", stroke: "감 + 사 + 합 + 니 + 다" },
+                    { char: "반갑습니다", rumi: "bangapseumnida", desc: "Maksud: Gembira Bertemu Anda", stroke: "반 + 갑 + 습 + 니 + 다" },
+                    { char: "죄송합니다", rumi: "joesonghamnida", desc: "Maksud: Minta Maaf", stroke: "죄 + 송 + 합 + 니 + 다" },
+                    { char: "안녕히 가세요", rumi: "annyeonghi gaseyo", desc: "Maksud: Selamat tinggal (Untuk yang pergi)", stroke: "안 + 녕 + 히 + 가 + 세 + 요" },
+                    { char: "안녕히 계세요", rumi: "annyeonghi gyeseyo", desc: "Maksud: Selamat tinggal (Untuk yang tinggal)", stroke: "안 + 녕 + 히 + 계 + 세 + 요" },
+                    { char: "좋은 아침입니다", rumi: "joeun achimimnida", desc: "Maksud: Selamat Pagi", stroke: "좋 + 은 + 아 + 침 + 입 + 니 + 다" },
+                    { char: "잘 먹겠습니다", rumi: "jal meokgessumnida", desc: "Maksud: Saya makan dulu (Sebelum makan)", stroke: "잘 + 먹 + 겠 + 습 + 니 + 다" },
+                    { char: "잘 먹었습니다", rumi: "jal meogeotseumnida", desc: "Maksud: Terima kasih untuk makanan (Selepas makan)", stroke: "잘 + 먹 + 었 + 습 + 니 + 다" },
+                    { char: "보고 싶어요", rumi: "bogo sipeoyo", desc: "Maksud: Saya rindu awak", stroke: "보 + 고 + 싶 + 어 + 요" },
+                    { char: "사랑해요", rumi: "saranghaeyo", desc: "Maksud: Saya cinta awak", stroke: "사 + 랑 + 해 + 요" },
+                    { char: "괜찮아요", rumi: "gwaenchanayo", desc: "Maksud: Tidak apa-apa / Tak mengapa", stroke: "괜 + 찬 + 아 + 요" },
+                    { char: "알겠습니다", rumi: "algesseumnida", desc: "Maksud: Faham / Baik", stroke: "알 + 겠 + 습 + 니 + 다" },
+                    { char: "몰랐어요", rumi: "mollasseoyo", desc: "Maksud: Saya tidak tahu", stroke: "몰 + 랐 + 어 + 요" },
+                    { char: "도와주세요", rumi: "dowajuseyo", desc: "Maksud: Tolong saya", stroke: "도 + 와 + 주 + 세 + 요" },
+                    { char: "잠시만요", rumi: "jamsimanyo", desc: "Maksud: Sebentar ya", stroke: "잠 + 시 + 만 + 요" },
+                    { char: "얼마예요?", rumi: "eolmayeyo?", desc: "Maksud: Berapa harganya?", stroke: "얼 + 마 + 예 + 요" },
+                    { char: "이거 주세요", rumi: "igeo juseyo", desc: "Maksud: Tolong bagi yang ini", stroke: "이 + 거 + 주 + 세 + 요" },
+                    { char: "맛있어요", rumi: "masisseoyo", desc: "Maksud: Sedap!", stroke: "맛 + 있 + 어 + 요" },
+                    { char: "배고파요", rumi: "baegopayo", desc: "Maksud: Saya lapar", stroke: "배 + 고 + 파 + 요" },
+                    { char: "목마라요", rumi: "mongmarayo", desc: "Maksud: Saya haus", stroke: "목 + 마 + 라 + 요" },
+                    { char: "피곤해요", rumi: "pigonhaeyo", desc: "Maksud: Saya penat", stroke: "피 + 고 + 해 + 요" },
+                    { char: "재미있어요", rumi: "jaemiisseoyo", desc: "Maksud: Menarik / Seronok", stroke: "재 + 미 + 있 + 어 + 요" },
+                    { char: "어디 가세요?", rumi: "eodi gaseyo?", desc: "Maksud: Nak ke mana?", stroke: "어 + 디 + 가 + 세 + 요" },
+                    { char: "이름이 뭐예요?", rumi: "ireumi mwoyeyo?", desc: "Maksud: Siapa nama anda?", stroke: "이 + 름 + 이 + 뭐 + 예 + 요" },
+                    { char: "저는 말레이시아 사람이에요", rumi: "jeoneun malreisiah saramieyo", desc: "Maksud: Saya orang Malaysia", stroke: "저 + 는 + 말 + 레이 + 시 + 아 + 사 + 람 + 이 + 에 + 요" },
+                    { char: "한국어를 공부해요", rumi: "hangureul gongbuhaeyo", desc: "Maksud: Saya belajar bahasa Korea", stroke: "한 + 국 + 어 + 를 + 공 + 부 + 해 + 요" },
+                    { char: "내일 봐요", rumi: "naeil bwayo", desc: "Maksud: Jumpa esok", stroke: "내 + 일 + 봐 + 요" },
+                    { char: "화이팅!", rumi: "hwaiting!", desc: "Maksud: Fighting! / Semangat!", stroke: "화 + 이 + 팅" },
+                    { char: "행복하세요", rumi: "haengbokhaseyo", desc: "Maksud: Semoga bahagia", stroke: "행 + 복 + 하 + 세 + 요" }
+                ]
+            },
+            {
+                id: 7,
+                title: "Level 7: Tatabahasa & Partikel Asas (30 Latihan)",
+                desc: "30 latihan struktur tatabahasa, penanda subjek, objek & lokasi.",
+                items: [
+                    { char: "은 / 는", rumi: "eun / neun", desc: "Partikel Penanda Topik / Subjek Ayat.", stroke: "Guna 은 (bila ada batchim), 는 (tiada batchim)" },
+                    { char: "이 / 가", rumi: "i / ga", desc: "Partikel Penanda Subjek Utama.", stroke: "Guna 이 (ada batchim), 가 (tiada batchim)" },
+                    { char: "을 / 를", rumi: "eul / reul", desc: "Partikel Penanda Objek.", stroke: "Guna 을 (ada batchim), 를 (tiada batchim)" },
+                    { char: "에", rumi: "e", desc: "Partikel Masa & Tempat (Ke / Di).", stroke: "Digunakan bersama masa atau arah tempat." },
+                    { char: "에서", rumi: "eseo", desc: "Partikel Lokasi Aktiviti (Di / Dari).", stroke: "Guna bila ada perbuatan berlaku di tempat itu." },
+                    { char: "도", rumi: "do", desc: "Partikel Bermaksud 'Juga / Pun'.", stroke: "Diletakkan selepas kata nama." },
+                    { char: "하고", rumi: "hago", desc: "Partikel Bermaksud 'Dan / Bersama'.", stroke: "Guna untuk menyambung dua kata nama." },
+                    { char: "와 / 과", rumi: "wa / gwa", desc: "Partikel 'Dan' (Bentuk Penulisan).", stroke: "와 (tiada batchim), 과 (ada batchim)" },
+                    { char: "의", rumi: "ui / e", desc: "Partikel Kepunyaan / Hak Milik.", stroke: "Maksud: 'Punya' (Contoh: 나의 = Punya saya)" },
+                    { char: "으로 / 로", rumi: "euro / ro", desc: "Partikel Arah / Alat (Ke arah / Guna).", stroke: "Menunjukkan cara, alat, atau hala tuju." },
+                    { char: "부터", rumi: "buteo", desc: "Partikel Bermaksud 'Mula Dari'.", stroke: "Guna untuk masa (Contoh: Dari pukul 9)" },
+                    { char: "까지", rumi: "kkaji", desc: "Partikel Bermaksud 'Hingga / Sampai'.", stroke: "Guna untuk tempat atau masa." },
+                    { char: "입니다", rumi: "imnida", desc: "Imbuhan Formal: 'Adalah / Ialah'.", stroke: "Bentuk sopan di akhir ayat." },
+                    { char: "입니까?", rumi: "imnika?", desc: "Imbuhan Soalan Formal: 'Adakah...?'.", stroke: "Bentuk soalan formal." },
+                    { char: "이에요 / 예요", rumi: "ieyo / yeyo", desc: "Imbuhan Mesra Formal: 'Adalah'.", stroke: "이에요 (ada batchim), 예요 (tiada batchim)" },
+                    { char: "아니에요", rumi: "anieyo", desc: "Bermaksud 'Bukan'.", stroke: "Penafian kata nama." },
+                    { char: "있어요", rumi: "isseoyo", desc: "Bermaksud 'Ada / Wujud'.", stroke: "Menunjukkan kewujudan atau barangan." },
+                    { char: "없어요", rumi: "eopseoyo", desc: "Bermaksud 'Tiada / Tak Ada'.", stroke: "Lawan bagi 있어요." },
+                    { char: "아요 / 어요", rumi: "ayo / eoyo", desc: "Penamat Kata Kerja Masa Kini (Present).", stroke: "Bentuk asas pertuturan harian." },
+                    { char: "았어요 / 었어요", rumi: "asseoyo / eosseoyo", desc: "Penamat Kata Kerja Masa Lepas (Past).", stroke: "Menunjukkan perbuatan dah berlaku." },
+                    { char: "을 거예요 / ㄹ 거예요", rumi: "eul geoyeyo / l geoyeyo", desc: "Penamat Masa Akan Datang (Future).", stroke: "Menunjukkan rancangan akan datang." },
+                    { char: "안", rumi: "an", desc: "Kata Penafian 'Tidak' (Short Not).", stroke: "Diletakkan sebelum kata kerja." },
+                    { char: "못", rumi: "mot", desc: "Kata Penafian 'Tak Boleh / Tak Mampu'.", stroke: "Diletakkan sebelum kata kerja." },
+                    { char: "고 싶어요", rumi: "go sipeoyo", desc: "Bermaksud 'Mahu / Teringin'.", stroke: "Diletakkan selepas kata kerja." },
+                    { char: "ㄹ 수 있어요", rumi: "l su isseoyo", desc: "Bermaksud 'Boleh / Mampu Buat'.", stroke: "Keupayaan melakukan sesuatu." },
+                    { char: "ㄹ 수 없어요", rumi: "l su eopseoyo", desc: "Bermaksud 'Tak Boleh Buat'.", stroke: "Ketidakmampuan melakukan sesuatu." },
+                    { char: "지 마세요", rumi: "ji maseyo", desc: "Larangan: 'Jangan...'.", stroke: "Ayat suruhan negatif/larangan." },
+                    { char: "으세요 / 세요", rumi: "euseyo / seyo", desc: "Suruhan Sopan: 'Sila...'.", stroke: "Minta seseorang buat sesuatu." },
+                    { char: "지만", rumi: "jiman", desc: "Kata Hubung 'Tetapi'.", stroke: "Menyambung dua klausa berlawanan." },
+                    { char: "그래서", rumi: "geuraeseo", desc: "Kata Hubung 'Oleh Itu / Jadi'.", stroke: "Menunjukkan sebab dan akibat." }
+                ]
+            },
+            {
+                id: 8,
+                title: "Level 8: Perbualan Situasi & Pejabat (30 Latihan)",
+                desc: "30 latihan perbualan restoran, membeli-belah, pengangkutan & pejabat.",
+                items: [
+                    { char: "메뉴판 주세요", rumi: "menyupan juseyo", desc: "Restoran: Tolong beri menu", stroke: "메뉴판 (Menu) + 주세요 (Tolong beri)" },
+                    { char: "이거 하나 주세요", rumi: "igeo hana juseyo", desc: "Restoran: Bagi ini satu", stroke: "이거 (Yang ini) + 하나 (Satu)" },
+                    { char: "물이랑 수저 주세요", rumi: "murirang sujeo juseyo", desc: "Restoran: Minta air dan sudu/garfu", stroke: "물 (Air) + 수저 (Sudu & chopstick)" },
+                    { char: "덜 매운 걸로 주세요", rumi: "deol maeun geollo juseyo", desc: "Restoran: Tolong kurangkan pedas", stroke: "덜 (Kurang) + 매운 (Pedas)" },
+                    { char: "계산해 주세요", rumi: "gyesanhae juseyo", desc: "Restoran: Nak bayar bil / Kira", stroke: "계산 (Bayar/Kira)" },
+                    { char: "카드 돼요?", rumi: "kadeu dwaeyo?", desc: "Membeli-belah: Boleh guna kad kredit?", stroke: "카드 (Kad) + 돼요? (Boleh?)" },
+                    { char: "영수증 주세요", rumi: "yeongsujeung juseyo", desc: "Membeli-belah: Tolong beri resit", stroke: "영수증 (Resit)" },
+                    { char: "좀 깎아 주세요", rumi: "jom kkakka juseyo", desc: "Membeli-belah: Bagi diskaun sikit", stroke: "깎아 (Diskaun/Potong harga)" },
+                    { char: "입어 봐도 돼요?", rumi: "ibeobwado dwaeyo?", desc: "Membeli-belah: Boleh saya cuba pakai?", stroke: "입어 보다 (Cuba pakai)" },
+                    { char: "다른 색상 있어요?", rumi: "dareun saeksang isseoyo?", desc: "Membeli-belah: Ada warna lain?", stroke: "다른 (Lain) + 색상 (Warna)" },
+                    { char: "어디서 타요?", rumi: "eodiseo tayo?", desc: "Pengangkutan: Naik di mana?", stroke: "어디서 (Di mana) + 타요 (Naik)" },
+                    { char: "얼마나 걸려요?", rumi: "eolmana geollyeoyo?", desc: "Pengangkutan: Ambil masa berapa lama?", stroke: "얼마나 (Berapa lama) + 걸려요 (Masa)" },
+                    { char: "여기서 내려 주세요", rumi: "yeogiseo naeryeojuseyo", desc: "Pengangkutan: Berhenti/Turunkan saya di sini", stroke: "여기서 (Di sini) + 내려 (Turun)" },
+                    { char: "화장실이 어디예요?", rumi: "hwajangsiri eodiyeyo?", desc: "Situasi: Tandas di mana?", stroke: "화장실 (Tandas) + 어디 (Mana)" },
+                    { char: "길을 잃었어요", rumi: "gireul ireosseoyo", desc: "Situasi: Saya dah sesat jalan", stroke: "길 (Jalan) + 잃었어요 (Telah hilang)" },
+                    { char: "사진 좀 찍어 주시겠어요?", rumi: "sajin jom jjigeojusigesseoyo?", desc: "Situasi: Boleh tolong ambilkan gambar?", stroke: "사진 (Gambar) + 찍어 (Ambil)" },
+                    { char: "와이파이 비밀번호가 뭐예요?", rumi: "waipai bimilbeonhoga mwoyeyo?", desc: "Situasi: Apa kata laluan WiFi?", stroke: "비밀번호 (Kata laluan)" },
+                    { char: "좋은 하루 보내세요", rumi: "joeun haru bonaeseyo", desc: "Ucapan: Semoga hari anda menyenangkan!", stroke: "좋은 하루 (Hari yang baik)" },
+                    { char: "수고하셨습니다", rumi: "sugohasyeosseumnida", desc: "Pejabat: Terima kasih atas kerja keras anda", stroke: "Ucapan tamat kerja" },
+                    { char: "회의 시작 하겠습니다", rumi: "hoeui sijak hagesseumnida", desc: "Pejabat: Kita mula mesyuarat sekarang", stroke: "회의 (Mesyuarat) + 시작 (Mula)" },
+                    { char: "이메일 보냈습니다", rumi: "imeil bonaesseumnida", desc: "Pejabat: Saya dah hantar e-mel", stroke: "이메일 (E-mel) + 보냈 (Hantar)" },
+                    { char: "확인해 보겠습니다", rumi: "hwaginhae bogesseumnida", desc: "Pejabat: Saya akan semak dahulu", stroke: "확인 (Semak/Pengesahan)" },
+                    { char: "잠시 통화 가능하신가요?", rumi: "jamsi tonghwa ganeunghasingayo?", desc: "Pejabat: Boleh bercakap sekejap di telefon?", stroke: "통화 (Panggilan) + 가능 (Boleh)" },
+                    { char: "보고서 작성 중입니다", rumi: "bogoseo jakseong jungimnida", desc: "Pejabat: Saya sedang sediakan laporan", stroke: "보고서 (Laporan) + 작성 (Menulis)" },
+                    { char: "다음주까지 제출해 주세요", rumi: "daeumjjukkaji jechulhae juseyo", desc: "Pejabat: Sila hantar sebelum minggu depan", stroke: "제출 (Serah/Hantar)" },
+                    { char: "명함 한 장 주시겠어요?", rumi: "myeongham han jang jusigesseoyo?", desc: "Pejabat: Boleh dapatkan kad perniagaan anda?", stroke: "명함 (Kad bisnes)" },
+                    { char: "오늘 야근해요", rumi: "oneul yageunhaeyo", desc: "Pejabat: Hari ini saya kerja kerja OT (Overtime)", stroke: "야근 (Kerja lebih masa / OT)" },
+                    { char: "퇴근했습니다", rumi: "toegeunhaesseumnida", desc: "Pejabat: Saya dah balik kerja", stroke: "퇴근 (Tamat waktu kerja)" },
+                    { char: "연락드리겠습니다", rumi: "yeonlakdeurigesseumnida", desc: "Pejabat: Saya akan hubungi anda kelak", stroke: "연락 (Hubungi)" },
+                    { char: "잘 부탁드립니다", rumi: "jal 부탁deurigesseumnida", desc: "Pejabat: Mohon kerjasamanya / Tunjuk ajar", stroke: "Ungkapan pembuka kerjasama" }
                 ]
             }
         ];
@@ -555,8 +628,10 @@
             const charEl = document.getElementById('study-char');
             charEl.innerText = item.char;
 
-            // Saiz automatik mengikut panjang teks perkataan
-            if (item.char.length > 5) {
+            // Saiz fleksibel automatik ikut panjang ayat
+            if (item.char.length > 8) {
+                charEl.className = "hangul-font text-base md:text-lg font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug break-words px-2";
+            } else if (item.char.length > 4) {
                 charEl.className = "hangul-font text-xl md:text-2xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug break-words px-2";
             } else if (item.char.length > 2) {
                 charEl.className = "hangul-font text-2xl md:text-3xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug break-words px-2";
@@ -613,7 +688,14 @@
             const currentItem = items[currentQuizIndex];
             document.getElementById('quiz-progress-text').innerText = `${currentQuizIndex + 1} / ${items.length}`;
             document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / items.length) * 100}%`;
-            document.getElementById('quiz-char-display').innerText = currentItem.char;
+            
+            const quizDisplay = document.getElementById('quiz-char-display');
+            quizDisplay.innerText = currentItem.char;
+            if (currentItem.char.length > 8) {
+                quizDisplay.className = "hangul-font text-xl md:text-2xl font-black text-amber-400 py-4 px-2 break-words";
+            } else {
+                quizDisplay.className = "hangul-font text-4xl md:text-5xl font-black text-amber-400 py-4";
+            }
 
             const optionsGrid = document.getElementById('quiz-options-grid');
             optionsGrid.innerHTML = '';
@@ -630,7 +712,7 @@
 
             options.forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = "py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-sm md:text-base";
+                btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm break-words";
                 btn.innerText = opt;
                 btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
                 optionsGrid.appendChild(btn);
