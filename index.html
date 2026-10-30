@@ -425,7 +425,15 @@
         const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';[cite: 1]
         const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_'; 
         
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        // Pastikan Supabase dimuat dengan selamat
+        let supabaseClient = null;
+        try {
+            if (window.supabase) {
+                supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            }
+        } catch (e) {
+            console.error("Supabase init error:", e);
+        }
 
         let isSignupMode = false;
         let currentUser = null;
@@ -449,7 +457,7 @@
             const toggleBtn = document.getElementById('auth-toggle-btn');
             const errBox = document.getElementById('auth-error');
             
-            errBox.classList.add('hidden');
+            if (errBox) errBox.classList.add('hidden');
 
             if (isSignupMode) {
                 title.innerText = "Daftar Akaun Baharu (Signup)";
@@ -466,7 +474,6 @@
             }
         }
 
-        // Fungsi Lihat / Sembunyikan Kata Laluan (Seen / Unseen)
         function togglePasswordVisibility() {
             const passwordInput = document.getElementById('auth-password');
             const eyeIcon = document.getElementById('eye-icon');
@@ -480,7 +487,6 @@
             }
         }
 
-        // Proses Hantar Borang Login / Signup
         async function handleAuthSubmit() {
             const email = document.getElementById('auth-email').value.trim();
             const password = document.getElementById('auth-password').value.trim();
@@ -490,6 +496,12 @@
 
             if (!email || !password) {
                 errBox.innerText = "Sila isi e-mel dan kata laluan!";
+                errBox.classList.remove('hidden');
+                return;
+            }
+
+            if (!supabaseClient) {
+                errBox.innerText = "Ralat: Sistem Supabase tidak tersambung dengan betul.";
                 errBox.classList.remove('hidden');
                 return;
             }
@@ -518,14 +530,14 @@
 
         function updateUserProfileUI() {
             const authTriggerBtn = document.getElementById('btn-auth-trigger');
-            if (currentUser) {
+            if (currentUser && currentUser.email) {
                 authTriggerBtn.innerHTML = `<i class="fa-solid fa-user-check text-emerald-400 mr-1"></i> ${currentUser.email.split('@')[0]}`;
                 authTriggerBtn.onclick = handleLogout;
             }
         }
 
         async function handleLogout() {
-            await supabaseClient.auth.signOut();
+            if (supabaseClient) await supabaseClient.auth.signOut();
             currentUser = null;
             const authTriggerBtn = document.getElementById('btn-auth-trigger');
             authTriggerBtn.innerHTML = `<i class="fa-solid fa-user"></i><span>Log Masuk</span>`;
@@ -1735,6 +1747,7 @@
 
         function renderLevelCards() {
             const container = document.getElementById('levels-container');
+            if(!container) return;
             container.innerHTML = '';
             levelsData.forEach(lvl => {
                 const card = document.createElement('div');
@@ -1759,6 +1772,7 @@
 
         function renderSpecialCategoryCards() {
             const container = document.getElementById('special-container');
+            if(!container) return;
             container.innerHTML = '';
             specialCategoriesData.forEach(sc => {
                 const card = document.createElement('div');
@@ -1783,6 +1797,7 @@
 
         function renderConversationCards() {
             const container = document.getElementById('conversation-container');
+            if(!container) return;
             container.innerHTML = '';
             conversationLabData.forEach(cv => {
                 const card = document.createElement('div');
@@ -1807,6 +1822,7 @@
 
         function renderGrammarLabCards() {
             const container = document.getElementById('grammar-lab-container');
+            if(!container) return;
             container.innerHTML = '';
             grammarLabData.forEach(g => {
                 const card = document.createElement('div');
@@ -1862,6 +1878,7 @@
         }
 
         function backFromStudy() {
+            if (!currentLevelObj) { showSection('home'); return; }
             if (specialCategoriesData.some(sc => sc.id === currentLevelObj.id)) {
                 showSection('special');
             } else if (conversationLabData.some(cv => cv.id === currentLevelObj.id)) {
@@ -1877,11 +1894,11 @@
             if (!currentLevelObj) return;
             const item = currentLevelObj.items[currentStudyIndex];
             
-            if (currentLevelObj.id.toString().startsWith('sc-')) {
+            if (typeof currentLevelObj.id === 'string' && currentLevelObj.id.startsWith('sc-')) {
                 document.getElementById('study-level-badge').innerText = "KATEGORI KHAS";
-            } else if (currentLevelObj.id.toString().startsWith('cv-')) {
+            } else if (typeof currentLevelObj.id === 'string' && currentLevelObj.id.startsWith('cv-')) {
                 document.getElementById('study-level-badge').innerText = "CONVERSATION LAB";
-            } else if (currentLevelObj.id.toString().startsWith('g')) {
+            } else if (typeof currentLevelObj.id === 'string' && currentLevelObj.id.startsWith('g')) {
                 document.getElementById('study-level-badge').innerText = "GRAMMAR LAB";
             } else {
                 document.getElementById('study-level-badge').innerText = `LEVEL ${currentLevelObj.id}`;
@@ -2020,7 +2037,7 @@
             document.getElementById('result-score').innerText = `${percentage}%`;
             document.getElementById('result-points').innerText = `+${pointsEarned}`;
             showSection('result');
-            if (percentage >= 70) confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            if (percentage >= 70 && window.confetti) confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         }
 
         function buildAllWordsList() {
@@ -2038,6 +2055,7 @@
 
         function renderWords(list) {
             const grid = document.getElementById('words-grid');
+            if(!grid) return;
             grid.innerHTML = '';
             list.forEach(w => {
                 let emojiIcon = visualEmojiMap[w.char] ? `<span class="text-2xl mr-2">${visualEmojiMap[w.char]}</span>` : '';
@@ -2060,7 +2078,9 @@
         }
 
         function filterWords() {
-            const query = document.getElementById('word-search').value.toLowerCase();
+            const queryInput = document.getElementById('word-search');
+            if(!queryInput) return;
+            const query = queryInput.value.toLowerCase();
             const filtered = allWords.filter(w => w.char.includes(query) || w.rumi.toLowerCase().includes(query) || w.desc.toLowerCase().includes(query));
             renderWords(filtered);
         }
@@ -2072,6 +2092,7 @@
         }
 
         function updateListenCard() {
+            if(allWords.length === 0) return;
             const item = allWords[currentListenIndex];
             document.getElementById('listen-char').innerText = item.char;
             document.getElementById('listen-romaji').innerText = item.rumi;
@@ -2087,6 +2108,7 @@
         }
 
         function playListenAudio() {
+            if(allWords.length === 0) return;
             const item = allWords[currentListenIndex];
             speakText(item.char);
         }
