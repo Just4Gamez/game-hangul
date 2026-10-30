@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -40,27 +42,8 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-korea-red selection:text-white">
 
-    <!-- ================= LOGIN SECTION ================= -->
-    <div id="section-login" class="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center p-4">
-        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
-            <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-3xl shadow-lg shadow-blue-500/20 text-white hangul-font">
-                한
-            </div>
-            <div class="space-y-2">
-                <h2 class="text-2xl font-black bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h2>
-                <p class="text-slate-400 text-sm">Sila masukkan nama anda untuk mula belajar Bahasa Korea.</p>
-            </div>
-            <div class="space-y-4">
-                <input type="text" id="login-username" placeholder="Nama anda (Contoh: Ali)" class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-3.5 text-white text-center font-semibold focus:outline-none focus:border-blue-500 placeholder-slate-600">
-                <button onclick="handleLogin()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold shadow-lg shadow-blue-600/30 transition">
-                    Masuk & Mula Belajar 🚀
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Header / Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40">
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
@@ -68,19 +51,30 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
-                    <p class="text-xs text-slate-400">Selamat datang, <span id="display-username" class="text-amber-400 font-bold">Pelajar</span></p>
+                    <p class="text-xs text-slate-400">Vocabulary & Conversation Lab</p>
                 </div>
             </div>
 
-            <!-- Stats Bar -->
-            <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-                <div class="flex items-center space-x-1" title="Mata Skor">
+            <!-- Stats & Auth Bar -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-1 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm" title="Mata Skor">
                     <i class="fa-solid fa-star text-amber-400"></i>
                     <span id="stat-score" class="font-bold text-amber-300">0</span>
                 </div>
-                <button onclick="logout()" class="text-xs text-slate-400 hover:text-red-400 ml-2 border-l border-slate-700 pl-2" title="Log Keluar">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                </button>
+
+                <!-- Auth Section -->
+                <div id="auth-container">
+                    <button id="btn-login" onclick="loginWithGitHub()" class="px-3.5 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center space-x-2">
+                        <i class="fa-brands fa-github text-sm"></i>
+                        <span class="hidden md:inline">Login GitHub</span>
+                    </button>
+                    <div id="user-profile" class="hidden items-center space-x-2">
+                        <span id="user-name" class="text-xs font-bold text-slate-300"></span>
+                        <button onclick="logoutSupabase()" class="px-2.5 py-1 rounded-full bg-red-500/20 hover:bg-red-500/30 text-red-400 text-xs font-bold border border-red-500/30 transition">
+                            Logout
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -391,8 +385,62 @@
         <p>Hangul Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
     </footer>
 
-    <!-- JavaScript Platform -->
+    <!-- JavaScript Platform & Supabase Auth -->
     <script>
+        // Supabase Initialization
+        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            renderLevelCards();
+            renderSpecialCategoryCards();
+            renderConversationCards();
+            renderGrammarLabCards();
+            buildAllWordsList();
+            showSection('home');
+
+            // Check Supabase session
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            updateAuthUI(session);
+
+            supabaseClient.auth.onAuthStateChange((event, session) => {
+                updateAuthUI(session);
+            });
+        });
+
+        async function loginWithGitHub() {
+            const { error } = await supabaseClient.auth.signInWithOAuth({
+                provider: 'github',
+                options: {
+                    redirectTo: window.location.origin + window.location.pathname
+                }
+            });
+            if (error) alert("Error login: " + error.message);
+        }
+
+        async function logoutSupabase() {
+            await supabaseClient.auth.signOut();
+            updateAuthUI(null);
+        }
+
+        function updateAuthUI(session) {
+            const btnLogin = document.getElementById('btn-login');
+            const userProfile = document.getElementById('user-profile');
+            const userName = document.getElementById('user-name');
+
+            if (session && session.user) {
+                btnLogin.classList.add('hidden');
+                userProfile.classList.remove('hidden');
+                userProfile.classList.add('flex');
+                userName.innerText = session.user.user_metadata.user_name || session.user.email;
+            } else {
+                btnLogin.classList.remove('hidden');
+                userProfile.classList.remove('flex');
+                userProfile.classList.add('hidden');
+            }
+        }
+
         const visualEmojiMap = {
             "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
             "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
@@ -1574,42 +1622,6 @@
 
         let allWords = [];
         let currentListenIndex = 0;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderLevelCards();
-            renderSpecialCategoryCards();
-            renderConversationCards();
-            renderGrammarLabCards();
-            buildAllWordsList();
-
-            // Check if user is already logged in
-            const savedUser = localStorage.getItem('hangul_username');
-            if (savedUser) {
-                document.getElementById('display-username').innerText = savedUser;
-                document.getElementById('section-login').classList.add('hidden');
-                showSection('home');
-            } else {
-                document.getElementById('section-login').classList.remove('hidden');
-            }
-        });
-
-        function handleLogin() {
-            const usernameInput = document.getElementById('login-username').value.trim();
-            if (!usernameInput) {
-                alert('Sila masukkan nama anda terlebih dahulu!');
-                return;
-            }
-            localStorage.setItem('hangul_username', usernameInput);
-            document.getElementById('display-username').innerText = usernameInput;
-            document.getElementById('section-login').classList.add('hidden');
-            showSection('home');
-        }
-
-        function logout() {
-            localStorage.removeItem('hangul_username');
-            document.getElementById('login-username').value = '';
-            document.getElementById('section-login').classList.remove('hidden');
-        }
 
         function showSection(sectionId) {
             ['home', 'levels', 'special', 'conversation', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
