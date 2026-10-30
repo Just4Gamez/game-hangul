@@ -73,7 +73,7 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik & Perbualan Lanjutan</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik, Conversation Lab (Situasi Bersiri), Grammar Lab, Kamus atau Mod Dengar!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik, Conversation Lab (8 Situasi Bersiri), Grammar Lab, Kamus atau Mod Dengar!</p>
                 </div>
             </div>
 
@@ -97,14 +97,14 @@
                     <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
-                <!-- 3. Conversation Lab (Situasi Bersiri) -->
+                <!-- 3. Conversation Lab (8 Situasi) -->
                 <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-pink-500/20 text-pink-400 text-[10px] font-bold rounded border border-pink-500/30">UPDATED</div>
                     <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-comments"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Conversation Lab (Situasi Bersiri)</h3>
-                    <p class="text-slate-400 text-sm">Dialog perbualan harian: Restoran, Kafe, Pengangkutan, Hotel, Kecemasan & Tambahan Baru.</p>
+                    <h3 class="font-bold text-lg text-white">Conversation Lab (8 Situasi)</h3>
+                    <p class="text-slate-400 text-sm">Dialog perbualan harian: Restoran, Kafe, Pengangkutan, Hotel & Kecemasan.</p>
                 </div>
 
                 <!-- 4. Hangul Grammar Lab -->
@@ -166,11 +166,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="special-container"></div>
         </section>
 
-        <!-- ================= CONVERSATION LAB MENU SECTION ================= -->
+        <!-- ================= CONVERSATION LAB MENU SECTION (8 SITUASI) ================= -->
         <section id="section-conversation" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Conversation Lab (Situasi Perbualan Bersiri)</h2>
+                    <h2 class="text-2xl font-bold text-white">Conversation Lab (8 Situasi Perbualan)</h2>
                     <p class="text-slate-400 text-sm">Pilih situasi perbualan harian sebenar di Korea</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
@@ -253,7 +253,7 @@
             </div>
         </section>
 
-        <!-- ================= QUIZ SECTION ================= -->
+        <!-- ================= QUIZ SECTION (DENGAN SELINGAN VISUAL/IKON) ================= -->
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
@@ -266,6 +266,7 @@
             </div>
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
+                <!-- Banner Soalan Bergantung Mod -->
                 <div class="space-y-1 relative">
                     <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
@@ -276,6 +277,7 @@
                     </div>
                 </div>
 
+                <!-- Grid Pilihan (Dinamik: Teks atau Kad Visual Bergambar) -->
                 <div id="quiz-options-grid" class="grid grid-cols-2 gap-3"></div>
                 <div id="quiz-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
             </div>
@@ -375,16 +377,16 @@
         const visualEmojiMap = {
             "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
             "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
-            "산": "⛰️", "강": "🌊", "바다": "🏖️", "친구": "🧑‍🤝‍🧑", "우유": "🥛",
+            "산": "⛰️", "강": "🌊", "바다": "🏖️", "친구": "🧑‍🤝‍🧑", "사과": "🍎", "우유": "🥛",
             "의사": "👨‍⚕️", "바나나": "🍌", "토마토": "🍅", "카메라": "📷", "버스": "🚌",
             "택시": "🚕", "기차": "🚂", "구두": "👞", "비누": "🧼", "나비": "🦋", "모기": "🦟",
             "휴지": "🧻", "거울": "🪞", "주스": "🧃", "사자": "🦁", "호랑이": "🐅", "코끼리": "🐘",
             "원숭이": "🐵", "곰": "🐻", "토끼": "🐰", "말": "🐎", "소": "🐂", "돼지": "🐖",
             "닭": "🐓", "오리": "🦆", "물고기": "🐟", "상어": "🦈", "고래": "🐋", "나무": "🌳",
-            "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "🍏": "🍏"
+            "사과": "🍎", "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "사과": "🍏"
         };
 
-        // 21 Level Kosa Kata Asal (Tidak Diubah)
+        // 21 Level Kosa Kata Asal
         const levelsData = [
             {
                 id: 1,
@@ -1165,7 +1167,7 @@
             }
         ];
 
-        // Kategori Khas Tematik (Tidak Diubah)
+        // Kategori Khas Tematik
         const specialCategoriesData = [
             {
                 id: 'sc-house',
@@ -1364,9 +1366,8 @@
             }
         ];
 
-        // Conversation Lab Data (Merangkumi 8 asal + 11 tambahan baharu anda)
+        // Conversation Lab Data (8 Situasi)
         const conversationLabData = [
-            // --- 8 Situasi Asal ---
             {
                 id: 'cv-1',
                 title: "Situasi 1: Perkenalan Diri (자기소개)",
@@ -1470,150 +1471,81 @@
                     { char: "말레이시아 대사관 어디예요?", rumi: "malreisiah daesagwan eodiyeyo?", desc: "Di mana Kedutaan Malaysia?", stroke: "Kedutaan" },
                     { char: "괜찮습니다, 감사합니다.", rumi: "gwaenchanseumnida, gamsahamnida.", desc: "Saya okay, terima kasih.", stroke: "Penyelesaian" }
                 ]
-            },
+            }
+        ];
 
-            // --- 11 Situasi Tambahan Baru Anda ---
+        // Hangul Grammar Lab (6 Modul)
+        const grammarLabData = [
             {
-                id: 'cv-9',
-                title: "Situasi 9: Hello & Thank You (인사와 감사)",
-                desc: "Ungkapan asas menyapa, memanggil perhatian & melafazkan terima kasih.",
+                id: 'g1',
+                title: "1. Penanda Subjek & Topik",
+                desc: "Formula 은/는 vs 이/가 (Siapa pelaku utama dalam ayat).",
                 items: [
-                    { char: "안녕하세요!", rumi: "annyeonghaseyo!", desc: "Helo / Selamat sejahtera!", stroke: "Sapaan rasmi harian." },
-                    { char: "실례합니다 / 저기요", rumi: "sillyehamnida / jeogiyo", desc: "Tumpang tanya / Cik / Tuan", stroke: "Memanggil perhatian orang." },
-                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Terima kasih", stroke: "Ucapan penghargaan rasmi." },
-                    { char: "정말 고마워요", rumi: "jeongmal gomawoyo", desc: "Terima kasih banyak-banyak", stroke: "Ucapan mesra tak rasmi." },
-                    { char: "천만에요", rumi: "cheonmaneyo", desc: "Sama-sama", stroke: "Balasan terima kasih." },
-                    { char: "안녕히 가세요", rumi: "annyeonghi gaseyo", desc: "Selamat tinggal (kepada yang pergi)", stroke: "Ucapan perpisahan." }
+                    { char: "은 / 는", rumi: "eun / neun", desc: "Penanda Topik Umum", stroke: "Formula: Kata Nama berakhiran konsonan + 은, vokal + 는.\nContoh: 저는 학생입니다 (Saya adalah pelajar)." },
+                    { char: "이 / 가", rumi: "i / ga", desc: "Penanda Subjek Utama", stroke: "Formula: Kata Nama berakhiran konsonan + 이, vokal + 가.\nContoh: 날씨가 좋습니다 (Cuaca bagus)." },
+                    { char: "도 (Juga)", rumi: "do", desc: "Maksud: 'Juga' atau 'Pun'", stroke: "Formula: Letak menggantikan 은/는 atau 이/가.\nContoh: 저도 학생입니다 (Saya juga pelajar)." },
+                    { char: "만 (Sahaja)", rumi: "man", desc: "Maksud: 'Hanya / Sahaja'", stroke: "Formula: Letak selepas kata nama.\nContoh: 이것만 주세요 (Bagi ini sahaja)." },
+                    { char: "의 (Kepunyaan)", rumi: "ui", desc: "Maksud: Punya ('s dalam English)", stroke: "Formula: Kata Nama 1 + 의 + Kata Nama 2.\nContoh: 나의 가방 (Beg saya)." }
                 ]
             },
             {
-                id: 'cv-10',
-                title: "Situasi 10: Yes or No (예와 아니오)",
-                desc: "Ungkapan bersetuju, menolak, betul atau salah dalam perbualan.",
+                id: 'g2',
+                title: "2. Penanda Objek & Lokasi",
+                desc: "Formula 을/를, 에, 에서 (Objek perbuatan dan tempat).",
                 items: [
-                    { char: "네, 맞습니다.", rumi: "ne, matseumnida.", desc: "Ya, betul.", stroke: "Persetujuan rasmi." },
-                    { char: "아니요, 아닙니다.", rumi: "aniyo, animnida.", desc: "Tidak, bukan.", stroke: "Penafian rasmi." },
-                    { char: "응, 그래요.", rumi: "eung, geuraeyo.", desc: "Ya, betul tu (mesra).", stroke: "Perbualan santai." },
-                    { char: "아니, 안 돼요.", rumi: "ani, an dwaeyo.", desc: "Tak boleh / Jangan.", stroke: "Larangan / Penolakan." },
-                    { char: "확실해요?", rumi: "hwaksilhaeyo?", desc: "Adakah anda pasti?", stroke: "Bertanya kepastian." },
-                    { char: "글쎄요...", rumi: "geulsseyo...", desc: "Entahlah... / Tengoklah nanti...", stroke: "Jawapan ragu-ragu." }
+                    { char: "을 / 를 (Objek)", rumi: "eul / reul", desc: "Penanda Objek Penderita", stroke: "Formula: Berakhiran konsonan + 을, vokal + 를.\nContoh: 사과를 먹어요 (Makan epal)." },
+                    { char: "에서 (Tempat Aktiviti)", rumi: "eseo", desc: "Tempat lakuan perbuatan berlaku", stroke: "Formula: Tempat + 에서 + Kata Kerja.\nContoh: 식당에서 먹어요 (Makan di kedai makan)." },
+                    { char: "에 (Destinasi)", rumi: "e", desc: "Tempat tuju / destinasi pergi", stroke: "Formula: Tempat + 에 + 가다/오다.\nContoh: 한국에 가요 (Pergi ke Korea)." },
+                    { char: "에서 ~ 까지", rumi: "eseo ~ kkaji", desc: "Dari... Hingga... (Tempat/Masa)", stroke: "Formula: A + 점에서 + B + 까지.\nContoh: 집에서 회사까지 (Dari rumah ke pejabat)." },
+                    { char: "안 / 위 / 아래", rumi: "an / wi / arae", desc: "Kedudukan (Dalam, Atas, Bawah)", stroke: "Formula: Kata Nama + 의 + 위치.\nContoh: 책상 위에 있어요 (Ada di atas meja)." }
                 ]
             },
             {
-                id: 'cv-11',
-                title: "Situasi 11: Jobs / Pekerjaan (직업)",
-                desc: "Frasa bertanya jenis pekerjaan, kerjaya & bidang tugas.",
+                id: 'g3',
+                title: "3. Penamat Ayat & Tahap Kesopanan",
+                desc: "Formula 입니다, 요, 반말 (Politeness levels Korea).",
                 items: [
-                    { char: "직업이 무엇입니까?", rumi: "jigobi mueosimnikka?", desc: "Apakah pekerjaan anda?", stroke: "Soalan rasmi kerjaya." },
-                    { char: "저는 회사원입니다.", rumi: "jeoneun hoesawonimnida.", desc: "Saya seorang pekerja syarikat.", stroke: "Pekerjaan korporat." },
-                    { char: "엔지니어/선생님입니다.", rumi: "enjinieo / seonsaengnimimnida.", desc: "Saya seorang jurutera / guru.", stroke: "Jenis profesion." },
-                    { char: "사업을 하고 있습니다.", rumi: "saabeul hago isseumnida.", desc: "Saya sedang menjalankan perniagaan.", stroke: "Bisnes sendiri." },
-                    { char: "지금은 백수입니다 (농담)", rumi: "jigeumeun baeksuimnida (nongdam)", desc: "Sekarang menganggur (sambil bergurau)", stroke: "Slang santai." },
-                    { char: "꿈이 뭐예요?", rumi: "kkumi mwoyeyo?", desc: "Apakah impian/cita-cita anda?", stroke: "Soalan masa depan." }
+                    { char: "입니다 / 습니다 (Formal)", rumi: "imnida / seumnida", desc: "Penamat ayat formal rasmi", stroke: "Formula: Kata kerja/sifat + 습니다/입니다.\nContoh: 저는 학생입니다 (Saya pelajar)." },
+                    { char: "아요 / 어요 (Polite Standard)", rumi: "ayo / eoyo", desc: "Penamat harian sopan", stroke: "Formula: Ikut vokal akhir akar kata.\nContoh: 가요 (Pergi), 먹어요 (Makan)." },
+                    { char: "었어요 / 았어요 (Past Tense)", rumi: "eosseoyo / asseoyo", desc: "Bentuk lampau sopan", stroke: "Formula: Akar kata + 았/었어요.\nContoh: 먹었어요 (Sudah makan)." },
+                    { char: "을 거예요 (Future Tense)", rumi: "eul geoyeyo", desc: "Bentuk akan datang sopan", stroke: "Formula: Konsonan + 을 거예요, Vokal + ㄹ 거예요.\nContoh: 갈 거예요 (Akan pergi)." },
+                    { char: "세요 / 으세요 (Sila...)", rumi: "seyeo / euseyo", desc: "Arahan atau jemputan sopan", stroke: "Formula: Akar kata + (으)세요.\nContoh: 오세요 (Sila datang)." }
                 ]
             },
             {
-                id: 'cv-12',
-                title: "Situasi 12: Countries / Negara Asal (나라)",
-                desc: "Frasa menyebut kewarganegaraan & asal usul negara.",
+                id: 'g4',
+                title: "4. Bentuk Masa (Tenses)",
+                desc: "Formula Lepas, Kini & Akan Datang (과거, 현재, 미래).",
                 items: [
-                    { char: "어느 나라 사람이에요?", rumi: "eoneu nara saramieyo?", desc: "Anda orang negara mana?", stroke: "Soalan kewarganegaraan." },
-                    { char: "저는 말레이시아 사람입니다.", rumi: "jeoneun malreisiah saramimnida.", desc: "Saya orang Malaysia.", stroke: "Pengenalan diri." },
-                    { char: "한국에 처음 오셨어요?", rumi: "hanguk-e cheoeum osyeosseoyo?", desc: "Ini kali pertama ke Korea?", stroke: "Soalan pelancong." },
-                    { char: "네, 첫 방문입니다.", rumi: "ne, cheot bangmunimnida.", desc: "Ya, lawatan kali pertama.", stroke: "Jawapan lawatan." },
-                    { char: "한국을 아주 좋아합니다.", rumi: "hanguk-eul aju johahamnida.", desc: "Saya sangat meminati Korea.", stroke: "Minat negara." },
-                    { char: "다른 나라에 가봤어요?", rumi: "dareun nara-e gabwasseoyo?", desc: "Pernah pergi negara lain?", stroke: "Soalan pengalaman." }
+                    { char: "현재 시제 (Present)", rumi: "hyeonjae sije", desc: "Masa Kini (Tabiat / Rutin)", stroke: "Formula: Akar kata + 아/어요.\nContoh: 매일 운동해요 (Senaman setiap hari)." },
+                    { char: "과거 시제 (Past)", rumi: "gwageo sije", desc: "Masa Lepas (Dah lepas)", stroke: "Formula: Akar kata + 았/었어요.\nContoh: 어제 영화를 봤어요 (Semalam tengok filem)." },
+                    { char: "미래 시제 (Future)", rumi: "mirae sije", desc: "Masa Akan Datang", stroke: "Formula: Akar kata + (으)ㄹ 거예요.\nContoh: 내일 한국에 갈 거예요." },
+                    { char: "진행형 (~ing / Sedang)", rumi: "jinhaenghyeong", desc: "Perbuatan sedang berlangsung", stroke: "Formula: Kata kerja + 고 있어요.\nContoh: 밥을 먹고 있어요 (Sedang makan)." },
+                    { char: "완료형 (Dah selesai)", rumi: "wanlyohyeong", desc: "Perbuatan siap sepenuhnya", stroke: "Formula: 아/어 버리다." }
                 ]
             },
             {
-                id: 'cv-13',
-                title: "Situasi 13: Age / Umur (나이)",
-                desc: "Adab dan cara bertanya usia serta panggilan hormat di Korea.",
+                id: 'g5',
+                title: "5. Kata Hubung & Sebab-Akibat",
+                desc: "Formula Kerana (~아서), Tetapi (~지만), Dan (~고).",
                 items: [
-                    { char: "실례지만 연세가 어떻게 되세요?", rumi: "sillyejiman yeonsega eotteoke dweiseyo?", desc: "Tumpang tanya, umur berapa ya? (Hormat)", stroke: "Tanya usia orang lebih tua." },
-                    { char: "몇 살이에요?", rumi: "myeot sarieyo?", desc: "Umur berapa? (Kawan sebaya)", stroke: "Tanya kawan rapat." },
-                    { char: "저는 올해 스물다섯 살입니다.", rumi: "jeoneun ohae sumuldaseot sarimnida.", desc: "Umur saya tahun ini 25 tahun.", stroke: "Menyatakan umur." },
-                    { char: "저보다 형이시네요.", rumi: "jeoboda hyeongisineyo.", desc: "Oh, anda lebih tua dari saya (abang).", stroke: "Adab hierarki umur." },
-                    { char: "동안이시네요!", rumi: "donganisineyo!", desc: "Nampak muda / Awet muda!", stroke: "Pujian usia." },
-                    { char: "나이가 들었어요.", rumi: "naiga deureosseoyo.", desc: "Saya sudah berumur / tua.", stroke: "Guraan usia." }
+                    { char: "아/어 서 (Sebab / Kerana)", rumi: "a/eo seo", desc: "Sebab akibat (Sebab A, jadi B)", stroke: "Formula: Akar kata + 아/어서.\nContoh: 피곤해서 잡니다 (Sebab penat, tidur)." },
+                    { char: "기 때문에 (Kerana)", rumi: "gi ttaemune", desc: "Sebab formal / penekanan", stroke: "Formula: Kata kerja + 기 때문에." },
+                    { char: "지만 (Tetapi)", rumi: "jiman", desc: "Kontras / Pertentangan idea", stroke: "Formula: Akar kata + 지만.\nContoh: 비싸지만 맛있어요 (Mahal tetapi sedap)." },
+                    { char: "면 / 으면 (Jika / Kalau)", rumi: "myeon / eumyeon", desc: "Syarat pengenalan", stroke: "Formula: Konsonan + 으면, Vokal + 면.\nContoh: 시간이 있으면 오세요." },
+                    { char: "고 (Dan / Serta)", rumi: "go", desc: "Penyambung perbuatan serentak", stroke: "Formula: Akar kata + 고.\nContoh: 먹고 공부해요 (Makan dan belajar)." }
                 ]
             },
             {
-                id: 'cv-14',
-                title: "Situasi 14: Interested / Minat & Hobi (관심사)",
-                desc: "Frasa meluahkan minat terhadap K-Pop, drama, makanan & hobi.",
+                id: 'g6',
+                title: "6. Keupayaan, Larangan & Keinginan",
+                desc: "Formula Boleh (~ㄹ 수 있다), Jangan (~지 마세요), Mahu (~고 싶다).",
                 items: [
-                    { char: "취미가 무엇입니까?", rumi: "chwimiga mueosimnikka?", desc: "Apakah hobi anda?", stroke: "Soalan hobi rasmi." },
-                    { char: "저는 음악 감상을 좋아해요.", rumi: "jeoneun eumak gamsangeul johahaeyo.", desc: "Saya suka mendengar muzik.", stroke: "Minat hobi." },
-                    { char: "케이팝을 아주 좋아해요.", rumi: "keipabeul aju johahaeyo.", desc: "Saya sangat meminati K-Pop.", stroke: "Minat budaya." },
-                    { char: "어떤 음식을 좋아하세요?", rumi: "eotteon eunsigeul johahaseyo?", desc: "Makanan apa yang anda suka?", stroke: "Minat makanan." },
-                    { char: "관심이 전혀 없습니다.", rumi: "gwansimi jeonhyeo eopseumnida.", desc: "Saya langsung tidak berminat.", stroke: "Tiada minat." },
-                    { char: "요즘 무엇에 빠져 있어요?", rumi: "yojeum muose-e ppajyeo isseoyo?", desc: "Awak meminati apa kebelakangan ini?", stroke: "Soalan trend." }
-                ]
-            },
-            {
-                id: 'cv-15',
-                title: "Situasi 15: Activity / Aktiviti Harian (활동)",
-                desc: "Frasa menceritakan rutin harian, senaman & aktiviti masa lapang.",
-                items: [
-                    { char: "주말에 보통 뭐 하세요?", rumi: "jumal-e botong mwo haseyo?", desc: "Biasanya apa anda buat hujung minggu?", stroke: "Soalan aktiviti." },
-                    { char: "집에서 영화를 봐요.", rumi: "jip-eseo yeonghwareul bwayo.", desc: "Saya menonton filem di rumah.", stroke: "Aktiviti santai." },
-                    { char: "공원에서 운동을 합니다.", rumi: "gongwon-eseo undongeul hamnida.", desc: "Saya bersenam di taman.", stroke: "Aktiviti sihat." },
-                    { char: "친구를 만나서 놀아요.", rumi: "chingureul mannaseo norayo.", desc: "Saya jumpa kawan dan beriadah.", stroke: "Aktiviti sosial." },
-                    { char: "오늘 아주 바쁩니다.", rumi: "oneul aju bappeumnida.", desc: "Hari ini saya sangat sibuk.", stroke: "Status harian." },
-                    { char: "일찍 자고 일찍 일어나요.", rumi: "iljjik jago iljjik ireonayo.", desc: "Tidur awal dan bangun awal.", stroke: "Gaya hidup." }
-                ]
-            },
-            {
-                id: 'cv-16',
-                title: "Situasi 16: Hotel / Penginapan (호텔 예약)",
-                desc: "Frasa urusan tempahan bilik hotel, kaunter penyambut tetamu & fasilitas.",
-                items: [
-                    { char: "방을 예약하고 싶습니다.", rumi: "bangeul yeyakhago sipseumnida.", desc: "Saya ingin menempah bilik.", stroke: "Tempahan hotel." },
-                    { char: "체크인 시간은 몇 시예요?", rumi: "chekeu-in siganeun myeot siyeyo?", desc: "Pukul berapa waktu check-in?", stroke: "Maklumat masa." },
-                    { char: "조식은 포함되어 있나요?", rumi: "josigeun pohamdoe-eo innayo?", desc: "Adakah sarapan disediakan?", stroke: "Fasilitas hotel." },
-                    { char: "와이파이 아이디와 비번 뭐예요?", rumi: "waipai aidiwa bibon mwoyeyo?", desc: "Apa ID dan password WiFi?", stroke: "KEMudahan bilik." },
-                    { char: "방을 바꿔 주세요.", rumi: "bangeul bakkwo juseyo.", desc: "Tolong tukar bilik untuk saya.", stroke: "Aduan bilik." },
-                    { char: "즐거운 숙박이었습니다.", rumi: "jeulgeoun sukbagieosseumnida.", desc: "Penginapan yang sangat menyeronokkan.", stroke: "Ulasan positif." }
-                ]
-            },
-            {
-                id: 'cv-17',
-                title: "Situasi 17: Weather / Keadaan Cuaca (날씨)",
-                desc: "Perbualan mengenai suhu panas, hujan, salji & ramalan cuaca.",
-                items: [
-                    { char: "오늘 날씨가 어때요?", rumi: "oneul nalsiga eottaeyo?", desc: "Bagaimana cuaca hari ini?", stroke: "Soalan cuaca." },
-                    { char: "날씨가 정말 좋습니다.", rumi: "nalsiga jeongmal josheumnida.", desc: "Cuaca hari ini sangat bagus.", stroke: "Komen cuaca cerah." },
-                    { char: "비가 오고 있어요.", rumi: "biga ogo isseoyo.", desc: "Hari sedang hujan.", stroke: "Cuaca hujan." },
-                    { char: "눈이 많이 왔네요.", rumi: "nuni mani watneyo.", desc: "Wah, banyak salji turun.", stroke: "Cuaca salji." },
-                    { char: "날씨가 쌀쌀합니다.", rumi: "nalsiga ssalssalhamnida.", desc: "Cuaca agak sejuk / dingin.", stroke: "Suhu sejuk." },
-                    { char: "우산을 챙기세요.", rumi: "usaneul chaenggiseyo.", desc: "Bawalah payung bersama.", stroke: "Nasihat cuaca." }
-                ]
-            },
-            {
-                id: 'cv-18',
-                title: "Situasi 18: Hospital / Kesihatan (병원과 건강)",
-                desc: "Frasa memberitahu doktor simptom sakit, beli ubat di farmasi & rawatan.",
-                items: [
-                    { char: "어디가 아프십니까?", rumi: "eodiga apeusimnikka?", desc: "Di mana bahagian yang sakit?", stroke: "Soalan doktor." },
-                    { char: "머리가 아프고 열이 나요.", rumi: "meoriga apeugo yeori nayo.", desc: "Sakit kepala dan ada demam.", stroke: "Aduan simptom." },
-                    { char: "배가 아파서 병원에 왔어요.", rumi: "baega apaseo byeongwon-e wasseoyo.", desc: "Sakit perut jadi saya datang hospital.", stroke: "Sebab rawatan." },
-                    { char: "약을 처방해 주세요.", rumi: "yageul cheobanghae juseyo.", desc: "Tolong berikan preskripsi ubat.", stroke: "Urusan farmasi." },
-                    { char: "하루에 세 번 드세요.", rumi: "haru-e se beon deuseyo.", desc: "Ambil ubat 3 kali sehari.", stroke: "Arahan ubat." },
-                    { char: "빨리 쾌유하시길 빕니다.", rumi: "ppalli khwaeyuhasigil bimnida.", desc: "Semoga cepat sembuh.", stroke: "Doa kesihatan." }
-                ]
-            },
-            {
-                id: 'cv-19',
-                title: "Situasi 19: Vacation / Percutian (휴가와 여행)",
-                desc: "Perbualan merancang percutian, tempat menarik & tiket penerbangan.",
-                items: [
-                    { char: "휴가 때 어디 갈 거예요?", rumi: "hyuga ttae eodi gal geoyeyo?", desc: "Cuti nanti nak pergi mana?", stroke: "Rancangan cuti." },
-                    { char: "제주도에 여행 갈 겁니다.", rumi: "jejudo-e yeohaeng gal geomnida.", desc: "Saya akan melancong ke Pulau Jeju.", stroke: "Destinasi cuti." },
-                    { char: "비행기 표를 예약했어요.", rumi: "bihaenggi pyoreul yeyakhaesseoyo.", desc: "Saya sudah tempah tiket flight.", stroke: "Persiapan." },
-                    { char: "경치가 정말 아름답습니다.", rumi: "gyeongchiga jeongmal areumdapseumnida.", desc: "Pemandangan di sini sangat indah.", stroke: "Puji tempat." },
-                    { char: "사진을 많이 찍었어요.", rumi: "sajineul mani jjigeosseoyo.", desc: "Banyak tangkapan gambar diambil.", stroke: "Aktiviti cuti." },
-                    { char: "정말 즐거운 휴가였습니다.", rumi: "jeongmal jeulgeoun hyugayeosseumnida.", desc: "Percutian yang sangat menyeronokkan.", stroke: "Kesimpulan cuti." }
+                    { char: "ㄹ 수 있다 (Boleh)", rumi: "l su itda", desc: "Mempunyai keupayaan / kemahiran", stroke: "Formula: Akar kata + (으)ㄹ 수 있다.\nContoh: 운전할 수 있어요 (Boleh memandu)." },
+                    { char: "ㄹ 수 없다 (Tak boleh)", rumi: "l su eopda", desc: "Tiada keupayaan / kebolehan", stroke: "Formula: Akar kata + (으)ㄹ 수 없다." },
+                    { char: "고 싶다 (Mahu...)", rumi: "go sipta", desc: "Menyatakan keinginan / hasrat", stroke: "Formula: Kata kerja + 고 싶어요.\nContoh: 가고 싶어요 (Mahu pergi)." },
+                    { char: "지 마세요 (Jangan)", rumi: "ji maseyo", desc: "Larangan sopan", stroke: "Formula: Kata kerja + 지 마세요.\nContoh: 가지 마세요 (Jangan pergi)." },
+                    { char: "으면 안 되다 (Dilarang)", rumi: "eumyeon an doeda", desc: "Larangan keras melakukan sesuatu", stroke: "Formula: Akar kata + (으)면 안 돼요.\nContoh: 담배를 피우면 안 돼요 (Dilarang merokok)." }
                 ]
             }
         ];
@@ -1865,6 +1797,7 @@
             optionsGrid.innerHTML = '';
             document.getElementById('quiz-feedback').classList.add('hidden');
 
+            // Selitkan Mod Visual Bergambar (Contoh: setiap soalan bernombor ganjil atau ada emoji dalam map)
             let isVisualMode = (currentQuizIndex % 2 === 0) && visualEmojiMap[currentItem.char];
             const instructionLabel = document.getElementById('quiz-instruction-label');
 
