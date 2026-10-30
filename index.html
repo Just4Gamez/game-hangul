@@ -80,7 +80,7 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik & Perbualan Lanjutan</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik, Conversation Lab (8 Situasi Bersiri), Grammar Lab, Kamus atau Mod Dengar!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik, Conversation Lab (19 Situasi), Grammar Lab, Kamus atau Mod Dengar!</p>
                 </div>
             </div>
 
@@ -104,14 +104,14 @@
                     <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
-                <!-- 3. Conversation Lab (8 Situasi) -->
+                <!-- 3. Conversation Lab (19 Situasi) -->
                 <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-pink-500/20 text-pink-400 text-[10px] font-bold rounded border border-pink-500/30">UPDATED</div>
                     <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-comments"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Conversation Lab (8 Situasi)</h3>
-                    <p class="text-slate-400 text-sm">Dialog perbualan harian: Restoran, Kafe, Pengangkutan, Hotel & Kecemasan.</p>
+                    <h3 class="font-bold text-lg text-white">Conversation Lab (19 Situasi)</h3>
+                    <p class="text-slate-400 text-sm">Dialog perbualan harian: Hello, Jobs, Countries, Hotel, Weather & Kecemasan.</p>
                 </div>
 
                 <!-- 4. Hangul Grammar Lab -->
@@ -173,11 +173,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="special-container"></div>
         </section>
 
-        <!-- ================= CONVERSATION LAB MENU SECTION (8 SITUASI) ================= -->
+        <!-- ================= CONVERSATION LAB MENU SECTION (19 SITUASI) ================= -->
         <section id="section-conversation" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Conversation Lab (8 Situasi Perbualan)</h2>
+                    <h2 class="text-2xl font-bold text-white">Conversation Lab (19 Situasi Perbualan)</h2>
                     <p class="text-slate-400 text-sm">Pilih situasi perbualan harian sebenar di Korea</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
@@ -260,7 +260,7 @@
             </div>
         </section>
 
-        <!-- ================= QUIZ SECTION (DENGAN SELINGAN VISUAL/IKON) ================= -->
+        <!-- ================= QUIZ SECTION ================= -->
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
@@ -273,7 +273,6 @@
             </div>
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
-                <!-- Banner Soalan Bergantung Mod -->
                 <div class="space-y-1 relative">
                     <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
@@ -284,7 +283,6 @@
                     </div>
                 </div>
 
-                <!-- Grid Pilihan (Dinamik: Teks atau Kad Visual Bergambar) -->
                 <div id="quiz-options-grid" class="grid grid-cols-2 gap-3"></div>
                 <div id="quiz-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
             </div>
@@ -423,7 +421,6 @@
 
     <!-- JavaScript Platform -->
     <script>
-        // Peta Emoji Pintar untuk Selingan Soalan Bergambar/Visual
         const visualEmojiMap = {
             "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
             "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
@@ -1416,114 +1413,6 @@
             }
         ];
 
-        // Conversation Lab Data (8 Situasi)
-        const conversationLabData = [
-            {
-                id: 'cv-1',
-                title: "Situasi 1: Perkenalan Diri (자기소개)",
-                desc: "Ayat asas untuk berkenalan, sebut nama, asal negara & pekerjaan.",
-                items: [
-                    { char: "안녕하세요, 저는 [Nama]입니다.", rumi: "annyeonghaseyo, jeoneun ... imnida.", desc: "Helo, nama saya ...", stroke: "Digunakan semasa mula berjumpa." },
-                    { char: "어느 나라에서 오셨어요?", rumi: "eoneu naraeseo osyeosseoyo?", desc: "Anda berasal dari negara mana?", stroke: "Soalan asal usul." },
-                    { char: "말레이시아에서 왔습니다.", rumi: "malreisiah-eseo watseumnida.", desc: "Saya datang dari Malaysia.", stroke: "Jawapan asal usul." },
-                    { char: "직업이 뭐예요?", rumi: "jigobi mwoyeyo?", desc: "Apakah pekerjaan anda?", stroke: "Soalan kerjaya." },
-                    { char: "저는 학생 / 회사원입니다.", rumi: "jeoneun haksaeng / hoesawonimnida.", desc: "Saya seorang pelajar / pekerja pejabat.", stroke: "Jawapan kerjaya." },
-                    { char: "만나서 반가워요.", rumi: "mannaseo bangawoyo.", desc: "Gembira dapat berkenalan dengan awak.", stroke: "Ucapan mesra." }
-                ]
-            },
-            {
-                id: 'cv-2',
-                title: "Situasi 2: Di Restoran & Pesan Makanan (식당에서)",
-                desc: "Frasa penting untuk minta menu, pesan makanan & membuat bayaran.",
-                items: [
-                    { char: "저기요, 메뉴판 주세요.", rumi: "jeogiyo, menyupan juseyo.", desc: "Cik/Tuan, minta menu.", stroke: "Panggil pelayan restoran." },
-                    { char: "이것 2인분 주세요.", rumi: "igeot i-inbun juseyo.", desc: "Bagi set ni 2 orang.", stroke: "Pesanan makanan." },
-                    { char: "맵지 않게 해주세요.", rumi: "maepji an-ge haejuseyo.", desc: "Tolong buat jangan pedas.", stroke: "Permintaan khas." },
-                    { char: "물이랑 수저 주세요.", rumi: "murirang sujeo juseyo.", desc: "Minta air & sudu", stroke: "Restoran" },
-                    { char: "정말 맛있어요!", rumi: "jeongmal masisseoyo!", desc: "Sedap sangat!", stroke: "Pujian makanan." },
-                    { char: "계산해 주세요. 카드 돼요?", rumi: "gyesanhae juseyo. kadeu dwaeyo?", desc: "Tolong kira bil. Boleh guna kad?", stroke: "Pembayaran." }
-                ]
-            },
-            {
-                id: 'cv-3',
-                title: "Situasi 3: Membeli-belah & Tawar Harga (쇼핑)",
-                desc: "Perbualan cari barang, tanya saiz, warna & minta diskaun.",
-                items: [
-                    { char: "이거 얼마예요?", rumi: "igeo eolmayeyo?", desc: "Berapa harga barang ni?", stroke: "Tanya harga." },
-                    { char: "다른 색상도 있어요?", rumi: "dareun saeksangdo isseoyo?", desc: "Ada warna lain tak?", stroke: "Pilihan warna." },
-                    { char: "입어봐도 돼요?", rumi: "ibeobwado dwaeyo?", desc: "Boleh saya cuba pakai?", stroke: "Bilik persalinan." },
-                    { char: "조금 비싸네요.", rumi: "jogeum bissaneyo.", desc: "Agak mahal ya.", stroke: "Komen harga." },
-                    { char: "깎아 주세요!", rumi: "kkakka juseyo!", desc: "Tolong kurangkan harga / diskaun!", stroke: "Minta diskaun." },
-                    { char: "이거로 주세요.", rumi: "igeoro juseyo.", desc: "Saya ambil yang ini.", stroke: "Keputusan membeli." }
-                ]
-            },
-            {
-                id: 'cv-4',
-                title: "Situasi 4: Bertanya Arah & Sesat Jalan (길 찾기)",
-                desc: "Frasa untuk cari tandas, stesen LRT, stesen bas & lokasi.",
-                items: [
-                    { char: "실례합니다, 지하철역이 어디예요?", rumi: "sillyehamnida, jihacheol-yeogi eodiyeyo?", desc: "Maaf tumpang tanya, stesen LRT di mana?", stroke: "Bertanya arah." },
-                    { char: "화장실이 어디예요?", rumi: "hwajangsiri eodiyeyo?", desc: "Di mana tandas?", stroke: "Cari tandas." },
-                    { char: "여기서 멀어요?", rumi: "yeogiseo meoreoyo?", desc: "Jauh ke dari sini?", stroke: "Jarak lokasi." },
-                    { char: "걸어서 10분쯤 걸립니다.", rumi: "georeoseo si-bun-jjeum geollimnida.", desc: "Ambil masa 10 minit berjalan kaki.", stroke: "Anggaran masa." },
-                    { char: "길을 잃었어요.", rumi: "gireul ireosseoyo.", desc: "Saya sudah sesat jalan.", stroke: "Kecemasan." },
-                    { char: "도와주셔서 감사합니다.", rumi: "dowajusyeoseo gamsahamnida.", desc: "Terima kasih kerana tolong saya.", stroke: "Penghargaan." }
-                ]
-            },
-            {
-                id: 'cv-5',
-                title: "Situasi 5: Di Kafe & Pesan Minuman (카페에서)",
-                desc: "Frasa untuk pesan kopi, ais, atau air manis.",
-                items: [
-                    { char: "아이스 아메리카노 한 잔 주세요.", rumi: "aiseu amerikano han jan juseyo.", desc: "Bagi satu gelas Iced Americano.", stroke: "Pesanan kopi." },
-                    { char: "테이크아웃 할게요.", rumi: "teikeuaut halgeyo.", desc: "Saya nak bungkus (takeaway).", stroke: "Pembungkusan." },
-                    { char: "매장에서 마실게요.", rumi: "maejang-eseo masilgeyo.", desc: "Minum di sini (dine-in).", stroke: "Makan di kafe." },
-                    { char: "시럽 덜 넣어주세요.", rumi: "sireop deol neo-eojuseyo.", desc: "Kurangkan sedikit sirap.", stroke: "Permintaan manis." },
-                    { char: "영수증은 버려주세요.", rumi: "yeongsujungeun beoryeojuseyo.", desc: "Tolong buang resit.", stroke: "Resit kafe." },
-                    { char: "와이파이 비밀번호가 뭐예요?", rumi: "waipai bimilbeonhoga mwoyeyo?", desc: "Apa password WiFi?", stroke: "WiFi Kafe" }
-                ]
-            },
-            {
-                id: 'cv-6',
-                title: "Situasi 6: Menaiki Pengangkutan Awam (대중교통)",
-                desc: "Frasa di stesen bas, beli tiket LRT & naik teksi.",
-                items: [
-                    { char: "강남역까지 얼마예요?", rumi: "gangnam-yeokkkaji eolmayeyo?", desc: "Berapa tambang ke Stesen Gangnam?", stroke: "Tambang teksi/tiket." },
-                    { char: "교통카드 충전해 주세요.", rumi: "gyotong-kadeu chunjeonhae juseyo.", desc: "Tolong top-up kad pengangkutan.", stroke: "Kad T-money." },
-                    { char: "여기서 환승되나요?", rumi: "yeogiseo hwanseungdoenayo?", desc: "Boleh bertukar tren (transit) di sini?", stroke: "Transit LRT" },
-                    { char: "다음역은 어디예요?", rumi: "daeum-yeogeun eodiyeyo?", desc: "Stesen seterusnya di mana?", stroke: "Perjalanan" },
-                    { char: "여기서 내려주세요.", rumi: "yeogiseo naeryeojuseyo.", desc: "Tolong turunkan saya di sini.", stroke: "Teksi/Bas" },
-                    { char: "막차 몇 시예요?", rumi: "makcha myeot siyeyo?", desc: "Pukul berapa tren/bas terakhir?", stroke: "Waktu malam" }
-                ]
-            },
-            {
-                id: 'cv-7',
-                title: "Situasi 7: Di Hotel & Penginapan (호텔에서)",
-                desc: "Urusan check-in, minta tuala tambahan & aduan bilik.",
-                items: [
-                    { char: "체크인 하고 싶습니다.", rumi: "chekeu-in hago sipseumnida.", desc: "Saya nak buat check-in.", stroke: "Kaunter hotel." },
-                    { char: "예약자 이름은 알리입니다.", rumi: "yeyakja ireumeun alli-imnida.", desc: "Nama tempahan atas nama Ali.", stroke: "Pengesahan." },
-                    { char: "수건 좀 더 주세요.", rumi: "sugeon jom deo juseyo.", desc: "Minta tuala tambahan.", stroke: "Servis bilik." },
-                    { char: "에어컨이 안 돼요.", rumi: "h-eokeoni an dwaeyo.", desc: "Aircond rosak / tak berfungsi.", stroke: "Aduan kerosakan." },
-                    { char: "체크아웃 몇 시예요?", rumi: "chekeu-aut myeot siyeyo?", desc: "Pukul berapa check-out?", stroke: "Waktu keluar" },
-                    { char: "짐을 잠시 맡아주세요.", rumi: "jimeul jamsi matajuseyo.", desc: "Tolong simpan beg saya sekejap.", stroke: "Luggage storage" }
-                ]
-            },
-            {
-                id: 'cv-8',
-                title: "Situasi 8: Kecemasan & Bantuan (비상 상황)",
-                desc: "Frasa penting bila hadapi kecemasan, polis atau sakit.",
-                items: [
-                    { char: "도와주세요!", rumi: "dowajuseyo!", desc: "Tolong saya!", stroke: "Kecemasan" },
-                    { char: "경찰을 불러주세요.", rumi: "gyeongchareul bulleojuseyo.", desc: "Tolong panggilkan polis.", stroke: "Polis" },
-                    { char: "구급차를 불러주세요.", rumi: "gugeupchareul bulleojuseyo.", desc: "Tolong panggilkan ambulans.", stroke: "Ambulans" },
-                    { char: "여권을 잃어버렸어요.", rumi: "yeogwoneul ireobeoryeosseoyo.", desc: "Pasport saya hilang.", stroke: "Masalah pasport" },
-                    { char: "말레이시아 대사관 어디예요?", rumi: "malreisiah daesagwan eodiyeyo?", desc: "Di mana Kedutaan Malaysia?", stroke: "Kedutaan" },
-                    { char: "괜찮습니다, 감사합니다.", rumi: "gwaenchanseumnida, gamsahamnida.", desc: "Saya okay, terima kasih.", stroke: "Penyelesaian" }
-                ]
-            }
-        ];
-
         // Hangul Grammar Lab (6 Modul)
         const grammarLabData = [
             {
@@ -1610,9 +1499,6 @@
         let allWords = [];
         let currentListenIndex = 0;
 
-        // Supabase Auth States
-        let isSignUpMode = false;
-
         window.addEventListener('DOMContentLoaded', async () => {
             renderLevelCards();
             renderSpecialCategoryCards();
@@ -1621,7 +1507,6 @@
             buildAllWordsList();
             showSection('home');
 
-            // Check Supabase Existing Session
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (session) {
                 currentUser = session.user;
@@ -1939,7 +1824,6 @@
             showSection('result');
             if (percentage >= 70) confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
-            // Simpan Skor ke Supabase jika login
             saveScoreToSupabase(userScore);
         }
 
@@ -2014,7 +1898,6 @@
     
     <!-- Supabase Platform & Auth Logic -->
     <script>
-        // Konfigurasi Supabase Anda
         const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
         
@@ -2042,6 +1925,7 @@
             }
         }
 
+        let isSignUpMode = false;
         function toggleAuthMode() {
             isSignUpMode = !isSignUpMode;
             const title = document.getElementById('auth-modal-title');
@@ -2075,7 +1959,7 @@
             document.getElementById('auth-form').reset();
             clearAuthMessages();
             isSignUpMode = false;
-            toggleAuthMode(); // Reset ke login mode
+            toggleAuthMode();
             isSignUpMode = false;
         }
 
