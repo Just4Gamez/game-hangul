@@ -115,7 +115,7 @@
                     <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
                 </div>
 
-                <!-- 5. Writing Lab (DIKEMASKINI DENGAN PANDUAN ANAK PANAH GURISAN) -->
+                <!-- 5. Writing Lab -->
                 <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded border border-orange-500/30">BARU</div>
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
@@ -205,7 +205,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="grammar-lab-container"></div>
         </section>
 
-        <!-- ================= WRITING LAB SECTION (DIKEMASKINI DENGAN PANDUAN ANAK PANAH) ================= -->
+        <!-- ================= WRITING LAB SECTION ================= -->
         <section id="section-writing" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
@@ -242,15 +242,15 @@
 
                     <!-- Kotak Panduan Beranak Panah & Kanvas Lukis -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                        <!-- Panduan Gurisan Berserta Anak Panah Visual -->
+                        <!-- Panduan Gurisan Berserta Anak Panah Visual Kemas -->
                         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
                             <span class="text-xs font-bold text-slate-400">Panduan Gurisan (Stroke Order)</span>
                             <div class="w-36 h-36 bg-slate-900 border-2 border-slate-700 rounded-2xl stroke-box flex items-center justify-center relative">
                                 <!-- Huruf utama -->
                                 <span id="writing-guide-char" class="hangul-font text-6xl font-black text-amber-400 opacity-90 z-10">아</span>
-                                <!-- Lapisan Anak Panah Panduan Visual -->
-                                <div id="writing-arrow-overlay" class="absolute inset-0 flex items-center justify-center pointer-events-none text-cyan-400 text-xl font-bold opacity-80 z-20">
-                                    <!-- Dijana JS berdasarkan rujukan anak panah -->
+                                <!-- Lapisan Anak Panah Panduan Visual yang Diperbetulkan -->
+                                <div id="writing-arrow-overlay" class="absolute inset-0 pointer-events-none text-cyan-400 text-xs font-bold z-20">
+                                    <!-- Dijana JS -->
                                 </div>
                             </div>
                             <p id="writing-stroke-text" class="text-xs text-slate-300">1. Garis tegak ke bawah<br>2. Melintang ke kanan</p>
@@ -465,29 +465,28 @@
             "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "🍏": "🍏"
         };
 
-        // Data Writing Lab dilengkapi simbol anak panah dan nombor gurisan merujuk kepada lembaran kerja
+        // Data Writing Lab dengan koordinat kedudukan anak panah yang kemas & selari
         const writingData = [
-            { char: "아", rumi: "a", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah (↓)\n2. Melintang ke kanan (→)", arrows: ["<i class='fa-solid fa-arrow-down absolute top-4 left-6'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-right absolute top-8 left-10'><sup>2</sup></i>"] },
-            { char: "야", rumi: "ya", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah (↓)\n2. Dua melintang ke kanan (→→)", arrows: ["<i class='fa-solid fa-arrow-down absolute top-3 left-4'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-right absolute top-6 left-8'><sup>2</sup></i><i class='fa-solid fa-arrow-right absolute top-10 left-8'><sup>3</sup></i>"] },
-            { char: "어", rumi: "eo", type: "Vokal Asas", stroke: "1. Melintang ke kiri (←)\n2. Tegak ke bawah (↓)", arrows: ["<i class='fa-solid fa-arrow-left absolute top-8 right-6'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-down absolute top-4 left-8'><sup>2</sup></i>"] },
-            { char: "여", rumi: "yeo", type: "Vokal Asas", stroke: "1. Dua melintang ke kiri (←←)\n2. Tegak ke bawah (↓)", arrows: ["<i class='fa-solid fa-arrow-left absolute top-6 right-6'><sup>1</sup></i><i class='fa-solid fa-arrow-left absolute top-10 right-6'><sup>2</sup></i>", "<i class='fa-solid fa-arrow-down absolute top-4 left-6'><sup>3</sup></i>"] },
-            { char: "오", rumi: "o", type: "Vokal Asas", stroke: "1. Tegak pendek ke atas (↑)\n2. Melintang di bawah (→)", arrows: ["<i class='fa-solid fa-arrow-up absolute bottom-8 left-1/2 -translate-x-1/2'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-right absolute bottom-4 left-4'><sup>2</sup></i>"] },
-            { char: "요", rumi: "yo", type: "Vokal Asas", stroke: "1. Dua tegak pendek (↑↑)\n2. Melintang di bawah (→)", arrows: ["<i class='fa-solid fa-arrow-up absolute bottom-8 left-6'><sup>1</sup></i><i class='fa-solid fa-arrow-up absolute bottom-8 right-6'><sup>2</sup></i>", "<i class='fa-solid fa-arrow-right absolute bottom-4 left-4'><sup>3</sup></i>"] },
-            { char: "우", rumi: "u", type: "Vokal Asas", stroke: "1. Melintang di atas (→)\n2. Tegak ke bawah (↓)", arrows: ["<i class='fa-solid fa-arrow-right absolute top-4 left-4'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-down absolute top-8 left-1/2 -translate-x-1/2'><sup>2</sup></i>"] },
-            { char: "유", rumi: "yu", type: "Vokal Asas", stroke: "1. Melintang di atas (→)\n2. Dua tegak ke bawah (↓↓)", arrows: ["<i class='fa-solid fa-arrow-right absolute top-4 left-4'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-down absolute top-8 left-6'><sup>2</sup></i><i class='fa-solid fa-arrow-down absolute top-8 right-6'><sup>3</sup></i>"] },
-            { char: "ㅡ", rumi: "eu", type: "Vokal Asas", stroke: "1. Garis melintang lurus (→)", arrows: ["<i class='fa-solid fa-arrow-right absolute top-1/2 -translate-y-1/2 left-6'><sup>1</sup></i>"] },
-            { char: "ㅣ", rumi: "i", type: "Vokal Asas", stroke: "1. Garis tegak lurus ke bawah (↓)", arrows: ["<i class='fa-solid fa-arrow-down absolute top-6 left-1/2 -translate-x-1/2'><sup>1</sup></i>"] },
-            { char: "ㄱ", rumi: "g/k", type: "Konsonan Asas", stroke: "1. Melintang ke kanan lalu turun ke bawah (┓)", arrows: ["<i class='fa-solid fa-arrow-right absolute top-4 left-4'><sup>1</sup></i><i class='fa-solid fa-arrow-down absolute top-4 right-4'><sup>2</sup></i>"] },
-            { char: "ㄴ", rumi: "n", type: "Konsonan Asas", stroke: "1. Turun ke bawah lalu ke kanan (└)", arrows: ["<i class='fa-solid fa-arrow-down absolute top-4 left-4'><sup>1</sup></i><i class='fa-solid fa-arrow-right absolute bottom-4 left-4'><sup>2</sup></i>"] },
-            { char: "ㅁ", rumi: "m", type: "Konsonan Asas", stroke: "1. Turun & melintang\n2. Tutup kotak (ㅁ)", arrows: ["<i class='fa-solid fa-arrow-down absolute top-4 left-4'><sup>1</sup></i><i class='fa-solid fa-arrow-right absolute top-4 left-4'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-down absolute top-4 right-4'><sup>2</sup></i><i class='fa-solid fa-arrow-right absolute bottom-4 left-4'><sup>3</sup></i>"] },
-            { char: "ㅅ", rumi: "s", type: "Konsonan Asas", stroke: "1. Serong kiri (↙)\n2. Serong kanan (↘)", arrows: ["<i class='fa-solid fa-arrow-down-long absolute top-4 left-1/2 -translate-x-2 -rotate-45'><sup>1</sup></i>", "<i class='fa-solid fa-arrow-down-long absolute top-4 left-1/2 translate-x-2 rotate-45'><sup>2</sup></i>"] }
+            { char: "아", rumi: "a", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah (↓)\n2. Melintang ke kanan (→)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute top-6 left-9 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "야", rumi: "ya", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah (↓)\n2. Dua melintang ke kanan (→→)", arrows: ["<span class='absolute top-2 left-3 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute top-4 left-8 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>", "<span class='absolute top-8 left-8 text-cyan-400 font-bold'>3<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "어", rumi: "eo", type: "Vokal Asas", stroke: "1. Melintang ke kiri (←)\n2. Tegak ke bawah (↓)", arrows: ["<span class='absolute top-6 right-5 text-cyan-400 font-bold'><i class='fa-solid fa-arrow-left text-xs mr-0.5'></i>1</span>", "<span class='absolute top-3 left-6 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "여", rumi: "yeo", type: "Vokal Asas", stroke: "1. Dua melintang ke kiri (←←)\n2. Tegak ke bawah (↓)", arrows: ["<span class='absolute top-4 right-4 text-cyan-400 font-bold'><i class='fa-solid fa-arrow-left text-xs mr-0.5'></i>1</span>", "<span class='absolute top-8 right-4 text-cyan-400 font-bold'><i class='fa-solid fa-arrow-left text-xs mr-0.5'></i>2</span>", "<span class='absolute top-3 left-5 text-cyan-400 font-bold'>3<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "오", rumi: "o", type: "Vokal Asas", stroke: "1. Tegak pendek ke atas (↑)\n2. Melintang di bawah (→)", arrows: ["<span class='absolute bottom-9 left-1/2 -translate-x-1/2 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-up text-xs ml-0.5'></i></span>", "<span class='absolute bottom-3 left-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "요", rumi: "yo", type: "Vokal Asas", stroke: "1. Dua tegak pendek (↑↑)\n2. Melintang di bawah (→)", arrows: ["<span class='absolute bottom-9 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-up text-xs ml-0.5'></i></span>", "<span class='absolute bottom-9 right-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-up text-xs ml-0.5'></i></span>", "<span class='absolute bottom-3 left-4 text-cyan-400 font-bold'>3<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "우", rumi: "u", type: "Vokal Asas", stroke: "1. Melintang di atas (→)\n2. Tegak ke bawah (↓)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>", "<span class='absolute top-6 left-1/2 -translate-x-1/2 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "유", rumi: "yu", type: "Vokal Asas", stroke: "1. Melintang di atas (→)\n2. Dua tegak ke bawah (↓↓)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>", "<span class='absolute top-6 left-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute top-6 right-4 text-cyan-400 font-bold'>3<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "ㅡ", rumi: "eu", type: "Vokal Asas", stroke: "1. Garis melintang lurus (→)", arrows: ["<span class='absolute top-1/2 -translate-y-1/2 left-6 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "ㅣ", rumi: "i", type: "Vokal Asas", stroke: "1. Garis tegak lurus ke bawah (↓)", arrows: ["<span class='absolute top-5 left-1/2 -translate-x-1/2 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "ㄱ", rumi: "g/k", type: "Konsonan Asas", stroke: "1. Melintang ke kanan lalu turun ke bawah (┓)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>", "<span class='absolute top-5 right-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] },
+            { char: "ㄴ", rumi: "n", type: "Konsonan Asas", stroke: "1. Turun ke bawah lalu ke kanan (└)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute bottom-3 left-5 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "ㅁ", rumi: "m", type: "Konsonan Asas", stroke: "1. Turun & melintang\n2. Tutup kotak (ㅁ)", arrows: ["<span class='absolute top-3 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute top-3 right-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute bottom-3 left-4 text-cyan-400 font-bold'>3<i class='fa-solid fa-arrow-right text-xs ml-0.5'></i></span>"] },
+            { char: "ㅅ", rumi: "s", type: "Konsonan Asas", stroke: "1. Serong kiri (↙)\n2. Serong kanan (↘)", arrows: ["<span class='absolute top-4 left-4 text-cyan-400 font-bold'>1<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>", "<span class='absolute top-4 right-4 text-cyan-400 font-bold'>2<i class='fa-solid fa-arrow-down text-xs ml-0.5'></i></span>"] }
         ];
 
         let currentWritingIndex = 0;
         let canvas, ctx;
         let isDrawing = false;
 
-        // Data 21 Level, Khas, Conversation & Grammar (Dikekalkan penuh)
         const levelsData = [
             {
                 id: 1,
@@ -1946,7 +1945,6 @@
             document.getElementById('writing-stroke-text').innerText = item.stroke;
             document.getElementById('writing-progress').innerText = `${currentWritingIndex + 1} / ${writingData.length}`;
             
-            // Render arrow overlay
             const arrowContainer = document.getElementById('writing-arrow-overlay');
             arrowContainer.innerHTML = item.arrows ? item.arrows.join('') : '';
             clearCanvas();
@@ -1964,7 +1962,6 @@
             speakText(item.char);
         }
 
-        // Kanvas Interaktif Menulis
         function initCanvas() {
             canvas = document.getElementById('draw-canvas');
             if (!canvas) return;
