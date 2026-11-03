@@ -73,12 +73,22 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
                     <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis (Writing Lab), Kamus atau Mod Dengar!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar Pengenalan Hangul, 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis, Kamus atau Mod Dengar!</p>
                 </div>
             </div>
 
-            <!-- Menu Pilihan Utama (Grid 7 Menu termasuk Writing Lab) -->
+            <!-- Menu Pilihan Utama -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 0. Pengenalan Hangul & Huruf Asas (BARU) -->
+                <div onclick="openIntroHangul()" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded border border-cyan-500/30">NOTA LENGKAP</div>
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Pengenalan & Huruf Hangul</h3>
+                    <p class="text-slate-400 text-sm">Nota penuh susunan huruf (Ganada-sun), 24 huruf asas, vokal & cara blok suku kata.</p>
+                </div>
+
                 <!-- 1. Study & Practice (Level 1-21) -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
@@ -115,9 +125,9 @@
                     <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
                 </div>
 
-                <!-- 5. Writing Lab (BARU) -->
+                <!-- 5. Writing Lab -->
                 <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded border border-orange-500/30">BARU</div>
+                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded border border-orange-500/30">INTERAKTIF</div>
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-pen-nib"></i>
                     </div>
@@ -141,6 +151,136 @@
                     </div>
                     <h3 class="font-bold text-lg text-white">Listen Mode</h3>
                     <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= INTRO HANGUL SECTION (BARU) ================= -->
+        <section id="section-intro-hangul" class="hidden space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div>
+                    <span class="text-xs font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">PANDUAN ASAS HANGUL</span>
+                    <h2 class="text-2xl font-bold text-white mt-1">Pengenalan & Huruf-huruf Hangul Lengkap</h2>
+                    <p class="text-slate-400 text-sm">Nota ringkas abjad, susunan Ganada-sun & struktur blok suku kata</p>
+                </div>
+                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </button>
+            </div>
+
+            <div class="space-y-6 max-w-4xl mx-auto text-slate-300 text-sm leading-relaxed">
+                <!-- Kad Nota 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Apa itu Hangeul?</span>
+                    </h3>
+                    <p>
+                        Hangeul (huruf rasmi Korea) mengandungi **24 huruf asas** (14 konsonan dan 10 vokal). Tiada sistem A hingga Z langsung dalam bahasa Korea; sebaliknya ia menggunakan blok suku kata (contohnya huruf disusun dalam bentuk kotak seperti 김 untuk "Kim"). Susunan abjad Korea dipanggil **가나다 순 (Ganada-sun)**.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                            <div class="text-amber-400 font-bold mb-1">14 Konsonan Asas</div>
+                            <div class="text-xs text-slate-400">ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ</div>
+                        </div>
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                            <div class="text-amber-400 font-bold mb-1">10 Vokal Asas</div>
+                            <div class="text-xs text-slate-400">ㅏ, ㅑ, ㅓ, ㅕ, ㅗ, ㅛ, ㅜ, ㅠ, ㅡ, ㅣ</div>
+                        </div>
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                            <div class="text-amber-400 font-bold mb-1">Blok Suku Kata</div>
+                            <div class="text-xs text-slate-400">Konsonan + Vokal + Batchim (Konsonan Akhir di bawah).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jadual Rujukan Pantas Huruf -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-amber-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-table"></i>
+                        <span>Carta Rujukan Asas Konsonan & Vokal</span>
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400">
+                                    <th class="py-2.5 px-3">Huruf Hangul</th>
+                                    <th class="py-2.5 px-3">Nama Huruf</th>
+                                    <th class="py-2.5 px-3">Rumi / Sebutan</th>
+                                    <th class="py-2.5 px-3">Contoh Perkataan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60">
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㄱ</td>
+                                    <td class="py-2.5 px-3">기역 (giyeok)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">g / k</td>
+                                    <td class="py-2.5 px-3">게임 (Game)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㄴ</td>
+                                    <td class="py-2.5 px-3">니은 (nieun)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">n</td>
+                                    <td class="py-2.5 px-3">노트 (Note)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㄷ</td>
+                                    <td class="py-2.5 px-3">디귿 (digeut)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">d / t</td>
+                                    <td class="py-2.5 px-3">디지털 (Digital)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅁ</td>
+                                    <td class="py-2.5 px-3">미음 (mieum)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">m</td>
+                                    <td class="py-2.5 px-3">마이크 (Mic)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅂ</td>
+                                    <td class="py-2.5 px-3">비읍 (bieup)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">b / p</td>
+                                    <td class="py-2.5 px-3">바나나 (Banana)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅅ</td>
+                                    <td class="py-2.5 px-3">시옷 (siot)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">s / t</td>
+                                    <td class="py-2.5 px-3">스타 (Star)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅇ</td>
+                                    <td class="py-2.5 px-3">이응 (ieung)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">ng / Senyap (Placeholder)</td>
+                                    <td class="py-2.5 px-3">아바타 (Avatar)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅏ</td>
+                                    <td class="py-2.5 px-3">Vokal Asas</td>
+                                    <td class="py-2.5 px-3 text-blue-400">a (ah)</td>
+                                    <td class="py-2.5 px-3">아이 (Kanak-kanak)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅗ</td>
+                                    <td class="py-2.5 px-3">Vokal Asas</td>
+                                    <td class="py-2.5 px-3 text-blue-400">o (oh)</td>
+                                    <td class="py-2.5 px-3">오렌지 (Orange)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tips Penulisan -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-3">
+                    <h3 class="text-lg font-bold text-emerald-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Tips Penting Pemula</span>
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 text-xs md:text-sm">
+                        <li>Jika perkataan bermula dengan bunyi vokal (contoh: *A* atau *O*), huruf vokal tidak boleh berdiri sendiri. Anda wajib meletakkan konsonan senyap **ㅇ** di hadapan atau di atasnya (Contoh: 아바타, bukannya ㅏ바타).</li>
+                        <li>Gunakan modul **Writing Lab** di menu utama untuk mula melatih gurisan tangan anda langkah demi langkah!</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -205,7 +345,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="grammar-lab-container"></div>
         </section>
 
-        <!-- ================= WRITING LAB SECTION (BARU) ================= -->
+        <!-- ================= WRITING LAB SECTION ================= -->
         <section id="section-writing" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
@@ -220,15 +360,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Pilihan Huruf Untuk Ditulis -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 shadow-xl md:col-span-1">
                     <h3 class="font-bold text-white text-sm uppercase tracking-wider text-orange-400">Pilih Huruf Asas</h3>
-                    <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-2" id="writing-chars-grid">
-                        <!-- Dijana JS -->
-                    </div>
+                    <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-2" id="writing-chars-grid"></div>
                 </div>
 
-                <!-- Paparan Kanvas Menulis & Panduan -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl md:col-span-2 space-y-6 flex flex-col items-center">
                     <div class="w-full flex justify-between items-center">
                         <div>
@@ -240,9 +376,7 @@
                         </button>
                     </div>
 
-                    <!-- Kotak Panduan & Kanvas Lukis -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                        <!-- Panduan Gurisan (Stroke Guide) -->
                         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
                             <span class="text-xs font-bold text-slate-400">Panduan Gurisan (Stroke Order)</span>
                             <div class="w-36 h-36 bg-slate-900 border-2 border-slate-700 rounded-2xl stroke-box flex items-center justify-center relative">
@@ -251,7 +385,6 @@
                             <p id="writing-stroke-text" class="text-xs text-slate-300">1. Garis tegak ke bawah<br>2. Melintang ke kanan</p>
                         </div>
 
-                        <!-- Kanvas Interaktif Menulis -->
                         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
                             <span class="text-xs font-bold text-slate-400">Kanvas Latihan Anda (Lukis Di Sini)</span>
                             <div class="relative w-36 h-36 bg-slate-900 border-2 border-dashed border-orange-500/50 rounded-2xl overflow-hidden stroke-box touch-none">
@@ -263,7 +396,6 @@
                         </div>
                     </div>
 
-                    <!-- Navigasi Huruf Menulis -->
                     <div class="flex justify-between w-full pt-2">
                         <button onclick="navigateWriting(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
                         <span id="writing-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 14</span>
@@ -448,7 +580,6 @@
 
     <!-- JavaScript Platform -->
     <script>
-        // Peta Emoji Pintar untuk Selingan Soalan Bergambar/Visual
         const visualEmojiMap = {
             "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚",
             "개": "🐶", "새": "🐦", "돈": "💵", "달": "🌙", "별": "⭐", "꽃": "🌸",
@@ -461,10 +592,9 @@
             "안경": "👓", "우산": "🌂", "열쇠": "🔑", "시계": "⏰", "🍏": "🍏"
         };
 
-        // Data Asas untuk Writing Lab (Huruf Hangul & Cara Gurisan)
         const writingData = [
             { char: "아", rumi: "a", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah\n2. Melintang ke kanan" },
-            { char: "야", rumi: "ya", type: "Vokal Asas", stroke: "1. Garis tegak ke bawah\n2. Dua melintang ke kanan" },
+            { char: "야", rumi: "ya", type: "Vokal Asas", stroke: "1. Tegak ke bawah\n2. Dua melintang ke kanan" },
             { char: "어", rumi: "eo", type: "Vokal Asas", stroke: "1. Melintang ke kiri\n2. Tegak ke bawah" },
             { char: "여", rumi: "yeo", type: "Vokal Asas", stroke: "1. Dua melintang ke kiri\n2. Tegak ke bawah" },
             { char: "오", rumi: "o", type: "Vokal Asas", stroke: "1. Tegak pendek ke atas\n2. Melintang di bawah" },
@@ -483,7 +613,6 @@
         let canvas, ctx;
         let isDrawing = false;
 
-        // 21 Level Kosa Kata Asal (dikekalkan penuh)
         const levelsData = [
             {
                 id: 1,
@@ -1219,7 +1348,7 @@
                     { char: "물", rumi: "mul", desc: "Air kosong", stroke: "Minuman" },
                     { char: "차", rumi: "cha", desc: "Teh", stroke: "Minuman" },
                     { char: "커피", rumi: "keopi", desc: "Kopi", stroke: "Minuman" },
-                    { char: "주스", rumi: "juseu", desc: "Jus", stroke: "Minuman" },
+                    { char: "주", rumi: "juseu", desc: "Jus", stroke: "Minuman" },
                     { char: "맥주", rumi: "maekju", desc: "Bir", stroke: "Minuman" },
                     { char: "소주", rumi: "soju", desc: "Soju", stroke: "Minuman" },
                     { char: "막걸리", rumi: "makgeolli", desc: "Wain beras tradisional", stroke: "Minuman" }
@@ -1264,7 +1393,6 @@
             }
         ];
 
-        // Kategori Khas Tematik & Conversation Lab & Grammar Lab (Dikekalkan penuh)
         const specialCategoriesData = [
             {
                 id: 'sc-house',
@@ -1662,7 +1790,7 @@
             {
                 id: 'cv-16',
                 title: "Situasi 16: Hotel / Penginapan (호텔 예약)",
-                desc: "Frasa urusan tempahan bilik hotel, kaunter penyambut tetamu & fasilitas.",
+                desc: "Frasa tempahan bilik hotel, kaunter penyambut tetamu & fasilitas.",
                 items: [
                     { char: "방을 예약하고 싶습니다.", rumi: "bangeul yeyakhago sipseumnida.", desc: "Saya ingin menempah bilik.", stroke: "Tempahan hotel." },
                     { char: "체크인 시간은 몇 시예요?", rumi: "chekeu-in siganeun myeot siyeyo?", desc: "Pukul berapa waktu check-in?", stroke: "Maklumat masa." },
@@ -1810,12 +1938,16 @@
         });
 
         function showSection(sectionId) {
-            ['home', 'levels', 'special', 'conversation', 'grammar-lab', 'writing', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
+            ['home', 'intro-hangul', 'levels', 'special', 'conversation', 'grammar-lab', 'writing', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
                 const el = document.getElementById(`section-${id}`);
                 if (el) el.classList.add('hidden');
             });
             const target = document.getElementById(`section-${sectionId}`);
             if (target) target.classList.remove('hidden');
+        }
+
+        function openIntroHangul() {
+            showSection('intro-hangul');
         }
 
         function renderLevelCards() {
@@ -1957,7 +2089,6 @@
             speakText(item.char);
         }
 
-        // Kanvas Interaktif Menulis
         function initCanvas() {
             canvas = document.getElementById('draw-canvas');
             if (!canvas) return;
@@ -1967,7 +2098,6 @@
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
 
-            // Event Listeners Mouse & Touch
             canvas.onmousedown = startDrawing;
             canvas.onmousemove = draw;
             canvas.onmouseup = stopDrawing;
