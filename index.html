@@ -156,12 +156,13 @@
         </section>
 
         <!-- ================= INTRO HANGUL SECTION (BARU) ================= -->
+        <!-- ================= INTRO HANGUL SECTION (LENGKAP) ================= -->
         <section id="section-intro-hangul" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
                     <span class="text-xs font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">PANDUAN ASAS HANGUL</span>
                     <h2 class="text-2xl font-bold text-white mt-1">Pengenalan & Huruf-huruf Hangul Lengkap</h2>
-                    <p class="text-slate-400 text-sm">Nota ringkas abjad, susunan Ganada-sun & struktur blok suku kata</p>
+                    <p class="text-slate-400 text-sm">Nota penuh susunan huruf (Ganada-sun), 14 konsonan asas & 10 vokal asas</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -177,7 +178,7 @@
                         <span>Apa itu Hangeul?</span>
                     </h3>
                     <p>
-                        Hangeul (huruf rasmi Korea) mengandungi **24 huruf asas** (14 konsonan dan 10 vokal). Tiada sistem A hingga Z langsung dalam bahasa Korea; sebaliknya ia menggunakan blok suku kata (contohnya huruf disusun dalam bentuk kotak seperti 김 untuk "Kim"). Susunan abjad Korea dipanggil **가나다 순 (Ganada-sun)**.
+                        Hangeul (huruf rasmi Korea) mengandungi **24 huruf asas** (14 konsonan asas dan 10 vokal asas). Tiada sistem A hingga Z langsung dalam bahasa Korea; sebaliknya ia menggunakan blok suku kata (contohnya huruf disusun dalam bentuk kotak seperti 김 untuk "Kim"). Susunan abjad Korea dipanggil **가나다 순 (Ganada-sun)**.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                         <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
@@ -195,11 +196,11 @@
                     </div>
                 </div>
 
-                <!-- Jadual Rujukan Pantas Huruf -->
+                <!-- 1. Carta Rujukan 14 Konsonan Asas Penuh -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
                     <h3 class="text-lg font-bold text-amber-400 flex items-center space-x-2">
                         <i class="fa-solid fa-table"></i>
-                        <span>Carta Rujukan Asas Konsonan & Vokal</span>
+                        <span>1. Carta 14 Konsonan Asas (자음) Penuh</span>
                     </h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse text-xs md:text-sm">
@@ -231,6 +232,12 @@
                                     <td class="py-2.5 px-3">디지털 (Digital)</td>
                                 </tr>
                                 <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㄹ</td>
+                                    <td class="py-2.5 px-3">리을 (rieul)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">r / l</td>
+                                    <td class="py-2.5 px-3">라디오 (Radio)</td>
+                                </tr>
+                                <tr>
                                     <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅁ</td>
                                     <td class="py-2.5 px-3">미음 (mieum)</td>
                                     <td class="py-2.5 px-3 text-blue-400">m</td>
@@ -251,25 +258,145 @@
                                 <tr>
                                     <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅇ</td>
                                     <td class="py-2.5 px-3">이응 (ieung)</td>
-                                    <td class="py-2.5 px-3 text-blue-400">ng / Senyap (Placeholder)</td>
-                                    <td class="py-2.5 px-3">아바타 (Avatar)</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅏ</td>
-                                    <td class="py-2.5 px-3">Vokal Asas</td>
-                                    <td class="py-2.5 px-3 text-blue-400">a (ah)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">ng / Senyap</td>
                                     <td class="py-2.5 px-3">아이 (Kanak-kanak)</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅗ</td>
-                                    <td class="py-2.5 px-3">Vokal Asas</td>
-                                    <td class="py-2.5 px-3 text-blue-400">o (oh)</td>
-                                    <td class="py-2.5 px-3">오렌지 (Orange)</td>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅈ</td>
+                                    <td class="py-2.5 px-3">지읒 (jieut)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">j / t</td>
+                                    <td class="py-2.5 px-3">자동차 (Kereta)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅊ</td>
+                                    <td class="py-2.5 px-3">치읓 (chieut)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">ch / t</td>
+                                    <td class="py-2.5 px-3">친구 (Kawan)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅋ</td>
+                                    <td class="py-2.5 px-3">키읔 (kieuk)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">k</td>
+                                    <td class="py-2.5 px-3">카메라 (Kamera)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅌ</td>
+                                    <td class="py-2.5 px-3">티읕 (tieut)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">t</td>
+                                    <td class="py-2.5 px-3">토마토 (Tomato)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅍ</td>
+                                    <td class="py-2.5 px-3">피읖 (pieup)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">p</td>
+                                    <td class="py-2.5 px-3">피아노 (Piano)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅎ</td>
+                                    <td class="py-2.5 px-3">히읗 (hieut)</td>
+                                    <td class="py-2.5 px-3 text-blue-400">h</td>
+                                    <td class="py-2.5 px-3">한국 (Korea)</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+                <!-- 2. Carta Rujukan 10 Vokal Asas Penuh -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-amber-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-table"></i>
+                        <span>2. Carta 10 Vokal Asas (모음) Penuh</span>
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400">
+                                    <th class="py-2.5 px-3">Huruf Hangul</th>
+                                    <th class="py-2.5 px-3">Rumi / Sebutan</th>
+                                    <th class="py-2.5 px-3">Penerangan Bunyi</th>
+                                    <th class="py-2.5 px-3">Contoh Perkataan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60">
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅏ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">a</td>
+                                    <td class="py-2.5 px-3">Bunyi 'ah'</td>
+                                    <td class="py-2.5 px-3">아이 (Kanak-kanak)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅑ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">ya</td>
+                                    <td class="py-2.5 px-3">Bunyi 'yah'</td>
+                                    <td class="py-2.5 px-3">야구 (Besbol)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅓ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">eo</td>
+                                    <td class="py-2.5 px-3">Bunyi 'o' serak</td>
+                                    <td class="py-2.5 px-3">어머니 (Ibu)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅕ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">yeo</td>
+                                    <td class="py-2.5 px-3">Bunyi 'yoh' serak</td>
+                                    <td class="py-2.5 px-3">여자 (Wanita)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅗ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">o</td>
+                                    <td class="py-2.5 px-3">Bunyi 'oh' bulat</td>
+                                    <td class="py-2.5 px-3">오이 (Timun)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅛ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">yo</td>
+                                    <td class="py-2.5 px-3">Bunyi 'yoh'</td>
+                                    <td class="py-2.5 px-3">요리 (Masakan)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅜ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">u</td>
+                                    <td class="py-2.5 px-3">Bunyi 'u'</td>
+                                    <td class="py-2.5 px-3">우유 (Susu)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅠ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">yu</td>
+                                    <td class="py-2.5 px-3">Bunyi 'yu'</td>
+                                    <td class="py-2.5 px-3">유리 (Kaca)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅡ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">eu</td>
+                                    <td class="py-2.5 px-3">Bunyi 'e' (enam)</td>
+                                    <td class="py-2.5 px-3">쓰다 (Tulis)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-3 hangul-font font-bold text-amber-400 text-base">ㅣ</td>
+                                    <td class="py-2.5 px-3 text-blue-400">i</td>
+                                    <td class="py-2.5 px-3">Bunyi 'i' (ikan)</td>
+                                    <td class="py-2.5 px-3">이 (Gigi)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tips Penulisan -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-3">
+                    <h3 class="text-lg font-bold text-emerald-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Tips Penting Pemula</span>
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 text-xs md:text-sm">
+                        <li>Jika perkataan bermula dengan bunyi vokal, huruf vokal tidak boleh berdiri sendiri. Anda wajib meletakkan konsonan senyap **ㅇ** di hadapannya (Contoh: 아바타, bukannya ㅏ바타).</li>
+                        <li>Gunakan modul **Writing Lab** di menu utama untuk mula melatih gurisan tangan anda langkah demi langkah!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
                 <!-- Tips Penulisan -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-3">
