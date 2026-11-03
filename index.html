@@ -171,27 +171,67 @@
             </div>
 
             <div class="space-y-6 max-w-4xl mx-auto text-slate-300 text-sm leading-relaxed">
-                <!-- Kad Nota 1 -->
+               <!-- Nota Khas: Bunyi Inggeris dalam Hangul -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-                    <h3 class="text-lg font-bold text-cyan-400 flex items-center space-x-2">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <span>Apa itu Hangeul?</span>
+                    <h3 class="text-lg font-bold text-pink-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Nota Khas: Cara Menulis Bunyi Huruf Inggeris yang Tiada dalam Hangeul</span>
                     </h3>
-                    <p>
-                        Hangeul (huruf rasmi Korea) mengandungi **24 huruf asas** (14 konsonan asas dan 10 vokal asas). Tiada sistem A hingga Z langsung dalam bahasa Korea; sebaliknya ia menggunakan blok suku kata (contohnya huruf disusun dalam bentuk kotak seperti 김 untuk "Kim"). Susunan abjad Korea dipanggil **가나다 순 (Ganada-sun)**.
+                    <p class="text-slate-300 text-sm">
+                        Oleh kerana Hangeul direka khas untuk bahasa Korea, sesetengah bunyi huruf Inggeris tiada padanan langsung. Orang Korea menggunakan "Kod Rahsia" transliterasi berikut:
                     </p>
+                    
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                            <div class="text-amber-400 font-bold mb-1">14 Konsonan Asas</div>
-                            <div class="text-xs text-slate-400">ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ</div>
+                        <!-- F & V -->
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                            <div class="text-amber-400 font-bold text-sm">1. Ganti F & V</div>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><strong>F &rarr; P (ㅍ):</strong> "Coffee" jadi 커피 (Keo-pi)</li>
+                                <li><strong>V &rarr; B (ㅂ):</strong> "Television" jadi 텔레비전</li>
+                            </ul>
                         </div>
-                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                            <div class="text-amber-400 font-bold mb-1">10 Vokal Asas</div>
-                            <div class="text-xs text-slate-400">ㅏ, ㅑ, ㅓ, ㅕ, ㅗ, ㅛ, ㅜ, ㅠ, ㅡ, ㅣ</div>
+
+                        <!-- X Split -->
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                            <div class="text-amber-400 font-bold text-sm">2. Pecahan Huruf 'X'</div>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><strong>X &rarr; ㄱ + ㅅ:</strong> Terbahagi kepada dua blok suku kata.</li>
+                                <li>Contoh: "Box" jadi 박스 (Bak-seu).</li>
+                            </ul>
                         </div>
-                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                            <div class="text-amber-400 font-bold mb-1">Blok Suku Kata</div>
-                            <div class="text-xs text-slate-400">Konsonan + Vokal + Batchim (Konsonan Akhir di bawah).</div>
+
+                        <!-- Z Sound -->
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                            <div class="text-amber-400 font-bold text-sm">3. Bunyi 'Z'</div>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><strong>Z &rarr; J (ㅈ):</strong> Diganti dengan bunyi J Korea.</li>
+                                <li>Contoh: "Pizza" jadi 피자 (Pi-ja).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vokal Inggeris -->
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3 mt-4">
+                        <div class="text-cyan-400 font-bold text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <span>Panduan Vokal Inggeris (A, E, I, O, U) ke Hangeul</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs text-slate-300">
+                            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                                <strong class="text-amber-300">A (ㅏ):</strong> Bunyi "ah"
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                                <strong class="text-amber-300">E (ㅔ/ㅐ):</strong> Bunyi "e" dlm *met*
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                                <strong class="text-amber-300">I (ㅣ):</strong> Bunyi "ee" dlm *see*
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                                <strong class="text-amber-300">O (ㅗ):</strong> Bunyi "oh" bulat
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                                <strong class="text-amber-300">U (ㅜ):</strong> Bunyi "oo" dlm *moon*
+                            </div>
                         </div>
                     </div>
                 </div>
