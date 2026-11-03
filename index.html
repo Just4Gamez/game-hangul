@@ -557,10 +557,11 @@
             </div>
 
             <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl text-center space-y-8">
+                <!-- KOTAK MELINTANG UTAMA UNTUK HANGUL -->
                 <div class="relative inline-block w-full">
-                    <div class="w-44 h-44 md:w-52 md:h-52 mx-auto bg-slate-950 border-2 border-slate-700 rounded-3xl stroke-box flex items-center justify-center shadow-inner relative overflow-hidden group p-4">
-                        <span id="study-char" class="hangul-font text-5xl md:text-6xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug">아</span>
-                        <button onclick="playStudyAudio()" class="absolute bottom-2 right-2 w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
+                    <div class="w-full h-32 md:h-40 mx-auto bg-slate-950 border-2 border-slate-700 rounded-3xl stroke-box flex items-center justify-center shadow-inner relative overflow-hidden group p-4">
+                        <span id="study-char" class="hangul-font text-3xl md:text-5xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug px-6">아</span>
+                        <button onclick="playStudyAudio()" class="absolute bottom-3 right-3 w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
                     </div>
@@ -614,7 +615,7 @@
                 <div class="space-y-1 relative">
                     <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah fungsi, sebutan atau maksud bagi perkataan ini?</span>
                     <div class="flex items-center justify-center space-x-3 pt-2">
-                        <div id="quiz-char-display" class="hangul-font text-4xl md:text-5xl font-black text-amber-400">아</div>
+                        <div id="quiz-char-display" class="hangul-font text-3xl md:text-4xl font-black text-amber-400">아</div>
                         <button onclick="playQuizAudio()" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
@@ -660,7 +661,7 @@
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
                 <div class="space-y-2">
                     <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Mod Dengar Audio</span>
-                    <div id="listen-char" class="hangul-font text-5xl font-black text-amber-400 py-4">안녕하세요</div>
+                    <div id="listen-char" class="hangul-font text-4xl font-black text-amber-400 py-4">안녕하세요</div>
                     <div id="listen-romaji" class="text-lg font-bold text-blue-400">annyeonghaseyo</div>
                     <p id="listen-desc" class="text-slate-400 text-sm">Selamat Sejahtera (Formal)</p>
                 </div>
@@ -1983,7 +1984,7 @@
                 title: "1. Penanda Subjek & Topik",
                 desc: "Formula 은/는 vs 이/가 (Siapa pelaku utama dalam ayat).",
                 items: [
-                    { char: "은 / 는", rumi: "eun / neun", desc: "Penanda Topik Umum", stroke: "Formula: Kata Nama berakhiran konsonan + 은, vokal + 는.\nContoh: 저는 학생입니다 (Saya adalah pelajar)." },
+                    { char: "은 / 는", rumi: "eun / neun", desc: "Penanda Topik Umum", stroke: "Formula: Kata Nama berakhiran konsonan + 은, vokal + 네.\nContoh: 저는 학생입니다 (Saya adalah pelajar)." },
                     { char: "이 / 가", rumi: "i / ga", desc: "Penanda Subjek Utama", stroke: "Formula: Kata Nama berakhiran konsonan + 이, vokal + 가.\nContoh: 날씨가 좋습니다 (Cuaca bagus)." },
                     { char: "도 (Juga)", rumi: "do", desc: "Maksud: 'Juga' atau 'Pun'", stroke: "Formula: Letak menggantikan 은/는 atau 이/가.\nContoh: 저도 학생입니다 (Saya juga pelajar)." },
                     { char: "만 (Sahaja)", rumi: "man", desc: "Maksud: 'Hanya / Sahaja'", stroke: "Formula: Letak selepas kata nama.\nContoh: 이것만 주세요 (Bagi ini sahaja)." },
@@ -2335,7 +2336,7 @@
             const charEl = document.getElementById('study-char');
             let emojiDisplay = visualEmojiMap[item.char] ? `<span class="text-3xl mr-2">${visualEmojiMap[item.char]}</span>` : '';
             charEl.innerHTML = `${emojiDisplay} ${item.char}`;
-            charEl.className = item.char.length > 8 ? "hangul-font text-xl font-black text-amber-400 text-center" : "hangul-font text-4xl md:text-5xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
+            charEl.className = item.char.length > 8 ? "hangul-font text-xl md:text-2xl font-black text-amber-400 text-center" : "hangul-font text-3xl md:text-5xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
 
             document.getElementById('study-romaji').innerText = item.rumi;
             document.getElementById('study-desc').innerText = item.desc;
