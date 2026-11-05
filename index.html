@@ -4,29 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangul Master - Ultimate Edition</title>
+    <!-- Masukkan skrip Supabase di sini -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        korea: {
-                            blue: '#0047A0',
-                            red: '#CD2E3A',
-                            dark: '#0f172a',
-                            card: '#1e293b'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
         body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; }
@@ -3719,6 +3700,65 @@
         function playListenAudio() {
             const item = allWords[currentListenIndex];
             speakText(item.char);
+        }
+    </script>
+    <script>
+        // --- KONFIGURASI SUPABASE ---
+        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // --- FUNGSI LOGIN & DAFTAR EMEL SUPABASE ---
+        async function signUpWithEmail(email, password) {
+            const { data, error } = await supabaseClient.auth.signUp({ email, password });
+            if (error) alert("Ralat daftar: " + error.message);
+            else alert("Pendaftaran berjaya!");
+        }
+
+        async function signInWithEmail(email, password) {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) alert("Gagal log masuk: " + error.message);
+            else { alert("Log masuk berjaya!"); location.reload(); }
+        }
+    </script>
+<!-- ... (kod-kod asal web anda yang lain di atas) ... -->
+
+    <!-- LETAK KOD BORANG DI SINI (SEBELUM PENUTUP BODY) -->
+    <div style="background: #1e293b; padding: 20px; border-radius: 8px; margin: 20px; color: white; max-width: 400px;">
+        <h3>🔑 Log Masuk / Daftar Hangul Master</h3>
+        <input type="email" id="userEmail" placeholder="Masukkan emel..." style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;"><br>
+        <input type="password" id="userPassword" placeholder="Kata laluan..." style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;"><br>
+        
+        <button onclick="handleSignIn()" style="background: #0047A0; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;">Log Masuk</button>
+        <button onclick="handleSignUp()" style="background: #28a745; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer;">Daftar Baru</button>
+    </div>
+
+    <!-- Kod script Supabase yang kita buat tadi -->
+    <script>
+        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function signUpWithEmail(email, password) {
+            const { data, error } = await supabaseClient.auth.signUp({ email, password });
+            if (error) alert("Ralat daftar: " + error.message);
+            else alert("Pendaftaran berjaya!");
+        }
+
+        async function signInWithEmail(email, password) {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) alert("Gagal log masuk: " + error.message);
+            else { alert("Log masuk berjaya!"); location.reload(); }
+        }
+
+        function handleSignUp() {
+            const email = document.getElementById('userEmail').value;
+            const pass = document.getElementById('userPassword').value;
+            if(email && pass) {
+                signUpWithEmail(email, pass);
+            } else {
+                alert("Sila masukkan emel dan kata laluan!");
+            }
         }
     </script>
 </body>
