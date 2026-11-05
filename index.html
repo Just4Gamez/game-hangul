@@ -2534,11 +2534,14 @@
             speakText(item.char);
         }
         
+    <!-- 1. Muat turun fail addon terlebih dahulu -->
+    <script src="conversation-addon.js"></script>
+
+    <!-- 2. Masukkan kod penggabungan DI DALAM tag script -->
+    <script>
+        if (typeof conversationLabData !== 'undefined' && typeof extraConversationLabs !== 'undefined') {
+            window.conversationLabData = conversationLabData.concat(extraConversationLabs);
+        }
     </script>
-    // ---> TAMBAHKAN KOD INI DI SINI <---
-    if (typeof conversationLabData !== 'undefined' && typeof extraConversationLabs !== 'undefined') {
-        window.conversationLabData = conversationLabData.concat(extraConversationLabs);
-    }
-        
 </body>
 </html>
