@@ -1729,255 +1729,579 @@
         ];
 
         const conversationLabData = [
+           {
+        id: 'cv-1',
+        title: "Situasi 1: Restoran (식당)",
+        desc: "Perbualan asas semasa membuat pesanan makanan.",
+        items: [
+            { char: "어서 오세요.", rumi: "eoseo oseyo.", desc: "Selamat datang.", stroke: "Sapaan" },
+            { char: "메뉴판 주세요.", rumi: "menypan juseyo.", desc: "Tolong beri menu.", stroke: "Menu" },
+            { char: "주문하시겠어요?", rumi: "jumunhasigesseoyo?", desc: "Mahu memesan makanan?", stroke: "Pesanan" },
+            { char: "김치찌개 하나 주세요.", rumi: "gimchi-jjigae hana juseyo.", desc: "Satu sup kimchi.", stroke: "Makanan" },
+            { char: "물은 무료예요?", rumi: "mureun muryoeyo?", desc: "Adakah air percuma?", stroke: "Air" },
+            { char: "계산해 주세요.", rumi: "gyesandae juseyo.", desc: "Tolong kira (bayar).", stroke: "Bayaran" }
+        ]
+    },
+    {
+        id: 'cv-2',
+        title: "Situasi 2: Kafe (카페)",
+        desc: "Perbualan memesan kopi dan minuman di kafe.",
+        items: [
+            { char: "아메리카노 한 잔 주세요.", rumi: "amerikano han jan juseyo.", desc: "Satu cawan americano.", stroke: "Kopi" },
+            { char: "따뜻한 것으로 드릴까요?", rumi: "ttatteuthan geoseuro deurilkayo?", desc: "Mahu yang panas?", stroke: "Suhu" },
+            { char: "네, 따뜻한 걸로 주세요.", rumi: "ne, ttatteuthan geollo juseyo.", desc: "Ya, minta yang panas.", stroke: "Pilihan" },
+            { char: "테이크아웃인가요?", rumi: "teikeu-outingayo?", desc: "Bungkus (takeaway)?", stroke: "Bungkus" },
+            { char: "여기서 마실게요.", rumi: "yeogiseo masilgeyo.", desc: "Minum di sini.", stroke: "Minum" },
+            { char: "영수증 버려주세요.", rumi: "yeongsujung beoryojuseyo.", desc: "Tolong buang resit.", stroke: "Resit" }
+        ]
+    },
+    {
+        id: 'cv-3',
+        title: "Situasi 3: Hotel (호텔)",
+        desc: "Perbualan mendaftar masuk dan berurusan di hotel.",
+        items: [
+            { char: "예약했습니다.", rumi: "yeyakhaetseumnida.", desc: "Saya sudah buat tempahan.", stroke: "Tempahan" },
+            { char: "체크인 부탁합니다.", rumi: "chekeu-in butakhamnida.", desc: "Minta daftar masuk.", stroke: "Check-in" },
+            { char: "여권 보여주세요.", rumi: "yeogwon boyeojuseyo.", desc: "Tunjukkan pasport.", stroke: "Pasport" },
+            { char: "조식은 몇 시예요?", rumi: "josigeun myeot siyeyo?", desc: "Pukul berapa sarapan?", stroke: "Sarapan" },
+            { char: "와이파이 비밀번호가 뭐예요?", rumi: "waipai bimilbeonhoga mwoyeyo?", desc: "Apa password wifi?", stroke: "Wifi" },
+            { char: "체크아웃은 11시입니다.", rumi: "chekeu-ateun yeolhan-siimnida.", desc: "Check-out pukul 11.", stroke: "Check-out" }
+        ]
+    },
+    {
+        id: 'cv-4',
+        title: "Situasi 4: Hospital (병원)",
+        desc: "Perbualan mendapatkan rawatan klinik atau hospital.",
+        items: [
+            { char: "어디가 아프십니까?", rumi: "eodiga apeusimnikka?", desc: "Di mana yang sakit?", stroke: "Sakit" },
+            { char: "머리가 아프고 열이 나요.", rumi: "meoriga apeugo yeori nayo.", desc: "Kepala sakit dan demam.", stroke: "Gejala" },
+            { char: "기침도 많이 해요.", rumi: "gichimdo mani haeyo.", desc: "Banyak batuk juga.", stroke: "Batuk" },
+            { char: "진료를 받으세요.", rumi: "jinryoreul badeuseyo.", desc: "Sila dapatkan rawatan.", stroke: "Rawatan" },
+            { char: "약국에 가서 약을 타세요.", rumi: "yakgug-e gaseo yageul taseyo.", desc: "Pergi farmasi ambil ubat.", stroke: "Ubat" },
+            { char: "하루에 세 번 드세요.", rumi: "haru-e se beon deuseyo.", desc: "Makan tiga kali sehari.", stroke: "Dos" }
+        ]
+    },
+    {
+        id: 'cv-5',
+        title: "Situasi 5: Tabung / Bank (은행)",
+        desc: "Perbualan berurusan di bank.",
+        items: [
+            { char: "통장을 만들고 싶어요.", rumi: "tongjangeul mandeulgo sipeoyo.", desc: "Nak buka buku akaun.", stroke: "Akaun" },
+            { char: "신분증을 제시해 주세요.", rumi: "sinbungeungeul jesihae juseyo.", desc: "Tunjukkan kad pengenalan.", stroke: "ID" },
+            { char: "돈을 송금하고 싶습니다.", rumi: "doneul songgeumhago sipseumnida.", desc: "Saya ingin pindah wang.", stroke: "Transfer" },
+            { char: "수수료가 얼마예요?", rumi: "susuryoga eolmayeyo?", desc: "Berapa caj komisen?", stroke: "Caj" },
+            { char: "환전을 하고 싶어요.", rumi: "hwanjereul hago sipeoyo.", desc: "Nak tukar duit mata wang.", stroke: "Tukar" },
+            { char: "비밀번호를 입력하세요.", rumi: "bimilbeonhoreul imnyokhaseyo.", desc: "Masukkan kata laluan.", stroke: "PIN" }
+        ]
+    },
+    {
+        id: 'cv-6',
+        title: "Situasi 6: Beli-belah (쇼핑)",
+        desc: "Perbualan membeli pakaian dan barangan.",
+        items: [
+            { char: "얼마예요?", rumi: "eolmayeyo?", desc: "Berapa harga?", stroke: "Harga" },
+            { char: "너무 비싸요.", rumi: "neomu bissayo.", desc: "Terlalu mahal.", stroke: "Mahal" },
+            { char: "깎아주세요.", rumi: "kkakkajuseyo.", desc: "Tolong kurangkan harga.", stroke: "Diskaun" },
+            { char: "다른 색상 있어요?", rumi: "dareun saeksang isseoyo?", desc: "Ada warna lain?", stroke: "Warna" },
+            { char: "입어봐도 돼요?", rumi: "ibeobwado dwaeyo?", desc: "Boleh cuba pakai?", stroke: "Cuba" },
+            { char: "이거로 세요.", rumi: "igeoro juseyo.", desc: "Tolong ambil yang ini.", stroke: "Beli" }
+        ]
+    },
+    {
+        id: 'cv-7',
+        title: "Situasi 7: Arah & Jalan (길 찾기)",
+        desc: "Perbualan bertanya arah jalan.",
+        items: [
+            { char: "실례합니다, 여기 어디예요?", rumi: "sillyehamnida, yeogi eodiyeyo?", desc: "Maaf, di mana sini?", stroke: "Tanya" },
+            { char: "역이 어디에 있어요?", rumi: "yeogi eodie isseoyo?", desc: "Di mana stesen tren?", stroke: "Stesen" },
+            { char: "쭉 가세요.", rumi: "jjuk gaseyo.", desc: "Terus je berjalan.", stroke: "Lurus" },
+            { char: "오른쪽으로 도세요.", rumi: "oreunjjogeuro doseyo.", desc: "Belok ke sebelah kanan.", stroke: "Kanan" },
+            { char: "왼쪽에 있어요.", rumi: "oenjjoge isseoyo.", desc: "Ada di sebelah kiri.", stroke: "Kiri" },
+            { char: "걸어서 5분 걸려요.", rumi: "georaseo obun geollyeoyo.", desc: "Jalan kaki ambil masa 5 minit.", stroke: "Masa" }
+        ]
+    },
+    {
+        id: 'cv-8',
+        title: "Situasi 8: Teksi (택시)",
+        desc: "Perbualan menaiki teksi.",
+        items: [
+            { char: "서울역으로 가주세요.", rumi: "seoul-yeogeuro gajuseyo.", desc: "Tolong bawa ke Stesen Seoul.", stroke: "Destinasi" },
+            { char: "얼마나 걸립니까?", rumi: "eolmana gollimnikka?", desc: "Berapa lama ambil masa?", stroke: "Tempoh" },
+            { char: "여기서 멈춰주세요.", rumi: "yeogiseo meomchwojuseyo.", desc: "Tolong berhenti di sini.", stroke: "Berhenti" },
+            { char: "카드로 계산할게요.", rumi: "kadeuro gyesanhalgeyo.", desc: "Saya bayar guna kad.", stroke: "Kad" },
+            { char: "영수증 주세요.", rumi: "yeongsujung juseyo.", desc: "Tolong beri resit.", stroke: "Resit" },
+            { char: "감사합니다, 수고하세요.", rumi: "gamsahamnida, sugohaseyo.", desc: "Terima kasih, selamat bekerja.", stroke: "Ucap" }
+        ]
+    },
+    {
+        id: 'cv-9',
+        title: "Situasi 9: Kawan & Kenalan (친구)",
+        desc: "Perbualan mesra sesama rakan.",
+        items: [
+            { char: "이름이 뭐예요?", rumi: "ireumi mwoyeyo?", desc: "Siapa nama anda?", stroke: "Nama" },
+            { char: "저는 말레이시아 사람이에요.", rumi: "jeoneun mallaisia saramieyo.", desc: "Saya orang Malaysia.", stroke: "Asal" },
+            { char: "반가워요.", rumi: "bangawoyo.", desc: "Gembira berkenalan.", stroke: "Sapaan" },
+            { char: "나이가 어떻게 돼요?", rumi: "naiga eotteoke dwaeyo?", desc: "Berapa umur anda?", stroke: "Umur" },
+            { char: "취미가 뭐예요?", rumi: "chwimiga mwoyeyo?", desc: "Apa hobi anda?", stroke: "Hobi" },
+            { char: "주말에 뭐 해요?", rumi: "jumal-e mwo haeyo?", desc: "Hujung minggu buat apa?", stroke: "Aktiviti" }
+        ]
+    },
+    {
+        id: 'cv-10',
+        title: "Situasi 10: Kecemasan (비상)",
+        desc: "Perbualan ketika menghadapi situasi kecemasan.",
+        items: [
+        	{ char: "도와주세요!", rumi: "dowajuseyo!", desc: "Tolong saya!", stroke: "Bantuan" },
+            { char: "불이야!", rumi: "buriya!", desc: "Kebakaran!", stroke: "Api" },
+            { char: "경찰을 불러주세요.", rumi: "gyeongchareul bulleojuseyo.", desc: "Panggil polis.", stroke: "Polis" },
+            { char: "구급차를 불러주세요.", rumi: "gugeubchareul bulleojuseyo.", desc: "Panggil ambulan.", stroke: "Ambulan" },
+            { char: "길을 잃었어요.", rumi: "gireul irh-eosseoyo.", desc: "Saya sudah sesat jalan.", stroke: "Sesat" },
+            { char: "여권과 지갑을 잃어버렸어요.", rumi: "yeogwongwa jigabeul irh-eobeoryeosseoyo.", desc: "Pasport dan dompet hilang.", stroke: "Hilang" }
+        ]
+    },
+    {
+        id: 'cv-11',
+        title: "Situasi 11: Sekolah & Kelas (학교)",
+        desc: "Perbualan di dalam bilik darjah dan sekolah.",
+        items: [
+            { char: "수업 시작하겠습니다.", rumi: "sueop sijak hagesseumnida.", desc: "Kelas akan bermula.", stroke: "Mula" },
+            { char: "질문 있어요.", rumi: "jilmun isseoyo.", desc: "Ada soalan.", stroke: "Soalan" },
+            { char: "모르겠습니다.", rumi: "moreugesseumnida.", desc: "Saya tidak tahu/faham.", stroke: "Faham" },
+            { char: "숙제가 뭐예요?", rumi: "sukjega mwoyeyo?", desc: "Apa kerja rumah?", stroke: "Kerja" },
+            { char: "잘 들으세요.", rumi: "jal deureuseyo.", desc: "Sila dengar dengan teliti.", stroke: "Dengar" },
+            { char: "수업 끝.", rumi: "sueop kkeut.", desc: "Kelas tamat.", stroke: "Tamat" }
+        ]
+    },
+    {
+        id: 'cv-12',
+        title: "Situasi 12: Pejabat (회사)",
+        desc: "Perbualan rasmi di tempat kerja.",
+        items: [
+            { char: "출근했습니다.", rumi: "chulgeunhaetseumnida.", desc: "Saya sudah sampai pejabat.", stroke: "Masuk" },
+            { char: "회의가 있습니다.", rumi: "hoeuiga isseumnida.", desc: "Ada mesyuarat.", stroke: "Mesyuarat" },
+            { char: "보고서를 작성 중입니다.", rumi: "bogoseoreul jakseong jungimnida.", desc: "Sedang buat laporan.", stroke: "Laporan" },
+            { char: "이메일을 확인하세요.", rumi: "imeireul hwaginhaseyo.", desc: "Sila semak emel.", stroke: "Emel" },
+            { char: "퇴근하겠습니다.", rumi: "toegeunhagesseumnida.", desc: "Saya nak balik kerja.", stroke: "Balik" },
+            { char: "수고하셨습니다.", rumi: "sugohasyeotseumnida.", desc: "Terima kasih atas usaha.", stroke: "Penghargaan" }
+        ]
+    },
+    {
+        id: 'cv-13',
+        title: "Situasi 13: Cuaca & Musim (날씨와 계절)",
+        desc: "Perbualan mengenai keadaan cuaca dan musim.",
+        items: [
+            { char: "오늘 날씨가 어때요?", rumi: "oneul nalsiga eottaeyo?", desc: "Bagaimana cuaca hari ini?", stroke: "Cuaca" },
+            { char: "비가 옵니다.", rumi: "biga omnida.", desc: "Hari sedang hujan.", stroke: "Hujan" },
+            { char: "눈이 옵니다.", rumi: "nuni omnida.", desc: "Salji sedang turun.", stroke: "Salji" },
+            { char: "날씨가 춥습니다.", rumi: "nalsiga chupseumnida.", desc: "Cuaca sangat sejuk.", stroke: "Sejuk" },
+            { char: "여름은 더워요.", rumi: "yeoreumeun deowoyo.", desc: "Musim panas sangat hangat.", stroke: "Panas" },
+            { char: "봄이 좋아용.", rumi: "bomi joayo.", desc: "Saya suka musim bunga.", stroke: "Bunga" }
+        ]
+    },
+    {
+        id: 'cv-14',
+        title: "Situasi 14: Hobi & Sukan (취미와 운동)",
+        desc: "Perbualan mengenai hobi dan rekreasi.",
+        items: [
+            { char: "축구를 좋아해요.", rumi: "chukgureul johahaeyo.", desc: "Saya suka bola sepak.", stroke: "Bola" },
+            { char: "영화 관람이 취미예요.", rumi: "yeonghwa gwanrami chwimi-yeyo.", desc: "Hobi saya tonton filem.", stroke: "Filem" },
+            { char: "음악을 듣습니다.", rumi: "umageul deutseumnida.", desc: "Saya mendengar muzik.", stroke: "Muzik" },
+            { char: "주말마다 등산해요.", rumi: "jumalmada deungsanhaeyo.", desc: "Naik gunung setiap minggu.", stroke: "Gunung" },
+            { char: "사진 찍기를 좋아해요.", rumi: "sajin jjikgireul johahaeyo.", desc: "Suka ambil gambar.", stroke: "Foto" },
+            { char: "책을 읽습니다.", rumi: "chaegeul ikseumnida.", desc: "Saya membaca buku.", stroke: "Buku" }
+        ]
+    },
+    {
+        id: 'cv-15',
+        title: "Situasi 15: Makanan Tradisional (한국 음식)",
+        desc: "Perbualan mengenai makanan Korea.",
+        items: [
+            { char: "불고기가 맛있어요.", rumi: "bulgogiga masisseoyo.", desc: "Bulgogi sangat sedap.", stroke: "Bulgogi" },
+            { char: "비빔밥을 좋아해요.", rumi: "bibimbabeul johahaeyo.", desc: "Saya suka bibimbap.", stroke: "Bibimbap" },
+            { char: "매운 음식을 잘 먹어요.", rumi: "maeun eunsigeul jal meogeoyo.", desc: "Pandai makan makanan pedas.", stroke: "Pedas" },
+            { char: "젓가락을 씁니다.", rumi: "jeotgarageul sseumnida.", desc: "Menggunakan penyepit sumpit.", stroke: "Sumpit" },
+            { char: "치맥을 먹자.", rumi: "chimaegeul meokja.", desc: "Jom makan ayam dan bir.", stroke: "Chimaek" },
+            { char: "잘 먹겠습니다.", rumi: "jal meokgesseumnida.", desc: "Selamat menjamu selera.", stroke: "Makan" }
+        ]
+    },
+    {
+        id: 'cv-16',
+        title: "Situasi 16: Rumah & Bilik (집과 방)",
+        desc: "Perbualan mengenai kediaman.",
+        items: [
+            { char: "방이 넓어요.", rumi: "bang-i neolpeoyo.", desc: "Bilik ini luas.", stroke: "Luas" },
+            { char: "청소를 합니다.", rumi: "cheongsoereul hamnida.", desc: "Saya sedang mengemas.", stroke: "Kemas" },
+            { char: "창문을 엽니다.", rumi: "changmuneul yeomnida.", desc: "Membuka tingkap.", stroke: "Tingkap" },
+            { char: "에어컨을 켜세요.", rumi: "eeokeoneul kyoseyo.", desc: "Tolong pasang aircond.", stroke: "Aircond" },
+            { char: "거실에서 쉽니다.", rumi: "geosil-eseo swimnida.", desc: "Berehat di ruang tamu.", stroke: "Rehat" },
+            { char: "불을 끄세요.", rumi: "bureul kkeuseyo.", desc: "Tolong tutup lampu.", stroke: "Lampu" }
+        ]
+    },
+    {
+        id: 'cv-17',
+        title: "Situasi 17: Telefon & Komunikasi (전화)",
+        desc: "Perbualan menerusi telefon.",
+        items: [
+            { char: "여보세요?", rumi: "yeoboseyo?", desc: "Helo?", stroke: "Helo" },
+            { char: "누구세요?", rumi: "nuguseyo?", desc: "Siapa ni?", stroke: "Siapa" },
+            { char: "잠시만요.", rumi: "jamsimanyo.", desc: "Tunggu sebentar.", stroke: "Tunggu" },
+            { char: "전화 잘못 걸셨습니다.", rumi: "jeonhwa jalmot geolsyeotseumnida.", desc: "Salah nombor telefon.", stroke: "Salah" },
+            { char: "나중에 다시 전화할게요.", rumi: "najung-e dasi jeonhwahalgeyo.", desc: "Nanti saya telefon semula.", stroke: "Semula" },
+            { char: "끊겠습니다.", rumi: "kkeungetseumnida.", desc: "Saya letak telefon.", stroke: "Tamat" }
+        ]
+    },
+    {
+        id: 'cv-18',
+        title: "Situasi 18: Perayaan & Sambutan (명절와 파티)",
+        desc: "Perbualan menyambut hari perayaan.",
+        items: [
+            { char: "생일 축하해요!", rumi: "saeng-il chukhahaeyo!", desc: "Selamat hari lahir!", stroke: "Besday" },
+            { char: "새해 복 많이 받으세요.", rumi: "saehae bok mani badeuseyo.", desc: "Selamat menyambut tahun baharu.", stroke: "Tahun" },
+            { char: "선물을 준비했어요.", rumi: "seonmureul junbihaesseoyo.", desc: "Saya sediakan hadiah.", stroke: "Hadiah" },
+            { char: "파티에 초대합니다.", rumi: "patie chodahamnida.", desc: "Jemput ke majlis parti.", stroke: "Parti" },
+            { char: "즐거운 시간 보내세요.", rumi: "jeulgeoun sigan bonaeseyo.", desc: "Semoga bergembira.", stroke: "Gembira" },
+            { char: "케이크를 잘라요.", rumi: "keikeureul jallayo.", desc: "Potong kek.", stroke: "Kek" }
+        ]
+    },
+    {
+        id: 'cv-19',
+        title: "Situasi 19: Percutian (휴가와 여행)",
+        desc: "Perbualan merancang percutian.",
+        items: [
+            { char: "여행을 떠납니다.", rumi: "yeohaengeul tteonamnida.", desc: "Memulakan percutian.", stroke: "Cuti" },
+            { char: "비행기 표를 샀어요.", rumi: "bihaenggi pyoreul sasseoyo.", desc: "Sudah beli tiket kapal terbang.", stroke: "Tiket" },
+            { char: "짐을 쌉니다.", rumi: "jimeul ssamnida.", desc: "Mengemas beg pakaian.", stroke: "Bagasi" },
+            { char: "사진을 많이 찍어요.", rumi: "sajineul mani jjikgoyo.", desc: "Ambil banyak gambar.", stroke: "Foto" },
+            { char: "기념품을 삽니다.", rumi: "ginyompureul samnida.", desc: "Membeli cenderahati.", stroke: "Souvenir" },
+            { char: "정말 즐거웠습니다.", rumi: "jeongmal jeulgeowotseumnida.", desc: "Sangat menyeronokkan.", stroke: "Puas" }
+        ]
+    },
+    {
+        id: 'cv-20',
+        title: "Situasi 20: Airport (공항)",
+        desc: "Frasa perbualan di kaunter lapangan terbang.",
+        items: [
+            { char: "여권과 티켓을 보여주세요.", rumi: "yeogwongwa tiketeul boyeojuseyo.", desc: "Tunjukkan pasport dan tiket.", stroke: "Kaunter" },
+            { char: "창가 쪽 자리를 주세요.", rumi: "changgajjok jarireul juseyo.", desc: "Minta tempat duduk tepi tingkap.", stroke: "Penerbangan" },
+            { char: "수하물이 몇 개예요?", rumi: "suhamuri myeot geyeyo?", desc: "Berapa banyak bagasi?", stroke: "Bagasi" },
+            { char: "탑승구는 어디예요?", rumi: "tapseungguneun eodiyeyo?", desc: "Di manakah pintu pelepasan?", stroke: "Gate" },
+            { char: "비행기가 연기되었습니다.", rumi: "bihaenggiga yeonggidoeeotseumnida.", desc: "Penerbangan telah ditangguhkan.", stroke: "Info" },
+            { char: "즐거운 비행 되세요.", rumi: "jeulgeoun bihaeng doeseyo.", desc: "Selamat menaiki penerbangan.", stroke: "Ucapan" }
+        ]
+    },
+    {
+        id: 'cv-21',
+        title: "Situasi 21: Hometown (고향)",
+        desc: "Perbualan menceritakan tentang kampung halaman.",
+        items: [
+            { char: "고향이 어디예요?", rumi: "gohyangi eodiyeyo?", desc: "Di manakah kampung halaman anda?", stroke: "Asal" },
+            { char: "제 고향은 조용한 시골입니다.", rumi: "je gohyangeun joyonghan sigorimnida.", desc: "Kampung saya ialah sebuah kampung yang tenang.", stroke: "Desa" },
+            { char: "공기가 아주 맑고 좋습니다.", rumi: "gonggiga aju malgogo joseumnida.", desc: "Udara di sana sangat bersih dan bagus.", stroke: "Alam" },
+            { char: "가족들이 아직 거기 삽니다.", rumi: "gajokdeuri ajik geogi samnida.", desc: "Keluarga saya masih tinggal di sana.", stroke: "Keluarga" },
+            { char: "고향에 1년에 두 번 갑니다.", rumi: "gohyange-e ilnyeone du beon gamnida.", desc: "Saya pulang ke kampung dua kali setahun.", stroke: "Lawatan" },
+            { char: "고향이 정말 그리워요.", rumi: "gohyangi jeongmal geuriwoyo.", desc: "Saya amat merindui kampung halaman.", stroke: "Rindu" }
+        ]
+    },
+    {
+        id: 'cv-22',
+        title: "Situasi 22: Weather (날씨)",
+        desc: "Perbualan mengenai keadaan cuaca semasa.",
+        items: [
+            { char: "오늘 날씨가 정말 맑네요.", rumi: "oneul nalsiga jeongmal mangneyo.", desc: "Cuaca hari ini sangat cerah.", stroke: "Cerah" },
+            { char: "오후에 비가 올 것 같아요.", rumi: "ohue biga ol geot gatayo.", desc: "Hari mungkin akan hujan pada waktu petang.", stroke: "Hujan" },
+            { char: "우산을 꼭 챙기세요.", rumi: "usaneul kkok chaenggiseyo.", desc: "Pastikan bawa payung bersama.", stroke: "Nasihat" },
+            { char: "날씨가 갑자기 쌀쌀해졌어요.", rumi: "nalsiga gapjagi ssalssalhaejyeosseoyo.", desc: "Cuaca tiba-tiba menjadi dingin.", stroke: "Suhu" },
+            { char: "내일 기온이 영하로 떨어져요.", rumi: "naeil gioni yeongharo tteoreojyeoyo.", desc: "Suhu esok dijangka jatuh bawah takat beku.", stroke: "Sejuk" },
+            { char: "일기예보를 확인했어요.", rumi: "ilgiyeboreul hwaginhaesseoyo.", desc: "Saya sudah semak ramalan cuaca.", stroke: "Ramalan" }
+        ]
+    },
             {
-                id: 'cv-1',
-                title: "Situasi 1: Perkenalan Diri (자기소개)",
-                desc: "Ayat asas untuk berkenalan, sebut nama, asal negara & pekerjaan.",
-                items: [
-                    { char: "안녕하세요, 저는 [Nama]입니다.", rumi: "annyeonghaseyo, jeoneun ... imnida.", desc: "Helo, nama saya ...", stroke: "Digunakan semasa mula berjumpa." },
-                    { char: "어느 나라에서 오셨어요?", rumi: "eoneu naraeseo osyeosseoyo?", desc: "Anda berasal dari negara mana?", stroke: "Soalan asal usul." },
-                    { char: "말레이시아에서 왔습니다.", rumi: "malreisiah-eseo watseumnida.", desc: "Saya datang dari Malaysia.", stroke: "Jawapan asal usul." },
-                    { char: "직업이 뭐예요?", rumi: "jigobi mwoyeyo?", desc: "Apakah pekerjaan anda?", stroke: "Soalan kerjaya." },
-                    { char: "저는 학생 / 회사원입니다.", rumi: "jeoneun haksaeng / hoesawonimnida.", desc: "Saya seorang pelajar / pekerja pejabat.", stroke: "Jawapan kerjaya." },
-                    { char: "만나서 반가워요.", rumi: "mannaseo bangawoyo.", desc: "Gembira dapat berkenalan dengan awak.", stroke: "Ucapan mesra." }
-                ]
-            },
-            {
-                id: 'cv-2',
-                title: "Situasi 2: Di Restoran & Pesan Makanan (식당에서)",
-                desc: "Frasa penting untuk minta menu, pesan makanan & membuat bayaran.",
-                items: [
-                    { char: "저기요, 메뉴판 주세요.", rumi: "jeogiyo, menyupan juseyo.", desc: "Cik/Tuan, minta menu.", stroke: "Panggil pelayan restoran." },
-                    { char: "이것 2인분 주세요.", rumi: "igeot i-inbun juseyo.", desc: "Bagi set ni 2 orang.", stroke: "Pesanan makanan." },
-                    { char: "맵지 않게 해주세요.", rumi: "maepji an-ge haejuseyo.", desc: "Tolong buat jangan pedas.", stroke: "Permintaan khas." },
-                    { char: "물이랑 수저 주세요.", rumi: "murirang sujeo juseyo.", desc: "Minta air & sudu", stroke: "Restoran" },
-                    { char: "정말 맛있어요!", rumi: "jeongmal masisseoyo!", desc: "Sedap sangat!", stroke: "Pujian makanan." },
-                    { char: "계산해 주세요. 카드 돼요?", rumi: "gyesanhae juseyo. kadeu dwaeyo?", desc: "Tolong kira bil. Boleh guna kad?", stroke: "Pembayaran." }
-                ]
-            },
-            {
-                id: 'cv-3',
-                title: "Situasi 3: Membeli-belah & Tawar Harga (쇼핑)",
-                desc: "Perbualan cari barang, tanya saiz, warna & minta diskaun.",
-                items: [
-                    { char: "이거 얼마예요?", rumi: "igeo eolmayeyo?", desc: "Berapa harga barang ni?", stroke: "Tanya harga." },
-                    { char: "다른 색상도 있어요?", rumi: "dareun saeksangdo isseoyo?", desc: "Ada warna lain tak?", stroke: "Pilihan warna." },
-                    { char: "입어봐도 돼요?", rumi: "ibeobwado dwaeyo?", desc: "Boleh saya cuba pakai?", stroke: "Bilik persalinan." },
-                    { char: "조금 비싸네요.", rumi: "jogeum bissaneyo.", desc: "Agak mahal ya.", stroke: "Komen harga." },
-                    { char: "깎아 주세요!", rumi: "kkakka juseyo!", desc: "Tolong kurangkan harga / diskaun!", stroke: "Minta diskaun." },
-                    { char: "이거로 주세요.", rumi: "igeoro juseyo.", desc: "Saya ambil yang ini.", stroke: "Keputusan membeli." }
-                ]
-            },
-            {
-                id: 'cv-4',
-                title: "Situasi 4: Bertanya Arah & Sesat Jalan (길 찾기)",
-                desc: "Frasa untuk cari tandas, stesen LRT, stesen bas & lokasi.",
-                items: [
-                    { char: "실례합니다, 지하철역이 어디예요?", rumi: "sillyehamnida, jihacheol-yeogi eodiyeyo?", desc: "Maaf tumpang tanya, stesen LRT di mana?", stroke: "Bertanya arah." },
-                    { char: "화장실이 어디예요?", rumi: "hwajangsiri eodiyeyo?", desc: "Di mana tandas?", stroke: "Cari tandas." },
-                    { char: "여기서 멀어요?", rumi: "yeogiseo meoreoyo?", desc: "Jauh ke dari sini?", stroke: "Jarak lokasi." },
-                    { char: "걸어서 10분쯤 걸립니다.", rumi: "georeoseo si-bun-jjeum geollimnida.", desc: "Ambil masa 10 minit berjalan kaki.", stroke: "Anggaran masa." },
-                    { char: "길을 잃었어요.", rumi: "gireul ireosseoyo.", desc: "Saya sudah sesat jalan.", stroke: "Kecemasan." },
-                    { char: "도와주셔서 감사합니다.", rumi: "dowajusyeoseo gamsahamnida.", desc: "Terima kasih kerana tolong saya.", stroke: "Penghargaan." }
-                ]
-            },
-            {
-                id: 'cv-5',
-                title: "Situasi 5: Di Kafe & Pesan Minuman (카페에서)",
-                desc: "Frasa untuk pesan kopi, ais, atau air manis.",
-                items: [
-                    { char: "아이스 아메리카노 한 잔 주세요.", rumi: "aiseu amerikano han jan juseyo.", desc: "Bagi satu gelas Iced Americano.", stroke: "Pesanan kopi." },
-                    { char: "테이크아웃 할게요.", rumi: "teikeuaut halgeyo.", desc: "Saya nak bungkus (takeaway).", stroke: "Pembungkusan." },
-                    { char: "매장에서 마실게요.", rumi: "maejang-eseo masilgeyo.", desc: "Minum di sini (dine-in).", stroke: "Makan di kafe." },
-                    { char: "시럽 덜 넣어주세요.", rumi: "sireop deol neo-eojuseyo.", desc: "Kurangkan sedikit sirap.", stroke: "Permintaan manis." },
-                    { char: "영수증은 버려주세요.", rumi: "yeongsujungeun beoryeojuseyo.", desc: "Tolong buang resit.", stroke: "Resit kafe." },
-                    { char: "와이파이 비밀번호가 뭐예요?", rumi: "waipai bimilbeonhoga mwoyeyo?", desc: "Apa password WiFi?", stroke: "WiFi Kafe" }
-                ]
-            },
-            {
-                id: 'cv-6',
-                title: "Situasi 6: Menaiki Pengangkutan Awam (대중교통)",
-                desc: "Frasa di stesen bas, beli tiket LRT & naik teksi.",
-                items: [
-                    { char: "강남역까지 얼마예요?", rumi: "gangnam-yeokkkaji eolmayeyo?", desc: "Berapa tambang ke Stesen Gangnam?", stroke: "Tambang teksi/tiket." },
-                    { char: "교통카드 충전해 주세요.", rumi: "gyotong-kadeu chunjeonhae juseyo.", desc: "Tolong top-up kad pengangkutan.", stroke: "Kad T-money." },
-                    { char: "여기서 환승되나요?", rumi: "yeogiseo hwanseungdoenayo?", desc: "Boleh bertukar tren (transit) di sini?", stroke: "Transit LRT" },
-                    { char: "다음역은 어디예요?", rumi: "daeum-yeogeun eodiyeyo?", desc: "Stesen seterusnya di mana?", stroke: "Perjalanan" },
-                    { char: "여기서 내려주세요.", rumi: "yeogiseo naeryeojuseyo.", desc: "Tolong turunkan saya di sini.", stroke: "Teksi/Bas" },
-                    { char: "막차 몇 시예요?", rumi: "makcha myeot siyeyo?", desc: "Pukul berapa tren/bas terakhir?", stroke: "Waktu malam" }
-                ]
-            },
-            {
-                id: 'cv-7',
-                title: "Situasi 7: Di Hotel & Penginapan (호텔에서)",
-                desc: "Urusan check-in, minta tuala tambahan & aduan bilik.",
-                items: [
-                    { char: "체크인 하고 싶습니다.", rumi: "chekeu-in hago sipseumnida.", desc: "Saya nak buat check-in.", stroke: "Kaunter hotel." },
-                    { char: "예약자 이름은 알리입니다.", rumi: "yeyakja ireumeun alli-imnida.", desc: "Nama tempahan atas nama Ali.", stroke: "Pengesahan." },
-                    { char: "수건 좀 더 주세요.", rumi: "sugeon jom deo juseyo.", desc: "Minta tuala tambahan.", stroke: "Servis bilik." },
-                    { char: "에어컨이 안 돼요.", rumi: "h-eokeoni an dwaeyo.", desc: "Aircond rosak / tak berfungsi.", stroke: "Aduan kerosakan." },
-                    { char: "체크아웃 몇 시예요?", rumi: "chekeu-aut myeot siyeyo?", desc: "Pukul berapa check-out?", stroke: "Waktu keluar" },
-                    { char: "짐을 잠시 맡아주세요.", rumi: "jimeul jamsi matajuseyo.", desc: "Tolong simpan beg saya sekejap.", stroke: "Luggage storage" }
-                ]
-            },
-            {
-                id: 'cv-8',
-                title: "Situasi 8: Kecemasan & Bantuan (비상 상황)",
-                desc: "Frasa penting bila hadapi kecemasan, polis atau sakit.",
-                items: [
-                    { char: "도와주세요!", rumi: "dowajuseyo!", desc: "Tolong saya!", stroke: "Kecemasan" },
-                    { char: "경찰을 불러주세요.", rumi: "gyeongchareul bulleojuseyo.", desc: "Tolong panggilkan polis.", stroke: "Polis" },
-                    { char: "구급차를 불러주세요.", rumi: "gugeupchareul bulleojuseyo.", desc: "Tolong panggilkan ambulans.", stroke: "Ambulans" },
-                    { char: "여권을 잃어버렸어요.", rumi: "yeogwoneul ireobeoryeosseoyo.", desc: "Pasport saya hilang.", stroke: "Masalah pasport" },
-                    { char: "말레이시아 대사관 어디예요?", rumi: "malreisiah daesagwan eodiyeyo?", desc: "Di mana Kedutaan Malaysia?", stroke: "Kedutaan" },
-                    { char: "괜찮습니다, 감사합니다.", rumi: "gwaenchanseumnida, gamsahamnida.", desc: "Saya okay, terima kasih.", stroke: "Penyelesaian" }
-                ]
-            },
-            {
-                id: 'cv-9',
-                title: "Situasi 9: Hello & Thank You (인사와 감사)",
-                desc: "Ungkapan asas menyapa, memanggil perhatian & melafazkan terima kasih.",
-                items: [
-                    { char: "안녕하세요!", rumi: "annyeonghaseyo!", desc: "Helo / Selamat sejahtera!", stroke: "Sapaan rasmi harian." },
-                    { char: "실례합니다 / 저기요", rumi: "sillyehamnida / jeogiyo", desc: "Tumpang tanya / Cik / Tuan", stroke: "Memanggil perhatian orang." },
-                    { char: "감사합니다", rumi: "gamsahamnida", desc: "Terima kasih", stroke: "Ucapan penghargaan rasmi." },
-                    { char: "정말 고마워요", rumi: "jeongmal gomawoyo", desc: "Terima kasih banyak-banyak", stroke: "Ucapan mesra tak rasmi." },
-                    { char: "천만에요", rumi: "cheonmaneyo", desc: "Sama-sama", stroke: "Balasan terima kasih." },
-                    { char: "안녕히 가세요", rumi: "annyeonghi gaseyo", desc: "Selamat tinggal (kepada yang pergi)", stroke: "Ucapan perpisahan." }
-                ]
-            },
-            {
-                id: 'cv-10',
-                title: "Situasi 10: Yes or No (예와 아니오)",
-                desc: "Ungkapan bersetuju, menolak, betul atau salah dalam perbualan.",
-                items: [
-                    { char: "네, 맞습니다.", rumi: "ne, matseumnida.", desc: "Ya, betul.", stroke: "Persetujuan rasmi." },
-                    { char: "아니요, 아닙니다.", rumi: "aniyo, animnida.", desc: "Tidak, bukan.", stroke: "Penafian rasmi." },
-                    { char: "응, 그래요.", rumi: "eung, geuraeyo.", desc: "Ya, betul tu (mesra).", stroke: "Perbualan santai." },
-                    { char: "아니, 안 돼요.", rumi: "ani, an dwaeyo.", desc: "Tak boleh / Jangan.", stroke: "Larangan / Penolakan." },
-                    { char: "확실해요?", rumi: "hwaksilhaeyo?", desc: "Adakah anda pasti?", stroke: "Bertanya kepastian." },
-                    { char: "글쎄요...", rumi: "geulsseyo...", desc: "Entahlah... / Tengoklah nanti...", stroke: "Jawapan ragu-ragu." }
-                ]
-            },
-            {
-                id: 'cv-11',
-                title: "Situasi 11: Jobs / Pekerjaan (직업)",
-                desc: "Frasa bertanya jenis pekerjaan, kerjaya & bidang tugas.",
-                items: [
-                    { char: "직업이 무엇입니까?", rumi: "jigobi mueosimnikka?", desc: "Apakah pekerjaan anda?", stroke: "Soalan rasmi kerjaya." },
-                    { char: "저는 회사원입니다.", rumi: "jeoneun hoesawonimnida.", desc: "Saya seorang pekerja syarikat.", stroke: "Pekerjaan korporat." },
-                    { char: "엔지니어/선생님입니다.", rumi: "enjinieo / seonsaengnimimnida.", desc: "Saya seorang jurutera / guru.", stroke: "Jenis profesion." },
-                    { char: "사업을 하고 있습니다.", rumi: "saabeul hago isseumnida.", desc: "Saya sedang menjalankan perniagaan.", stroke: "Bisnes sendiri." },
-                    { char: "지금은 백수입니다 (농담)", rumi: "jigeumeun baeksuimnida (nongdam)", desc: "Sekarang menganggur (sambil bergurau)", stroke: "Slang santai." },
-                    { char: "꿈이 뭐예요?", rumi: "kkumi mwoyeyo?", desc: "Apakah impian/cita-cita anda?", stroke: "Soalan masa depan." }
-                ]
-            },
-            {
-                id: 'cv-12',
-                title: "Situasi 12: Countries / Negara Asal (나라)",
-                desc: "Frasa menyebut kewarganegaraan & asal usul negara.",
-                items: [
-                    { char: "어느 나라 사람이에요?", rumi: "eoneu nara saramieyo?", desc: "Anda orang negara mana?", stroke: "Soalan kewarganegaraan." },
-                    { char: "저는 말레이시아 사람입니다.", rumi: "jeoneun malreisiah saramimnida.", desc: "Saya orang Malaysia.", stroke: "Pengenalan diri." },
-                    { char: "한국에 처음 오셨어요?", rumi: "hanguk-e cheoeum osyeosseoyo?", desc: "Ini kali pertama ke Korea?", stroke: "Soalan pelancong." },
-                    { char: "네, 첫 방문입니다.", rumi: "ne, cheot bangmunimnida.", desc: "Ya, lawatan kali pertama.", stroke: "Jawapan lawatan." },
-                    { char: "한국을 아주 좋아합니다.", rumi: "hanguk-eul aju johahamnida.", desc: "Saya sangat meminati Korea.", stroke: "Minat negara." },
-                    { char: "다른 나라에 가봤어요?", rumi: "dareun nara-e gabwasseoyo?", desc: "Pernah pergi negara lain?", stroke: "Soalan pengalaman." }
-                ]
-            },
-            {
-                id: 'cv-13',
-                title: "Situasi 13: Age / Umur (나이)",
-                desc: "Adab dan cara bertanya usia serta panggilan hormat di Korea.",
-                items: [
-                    { char: "실례지만 연세가 어떻게 되세요?", rumi: "sillyejiman yeonsega eotteoke dweiseyo?", desc: "Tumpang tanya, umur berapa ya? (Hormat)", stroke: "Tanya usia orang lebih tua." },
-                    { char: "몇 살이에요?", rumi: "myeot sarieyo?", desc: "Umur berapa? (Kawan sebaya)", stroke: "Tanya kawan rapat." },
-                    { char: "저는 올해 스물다섯 살입니다.", rumi: "jeoneun ohae sumuldaseot sarimnida.", desc: "Umur saya tahun ini 25 tahun.", stroke: "Menyatakan umur." },
-                    { char: "저보다 형이시네요.", rumi: "jeoboda hyeongisineyo.", desc: "Oh, anda lebih tua dari saya (abang).", stroke: "Adab hierarki umur." },
-                    { char: "동안이시네요!", rumi: "donganisineyo!", desc: "Nampak muda / Awet muda!", stroke: "Pujian usia." },
-                    { char: "나이가 들었어요.", rumi: "naiga deureosseoyo.", desc: "Saya sudah berumur / tua.", stroke: "Guraan usia." }
-                ]
-            },
-            {
-                id: 'cv-14',
-                title: "Situasi 14: Interested / Minat & Hobi (관심사)",
-                desc: "Frasa meluahkan minat terhadap K-Pop, drama, makanan & hobi.",
-                items: [
-                    { char: "취미가 무엇입니까?", rumi: "chwimiga mueosimnikka?", desc: "Apakah hobi anda?", stroke: "Soalan hobi rasmi." },
-                    { char: "저는 음악 감상을 좋아해요.", rumi: "jeoneun eumak gamsangeul johahaeyo.", desc: "Saya suka mendengar muzik.", stroke: "Minat hobi." },
-                    { char: "케이팝을 아주 좋아해요.", rumi: "keipabeul aju johahaeyo.", desc: "Saya sangat meminati K-Pop.", stroke: "Minat budaya." },
-                    { char: "어떤 음식을 좋아하세요?", rumi: "eotteon eunsigeul johahaseyo?", desc: "Makanan apa yang anda suka?", stroke: "Minat makanan." },
-                    { char: "관심이 전혀 없습니다.", rumi: "gwansimi jeonhyeo eopseumnida.", desc: "Saya langsung tidak berminat.", stroke: "Tiada minat." },
-                    { char: "요즘 무엇에 빠져 있어요?", rumi: "yojeum muose-e ppajyeo isseoyo?", desc: "Awak meminati apa kebelakangan ini?", stroke: "Soalan trend." }
-                ]
-            },
-            {
-                id: 'cv-15',
-                title: "Situasi 15: Activity / Aktiviti Harian (활동)",
-                desc: "Frasa menceritakan rutin harian, senaman & aktiviti masa lapang.",
-                items: [
-                    { char: "주말에 보통 뭐 하세요?", rumi: "jumal-e botong mwo haseyo?", desc: "Biasanya apa anda buat hujung minggu?", stroke: "Soalan aktiviti." },
-                    { char: "집에서 영화를 봐요.", rumi: "jip-eseo yeonghwareul bwayo.", desc: "Saya menonton filem di rumah.", stroke: "Aktiviti santai." },
-                    { char: "공원에서 운동을 합니다.", rumi: "gongwon-eseo undongeul hamnida.", desc: "Saya bersenam di taman.", stroke: "Aktiviti sihat." },
-                    { char: "친구를 만나서 놀아요.", rumi: "chingureul mannaseo norayo.", desc: "Saya jumpa kawan dan beriadah.", stroke: "Aktiviti sosial." },
-                    { char: "오늘 아주 바쁩니다.", rumi: "oneul aju bappeumnida.", desc: "Hari ini saya sangat sibuk.", stroke: "Status harian." },
-                    { char: "일찍 자고 일찍 일어나요.", rumi: "iljjik jago iljjik ireonayo.", desc: "Tidur awal dan bangun awal.", stroke: "Gaya hidup." }
-                ]
-            },
-            {
-                id: 'cv-16',
-                title: "Situasi 16: Hotel / Penginapan (호텔 예약)",
-                desc: "Frasa tempahan bilik hotel, kaunter penyambut tetamu & fasilitas.",
-                items: [
-                    { char: "방을 예약하고 싶습니다.", rumi: "bangeul yeyakhago sipseumnida.", desc: "Saya ingin menempah bilik.", stroke: "Tempahan hotel." },
-                    { char: "체크인 시간은 몇 시예요?", rumi: "chekeu-in siganeun myeot siyeyo?", desc: "Pukul berapa waktu check-in?", stroke: "Maklumat masa." },
-                    { char: "조식은 포함되어 있나요?", rumi: "josigeun pohamdoe-eo innayo?", desc: "Adakah sarapan disediakan?", stroke: "Fasilitas hotel." },
-                    { char: "와이파이 아이디와 비번 뭐예요?", rumi: "waipai aidiwa bibon mwoyeyo?", desc: "Apa ID dan password WiFi?", stroke: "KEMudahan bilik." },
-                    { char: "방을 바꿔 주세요.", rumi: "bangeul bakkwo juseyo.", desc: "Tolong tukar bilik untuk saya.", stroke: "Aduan bilik." },
-                    { char: "즐거운 숙박이었습니다.", rumi: "jeulgeoun sukbagieosseumnida.", desc: "Penginapan yang sangat menyeronokkan.", stroke: "Ulasan positif." }
-                ]
-            },
-            {
-                id: 'cv-17',
-                title: "Situasi 17: Weather / Keadaan Cuaca (날씨)",
-                desc: "Perbualan mengenai suhu panas, hujan, salji & ramalan cuaca.",
-                items: [
-                    { char: "오늘 날씨가 어때요?", rumi: "oneul nalsiga eottaeyo?", desc: "Bagaimana cuaca hari ini?", stroke: "Soalan cuaca." },
-                    { char: "날씨가 정말 좋습니다.", rumi: "nalsiga jeongmal josheumnida.", desc: "Cuaca hari ini sangat bagus.", stroke: "Komen cuaca cerah." },
-                    { char: "비가 오고 있어요.", rumi: "biga ogo isseoyo.", desc: "Hari sedang hujan.", stroke: "Cuaca hujan." },
-                    { char: "눈이 많이 왔네요.", rumi: "nuni mani watneyo.", desc: "Wah, banyak salji turun.", stroke: "Cuaca salji." },
-                    { char: "날씨가 쌀쌀합니다.", rumi: "nalsiga ssalssalhamnida.", desc: "Cuaca agak sejuk / dingin.", stroke: "Suhu sejuk." },
-                    { char: "우산을 챙기세요.", rumi: "usaneul chaenggiseyo.", desc: "Bawalah payung bersama.", stroke: "Nasihat cuaca." }
-                ]
-            },
-            {
-                id: 'cv-18',
-                title: "Situasi 18: Hospital / Kesihatan (병원과 건강)",
-                desc: "Frasa memberitahu doktor simptom sakit, beli ubat di farmasi & rawatan.",
-                items: [
-                    { char: "어디가 아프십니까?", rumi: "eodiga apeusimnikka?", desc: "Di mana bahagian yang sakit?", stroke: "Soalan doktor." },
-                    { char: "머리가 아프고 열이 나요.", rumi: "meoriga apeugo yeori nayo.", desc: "Sakit kepala dan ada demam.", stroke: "Aduan simptom." },
-                    { char: "배가 아파서 병원에 왔어요.", rumi: "baega apaseo byeongwon-e wasseoyo.", desc: "Sakit perut jadi saya datang hospital.", stroke: "Sebab rawatan." },
-                    { char: "약을 처방해 주세요.", rumi: "yageul cheobanghae juseyo.", desc: "Tolong berikan preskripsi ubat.", stroke: "Urusan farmasi." },
-                    { char: "하루에 세 번 드세요.", rumi: "haru-e se beon deuseyo.", desc: "Ambil ubat 3 kali sehari.", stroke: "Arahan ubat." },
-                    { char: "빨리 쾌유하시길 빕니다.", rumi: "ppalli khwaeyuhasigil bimnida.", desc: "Semoga cepat sembuh.", stroke: "Doa kesihatan." }
-                ]
-            },
-            {
-                id: 'cv-19',
-                title: "Situasi 19: Vacation / Percutian (휴가와 여행)",
-                desc: "Perbualan merancang percutian, tempat menarik & tiket penerbangan.",
-                items: [
-                    { char: "휴가 때 어디 갈 거예요?", rumi: "hyuga ttae eodi gal geoyeyo?", desc: "Cuti nanti nak pergi mana?", stroke: "Rancangan cuti." },
-                    { char: "제주도에 여행 갈 겁니다.", rumi: "jejudo-e yeohaeng gal geomnida.", desc: "Saya akan melancong ke Pulau Jeju.", stroke: "Destinasi cuti." },
-                    { char: "비행기 표를 예약했어요.", rumi: "bihaenggi pyoreul yeyakhaesseoyo.", desc: "Saya sudah tempah tiket flight.", stroke: "Persiapan." },
-                    { char: "경치가 정말 아름답습니다.", rumi: "gyeongchiga jeongmal areumdapseumnida.", desc: "Pemandangan di sini sangat indah.", stroke: "Puji tempat." },
-                    { char: "사진을 많이 찍었어요.", rumi: "sajineul mani jjigeosseoyo.", desc: "Banyak tangkapan gambar diambil.", stroke: "Aktiviti cuti." },
-                    { char: "정말 즐거운 휴가였습니다.", rumi: "jeongmal jeulgeoun hyugayeosseumnida.", desc: "Percutian yang sangat menyeronokkan.", stroke: "Kesimpulan cuti." }
-                ]
-            }
-        ];
-
+        id: 'cv-23',
+        title: "Situasi 23: New Home (새 집)",
+        desc: "Perbualan berpindah ke rumah baharu.",
+        items: [
+            { char: "드디어 새 집으로 이사했어요.", rumi: "deudieo sae jibeuro isahaesseoyo.", desc: "Akhirnya saya sudah berpindah ke rumah baharu.", stroke: "Pindah" },
+            { char: "집이 깨끗하고 넓어요.", rumi: "jibi kkaekkeuthago neolpeoyo.", desc: "Rumah ini bersih dan luas.", stroke: "Keadaan" },
+            { char: "인테리어를 새로 했습니다.", rumi: "interieoreul saero haetseumnida.", desc: "Saya telah mengubah suai hiasan dalaman.", stroke: "Dekorasi" },
+            { char: "집들이에 초대하고 싶어요.", rumi: "jipdeurie chodahago sipeoyo.", desc: "Saya ingin menjemput anda ke majlis rumah terbuka.", stroke: "Jemputan" },
+            { char: "가구를 새로 사야 해요.", rumi: "gagureul saero saya haeyo.", desc: "Saya perlu membeli perabot baharu.", stroke: "Perabot" },
+            { char: "새 집에서 좋은 일만 있길 바래요.", rumi: "sae jib-eseo joeun ilman itgil baraeyo.", desc: "Semoga ada perkara baik sahaja di rumah baharu.", stroke: "Doa" }
+        ]
+    },
+    {
+        id: 'cv-24',
+        title: "Situasi 24: New Friends (새 친구)",
+        desc: "Perbualan mencari dan mengenali rakan baharu.",
+        items: [
+            { char: "여기서 새로운 친구를 사귀었어요.", rumi: "yeogiseo saeroun chingureul sagw-ieosseoyo.", desc: "Saya telah mendapat kawan baharu di sini.", stroke: "Kawan" },
+            { char: "성격이 아주 활발하고 친절해요.", rumi: "seonggyeogi aju hwalbalhago chinjeolhaeyo.", desc: "Perwatakannya sangat ceria dan mesra.", stroke: "Sifat" },
+            { char: "취미가 저와 비슷해요.", rumi: "chwimiga jeowa biseuthaeyo.", desc: "Hobi kami hampir sama.", stroke: "Hobi" },
+            { char: "주말마다 같이 놀아요.", rumi: "jumalmada gachi norayo.", desc: "Kami keluar bersama setiap hujung minggu.", stroke: "Aktiviti" },
+            { char: "앞으로 친하게 지내요.", rumi: "ap-euro chinhage jinaeyo.", desc: "Mari berkawan baik mulai sekarang.", stroke: "Hubungan" },
+            { char: "좋은 인연을 만났어요.", rumi: "joeun inyeoneul mannasseoyo.", desc: "Saya telah bertemu jodoh/hubungan yang baik.", stroke: "Takdir" }
+        ]
+    },
+    {
+        id: 'cv-25',
+        title: "Situasi 25: New City (새 도시)",
+        desc: "Perbualan menyesuaikan diri di bandar baharu.",
+        items: [
+            { char: "이 도시에는 처음 와봅니다.", rumi: "i dosieneun cheoeum wabomnida.", desc: "Ini kali pertama saya datang ke bandar ini.", stroke: "Bandar" },
+            { char: "길을 아직 잘 몰라요.", rumi: "gireul ajik jal mollayo.", desc: "Saya masih belum arif jalan di sini.", stroke: "Arah" },
+            { char: "대중교통이 아주 편리해요.", rumi: "daejung-gyotong-i aju pyeonlihaeyo.", desc: "Sistem pengangkutan awam di sini sangat selesa.", stroke: "LRT/Bus" },
+            { char: "근처에 맛있는 식당이 많아요.", rumi: "geuncheo-e masinneun sikdangi manayo.", desc: "Terdapat banyak restoran sedap berdekatan.", stroke: "Makanan" },
+            { char: "도시가 활기차고 멋져요.", rumi: "dosiga hwal-gichago meotjyeoyo.", desc: "Bandar ini hidup dan sangat menarik.", stroke: "Suasana" },
+            { char: "여기 생활에 곧 익숙해질 거예요.", rumi: "yeogi saenghwar-e got iksukhaejil geoyeyo.", desc: "Saya akan segera membiasakan diri dengan kehidupan di sini.", stroke: "Adaptasi" }
+        ]
+    },
+    {
+        id: 'cv-26',
+        title: "Situasi 26: My Home (내 집)",
+        desc: "Perbualan mengenai suasana rumah sendiri.",
+        items: [
+            { char: "집에 돌아올 때가 제일 편해요.", rumi: "jibe doraol ttaega jeil pyeonhaeyo.", desc: "Paling selesa apabila kembali ke rumah.", stroke: "Rehat" },
+            { char: "내 방에서 휴식을 취해요.", rumi: "nae bang-eseo hyusigeul chwihaeyo.", desc: "Saya berehat di dalam bilik sendiri.", stroke: "Bilik" },
+            { char: "집밥이 가장 맛있어요.", rumi: "jipbabi gajang masisseoyo.", desc: "Masakan rumah adalah yang paling sedap.", stroke: "Masakan" },
+            { char: "주말에 집안일을 해요.", rumi: "jumal-e jiban-ireul haeyo.", desc: "Saya mengemas rumah pada hujung minggu.", stroke: "Kemas" },
+            { char: "나만의 아늑한 공간입니다.", rumi: "namanui anukhan gongganimnida.", desc: "Ini ruang selesa peribadi saya.", stroke: "Ruang" },
+            { char: "언제나 환영합니다.", rumi: "eonjena hwangyeonghamnida.", desc: "Sentiasa mengalu-alukan kedatangan anda.", stroke: "Aluan" }
+        ]
+    },
+    {
+        id: 'cv-27',
+        title: "Situasi 27: Concert (콘서트)",
+        desc: "Perbualan pergi menonton konsert muzik.",
+        items: [
+            { char: "아이돌 콘서트 티켓을 샀어요.", rumi: "aidol konseoteu tiketeul sasseoyo.", desc: "Saya sudah beli tiket konsert idol.", stroke: "Tiket" },
+            { char: "응원봉을 흔들며 노래를 따라 불러요.", rumi: "eungwonbongeul heundeulmyeo noraereul ttara bulleoyo.", desc: "Mengibas lightstick sambil menyanyi bersama.", stroke: "Konsert" },
+            { char: "현장 분위기가 정말 뜨거워요.", rumi: "hyeonjang bunwigiga jeongmal tteugeowoyo.", desc: "Suasana di tapak konsert sangat hangat dan meriah.", stroke: "Suasana" },
+            { char: "최애 멤버를 실제로 봤어요.", rumi: "choeae membeoreul siljero bwasseoyo.", desc: "Saya nampak ahli bias kesayangan secara langsung.", stroke: "Bias" },
+            { char: "목이 쉬도록 응원했습니다.", rumi: "mogi swidorok eungwonhaetseumnida.", desc: "Saya menyokong sampai serak suara.", stroke: "Sorakan" },
+            { char: "평생 기억에 남을 거예요.", rumi: "pyeongsaeng gieog-e nameul geoyeyo.", desc: "Pasti menjadi kenangan seumur hidup.", stroke: "Kenangan" }
+        ]
+    },
+    {
+        id: 'cv-28',
+        title: "Situasi 28: Movie (영화)",
+        desc: "Perbualan menonton filem di pawagam.",
+        items: [
+            { char: "어떤 영화를 볼 거예요?", rumi: "eotteon yeonghwareul bol geoyeyo?", desc: "Filem apa yang hendak ditonton?", stroke: "Pilihan" },
+            { char: "액션 영화가 재미있을 것 같아요.", rumi: "aeksyeon yeonghwatong-i jaemiisseul geot gatayo.", desc: "Filem aksi rasanya mesti menyeronokkan.", stroke: "Aksi" },
+            { char: "팝콘과 콜라를 주문했어요.", rumi: "papgongwa collareul jumunhaesseoyo.", desc: "Saya sudah pesan popcorn dan cola.", stroke: "Snek" },
+            { char: "영화가 곧 시작해요.", rumi: "yeonghiga got sijakhaeyo.", desc: "Filem akan bermula sebentar lagi.", stroke: "Masa" },
+            { char: "반전이 있는 대단한 영화였어요.", rumi: "banjeoni inneun daedanhan yeonghayeosseoyo.", desc: "Sebuah filem hebat yang penuh kejutan plot.", stroke: "Ulasan" },
+            { char: "다음편이 정말 기대돼요.", rumi: "daeumpyeoni jeongmal gidaedwaeyo.", desc: "Sangat menantikan sambungan seterusnya.", stroke: "Sekuel" }
+        ]
+    },
+    {
+        id: 'cv-29',
+        title: "Situasi 29: Library (도서관)",
+        desc: "Perbualan meminjam buku dan mengulang kaji di perpustakaan.",
+        items: [
+            { char: "도서관에서 조용히 공부해요.", rumi: "doseogwan-eseo joyonghi gongbuhaeyo.", desc: "Saya belajar dengan tenang di perpustakaan.", stroke: "Belajar" },
+            { char: "한국어 책을 빌리고 싶습니다.", rumi: "hangugeo chaegeul billigo sipseumnida.", desc: "Saya ingin meminjam buku Bahasa Korea.", stroke: "Pinjam" },
+            { char: "대출 기간은 2주일입니다.", rumi: "daechul giganeun iju-irimnida.", desc: "Tempoh pinjaman ialah dua minggu.", stroke: "Tempoh" },
+            { char: "자습실 자리가 없어요.", rumi: "jaseupsil jariga eopseoyo.", desc: "Tiada tempat kosong di ruang study.", stroke: "Kerosakan" },
+            { char: "시험 기간이라 사람이 많아요.", rumi: "siheom giganira sarami manayo.", desc: "Ramai orang kerana musim peperiksaan.", stroke: "Ramai" },
+            { char: "책을 제때 반납해야 합니다.", rumi: "chaegeul jeddae bannabaya hamnida.", desc: "Buku perlu dipulangkan tepat pada masanya.", stroke: "Pulang" }
+        ]
+    },
+    {
+        id: 'cv-30',
+        title: "Situasi 30: Local Transport (대중교통 이용)",
+        desc: "Perbualan menaiki bas dan keretapi tempatan.",
+        items: [
+            { char: "어느 버스를 타야 해요?", rumi: "eoneu beoseureul taya haeyo?", desc: "Bas nombor berapa yang perlu dinaiki?", stroke: "Bas" },
+            { char: "다음 정류장에서 내려요.", rumi: "daeum jeongryujang-eseo naeryeyo.", desc: "Turun di perhentian seterusnya.", stroke: "Turun" },
+            { char: "교통카드를 찍고 타세요.", rumi: "gyotong-kadeureul jjikgo taseyo.", desc: "Sentuh kad pengangkutan semasa naik.", stroke: "Kad" },
+            { char: "지하철 환승역입니다.", rumi: "jihacheol hwanseung-yeogimnida.", desc: "Ini adalah stesen pertukaran transit LRT.", stroke: "Transit" },
+            { char: "출퇴근 시간에 사람이 혼잡해요.", rumi: "chultoegeun sigan-e sarami honjabhaeyo.", desc: "Orang sangat sesak pada waktu puncak.", stroke: "Sesak" },
+            { char: "목적지에 무사히 도착했습니다.", rumi: "mokjeokji-e musahi dochakhaetseumnida.", desc: "Telah tiba di destinasi dengan selamat.", stroke: "Sampai" }
+        ]
+    },
+    {
+        id: 'cv-31',
+        title: "Situasi 31: Supermarket (슈퍼마켓)",
+        desc: "Perbualan membeli barangan keperluan harian.",
+        items: [
+            { char: "카트를 하나 끌고 가요.", rumi: "kateureul hana kkeulgo gayo.", desc: "Tolak sebuah troli pasar raya.", stroke: "Troli" },
+            { char: "신선한 야채를 골라요.", rumi: "sinseonhan yachereul golrayo.", desc: "Memilih sayur-sayuran yang segar.", stroke: "Sayur" },
+            { char: "할인 코너를 구경합니다.", rumi: "harin koneoreul gugyeonghamnida.", desc: "Melihat sudut barangan diskaun.", stroke: "Diskaun" },
+            { char: "장바구니에 담아주세요.", rumi: "jangbagunie damajuseyo.", desc: "Tolong masukkan ke dalam beg beli-belah.", stroke: "Beg" },
+            { char: "봉투는 따로 필요 없습니다.", rumi: "bongtuneun ttaro piryo eopseumnida.", desc: "Beg plastik tidak diperlukan.", stroke: "Plastik" },
+            { char: "영수증을 확인하세요.", rumi: "yeongsujungeul hwaginhaseyo.", desc: "Sila semak resit pembelian.", stroke: "Resit" }
+        ]
+    },
+    {
+        id: 'cv-32',
+        title: "Situasi 32: Health (건강 관리)",
+        desc: "Perbualan mengenai gaya hidup sihat dan kecergasan.",
+        items: [
+            { char: "건강을 위해 매일 운동해요.", rumi: "geongangeul wihae maeil undonghaeyo.", desc: "Saya bersenam setiap hari demi kesihatan.", stroke: "Sihat" },
+            { char: "비타민을 챙겨 먹습니다.", rumi: "bitamineul chaenggyeo meokseumnida.", desc: "Saya mengambil vitamin secukupnya.", stroke: "Vitamin" },
+            { char: "물을 하루에 2리터 마셔요.", rumi: "mureul haru-e i-riteo masheoyo.", desc: "Minum air kosong 2 liter sehari.", stroke: "Air" },
+            { char: "충분한 수면을 취해야 합니다.", rumi: "chungbunhan sumyeoneul chwihaeya hamnida.", desc: "Perlu mendapatkan tidur yang secukupnya.", stroke: "Tidur" },
+            { char: "정기적으로 건강검진을 받아요.", rumi: "jeonggijeor-uro geongang-geomjineul badayo.", desc: "Menjalani pemeriksaan kesihatan berkala.", stroke: "Check-up" },
+            { char: "스트레스를 받지 않도록 해요.", rumi: "seuteureuseul batji antorok haeyo.", desc: "Cuba mengelakkan diri daripada stres.", stroke: "Stres" }
+        ]
+    },
+    {
+        id: 'cv-33',
+        title: "Situasi 33: Campus (캠퍼스 생활)",
+        desc: "Perbualan kehidupan harian pelajar di universiti.",
+        items: [
+            { char: "캠퍼스 단풍이 정말 예쁩니다.", rumi: "kampeoseu danpungi jeongmal yeppeumnida.", desc: "Pemandangan daun luruh di kampus sangat cantik.", stroke: "Kampus" },
+            { char: "강의실을 찾고 있어요.", rumi: "gang-uisireul chatgo isseoyo.", desc: "Saya sedang mencari bilik kuliah.", stroke: "Kuliah" },
+            { char: "학식에서 점심을 먹어요.", rumi: "haksig-eseo jeomsimeul meogeoyo.", desc: "Makan tengah hari di kafeteria universiti.", stroke: "Kafeteria" },
+            { char: "동아리 활동에 가입했어요.", rumi: "dongari hwaldong-e kaiphaesseoyo.", desc: "Saya telah menyertai aktiviti kelab persatuan.", stroke: "Kelab" },
+            { char: "교수님 강의가 아주 유익합니다.", rumi: "gyosunim gang-uiga aju yuikhamnida.", desc: "Kuliah Profesor sangat bermanfaat.", stroke: "Professor" },
+            { char: "도서관에서 과제를 준비해요.", rumi: "doseogwan-eseo gwajereul junbihaeyo.", desc: "Menyiapkan tugasan assignment di perpustakaan.", stroke: "Tugasan" }
+        ]
+    },
+    {
+        id: 'cv-34',
+        title: "Situasi 34: Buy Clothes & Items (쇼핑과 물건 구입)",
+        desc: "Perbualan memilih pakaian dan barangan fesyen.",
+        items: [
+            { char: "이 티셔츠 마음에 들어요.", rumi: "i tisyeocheu maeume deureoyo.", desc: "Saya berkenan dengan baju t-shirt ini.", stroke: "Pakaian" },
+            { char: "사이즈가 맞는지 입어볼게요.", rumi: "saijiga matneunji ibeobolgeyo.", desc: "Saya nak cuba pakai sama ada saiz sesuai.", stroke: "Saiz" },
+            { char: "탈의실이 어디에 있나요?", rumi: "taruisiri eodie innayo?", desc: "Di manakah bilik mencuba pakaian?", stroke: "Fitting room" },
+            { char: "조금 더 큰 사이즈 있어요?", rumi: "jogeum deokeun saijeu isseoyo?", desc: "Ada saiz yang sedikit besar?", stroke: "Besar" },
+            { char: "이 옷은 세탁이 편해요.", rumi: "i oseun setagi pyeonhaeyo.", desc: "Pakaian ini mudah dibasuh.", stroke: "Basuh" },
+            { char: "현금으로 계산하겠습니다.", rumi: "hyeongeum-uro gyesanhagesseumnida.", desc: "Saya akan buat bayaran secara tunai.", stroke: "Tunai" }
+        ]
+    },
+    {
+        id: 'cv-35',
+        title: "Situasi 35: Swimming (수영)",
+        desc: "Perbualan aktiviti mandi dan berenang di kolam.",
+        items: [
+            { char: "주말에 수영장에 갑니다.", rumi: "jumal-e suyeongjang-e gamnida.", desc: "Pergi ke kolam renang pada hujung minggu.", stroke: "Kolam" },
+            { char: "수영복과 물안경을 챙겼어요.", rumi: "suyeongbokgwa murangyeongeul chaenggyeosseoyo.", desc: "Sudah bawa baju mandi dan goggles.", stroke: "Alatan" },
+            { char: "물속에 들어가기 전에 준비운동을 해요.", rumi: "mulsog-e deureogagi jeon-e junbiundongeul haeyo.", desc: "Membuat regangan badan sebelum masuk ke dalam air.", stroke: "Warm-up" },
+            { char: "자유형을 열심히 연습합니다.", rumi: "jayuhyeongeul yeolsimhi yeonseupnamnida.", desc: "Bersungguh-sungguh berlatih gaya bebas.", stroke: "Gaya" },
+            { char: "물놀이는 언제나 즐거워요.", rumi: "mulnorineun eonjena jeulgeowoyo.", desc: "Aktiviti bermain air sentiasa menyeronokkan.", stroke: "Seronok" },
+            { char: "수영 후에 먹는 간식이 최고예요.", rumi: "suyeong hue meokneun gansigi choegoyeyo.", desc: "Makanan ringan selepas berenang adalah yang terbaik.", stroke: "Snek" }
+        ]
+    },
+    {
+        id: 'cv-36',
+        title: "Situasi 36: New Job (새 직장)",
+        desc: "Perbualan memulakan kerjaya di tempat kerja baharu.",
+        items: [
+            { char: "다음주부터 새 직장에 출근해요.", rumi: "daeumjjubuteo sae jikjang-e chulgeunhaeyo.", desc: "Mula masuk pejabat baharu minggu depan.", stroke: "Mula" },
+            { char: "동료들과 인사를 나누었습니다.", rumi: "dongryodeulgwa insareul nanueotseumnida.", desc: "Sudah berkenalan dan bertukar sapaan dengan rakan sekerja.", stroke: "Rakan" },
+            { char: "업무 파악을 열심히 하고 있어요.", rumi: "eommu pareageul yeolsimhi hago isseoyo.", desc: "Sedang berusaha memahami skop tugas kerja.", stroke: "Tugas" },
+            { char: "회사가 집에서 가깝습니다.", rumi: "hoesaga jib-eseo gakkapseumnida.", desc: "Pejabat terletak dekat dengan rumah.", stroke: "Lokasi" },
+            { char: "좋은 성과를 내고 싶습니다.", rumi: "joeun seong-gwareul naego sipseumnida.", desc: "Saya ingin mempamerkan prestasi kerja yang baik.", stroke: "Prestasi" },
+            { char: "새로운 도전에 설레요.", rumi: "saeroun dojon-e seolleyo.", desc: "Berasa teruja dengan cabaran baharu ini.", stroke: "Cabaran" }
+        ]
+    },
+    {
+        id: 'cv-37',
+        title: "Situasi 37: Chuseok (추석)",
+        desc: "Perbualan menyambut hari perayaan Chuseok (Hari Kesyukuran Korea).",
+        items: [
+            { char: "즐거운 추석 명절 보내세요.", rumi: "jeulgeoun chuseok myeongjeol bonaeseyo.", desc: "Selamat menyambut Hari Raya Chuseok.", stroke: "Ucapan" },
+            { char: "온 가족이 모여 송편을 만듭니다.", rumi: "on gajogi moyeo songpyeoneul mandeumnida.", desc: "Seluruh ahli keluarga berkumpul membuat Songpyeon.", stroke: "Songpyeon" },
+            { char: "조상님께 차례를 지냅니다.", rumi: "josangnimkke charyereul jinaemnida.", desc: "Membuat upacara penghormatan kepada leluhur.", stroke: "Adat" },
+            { char: "고향으로 가는 길이 막혀요.", rumi: "gohyange-uro ganeun giri makhyeoyo.", desc: "Jalan raya sesat balik ke kampung.", stroke: "Traffic" },
+            { char: "보름달을 보며 소원을 빌어요.", rumi: "boreumdareul bomyeo sowoneul bireoyo.", desc: "Memohon doa sambil melihat bulan purnama.", stroke: "Bulan" },
+            { char: "풍성한 한가위 되세요.", rumi: "pungseonghan hangawi doeseyo.", desc: "Semoga sambutan Hangawi anda meriah dan makmur.", stroke: "Makmur" }
+        ]
+    },
+    {
+        id: 'cv-38',
+        title: "Situasi 38: Volunteer Work (자원봉사)",
+        desc: "Perbualan menyertai aktiviti amal dan kerja sukarela.",
+        items: [
+            { char: "주말에 보육원에서 봉사활동을 해요.", rumi: "jumal-e boyugwon-eseo bongsahwaldongeul haeyo.", desc: "Membuat kerja amal di rumah anak yatim pada hujung minggu.", stroke: "Amal" },
+            { char: "아이들과 함께 그림을 그려요.", rumi: "aideulgwa hamkke geurimeul geuryeoyo.", desc: "Melukis gambar bersama-sama kanak-kanak.", stroke: "Aktiviti" },
+            { char: "작은 도움이라도 주고 싶어요.", rumi: "jageun doumirado jugo sipeoyo.", desc: "Ingin memberi bantuan walaupun sedikit.", stroke: "Bantu" },
+            { char: "마음이 따뜻해지는 시간입니다.", rumi: "maeumi ttatteuthaejineun siganimnida.", desc: "Masa yang menghangatkan jiwa dan perasaan.", stroke: "Jiwa" },
+            { char: "봉사는 사회를 밝게 만듭니다.", rumi: "bongsaneun sahoereul balkge mandeumnida.", desc: "Kerja amal mencerahkan masyarakat.", stroke: "Masyarakat" },
+            { char: "다음에도 기꺼이 참여할 거예요.", rumi: "daeumedo gikkeoi chamyeohal geoyeyo.", desc: "Pasti akan turut serta lagi pada masa hadapan.", stroke: "Sertai" }
+        ]
+    },
+    {
+        id: 'cv-39',
+        title: "Situasi 39: Express Preference (선호 표현)",
+        desc: "Perbualan meluahkan pilihan dan citarasa kesukaan.",
+        items: [
+            { char: "저는 커피보다 녹차를 더 좋아해요.", rumi: "jeoneun keopiboda nokchareul deo johahaeyo.", desc: "Saya lebih menyukai teh hijau berbanding kopi.", stroke: "Pilihan" },
+            { char: "매운 음식은 잘 못 먹어요.", rumi: "maeun eunsigeun jal mot meogeoyo.", desc: "Saya kurang pandai makan makanan pedas.", stroke: "Pedas" },
+            { char: "이 옷보다 저 옷이 더 예뻐요.", rumi: "i otboda jeo osi deo yeppeoyo.", desc: "Baju itu lebih cantik berbanding baju ini.", stroke: "Fesyen" },
+            { char: "조용한 음악을 듣는 것을 선호합니다.", rumi: "joyonghan eumageul deunneun geoseul seonhohamnida.", desc: "Saya lebih gemar mendengar muzik yang tenang.", stroke: "Muzik" },
+            { char: "가장 좋아하는 계절은 가을입니다.", rumi: "gajang johahaneun gyejeoreun gaeurimnida.", desc: "Musim paling disukai ialah musim luruh.", stroke: "Musim" },
+            { char: "제 취향에 딱 맞습니다.", rumi: "je chwihyang-e ttak matseumnida.", desc: "Sangat tepat dengan citarasa saya.", stroke: "Citarasa" }
+        ]
+    },
+    {
+        id: 'cv-40',
+        title: "Situasi 40: Order Food (음식 주문)",
+        desc: "Perbualan membuat pesanan makanan di kedai.",
+        items: [
+            { char: "여기 주문하겠습니다.", rumi: "yeogi jumunhagesseumnida.", desc: "Tuan/Cik, saya ingin membuat pesanan.", stroke: "Pesanan" },
+            { char: "김치찌개 하나와 불고기 하나 주세요.", rumi: "gimchi-jjigae hanawa bulgogi hana juseyo.", desc: "Bagi satu sup kimchi dan satu bulgogi.", stroke: "Menu" },
+            { char: "음식을 조금 빨리 쳐주세요.", rumi: "eunsigeul jogeum ppalli chyeojuseyo.", desc: "Tolong sediakan makanan dengan cepat sedikit.", stroke: "Masa" },
+            { char: "곱빼기로 변경 가능한가요?", rumi: "goppbaegiro byeongyeong ganeun-hangayo?", desc: "Boleh tukar kepada saiz besar (extra portion)?", stroke: "Saiz" },
+            { char: "앞접시 좀 주시겠어요?", rumi: "apjeopsi jom jusigesseoyo?", desc: "Boleh tolong sediakan pinggan kecil berkongsi?", stroke: "Pinggan" },
+            { char: "맛있게 잘 먹었습니다.", rumi: "masitge jal meogeotseumnida.", desc: "Makanan yang sangat sedap, terima kasih.", stroke: "Selesai" }
+        ]
+    },
+    {
+        id: 'cv-41',
+        title: "Situasi 41: Games (게임)",
+        desc: "Perbualan bermain permainan video dan santai.",
+        items: [
+            { char: "친구들과 온라인 게임을 해요.", rumi: "chingudeulgwa onlain geimeul haeyo.", desc: "Bermain game atas talian bersama kawan-kawan.", stroke: "Game" },
+            { char: "이 게임은 전략이 중요해요.", rumi: "i geimeun jeonryagi jung-yohaeyo.", desc: "Permainan ini mementingkan strategi.", stroke: "Strategi" },
+            { char: "레벨업을 해서 정말 기뻐요.", rumi: "rebel-eobeul haeseo jeongmal gippeoyo.", desc: "Sangat gembira kerana sudah naik level.", stroke: "Level" },
+            { char: "너무 오래 하면 눈이 나빠져요.", rumi: "neomu orae hamyeon nuni nappajyeoyo.", desc: "Mata akan rosak jika main terlalu lama.", stroke: "Mata" },
+            { char: "스트레스 해소에 아주 좋아요.", rumi: "seuteureseu haeso-e aju johaeyo.", desc: "Sangat bagus untuk meredakan stres.", stroke: "Rehat" },
+            { char: "한 판 더 할까요?", rumi: "han pan deo halkkayo?", desc: "Nak main satu pusingan lagi?", stroke: "Jom" }
+        ]
+    },
+    {
+        id: 'cv-42',
+        title: "Situasi 42: Olympics (올림픽)",
+        desc: "Perbualan menonton dan menyokong acara sukan Olimpik.",
+        items: [
+            { char: "올림픽 경기 중계를 보고 있어요.", rumi: "ollimpik gyeonggi junggyereul bogo isseoyo.", desc: "Sedang menonton siaran langsung perlawanan Olimpik.", stroke: "Olimpik" },
+            { char: "우리나라 선수를 응원합니다.", rumi: "urinara seonsureul eungwonhamnida.", desc: "Menyokong atlet negara kita.", stroke: "Atlet" },
+            { char: "금메달을 획득했습니다!", rumi: "geummedareul hoedeukhaetseumnida.", desc: "Berjaya merangkul pingat emas!", stroke: "Emas" },
+            { char: "선수들의 노력이 감동적입니다.", rumi: "seonsudeurui noreugi gamdongjeogimnida.", desc: "Usaha para atlet sangat menyentuh hati.", stroke: "Usaha" },
+            { char: "세계적인 스포츠 축제입니다.", rumi: "se-gyejeogin seupocheu chukjemnida.", desc: "Ia adalah pesta sukan bertaraf dunia.", stroke: "Pesta" },
+            { char: "정정당당한 승부가 멋져요.", rumi: "jeongjeongdangdanghan seungbuga meotjyeoyo.", desc: "Perlawanan yang adil dan bersih amat mengagumkan.", stroke: "Fairplay" }
+        ]
+    },
+    {
+        id: 'cv-43',
+        title: "Situasi 43: Habits (습관)",
+        desc: "Perbualan mengenai tabiat dan amalan harian.",
+        items: [
+            { char: "아침에 일찍 일어나는 습관이 있어요.", rumi: "achim-e iljjik ireonaneun seubgwani isseoyo.", desc: "Saya mempunyai tabiat bangun awal pagi.", stroke: "Tabiat" },
+            { char: "매일 밤 독서하는 버릇이 있습니다.", rumi: "maeil bam dokseohaneun beoreusi isseumnida.", desc: "Mengamalkan tabiat membaca buku setiap malam.", stroke: "Membaca" },
+            { char: "좋은 습관은 성공의 지름길입니다.", rumi: "joeun seubgwaneun seong-gong-ui jiremgirimnida.", desc: "Tabiat yang baik adalah jalan kejayaan.", stroke: "Kejayaan" },
+            { char: "나쁜 버릇은 고쳐야 합니다.", rumi: "nappeun beoreuseun gochyeoya hamnida.", desc: "Tabiat buruk perlu diperbetulkan.", stroke: "Ubah" },
+            { char: "작은 습관이 인생을 바꿉니다.", rumi: "jageun seubgwaneun insae-ngeul bakkumnida.", desc: "Tabiat kecil mampu mengubah kehidupan.", stroke: "Ubah" },
+            { char: "규칙적인 생활을 유지해요.", rumi: "gyuchikjeogin saenghwar-eul yujihaeyo.", desc: "Mengekalkan gaya hidup yang teratur.", stroke: "Disiplin" }
+        ]
+    },
+    {
+        id: 'cv-44',
+        title: "Situasi 44: Convenience Store (편의점)",
+        desc: "Perbualan membeli-belah barangan di kedai serbaneka 24 jam.",
+        items: [
+            { char: "집 앞 편의점에 다녀올게요.", rumi: "jip ap pyeonuiujem-e danyeoolgeyo.", desc: "Saya nak pergi ke kedai serbaneka depan rumah sebentar.", stroke: "Kedai" },
+            { char: "삼각김밥과 바나나 우유를 샀어요.", rumi: "samgak-gimbapgwa banana uyureul sasseoyo.", desc: "Membeli gimbap segi tiga dan susu pisang.", stroke: "Snek" },
+            { char: "1+1 행사 상품이라 저렴해요.", rumi: "il-peul-il haengsa sangpumira jeoryeonhaeyo.", desc: "Murah kerana ada promosi barangan 1 percuma 1.", stroke: "Promo" },
+            { char: "도시락을 전자레인지에 데워주세요.", rumi: "dosirageul jeonjareinjie dewojuseyo.", desc: "Tolong panaskan bekas makanan bento di dalam microwave.", stroke: "Panas" },
+            { char: "봉투에 넣어 주시겠어요?", rumi: "bongtue neo-eo jusigesseoyo?", desc: "Boleh tolong masukkan ke dalam beg plastik?", stroke: "Plastik" },
+            { char: "영수증은 안 주셔도 됩니다.", rumi: "yeongsujungeun 안 syaseodo doemnida.", desc: "Tidak perlu berikan resit pembelian.", stroke: "Resit" }
+        ]
+    }
+];
         const grammarLabData = [
             {
                 id: 'g1',
@@ -2533,6 +2857,6 @@
             const item = allWords[currentListenIndex];
             speakText(item.char);
         }
-    <script src="conversation-addon.js"></script>
+    <script>
 </body>
 </html>
