@@ -2533,6 +2533,12 @@
             const item = allWords[currentListenIndex];
             speakText(item.char);
         }
+        
     </script>
+    // ---> TAMBAHKAN KOD INI DI SINI <---
+    if (typeof conversationLabData !== 'undefined' && typeof extraConversationLabs !== 'undefined') {
+        window.conversationLabData = conversationLabData.concat(extraConversationLabs);
+    }
+        
 </body>
 </html>
