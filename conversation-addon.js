@@ -1,7 +1,7 @@
 /**
  * Hangul Master - 25 Situasi Conversation Lab Tambahan
  */
-const extraConversationLabs = [
+const conversationLabData = [
     {
         id: 'cv-20',
         title: "Situasi 20: Airport (공항)",
