@@ -6,27 +6,10 @@
     <title>Hangul Master - Ultimate Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- FontAwesome Icons (Diperlukan agar ikon tidak hilang) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        korea: {
-                            blue: '#0047A0',
-                            red: '#CD2E3A',
-                            dark: '#0f172a',
-                            card: '#1e293b'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
         body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; }
@@ -38,13 +21,12 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-korea-red selection:text-white">
-
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
     <!-- Header / Navigation -->
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-red-600 flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20 text-white">
                     한
                 </div>
                 <div>
@@ -71,7 +53,7 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
+                    <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
                     <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar Pengenalan Hangul, 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis, Kamus atau Mod Dengar!</p>
                 </div>
@@ -79,7 +61,7 @@
 
             <!-- Menu Pilihan Utama -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 0. Pengenalan Hangul & Huruf Asas (BARU) -->
+                <!-- 0. Pengenalan Hangul & Huruf Asas -->
                 <div onclick="openIntroHangul()" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded border border-cyan-500/30">NOTA LENGKAP</div>
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
@@ -89,7 +71,7 @@
                     <p class="text-slate-400 text-sm">Nota penuh susunan huruf (Ganada-sun), 24 huruf asas, vokal & cara blok suku kata.</p>
                 </div>
 
-                <!-- 1. Study & Practice (Level 1-21) -->
+               <!-- 1. Study & Practice (Level 1-21) -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -98,7 +80,7 @@
                     <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif berselingan visual.</p>
                 </div>
 
-                <!-- 2. Special Categories -->
+               <!-- 2. Special Categories -->
                 <div onclick="openSpecialMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-house-chimney-user"></i>
@@ -107,12 +89,12 @@
                     <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
                 </div>
 
-                <!-- 3. Conversation Lab (44 Situasi) -->
+               <!-- 3. Conversation Lab -->
                 <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-comments"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Conversation Lab (19 Situasi)</h3>
+                    <h3 class="font-bold text-lg text-white">Conversation Lab (44 Situasi)</h3>
                     <p class="text-slate-400 text-sm">Dialog perbualan harian: Restoran, Kafe, Hotel, Cuaca, Hospital & banyak lagi.</p>
                 </div>
 
@@ -125,7 +107,7 @@
                     <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
                 </div>
 
-                <!-- 5. Writing Lab -->
+               <!-- 5. Writing Lab -->
                 <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded border border-orange-500/30">INTERAKTIF</div>
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
@@ -150,14 +132,12 @@
                         <i class="fa-solid fa-headphones"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Listen Mode</h3>
-                      <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa.</p>
+                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa.</p>
                 </div>
             </div>
         </section>
 
-
-
-              <!-- ================= INTRO HANGUL SECTION (LENGKAP & TERSUSUN) ================= -->
+       <!-- ================= INTRO HANGUL SECTION ================= -->
         <section id="section-intro-hangul" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
@@ -170,8 +150,12 @@
                     <span>Kembali</span>
                 </button>
             </div>
+            <!-- Kandungan Intro Hangul boleh diletakkan di sini -->
+        </section>
 
-            <div class="space-y-6 max-w-4xl mx-auto text-slate-300 text-sm leading-relaxed">
+        <!-- Seksyen lain dikekalkan di sini (levels, special, conversation, grammar-lab, writing, study, quiz, words, listen, result) -->
+
+    </main>>
                 
                 <!-- 1. Carta Rujukan 14 Konsonan Asas Penuh -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
@@ -373,7 +357,6 @@
                     <p class="text-slate-300 text-sm">
                         Terdapat 5 konsonan kembar utama dalam bahasa Korea. Setiap satunya mempunyai perkataan <em>쌍 (ssang)</em> pada namanya, yang bermaksud "ganda/kembar".
                     </p>
-
 
                     <!-- Jadual Double Consonants -->
                     <div class="overflow-x-auto pt-2">
@@ -713,12 +696,12 @@
 
     </main>
 
-     <!-- Footer -->
+   <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 bg-slate-900/50 text-center text-slate-500 text-xs">
         <p>Hangul Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
     </footer>
 
-    <!-- JavaScript Platform -->
+   <!-- JavaScript Aplikasi -->
     <script>
         // Logik JS anda di sini...
         const visualEmojiMap = {
