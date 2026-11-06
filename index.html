@@ -42,12 +42,17 @@
                 </div>
             </div>
 
-            <!-- Stats Bar -->
-            <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-                <div class="flex items-center space-x-1" title="Mata Skor">
-                    <i class="fa-solid fa-star text-amber-400"></i>
-                    <span id="stat-score" class="font-bold text-amber-300">0</span>
-                </div>
+                <!-- Stats Bar & Bahagian Profil Pengguna -->
+<div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
+    <div class="flex items-center space-x-1" title="Mata Skor">
+        <i class="fa-solid fa-star text-amber-400"></i>
+        <span id="stat-score" class="font-bold text-amber-300">0</span>
+    </div>
+    <!-- TAMBAH DI SINI: Tempat untuk paparkan status log masuk -->
+    <div id="user-auth-status" class="flex items-center space-x-2 pl-2 border-l border-slate-700">
+        <!-- Akan diisi secara dinamik oleh JavaScript -->
+    </div>
+</div>
             </div>
         </div>
     </header>
@@ -3712,7 +3717,7 @@
     </script>
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
-    <script>
+   <script>
     const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -3730,10 +3735,62 @@
         }
     }
 
-   // Sambungkan pada butang
-document.getElementById('google-login-btn').addEventListener('click', function() {
-    signInWithGoogle();
-});
+    // Fungsi untuk Log Keluar (Sign Out)
+    async function signOutUser() {
+        const { error } = await supabaseClient.auth.signOut();
+        if (!error) {
+            window.location.reload(); // Muat semula halaman selepas log keluar
+        }
+    }
+
+    // Semak status sesi pengguna semasa aplikasi dimuatkan
+    async function checkUserSession() {
+        const { data: { session }, error } = await supabaseClient.auth.getSession();
+        
+        // Cari kotak log masuk di bahagian atas (atau mana-mana elemen login box)
+        const loginBox = document.querySelector('div[style*="background: #1e293b"]');
+        const authStatusContainer = document.getElementById('user-auth-status');
+
+        if (session && session.user) {
+            // JIKA PENGGUNA SUDAH LOG MASUK:
+            // 1. Sembunyikan kotak log masuk utama
+            if (loginBox) {
+                loginBox.style.display = 'none';
+            }
+
+            // 2. Paparkan status ringkas atau butang log keluar di header
+            if (authStatusContainer) {
+                const userEmail = session.user.email;
+                authStatusContainer.innerHTML = `
+                    <span class="text-xs text-slate-300 hidden md:inline" title="${userEmail}">👤 ${userEmail.split('@')[0]}</span>
+                    <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold">
+                        Log Keluar
+                    </button>
+                `;
+            }
+        } else {
+            // JIKA BELUM LOG MASUK:
+            // Pastikan kotak log masuk dipaparkan
+            if (loginBox) {
+                loginBox.style.display = 'block';
+            }
+            if (authStatusContainer) {
+                authStatusContainer.innerHTML = `
+                    <span class="text-xs text-slate-400">Belum Log Masuk</span>
+                `;
+            }
+        }
+    }
+
+    // Sambungkan pada butang Google Login
+    document.getElementById('google-login-btn').addEventListener('click', function() {
+        signInWithGoogle();
+    });
+
+    // Jalankan semakan sesi apabila halaman mula dibuka
+    window.addEventListener('DOMContentLoaded', () => {
+        checkUserSession();
+    });
 </script>
 </body>
 </html>
