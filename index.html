@@ -3727,7 +3727,8 @@
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: window.location.origin + window.location.pathname
+                // Gunakan URL asas semasa halaman untuk memastikan redirect kembali dengan betul
+                redirectTo: window.location.href.split('?')[0]
             }
         });
         if (error) {
@@ -3739,38 +3740,34 @@
     async function signOutUser() {
         const { error } = await supabaseClient.auth.signOut();
         if (!error) {
-            window.location.reload(); // Muat semula halaman selepas log keluar
+            window.location.reload(); 
         }
     }
 
-    // Semak status sesi pengguna semasa aplikasi dimuatkan
-    async function checkUserSession() {
-        const { data: { session }, error } = await supabaseClient.auth.getSession();
-        
-        // Cari kotak log masuk di bahagian atas (atau mana-mana elemen login box)
+    // Fungsi untuk mengemas kini paparan UI berdasarkan sesi pengguna
+    function updateUI(session) {
         const loginBox = document.querySelector('div[style*="background: #1e293b"]');
         const authStatusContainer = document.getElementById('user-auth-status');
 
         if (session && session.user) {
-            // JIKA PENGGUNA SUDAH LOG MASUK:
-            // 1. Sembunyikan kotak log masuk utama
+            // Sembunyikan kotak log masuk utama apabila sudah log masuk
             if (loginBox) {
                 loginBox.style.display = 'none';
             }
 
-            // 2. Paparkan status ringkas atau butang log keluar di header
+            // Paparkan nama ID / emel pengguna di header bersama butang Log Keluar
             if (authStatusContainer) {
                 const userEmail = session.user.email;
+                const userName = session.user.user_metadata?.full_name || userEmail.split('@')[0];
                 authStatusContainer.innerHTML = `
-                    <span class="text-xs text-slate-300 hidden md:inline" title="${userEmail}">👤 ${userEmail.split('@')[0]}</span>
+                    <span class="text-xs text-slate-300 font-medium truncate max-w-[120px]" title="${userEmail}">👤 ${userName}</span>
                     <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold">
                         Log Keluar
                     </button>
                 `;
             }
         } else {
-            // JIKA BELUM LOG MASUK:
-            // Pastikan kotak log masuk dipaparkan
+            // Paparkan semula kotak log masuk jika belum log masuk
             if (loginBox) {
                 loginBox.style.display = 'block';
             }
@@ -3782,14 +3779,25 @@
         }
     }
 
-    // Sambungkan pada butang Google Login
-    document.getElementById('google-login-btn').addEventListener('click', function() {
-        signInWithGoogle();
-    });
+    // Semak sesi dan mendengar perubahan status log masuk secara langsung
+    async function initAuth() {
+        // 1. Semak sesi sedia ada
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        updateUI(session);
 
-    // Jalankan semakan sesi apabila halaman mula dibuka
+        // 2. Pantau perubahan status (automatik tangkap token selepas redirect Google)
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            updateUI(session);
+        });
+    }
+
+    // Pasang Event Listener pada butang Google Login selepas DOM dimuatkan
     window.addEventListener('DOMContentLoaded', () => {
-        checkUserSession();
+        const loginBtn = document.getElementById('google-login-btn');
+        if (loginBtn) {
+            loginBtn.addEventListener('click', signInWithGoogle);
+        }
+        initAuth();
     });
 </script>
 </body>
