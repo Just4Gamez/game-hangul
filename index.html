@@ -3724,17 +3724,18 @@
 
     // Fungsi untuk lancarkan Google Sign-In
     async function signInWithGoogle() {
-        const { data, error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: {
-                // Gunakan URL asas semasa halaman untuk memastikan redirect kembali dengan betul
-                redirectTo: 'https://just4gamez.github.io/hangul-master/'
-            }
-        });
-        if (error) {
-            alert("Ralat Google Login: " + error.message);
+    const { data, error } = await supabaseClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+            redirectTo: 'https://just4gamez.github.io/hangul-master/',
+            skipBrowserRedirect: false
         }
+    });
+    if (error) {
+        console.error("Ralat Log Masuk:", error.message);
+        alert("Ralat Google Login: " + error.message);
     }
+}
 
     // Fungsi untuk Log Keluar (Sign Out)
     async function signOutUser() {
