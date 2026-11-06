@@ -21,7 +21,8 @@
         }
     </style>
 </head>
-    <div style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
+    <!-- Kotak Log Masuk -->
+<div style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
   <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff;">Log Masuk Hangul Master</h3>
   <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">Sila log masuk menggunakan akaun Google anda untuk mula.</p>
   
@@ -29,19 +30,6 @@
     Teruskan dengan Google
   </button>
 </div>
-    <!-- Header / Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
-                    한
-                </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
-                    <p class="text-xs text-slate-400">Vocabulary, Conversation & Writing Lab</p>
-                </div>
-            </div>
-
             <!-- Stats Bar -->
             <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
                 <div class="flex items-center space-x-1" title="Mata Skor">
@@ -3807,101 +3795,24 @@
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
 <script>
-    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    async function signUpWithEmail(email, password) {
-        const { data, error } = await supabaseClient.auth.signUp({ email, password });
-        if (error) alert("Ralat daftar: " + error.message);
-        else alert("Pendaftaran berjaya! Sila semak emel anda.");
-    }
-
-    async function signInWithEmail(email, password) {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-        if (error) alert("Gagal log masuk: " + error.message);
-        else { alert("Log masuk berjaya!"); location.reload(); }
-    }
-
-    function handleSignIn() {
-        const email = document.getElementById('userEmail').value;
-        const pass = document.getElementById('userPassword').value;
-        if(email && pass) signInWithEmail(email, pass);
-        else alert("Sila masukkan emel dan kata laluan!");
-    }
-
-    function handleSignUp() {
-        const email = document.getElementById('userEmail').value;
-        const pass = document.getElementById('userPassword').value;
-        if(email && pass) signUpWithEmail(email, pass);
-        else alert("Sila masukkan emel dan kata laluan!");
-    }
+    <!-- Supabase & Google Login Script -->
     <script>
-    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-    // Guna kunci publishable baru dari dashboard anda
-    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_'; 
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    async function signUpWithEmail(email, password) {
-        const { data, error } = await supabaseClient.auth.signUp({ email, password });
-        if (error) {
-            alert("Ralat daftar: " + error.message);
-        } else {
-            alert("Pendaftaran berjaya! Sila semak emel anda untuk pengesahan.");
+        async function signInWithGoogle() {
+            const { error } = await supabaseClient.auth.signInWithOAuth({
+                provider: 'google',
+                options: { redirectTo: window.location.origin + window.location.pathname }
+            });
+            if (error) alert("Ralat Google Login: " + error.message);
         }
-    }
 
-    async function signInWithEmail(email, password) {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-        if (error) {
-            alert("Gagal log masuk: " + error.message);
-        } else {
-            alert("Log masuk berjaya!");
-            location.reload(); 
+        const googleBtn = document.getElementById('google-login-btn');
+        if (googleBtn) {
+            googleBtn.addEventListener('click', signInWithGoogle);
         }
-    }
-
-    document.getElementById('btnLogin').addEventListener('click', function() {
-        const email = document.getElementById('userEmail').value.trim();
-        const pass = document.getElementById('userPassword').value.trim();
-        if(email && pass) {
-            signInWithEmail(email, pass);
-        } else {
-            alert("Sila masukkan emel dan kata laluan!");
-        }
-    });
-
-    document.getElementById('btnSignup').addEventListener('click', function() {
-        const email = document.getElementById('userEmail').value.trim();
-        const pass = document.getElementById('userPassword').value.trim();
-        if(email && pass) {
-            signUpWithEmail(email, pass);
-        } else {
-            alert("Sila masukkan emel dan kata laluan!");
-        }
-    });
-    <script>
-    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Fungsi untuk lancarkan Google Sign-In
-    async function signInWithGoogle() {
-        const { data, error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: {
-                redirectTo: window.location.origin + window.location.pathname
-            }
-        });
-        if (error) {
-            alert("Ralat Google Login: " + error.message);
-        }
-    }
-
-   // Sambungkan pada butang
-document.getElementById('google-login-btn').addEventListener('click', function() {
-    signInWithGoogle();
-});
-</script>
+    </script>
 </body>
 </html>
