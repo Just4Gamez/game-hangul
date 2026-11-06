@@ -8,8 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
         body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; }
@@ -21,8 +19,7 @@
         }
     </style>
 </head>
-    <!-- Kotak Log Masuk -->
-<div style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
+    <div style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
   <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff;">Log Masuk Hangul Master</h3>
   <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">Sila log masuk menggunakan akaun Google anda untuk mula.</p>
   
@@ -30,6 +27,19 @@
     Teruskan dengan Google
   </button>
 </div>
+    <!-- Header / Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
+                    한
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
+                    <p class="text-xs text-slate-400">Vocabulary, Conversation & Writing Lab</p>
+                </div>
+            </div>
+
             <!-- Stats Bar -->
             <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
                 <div class="flex items-center space-x-1" title="Mata Skor">
@@ -56,80 +66,15 @@
 
             <!-- Menu Pilihan Utama -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 0. Pengenalan Hangul & Huruf Asas -->
+                <!-- 0. Pengenalan Hangul & Huruf Asas (BARU) -->
                 <div onclick="openIntroHangul()" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
                     <div class="absolute top-3 right-3 px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded border border-cyan-500/30">NOTA LENGKAP</div>
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <h3 class="font-bold text-lg text-white">Pengenalan & Huruf Hangul</h3>
                     <p class="text-slate-400 text-sm">Nota penuh susunan huruf (Ganada-sun), 24 huruf asas, vokal & cara blok suku kata.</p>
                 </div>
-
-                <!-- 1. Study & Practice (Level 1-21) -->
-                <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Study & Practice (Lvl 1-21)</h3>
-                    <p class="text-slate-400 text-sm">Belajar abjad, kosa kata harian, dan buat kuiz interaktif berselingan visual.</p>
-                </div>
-
-                <!-- 2. Special Categories -->
-                <div onclick="openSpecialMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-house-chimney-user"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Kategori Khas (Tematik)</h3>
-                    <p class="text-slate-400 text-sm">Rumah, Keluarga, Sekolah, Pejabat, Warna & Waktu.</p>
-                </div>
-
-                <!-- 3. Conversation Lab (44 Situasi) -->
-                <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Conversation Lab (44 Situasi)</h3>
-                    <p class="text-slate-400 text-sm">Dialog perbualan harian: Restoran, Kafe, Hotel, Cuaca, Hospital & banyak lagi.</p>
-                </div>
-
-                <!-- 4. Hangul Grammar Lab -->
-                <div onclick="openGrammarLabMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-book-atlas"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Hangul Grammar Lab</h3>
-                    <p class="text-slate-400 text-sm">Ruang khas tatabahasa ala English Grammar (Partikel, Tenses, dll).</p>
-                </div>
-
-                <!-- 5. Writing Lab -->
-                <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl relative overflow-hidden">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded border border-orange-500/30">INTERAKTIF</div>
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Belajar Menulis (Writing Lab)</h3>
-                    <p class="text-slate-400 text-sm">Latihan gurisan langkah demi langkah & kanvas interaktif menulis huruf.</p>
-                </div>
-
-                <!-- 6. Words Dictionary -->
-                <div onclick="openWordsMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-list-ul"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Words (Kamus Indeks)</h3>
-                    <p class="text-slate-400 text-sm">Teroka senarai penuh kosa kata dan formula tatabahasa.</p>
-                </div>
-
-                <!-- 7. Listen Mode -->
-                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-headphones"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Listen Mode</h3>
-                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa.</p>
-                </div>
-            </div>
 
                 <!-- 1. Study & Practice (Level 1-21) -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
@@ -3764,55 +3709,148 @@
         }
     </script>
     <script>
-    <!-- Skrip Supabase & Google Login yang Bersih -->
-    <script>
-        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Fungsi untuk lancarkan Google Sign-In
-        async function signInWithGoogle() {
-            const { data, error } = await supabaseClient.auth.signInWithOAuth({
-                provider: 'google',
-                options: {
-                    redirectTo: window.location.origin + window.location.pathname
-                }
-            });
-            if (error) {
-                alert("Ralat Google Login: " + error.message);
-            }
+    async function signUpWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) {
+            alert("Ralat daftar: " + error.message);
+        } else {
+            alert("Pendaftaran berjaya! Anda boleh terus log masuk.");
         }
+    }
 
-        // Sambungkan pada butang ID google-login-btn
-        const googleBtn = document.getElementById('google-login-btn');
-        if (googleBtn) {
-            googleBtn.addEventListener('click', function() {
-                signInWithGoogle();
-            });
+    async function signInWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+            alert("Gagal log masuk: " + error.message);
+        } else {
+            alert("Log masuk berjaya!");
+            location.reload(); 
         }
-    </script>
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signInWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+
+    document.getElementById('btnSignup').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signUpWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+</script>
 <!-- ... (kod-kod asal web anda yang lain di atas) ... -->
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
 <script>
-    <!-- Supabase & Google Login Script -->
+    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function signUpWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) alert("Ralat daftar: " + error.message);
+        else alert("Pendaftaran berjaya! Sila semak emel anda.");
+    }
+
+    async function signInWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) alert("Gagal log masuk: " + error.message);
+        else { alert("Log masuk berjaya!"); location.reload(); }
+    }
+
+    function handleSignIn() {
+        const email = document.getElementById('userEmail').value;
+        const pass = document.getElementById('userPassword').value;
+        if(email && pass) signInWithEmail(email, pass);
+        else alert("Sila masukkan emel dan kata laluan!");
+    }
+
+    function handleSignUp() {
+        const email = document.getElementById('userEmail').value;
+        const pass = document.getElementById('userPassword').value;
+        if(email && pass) signUpWithEmail(email, pass);
+        else alert("Sila masukkan emel dan kata laluan!");
+    }
     <script>
-        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+    // Guna kunci publishable baru dari dashboard anda
+    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_'; 
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        async function signInWithGoogle() {
-            const { error } = await supabaseClient.auth.signInWithOAuth({
-                provider: 'google',
-                options: { redirectTo: window.location.origin + window.location.pathname }
-            });
-            if (error) alert("Ralat Google Login: " + error.message);
+    async function signUpWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) {
+            alert("Ralat daftar: " + error.message);
+        } else {
+            alert("Pendaftaran berjaya! Sila semak emel anda untuk pengesahan.");
         }
+    }
 
-        const googleBtn = document.getElementById('google-login-btn');
-        if (googleBtn) {
-            googleBtn.addEventListener('click', signInWithGoogle);
+    async function signInWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+            alert("Gagal log masuk: " + error.message);
+        } else {
+            alert("Log masuk berjaya!");
+            location.reload(); 
         }
-    </script>
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signInWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+
+    document.getElementById('btnSignup').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signUpWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+    <script>
+    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Fungsi untuk lancarkan Google Sign-In
+    async function signInWithGoogle() {
+        const { data, error } = await supabaseClient.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: window.location.origin + window.location.pathname
+            }
+        });
+        if (error) {
+            alert("Ralat Google Login: " + error.message);
+        }
+    }
+
+   // Sambungkan pada butang
+document.getElementById('google-login-btn').addEventListener('click', function() {
+    signInWithGoogle();
+});
+</script>
 </body>
 </html>
