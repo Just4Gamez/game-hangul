@@ -3776,33 +3776,49 @@
         }
     </script>
     <script>
-    <!-- Skrip Supabase & Google Login yang Bersih -->
-    <script>
-        const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const SUPABASE_URL = 'https://miiyuvjbrvanlcuzbyyj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_IjTcTkyjantkU6RQCoFrbw_OZTJR02_';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Fungsi untuk lancarkan Google Sign-In
-        async function signInWithGoogle() {
-            const { data, error } = await supabaseClient.auth.signInWithOAuth({
-                provider: 'google',
-                options: {
-                    redirectTo: window.location.origin + window.location.pathname
-                }
-            });
-            if (error) {
-                alert("Ralat Google Login: " + error.message);
-            }
+    async function signUpWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) {
+            alert("Ralat daftar: " + error.message);
+        } else {
+            alert("Pendaftaran berjaya! Anda boleh terus log masuk.");
         }
+    }
 
-        // Sambungkan pada butang ID google-login-btn
-        const googleBtn = document.getElementById('google-login-btn');
-        if (googleBtn) {
-            googleBtn.addEventListener('click', function() {
-                signInWithGoogle();
-            });
+    async function signInWithEmail(email, password) {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+            alert("Gagal log masuk: " + error.message);
+        } else {
+            alert("Log masuk berjaya!");
+            location.reload(); 
         }
-    </script>
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signInWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+
+    document.getElementById('btnSignup').addEventListener('click', function() {
+        const email = document.getElementById('userEmail').value.trim();
+        const pass = document.getElementById('userPassword').value.trim();
+        if(email && pass) {
+            signUpWithEmail(email, pass);
+        } else {
+            alert("Sila masukkan emel dan kata laluan!");
+        }
+    });
+</script>
 <!-- ... (kod-kod asal web anda yang lain di atas) ... -->
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
