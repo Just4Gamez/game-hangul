@@ -3723,14 +3723,14 @@
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // Fungsi untuk lancarkan Google Sign-In
-    async function signInWithGoogle() {
-    const { data, error } = await supabaseClient.auth.signInWithOAuth({
+   async function signInWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: 'https://just4gamez.github.io/hangul-master/',
-            skipBrowserRedirect: false
+            redirectTo: 'https://just4gamez.github.io/hangul-master/'
         }
     });
+}
     if (error) {
         console.error("Ralat Log Masuk:", error.message);
         alert("Ralat Google Login: " + error.message);
