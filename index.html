@@ -41,20 +41,6 @@
                     <p class="text-xs text-slate-400">Vocabulary, Conversation & Writing Lab</p>
                 </div>
             </div>
-
-                <!-- Stats Bar & Bahagian Profil Pengguna -->
-<div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-    <div class="flex items-center space-x-1" title="Mata Skor">
-        <i class="fa-solid fa-star text-amber-400"></i>
-        <span id="stat-score" class="font-bold text-amber-300">0</span>
-    </div>
-    <!-- TAMBAH DI SINI: Tempat untuk paparkan status log masuk -->
-    <div id="user-auth-status" class="flex items-center space-x-2 pl-2 border-l border-slate-700">
-        <!-- Akan diisi secara dinamik oleh JavaScript -->
-    </div>
-</div>
-            </div>
-        </div>
     </header>
 
     <!-- Main Container -->
@@ -3715,93 +3701,5 @@
             speakText(item.char);
         }
     </script>
-
-<!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
-   <script>
-    const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-async function signInWithGoogle() {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-            redirectTo: 'https://just4gamez.github.io/hangul-master/'
-        }
-    });
-    if (error) {
-        console.error('Ralat log masuk:', error.message);
-    }
-}
-    if (error) {
-        console.error("Ralat Log Masuk:", error.message);
-        alert("Ralat Google Login: " + error.message);
-    }
-}
-
-    // Fungsi untuk Log Keluar (Sign Out)
-    async function signOutUser() {
-        const { error } = await supabaseClient.auth.signOut();
-        if (!error) {
-            window.location.reload(); 
-        }
-    }
-
-    // Fungsi untuk mengemas kini paparan UI berdasarkan sesi pengguna
-    function updateUI(session) {
-        const loginBox = document.querySelector('div[style*="background: #1e293b"]');
-        const authStatusContainer = document.getElementById('user-auth-status');
-
-        if (session && session.user) {
-            // Sembunyikan kotak log masuk utama apabila sudah log masuk
-            if (loginBox) {
-                loginBox.style.display = 'none';
-            }
-
-            // Paparkan nama ID / emel pengguna di header bersama butang Log Keluar
-            if (authStatusContainer) {
-                const userEmail = session.user.email;
-                const userName = session.user.user_metadata?.full_name || userEmail.split('@')[0];
-                authStatusContainer.innerHTML = `
-                    <span class="text-xs text-slate-300 font-medium truncate max-w-[120px]" title="${userEmail}">👤 ${userName}</span>
-                    <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold">
-                        Log Keluar
-                    </button>
-                `;
-            }
-        } else {
-            // Paparkan semula kotak log masuk jika belum log masuk
-            if (loginBox) {
-                loginBox.style.display = 'block';
-            }
-            if (authStatusContainer) {
-                authStatusContainer.innerHTML = `
-                    <span class="text-xs text-slate-400">Belum Log Masuk</span>
-                `;
-            }
-        }
-    }
-
-    // Semak sesi dan mendengar perubahan status log masuk secara langsung
-    async function initAuth() {
-        // 1. Semak sesi sedia ada
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        updateUI(session);
-
-        // 2. Pantau perubahan status (automatik tangkap token selepas redirect Google)
-        supabaseClient.auth.onAuthStateChange((event, session) => {
-            updateUI(session);
-        });
-    }
-
-    // Pasang Event Listener pada butang Google Login selepas DOM dimuatkan
-    window.addEventListener('DOMContentLoaded', () => {
-        const loginBtn = document.getElementById('google-login-btn');
-        if (loginBtn) {
-            loginBtn.addEventListener('click', signInWithGoogle);
-        }
-        initAuth();
-    });
-</script>
 </body>
 </html>
