@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangul Master - Ultimate Edition</title>
+    <!-- Masukkan skrip Supabase di sini -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
         body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; }
@@ -19,13 +21,19 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
-
+    <div style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
+  <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff;">Log Masuk Hangul Master</h3>
+  <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">Sila log masuk menggunakan akaun Google anda untuk mula.</p>
+  
+  <button id="google-login-btn" style="width: 100%; padding: 12px; background-color: #ffffff; color: #333333; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+    Teruskan dengan Google
+  </button>
+</div>
     <!-- Header / Navigation -->
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-red-600 flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
                     한
                 </div>
                 <div>
@@ -34,12 +42,17 @@
                 </div>
             </div>
 
-            <!-- Stats Bar -->
-            <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-                <div class="flex items-center space-x-1" title="Mata Skor">
-                    <i class="fa-solid fa-star text-amber-400"></i>
-                    <span id="stat-score" class="font-bold text-amber-300">0</span>
-                </div>
+                <!-- Stats Bar & Bahagian Profil Pengguna -->
+<div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
+    <div class="flex items-center space-x-1" title="Mata Skor">
+        <i class="fa-solid fa-star text-amber-400"></i>
+        <span id="stat-score" class="font-bold text-amber-300">0</span>
+    </div>
+    <!-- TAMBAH DI SINI: Tempat untuk paparkan status log masuk -->
+    <div id="user-auth-status" class="flex items-center space-x-2 pl-2 border-l border-slate-700">
+        <!-- Akan diisi secara dinamik oleh JavaScript -->
+    </div>
+</div>
             </div>
         </div>
     </header>
@@ -52,7 +65,7 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
                     <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar Pengenalan Hangul, 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis, Kamus atau Mod Dengar!</p>
                 </div>
@@ -135,45 +148,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Bahagian lain seperti Intro Hangul, Levels, Writing, Quiz, dll kekal di sini -->
-        <section id="section-intro-hangul" class="hidden space-y-6 transition-all duration-300">
-            <!-- Kandungan Pengenalan Hangul -->
-        </section>
-        <section id="section-levels" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-special" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-conversation" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-grammar-lab" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-writing" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-study" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-quiz" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-words" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-listen" class="hidden space-y-6 transition-all duration-300"></section>
-        <section id="section-result" class="hidden space-y-6 text-center transition-all duration-300"></section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-6 bg-slate-900/50 text-center text-slate-500 text-xs">
-        <p>Hangul Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
-    </footer>
-
-    <!-- JavaScript Utama Aplikasi -->
-    <script>
-        // Masukkan semua logik fungsi JavaScript utama anda di sini (seperti visualEmojiMap, writingData, levelsData, dll.)
-        const visualEmojiMap = {
-            "사과": "🍎", "고양이": "🐱", "물": "💧", "커피": "☕", "집": "🏠", "책": "📚"
-        };
-        // (Nota: Pastikan fungsi navigasi anda seperti showSection dimuatkan di sini)
-        function showSection(sectionId) {
-            ['home', 'intro-hangul', 'levels', 'special', 'conversation', 'grammar-lab', 'writing', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
-                const el = document.getElementById(`section-${id}`);
-                if (el) el.classList.add('hidden');
-            });
-            const target = document.getElementById(`section-${sectionId}`);
-            if (target) target.classList.remove('hidden');
-        }
-    </script>
 
         <!-- ================= INTRO HANGUL SECTION (LENGKAP & TERSUSUN) ================= -->
         <section id="section-intro-hangul" class="hidden space-y-6 transition-all duration-300">
