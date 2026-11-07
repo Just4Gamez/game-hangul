@@ -26,35 +26,18 @@
   <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">Sila log masuk menggunakan akaun Google anda untuk mula.</p>
   
   <button id="google-login-btn" style="width: 100%; padding: 12px; background-color: #ffffff; color: #333333; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
-    Teruskan dengan Google
-  </button>
+   <div id="email-login-container" style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
+  <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff;">Hangul Master Login</h3>
+  
+  <input type="email" id="user-email" placeholder="Masukkan Emel" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #475569; background: #0f172a; color: white;">
+  
+  <input type="password" id="user-password" placeholder="Kata Laluan" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #475569; background: #0f172a; color: white;">
+  
+  <div style="display: flex; gap: 10px;">
+    <button onclick="handleSignUp()" style="flex: 1; padding: 10px; background-color: #3b82f6; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Daftar</button>
+    <button onclick="handleSignIn()" style="flex: 1; padding: 10px; background-color: #10b981; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Masuk</button>
+  </div>
 </div>
-    <!-- Header / Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
-                    한
-                </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
-                    <p class="text-xs text-slate-400">Vocabulary, Conversation & Writing Lab</p>
-                </div>
-            </div>
-
-                <!-- Stats Bar & Bahagian Profil Pengguna -->
-<div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
-    <div class="flex items-center space-x-1" title="Mata Skor">
-        <i class="fa-solid fa-star text-amber-400"></i>
-        <span id="stat-score" class="font-bold text-amber-300">0</span>
-    </div>
-    <!-- TAMBAH DI SINI: Tempat untuk paparkan status log masuk -->
-    <div id="user-auth-status" class="flex items-center space-x-2 pl-2 border-l border-slate-700">
-        <!-- Akan diisi secara dinamik oleh JavaScript -->
-    </div>
-</div>
-            </div>
-        </div>
     </header>
 
     <!-- Main Container -->
