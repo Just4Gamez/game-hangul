@@ -3719,17 +3719,19 @@
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
    <script>
     const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Fungsi untuk lancarkan Google Sign-In
-   async function signInWithGoogle() {
+async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
             redirectTo: 'https://just4gamez.github.io/hangul-master/'
         }
     });
+    if (error) {
+        console.error('Ralat log masuk:', error.message);
+    }
 }
     if (error) {
         console.error("Ralat Log Masuk:", error.message);
