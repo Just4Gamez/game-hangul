@@ -26,58 +26,50 @@
   <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">Sila log masuk menggunakan akaun Google anda untuk mula.</p>
   
   <button id="google-login-btn" style="width: 100%; padding: 12px; background-color: #ffffff; color: #333333; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <div id="email-login-container" style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto; color: white; max-width: 400px; text-align: center;">
-  <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff;">Hangul Master Login</h3>
-  
-  <input type="email" id="user-email" placeholder="Masukkan Emel" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #475569; background: #0f172a; color: white;">
-  
-  <input type="password" id="user-password" placeholder="Kata Laluan" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #475569; background: #0f172a; color: white;">
-  
-  <div style="display: flex; gap: 10px;">
-    <button onclick="handleSignUp()" style="flex: 1; padding: 10px; background-color: #3b82f6; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Daftar</button>
-    <button onclick="handleSignIn()" style="flex: 1; padding: 10px; background-color: #10b981; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Masuk</button>
-  </div>
+    Teruskan dengan Google
+  </button>
 </div>
-    </header>
+    <!-- Header / Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-korea-blue to-korea-red flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/20">
+                    한
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">Hangul Master</h1>
+                    <p class="text-xs text-slate-400">Vocabulary, Conversation & Writing Lab</p>
+                </div>
+            </div>
 
-    <!-- Header Utama -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-2 cursor-pointer" onclick="showSection('home')">
-            <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg hangul-font">한</span>
-            <h1 class="font-extrabold text-lg text-white tracking-tight">Hangul <span class="text-blue-500">Master</span></h1>
-        </div>
-        <div id="user-auth-status" class="flex items-center space-x-3">
-            <span class="text-xs text-slate-400">Memeriksa sesi...</span>
-        </div>
-    </header>
-
-  <!-- Header Utama -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-2 cursor-pointer" onclick="showSection('home')">
-            <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg hangul-font">한</span>
-            <h1 class="font-extrabold text-lg text-white tracking-tight">Hangul <span class="text-blue-500">Master</span></h1>
-        </div>
-        <div id="user-auth-status" class="flex items-center space-x-3">
-            <span class="text-xs text-slate-400">Memeriksa sesi...</span>
+                <!-- Stats Bar & Bahagian Profil Pengguna -->
+<div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
+    <div class="flex items-center space-x-1" title="Mata Skor">
+        <i class="fa-solid fa-star text-amber-400"></i>
+        <span id="stat-score" class="font-bold text-amber-300">0</span>
+    </div>
+    <!-- TAMBAH DI SINI: Tempat untuk paparkan status log masuk -->
+    <div id="user-auth-status" class="flex items-center space-x-2 pl-2 border-l border-slate-700">
+        <!-- Akan diisi secara dinamik oleh JavaScript -->
+    </div>
+</div>
+            </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
 
-        <!-- ================= KOTAK BORANG LOG MASUK / PENDAFTARAN ================= -->
-        <div id="email-login-container" style="background: #1e293b; padding: 25px; border-radius: 12px; margin: 0 auto; color: white; max-width: 400px; text-align: center; border: 1px solid #334155; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);">
-          <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff; font-size: 18px; font-weight: bold;">Akaun Hangul Master</h3>
-          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">Sila daftar atau log masuk untuk mula belajar.</p>
-          
-          <input type="email" id="user-email" placeholder="Masukkan emel anda" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; outline: none;">
-          <input type="password" id="user-password" placeholder="Kata laluan" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; outline: none;">
-          
-          <div style="display: flex; gap: 10px;">
-            <button onclick="handleSignUp()" style="flex: 1; padding: 10px; background-color: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Daftar</button>
-            <button onclick="handleSignIn()" style="flex: 1; padding: 10px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Log Masuk</button>
-          </div>
-        </div>
+        <!-- ================= HOME SECTION ================= -->
+        <section id="section-home" class="space-y-8 transition-all duration-300">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
+                <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar Pengenalan Hangul, 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis, Kamus atau Mod Dengar!</p>
+                </div>
+            </div>
 
             <!-- Menu Pilihan Utama -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -3726,121 +3718,90 @@
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
    <script>
-const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
+    const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-       
-       
-// 1. Fungsi Daftar Akaun Baru (Sign Up)
-async function handleSignUp() {
-    const email = document.getElementById('user-email').value;
-    const password = document.getElementById('user-password').value;
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    if (!email || !password) {
-        alert("Sila masukkan emel dan kata laluan.");
-        return;
-    }
-
-    const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
+async function signInWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+            redirectTo: 'https://just4gamez.github.io/hangul-master/'
+        }
     });
-
     if (error) {
-        alert("Ralat Daftar: " + error.message);
-    } else {
-        alert("Pendaftaran berjaya! Sila semak emel anda (jika pengesahan diperlukan) atau terus log masuk.");
+        console.error('Ralat log masuk:', error.message);
     }
 }
-
-// 2. Fungsi Log Masuk (Sign In)
-async function handleSignIn() {
-    const email = document.getElementById('user-email').value;
-    const password = document.getElementById('user-password').value;
-
-    if (!email || !password) {
-        alert("Sila masukkan emel dan kata laluan.");
-        return;
-    }
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-    });
-
     if (error) {
-        alert("Ralat Log Masuk: " + error.message);
-    } else {
-        alert("Berjaya Log Masuk!");
-        window.location.reload(); // Muat semula halaman selepas berjaya masuk
+        console.error("Ralat Log Masuk:", error.message);
+        alert("Ralat Google Login: " + error.message);
     }
 }
 
-// 3. Fungsi Log Keluar (Sign Out)
-async function signOutUser() {
-    const { error } = await supabase.auth.signOut();
-    if (!error) {
-        window.location.reload(); 
-    } else {
-        alert("Ralat Log Keluar: " + error.message);
+    // Fungsi untuk Log Keluar (Sign Out)
+    async function signOutUser() {
+        const { error } = await supabaseClient.auth.signOut();
+        if (!error) {
+            window.location.reload(); 
+        }
     }
-}
 
-// Skrip Supabase Auth Rasmi
-        const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Fungsi untuk mengemas kini paparan UI berdasarkan sesi pengguna
+    function updateUI(session) {
+        const loginBox = document.querySelector('div[style*="background: #1e293b"]');
+        const authStatusContainer = document.getElementById('user-auth-status');
 
-        async function handleSignUp() {
-            const email = document.getElementById('user-email').value;
-            const password = document.getElementById('user-password').value;
-            if (!email || !password) { alert("Sila masukkan emel dan kata laluan."); return; }
-            const { error } = await supabase.auth.signUp({ email, password });
-            if (error) alert("Ralat Daftar: " + error.message);
-            else alert("Pendaftaran berjaya! Sila log masuk.");
-        }
+        if (session && session.user) {
+            // Sembunyikan kotak log masuk utama apabila sudah log masuk
+            if (loginBox) {
+                loginBox.style.display = 'none';
+            }
 
-        async function handleSignIn() {
-            const email = document.getElementById('user-email').value;
-            const password = document.getElementById('user-password').value;
-            if (!email || !password) { alert("Sila masukkan emel dan kata laluan."); return; }
-            const { error } = await supabase.auth.signInWithPassword({ email, password });
-            if (error) alert("Ralat Log Masuk: " + error.message);
-            else { alert("Berjaya Log Masuk!"); window.location.reload(); }
-        }
-
-        async function signOutUser() {
-            await supabase.auth.signOut();
-            window.location.reload();
-        }
-
-        function updateUI(session) {
-            const loginBox = document.getElementById('email-login-container');
-            const authStatus = document.getElementById('user-auth-status');
-            if (session && session.user) {
-                if (loginBox) loginBox.style.display = 'none';
-                if (authStatus) {
-                    authStatus.innerHTML = `
-                        <span class="text-xs text-slate-300 font-medium">👤 ${session.user.email}</span>
-                        <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold cursor-pointer">Log Keluar</button>
-                    `;
-                }
-            } else {
-                if (loginBox) loginBox.style.display = 'block';
-                if (authStatus) authStatus.innerHTML = `<span class="text-xs text-slate-400">Belum Log Masuk</span>`;
+            // Paparkan nama ID / emel pengguna di header bersama butang Log Keluar
+            if (authStatusContainer) {
+                const userEmail = session.user.email;
+                const userName = session.user.user_metadata?.full_name || userEmail.split('@')[0];
+                authStatusContainer.innerHTML = `
+                    <span class="text-xs text-slate-300 font-medium truncate max-w-[120px]" title="${userEmail}">👤 ${userName}</span>
+                    <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold">
+                        Log Keluar
+                    </button>
+                `;
+            }
+        } else {
+            // Paparkan semula kotak log masuk jika belum log masuk
+            if (loginBox) {
+                loginBox.style.display = 'block';
+            }
+            if (authStatusContainer) {
+                authStatusContainer.innerHTML = `
+                    <span class="text-xs text-slate-400">Belum Log Masuk</span>
+                `;
             }
         }
+    }
 
-        async function initAuth() {
-            const { data: { session } } = await supabase.auth.getSession();
+    // Semak sesi dan mendengar perubahan status log masuk secara langsung
+    async function initAuth() {
+        // 1. Semak sesi sedia ada
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        updateUI(session);
+
+        // 2. Pantau perubahan status (automatik tangkap token selepas redirect Google)
+        supabaseClient.auth.onAuthStateChange((event, session) => {
             updateUI(session);
-            supabase.auth.onAuthStateChange((event, session) => { updateUI(session); });
-        }
+        });
+    }
 
-// Jalankan initAuth apabila halaman siap dimuat
-window.addEventListener('DOMContentLoaded', () => {
-    initAuth();
-});
+    // Pasang Event Listener pada butang Google Login selepas DOM dimuatkan
+    window.addEventListener('DOMContentLoaded', () => {
+        const loginBtn = document.getElementById('google-login-btn');
+        if (loginBtn) {
+            loginBtn.addEventListener('click', signInWithGoogle);
+        }
+        initAuth();
+    });
 </script>
 </body>
 </html>
