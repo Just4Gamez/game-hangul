@@ -40,25 +40,35 @@
 </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+    <!-- Header Utama -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="showSection('home')">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg hangul-font">한</span>
+            <h1 class="font-extrabold text-lg text-white tracking-tight">Hangul <span class="text-blue-500">Master</span></h1>
+        </div>
+        <div id="user-auth-status" class="flex items-center space-x-3">
+            <span class="text-xs text-slate-400">Memeriksa sesi...</span>
+        </div>
+    </header>
 
-        <!-- ================= HOME SECTION ================= -->
-        <section id="section-home" class="space-y-8 transition-all duration-300">
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black hangul-font select-none">한국어</div>
-                <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-korea-red/20 text-red-400 text-xs font-semibold rounded-full border border-red-500/30 uppercase tracking-wider">Kurikulum Asas, Tematik, Perbualan & Menulis</span>
-                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Kuasai Bahasa Korea Sepenuhnya</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih sama ada nak belajar Pengenalan Hangul, 21 Level Asas, Kategori Tematik, Conversation Lab, Hangul Grammar Lab, Belajar Menulis, Kamus atau Mod Dengar!</p>
-                </div>
-            </div>
-            <!-- Main Container -->
-    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+  <!-- Header Utama -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="showSection('home')">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg hangul-font">한</span>
+            <h1 class="font-extrabold text-lg text-white tracking-tight">Hangul <span class="text-blue-500">Master</span></h1>
+        </div>
+        <div id="user-auth-status" class="flex items-center space-x-3">
+            <span class="text-xs text-slate-400">Memeriksa sesi...</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
 
         <!-- ================= KOTAK BORANG LOG MASUK / PENDAFTARAN ================= -->
-        <div id="email-login-container" style="background: #1e293b; padding: 25px; border-radius: 8px; margin: 20px auto 30px auto; color: white; max-width: 400px; text-align: center; border: 1px solid #334155;">
+        <div id="email-login-container" style="background: #1e293b; padding: 25px; border-radius: 12px; margin: 0 auto; color: white; max-width: 400px; text-align: center; border: 1px solid #334155; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);">
           <h3 style="margin-top: 0; margin-bottom: 15px; color: #fff; font-size: 18px; font-weight: bold;">Akaun Hangul Master</h3>
+          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">Sila daftar atau log masuk untuk mula belajar.</p>
           
           <input type="email" id="user-email" placeholder="Masukkan emel anda" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; outline: none;">
           <input type="password" id="user-password" placeholder="Kata laluan" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; outline: none;">
@@ -3776,49 +3786,56 @@ async function signOutUser() {
     }
 }
 
-// 4. Kemaskini Paparan UI Berdasarkan Sesi Aktif
-function updateUI(session) {
-    const loginBox = document.getElementById('email-login-container');
-    const authStatusContainer = document.getElementById('user-auth-status');
+// Skrip Supabase Auth Rasmi
+        const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    if (session && session.user) {
-        // Sembunyikan kotak log masuk apabila sudah berjaya masuk
-        if (loginBox) {
-            loginBox.style.display = 'none';
+        async function handleSignUp() {
+            const email = document.getElementById('user-email').value;
+            const password = document.getElementById('user-password').value;
+            if (!email || !password) { alert("Sila masukkan emel dan kata laluan."); return; }
+            const { error } = await supabase.auth.signUp({ email, password });
+            if (error) alert("Ralat Daftar: " + error.message);
+            else alert("Pendaftaran berjaya! Sila log masuk.");
         }
 
-        // Paparkan status emel dan butang log keluar di header
-        if (authStatusContainer) {
-            const userEmail = session.user.email;
-            authStatusContainer.innerHTML = `
-                <span class="text-xs text-slate-300 font-medium">👤 ${userEmail}</span>
-                <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold cursor-pointer">
-                    Log Keluar
-                </button>
-            `;
+        async function handleSignIn() {
+            const email = document.getElementById('user-email').value;
+            const password = document.getElementById('user-password').value;
+            if (!email || !password) { alert("Sila masukkan emel dan kata laluan."); return; }
+            const { error } = await supabase.auth.signInWithPassword({ email, password });
+            if (error) alert("Ralat Log Masuk: " + error.message);
+            else { alert("Berjaya Log Masuk!"); window.location.reload(); }
         }
-    } else {
-        // Paparkan semula kotak log masuk jika belum log masuk
-        if (loginBox) {
-            loginBox.style.display = 'block';
-        }
-        if (authStatusContainer) {
-            authStatusContainer.innerHTML = `
-                <span class="text-xs text-slate-400">Belum Log Masuk</span>
-            `;
-        }
-    }
-}
 
-// 5. Semak Sesi Semasa Halaman Dimuatkan
-async function initAuth() {
-    const { data: { session } } = await supabase.auth.getSession();
-    updateUI(session);
+        async function signOutUser() {
+            await supabase.auth.signOut();
+            window.location.reload();
+        }
 
-    supabase.auth.onAuthStateChange((event, session) => {
-        updateUI(session);
-    });
-}
+        function updateUI(session) {
+            const loginBox = document.getElementById('email-login-container');
+            const authStatus = document.getElementById('user-auth-status');
+            if (session && session.user) {
+                if (loginBox) loginBox.style.display = 'none';
+                if (authStatus) {
+                    authStatus.innerHTML = `
+                        <span class="text-xs text-slate-300 font-medium">👤 ${session.user.email}</span>
+                        <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold cursor-pointer">Log Keluar</button>
+                    `;
+                }
+            } else {
+                if (loginBox) loginBox.style.display = 'block';
+                if (authStatus) authStatus.innerHTML = `<span class="text-xs text-slate-400">Belum Log Masuk</span>`;
+            }
+        }
+
+        async function initAuth() {
+            const { data: { session } } = await supabase.auth.getSession();
+            updateUI(session);
+            supabase.auth.onAuthStateChange((event, session) => { updateUI(session); });
+        }
 
 // Jalankan initAuth apabila halaman siap dimuat
 window.addEventListener('DOMContentLoaded', () => {
