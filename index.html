@@ -3718,90 +3718,113 @@
 
 <!-- 2. KOD SCRIPT JAVASCRIPT DI BAWAH -->
    <script>
-    const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
+const SUPABASE_URL = 'https://nqotmmbgljjucpyxuoly.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_pfQiBEeh0O0qAhyDx3K0Dg_ITpfg-EO';
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+       
+// 1. Fungsi Daftar Akaun Baru (Sign Up)
+async function handleSignUp() {
+    const email = document.getElementById('user-email').value;
+    const password = document.getElementById('user-password').value;
 
-async function signInWithGoogle() {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-            redirectTo: 'https://just4gamez.github.io/hangul-master/'
-        }
+    if (!email || !password) {
+        alert("Sila masukkan emel dan kata laluan.");
+        return;
+    }
+
+    const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
     });
+
     if (error) {
-        console.error('Ralat log masuk:', error.message);
-    }
-}
-    if (error) {
-        console.error("Ralat Log Masuk:", error.message);
-        alert("Ralat Google Login: " + error.message);
+        alert("Ralat Daftar: " + error.message);
+    } else {
+        alert("Pendaftaran berjaya! Sila semak emel anda (jika pengesahan diperlukan) atau terus log masuk.");
     }
 }
 
-    // Fungsi untuk Log Keluar (Sign Out)
-    async function signOutUser() {
-        const { error } = await supabaseClient.auth.signOut();
-        if (!error) {
-            window.location.reload(); 
-        }
+// 2. Fungsi Log Masuk (Sign In)
+async function handleSignIn() {
+    const email = document.getElementById('user-email').value;
+    const password = document.getElementById('user-password').value;
+
+    if (!email || !password) {
+        alert("Sila masukkan emel dan kata laluan.");
+        return;
     }
 
-    // Fungsi untuk mengemas kini paparan UI berdasarkan sesi pengguna
-    function updateUI(session) {
-        const loginBox = document.querySelector('div[style*="background: #1e293b"]');
-        const authStatusContainer = document.getElementById('user-auth-status');
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
 
-        if (session && session.user) {
-            // Sembunyikan kotak log masuk utama apabila sudah log masuk
-            if (loginBox) {
-                loginBox.style.display = 'none';
-            }
+    if (error) {
+        alert("Ralat Log Masuk: " + error.message);
+    } else {
+        alert("Berjaya Log Masuk!");
+        window.location.reload(); // Muat semula halaman selepas berjaya masuk
+    }
+}
 
-            // Paparkan nama ID / emel pengguna di header bersama butang Log Keluar
-            if (authStatusContainer) {
-                const userEmail = session.user.email;
-                const userName = session.user.user_metadata?.full_name || userEmail.split('@')[0];
-                authStatusContainer.innerHTML = `
-                    <span class="text-xs text-slate-300 font-medium truncate max-w-[120px]" title="${userEmail}">👤 ${userName}</span>
-                    <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold">
-                        Log Keluar
-                    </button>
-                `;
-            }
-        } else {
-            // Paparkan semula kotak log masuk jika belum log masuk
-            if (loginBox) {
-                loginBox.style.display = 'block';
-            }
-            if (authStatusContainer) {
-                authStatusContainer.innerHTML = `
-                    <span class="text-xs text-slate-400">Belum Log Masuk</span>
-                `;
-            }
+// 3. Fungsi Log Keluar (Sign Out)
+async function signOutUser() {
+    const { error } = await supabase.auth.signOut();
+    if (!error) {
+        window.location.reload(); 
+    } else {
+        alert("Ralat Log Keluar: " + error.message);
+    }
+}
+
+// 4. Kemaskini Paparan UI Berdasarkan Sesi Aktif
+function updateUI(session) {
+    const loginBox = document.getElementById('email-login-container');
+    const authStatusContainer = document.getElementById('user-auth-status');
+
+    if (session && session.user) {
+        // Sembunyikan kotak log masuk apabila sudah berjaya masuk
+        if (loginBox) {
+            loginBox.style.display = 'none';
+        }
+
+        // Paparkan status emel dan butang log keluar di header
+        if (authStatusContainer) {
+            const userEmail = session.user.email;
+            authStatusContainer.innerHTML = `
+                <span class="text-xs text-slate-300 font-medium">👤 ${userEmail}</span>
+                <button onclick="signOutUser()" class="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-2.5 py-1 rounded border border-red-500/30 transition font-semibold cursor-pointer">
+                    Log Keluar
+                </button>
+            `;
+        }
+    } else {
+        // Paparkan semula kotak log masuk jika belum log masuk
+        if (loginBox) {
+            loginBox.style.display = 'block';
+        }
+        if (authStatusContainer) {
+            authStatusContainer.innerHTML = `
+                <span class="text-xs text-slate-400">Belum Log Masuk</span>
+            `;
         }
     }
+}
 
-    // Semak sesi dan mendengar perubahan status log masuk secara langsung
-    async function initAuth() {
-        // 1. Semak sesi sedia ada
-        const { data: { session } } = await supabaseClient.auth.getSession();
+// 5. Semak Sesi Semasa Halaman Dimuatkan
+async function initAuth() {
+    const { data: { session } } = await supabase.auth.getSession();
+    updateUI(session);
+
+    supabase.auth.onAuthStateChange((event, session) => {
         updateUI(session);
-
-        // 2. Pantau perubahan status (automatik tangkap token selepas redirect Google)
-        supabaseClient.auth.onAuthStateChange((event, session) => {
-            updateUI(session);
-        });
-    }
-
-    // Pasang Event Listener pada butang Google Login selepas DOM dimuatkan
-    window.addEventListener('DOMContentLoaded', () => {
-        const loginBtn = document.getElementById('google-login-btn');
-        if (loginBtn) {
-            loginBtn.addEventListener('click', signInWithGoogle);
-        }
-        initAuth();
     });
+}
+
+// Jalankan initAuth apabila halaman siap dimuat
+window.addEventListener('DOMContentLoaded', () => {
+    initAuth();
+});
 </script>
 </body>
 </html>
